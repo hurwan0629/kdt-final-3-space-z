@@ -83,7 +83,7 @@ N 입력은 지형을 활성화하고 기존 8×8 랜덤 블록 생성 경로로
 | `pointer_over_rewards(pos)` | 발사 여부 결정 시 | 강화·진화 UI 영역 조회; 경우에 따라 `open_stat_upgrades()`로 선택지 준비 | `bool` |
 | `pointer_over_minimap(pos)` | 미니맵 영역 조회 시 | 렌더러 영역 조회만 수행 | `bool` |
 
-파일의 `read_player_input()`은 WASD를 행동 번호로, 마우스를 월드 조준 좌표로 바꿉니다. `debug_lines()`는 `rl.environment.build_vector()`로 디버그 값을 만듭니다. 사람 플레이가 `TankEnv`를 통해 실행되는 것은 아닙니다.
+파일의 `read_player_input()`은 WASD를 행동 번호로, 마우스를 월드 조준 좌표로 바꿉니다. `debug_lines()`는 `VectorObservation.build()`로 디버그 값을 만듭니다. 사람 플레이가 `TankEnv`를 통해 실행되는 것은 아닙니다.
 
 ## 관련 동작과 객체
 

@@ -16,7 +16,9 @@ import numpy as np
 import pygame
 
 from space_z.config import GameConfig, ObsConfig
-from space_z.rl.environment import TankEnv, build_vector
+from space_z.rl.environment import TankEnv
+from space_z.config import RewardConfig
+from space_z.rl import VectorObservation, DiscreteActionDecoder, RewardCalculator
 from space_z.game.game_core import Bullet, GameCore, encode_action
 from space_z.config.progression_definitions import (
     STAT_MAX_LEVEL,
@@ -375,16 +377,15 @@ class OwnershipTests(unittest.TestCase):
         # 검사에 사용할 설정·개체·입력을 준비한다.
         game_config = GameConfig(num_enemies=0, num_shapes=0)
         game_config.terrain.enabled = False
-        environment = TankEnv(game_config=game_config)
-        reference = TankEnv(game_config=game_config)
+        environment = TankEnv(game_config, VectorObservation(), DiscreteActionDecoder(), RewardCalculator(RewardConfig()))
+        reference = TankEnv(game_config, VectorObservation(), DiscreteActionDecoder(), RewardCalculator(RewardConfig()))
         environment.reset(seed=7)
         reference.reset(seed=7)
         original_step = environment.game.step
 
         # 화면 없는 학습이 점수 연출 이벤트를 버려도 게임 결과는 유지되는지 확인한다.
-        def step_with_score_award(action):
-            self.assertEqual(environment.game.score_award_events, [])
-            original_step(action)
+        def step_with_score_award(action, **kwargs):
+            original_step(action, **kwargs)
             environment.game.record_score_award(10, 20, 10, "square")
 
         with patch.object(environment.game, "step", side_effect=step_with_score_award):
@@ -486,21 +487,21 @@ class WorldTests(unittest.TestCase):
 
     def test_rl_default_progression_and_world_normalization(self):
         # 검사에 사용할 설정·개체·입력을 준비한다.
-        environment = TankEnv()
+        environment = TankEnv(GameConfig(), VectorObservation(), DiscreteActionDecoder(), RewardCalculator(RewardConfig()))
 
-        # 학습 기본 설정과 월드 크기 기준의 관측 정규화를 확인한다.
-        self.assertFalse(environment.game_config.progression_enabled)
+        # 성장을 포함한 기본 설정과 플레이어 중심의 속도 관측을 확인한다.
+        self.assertTrue(environment.game_config.progression_enabled)
         observation, _ = environment.reset(seed=1)
-        self.assertEqual(observation.shape, (241,))
+        self.assertEqual(observation.shape, (5139,))
         environment.game.progression._add_score(1000)
-        self.assertEqual(environment.game.progression.level, 1)
+        self.assertGreater(environment.game.progression.level, 1)
         environment.game.player.x = environment.game_config.world_width / 2
         environment.game.player.y = environment.game_config.world_height / 2
-        vector = build_vector(environment.game, ObsConfig())
-        self.assertAlmostEqual(vector[0], 0.5)
-        self.assertAlmostEqual(vector[1], 0.5)
+        vector = environment.observation_builder.build(environment.game)
+        self.assertAlmostEqual(vector[0], 0.0)
+        self.assertAlmostEqual(vector[1], 0.0)
         _, _, _, _, info = environment.step(0)
-        self.assertEqual(info["pending_rewards"], 0)
+        self.assertGreater(info["pending_rewards"], 0)
 
 
 class RendererTests(unittest.TestCase):

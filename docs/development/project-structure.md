@@ -61,7 +61,7 @@ src/space_z/
 
 ## 사람이 플레이하는 경로
 
-`python -m space_z` → `main()`의 준비 → 앱의 `handle_event()` → `update()` → 코어 `step()` → 앱의 `draw()` → 화면 표시 순서입니다. WASD·마우스 입력은 코어 행동과 월드 조준 좌표로 변환합니다. 앱의 디버그 출력이 `build_vector()`를 사용해도 사람 플레이를 `TankEnv`로 실행하는 구조는 아닙니다.
+`python -m space_z` → `main()`의 준비 → 앱의 `handle_event()` → `update()` → 코어 `step()` → 앱의 `draw()` → 화면 표시 순서입니다. WASD·마우스 입력은 코어 행동과 월드 조준 좌표로 변환합니다. 앱의 디버그 출력이 `VectorObservation.build()`를 사용해도 사람 플레이를 `TankEnv`로 실행하는 구조는 아닙니다.
 
 메인 메뉴·일시정지에서는 코어를 호출하지 않습니다. 강화·진화는 HUD에서 선택하며 전투가 계속됩니다. 메뉴 포커스와 확정 난이도는 별도 상태입니다. 자세한 입력·누적 시간은 [[development/classes/GameApplication|앱 상태]]에 있습니다.
 

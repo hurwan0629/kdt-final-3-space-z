@@ -14,8 +14,9 @@ import time
 
 import numpy as np
 
-from space_z.config import GameConfig, ObsConfig, TerrainConfig
-from space_z.rl.environment import TankEnv
+from space_z.config import GameConfig, ObsConfig, TerrainConfig, RewardConfig
+from space_z.rl import (TankEnv, VectorObservation, PixelObservation, DiscreteActionDecoder,
+                        ContinuousActionDecoder, RewardCalculator)
 from space_z.game.terrain import (
     list_maps,
     load_map,
@@ -27,7 +28,7 @@ from space_z.game.terrain import (
 
 
 def make_env(
-    map_name="drift", stage2=False, random_map=False, terrain=True, obs_mode="flat"
+    map_name="drift", stage2=False, random_map=False, terrain=True, observation_mode="vector", continuous=False
 ):
     # 맵·지형·관측 방식에 맞춰 무제한 탄약의 학습 환경을 만든다.
     config = GameConfig(progression_enabled=False, limited_ammo=False)
@@ -36,7 +37,9 @@ def make_env(
     terrain_config.map_name = map_name
     terrain_config.random_map = random_map
     terrain_config.mud_enabled = terrain_config.breakable_enabled = stage2
-    return TankEnv(game_config=config, obs_config=ObsConfig(obs_mode=obs_mode))
+    builder = PixelObservation() if observation_mode == "pixel" else VectorObservation()
+    decoder = ContinuousActionDecoder() if continuous else DiscreteActionDecoder()
+    return TankEnv(config, builder, decoder, RewardCalculator(RewardConfig()))
 
 
 def check_not_stuck(game):
@@ -53,10 +56,9 @@ def check_not_stuck(game):
 
 def run_random(environment, total_steps, seed):
     # 시드를 고정하고 관측 크기와 에피소드 집계 상태를 준비한다.
-    random_generator = np.random.default_rng(seed)
+    environment.action_space.seed(seed)
     observation, info = environment.reset(seed=seed)
-    observation_shape = environment.observation_space.shape
-    assert observation.shape == observation_shape, observation.shape
+    assert environment.observation_space.contains(observation), "bad initial obs"
     episodes = 0
     episode_return = 0.0
     episode_length = 0
@@ -67,11 +69,9 @@ def run_random(environment, total_steps, seed):
     # 무작위 행동을 적용하면서 관측·보상·개체 위치가 유효한지 검사한다.
     start_time = time.perf_counter()
     for _ in range(total_steps):
-        action = int(random_generator.integers(environment.action_space.n))
+        action = environment.action_space.sample()
         observation, reward, terminated, truncated, info = environment.step(action)
-        assert observation.shape == observation_shape and np.all(
-            np.isfinite(observation)
-        ), "bad obs"
+        assert environment.observation_space.contains(observation), "bad obs"
         assert np.isfinite(reward), "bad reward"
         check_not_stuck(environment.game)
         episode_return += reward
@@ -191,20 +191,16 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--steps", type=int, default=3000)
     parser.add_argument("--seed", type=int, default=0)
+    parser.add_argument("--observation", choices=("vector", "pixel"), default="vector")
+    parser.add_argument("--action", choices=("discrete", "continuous"), default="discrete")
     args = parser.parse_args()
 
     map_tests()
 
-    environment = make_env()
-    print(
-        f"obs size = {environment.observation_space.shape[0]} "
-        f"(vector {environment.observation_config.vector_size} + grid {environment.observation_builder.grid_shape}), "
-        f"actions = {environment.action_space.n}, frame_skip = {environment.environment_config.frame_skip}"
-    )
-    dict_observation = make_env(obs_mode="dict").reset(seed=0)[0]
-    print(
-        f"obs_mode='dict' → vector {dict_observation['vector'].shape}, grid {dict_observation['grid'].shape}"
-    )
+    options = dict(observation_mode=args.observation, continuous=args.action == "continuous")
+    environment = make_env(**options)
+    print(f"observations = {environment.observation_space}, actions = {environment.action_space}")
+    environment.close()
 
     # 내장 맵·추가 지형·빈 경기장을 순회하며 실행 성능을 집계한다.
     cases = [(f"map:{map_name}", dict(map_name=map_name)) for map_name in list_maps()]
@@ -216,10 +212,11 @@ def main():
     ]
     total_steps, total_time = 0, 0.0
     for label, kwargs in cases:
-        environment = make_env(**kwargs)
+        environment = make_env(**kwargs, **options)
         elapsed, episodes, returns, scores, episode_lengths = run_random(
             environment, args.steps, args.seed
         )
+        environment.close()
         total_steps += args.steps
         total_time += elapsed
         episode_summary = (

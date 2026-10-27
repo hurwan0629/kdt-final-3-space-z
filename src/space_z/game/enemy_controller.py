@@ -1,12 +1,12 @@
 """적의 재등장·능력치·성장·감지·추적·조준을 관리한다."""
 from __future__ import annotations
-from space_z.game.types import AITarget, WorldPoint
+from space_z.game.types import AITarget, TilePosition, WorldPoint
 
 import math
 from typing import TYPE_CHECKING
 
 from space_z.config.progression_definitions import STAT_UPGRADES, SHIPS, SHIPS_BY_LEVEL
-from space_z.game.actions import N_MOVES, move_from_vector, wrap_angle
+from space_z.game.actions import MOVE_VECTORS, N_MOVES, move_from_vector, wrap_angle
 from space_z.game.entities import Tank
 
 if TYPE_CHECKING:
@@ -66,7 +66,7 @@ class EnemyController:
                 continue
             if (spawn_x - player.x) ** 2 + (
                 spawn_y - player.y
-            ) ** 2 >= 300.0**2 and all(
+            ) ** 2 >= 700.0**2 and all(
                 (spawn_x - other_enemy.x) ** 2 + (spawn_y - other_enemy.y) ** 2
                 >= (2 * enemy.radius) ** 2
                 for other_enemy in others
@@ -75,7 +75,13 @@ class EnemyController:
         if starts:
             enemy.x, enemy.y = starts[int(self.game.rng.integers(len(starts)))]
         else:
-            enemy.x, enemy.y = self.game._random_free_pos(enemy.radius, 300.0)
+            # 플레이어와의 거리만 늘리고, 적끼리의 무작위 생성 간격은 기존 300px을 유지한다.
+            distant_tiles = tuple(
+                tile for tile in terrain.navigation_tiles(enemy.radius)
+                if (terrain.center(*tile)[0] - player.x) ** 2
+                + (terrain.center(*tile)[1] - player.y) ** 2 >= 700.0**2
+            )
+            enemy.x, enemy.y = self.game._random_free_pos(enemy.radius, 300.0, distant_tiles or None)
 
         # 3) 체력·속도·발사 대기·조준·AI 목표·경로를 초기화한다.
         enemy.velocity_x = enemy.velocity_y = 0.0
@@ -469,6 +475,7 @@ class EnemyController:
             can_move_directly = kind != "point" and terrain.segment_fits(
                 enemy.x, enemy.y, target_x, target_y, enemy.radius
             )
+            movement_lookahead = 0.0
             if can_move_directly:
                 # 직접 보이면: 적정 거리 유지 + 옆으로 돌기
                 enemy.ai_path = []
@@ -483,6 +490,8 @@ class EnemyController:
                         delta_y / distance,
                     )
                 elif distance < preferred_distance - 40:
+                    # 적정 거리까지 후진할 공간이 없으면 조금 움직였다 되돌아오는 반복도 피한다.
+                    movement_lookahead = preferred_distance - 40 - distance + 2.0
                     move_direction_x, move_direction_y = (
                         -delta_x / distance,
                         -delta_y / distance,
@@ -497,27 +506,7 @@ class EnemyController:
                 enemy.ai_path_timer -= 1
                 if enemy.ai_path_timer <= 0:
                     enemy.ai_path_timer = enemy_ai_config.path_recompute_frames
-                    target_tile = terrain.tile_of(target_x, target_y)
-                    if not terrain.circle_fits(
-                        *terrain.center(*target_tile), enemy.radius
-                    ):
-                        safe = terrain.navigation_tiles(enemy.radius)
-                        target_tile = (
-                            min(
-                                safe,
-                                key=lambda tile: (
-                                    (terrain.center(*tile)[0] - target_x) ** 2
-                                    + (terrain.center(*tile)[1] - target_y) ** 2
-                                ),
-                            )
-                            if safe
-                            else target_tile
-                        )
-                    enemy.ai_path = terrain.astar(
-                        terrain.tile_of(enemy.x, enemy.y),
-                        target_tile,
-                        radius=enemy.radius,
-                    )
+                    enemy.ai_path = self._path_to_target(enemy, target_x, target_y)
                 while enemy.ai_path:
                     waypoint_x, waypoint_y = terrain.center(*enemy.ai_path[0])
                     if (waypoint_x - enemy.x) ** 2 + (
@@ -542,6 +531,21 @@ class EnemyController:
                         enemy.ai_last_seen = None  # 마지막 위치에 왔는데 없음 → 포기
                         enemy.ai_timer = 0
             move = move_from_vector(move_direction_x, move_direction_y)
+            if move and not self._can_move_in_direction(enemy, move, movement_lookahead):
+                # 실제 옆돌기·후진 방향을 확인하고, 막히면 가능한 방향으로 전환한다.
+                enemy.ai_path_timer = 0
+                side_x, side_y = -(target_y - enemy.y), target_x - enemy.x
+                alternatives = (
+                    move_from_vector(side_x * enemy.ai_strafe, side_y * enemy.ai_strafe),
+                    move_from_vector(-side_x * enemy.ai_strafe, -side_y * enemy.ai_strafe),
+                    move_from_vector(target_x - enemy.x, target_y - enemy.y),
+                )
+                move = next(
+                    (candidate for candidate in alternatives if self._can_move_in_direction(enemy, candidate)),
+                    0,
+                )
+                if move and move == alternatives[1]:
+                    enemy.ai_strafe *= -1.0
 
         # 4) 조준/발사: 목표가 시야에 있을 때만 쏜다
         rotation = 0
@@ -596,6 +600,58 @@ class EnemyController:
             enemy_ai_config.turn_speed_scale,
         )
         self.game.combat._fire(enemy, aligned and can_fire)
+
+    def _can_move_in_direction(self, enemy: Tank, move: int, minimum_distance: float = 0.0) -> bool:
+        """적·이동 번호·최소 검사 거리를 받아 해당 방향에 몸체가 통과할 여유가 있는지 반환한다."""
+        if move == 0:
+            return False
+        direction_x, direction_y = MOVE_VECTORS[move]
+        # 몸체를 키우는 대신 현재 속도보다 2px 더 앞을 검사해 벽 접촉 전에 방향을 바꾼다.
+        lookahead = max(4.0, math.hypot(enemy.velocity_x, enemy.velocity_y) + 2.0, minimum_distance)
+        return self.game.terrain.segment_fits(
+            enemy.x, enemy.y,
+            enemy.x + direction_x * lookahead,
+            enemy.y + direction_y * lookahead,
+            enemy.radius,
+        )
+
+    def _path_to_target(self, enemy: Tank, target_x: float, target_y: float) -> list[TilePosition]:
+        """적의 실제 위치와 목표 좌표를 받아 안전하게 진입할 수 있는 A* 경로를 반환한다.
+
+        1) 목표와 출발 타일 중심의 통행 가능 여부를 보정한다.
+        2) 현재 위치에서 첫 경유점으로 바로 갈 수 없으면 안전한 출발 중심을 경로 앞에 넣는다.
+        연결 가능한 출발점이나 목표까지의 경로가 없으면 빈 목록을 반환한다.
+        """
+        terrain = self.game.terrain
+        target_tile = terrain.tile_of(target_x, target_y)
+        if not terrain.circle_fits(*terrain.center(*target_tile), enemy.radius):
+            target_tile = min(
+                terrain.navigation_tiles(enemy.radius),
+                key=lambda tile: (terrain.center(*tile)[0] - target_x) ** 2
+                + (terrain.center(*tile)[1] - target_y) ** 2,
+                default=target_tile,
+            )
+
+        # 1) 벽 옆의 실제 위치는 안전해도 해당 타일 중심에는 선체가 들어가지 않을 수 있다.
+        start_tile = terrain.tile_of(enemy.x, enemy.y)
+        if not terrain.segment_fits(enemy.x, enemy.y, *terrain.center(*start_tile), enemy.radius):
+            connected_start = next(
+                (tile for tile in sorted(
+                    terrain.navigation_tiles(enemy.radius),
+                    key=lambda tile: (terrain.center(*tile)[0] - enemy.x) ** 2
+                    + (terrain.center(*tile)[1] - enemy.y) ** 2,
+                ) if terrain.segment_fits(enemy.x, enemy.y, *terrain.center(*tile), enemy.radius)),
+                None,
+            )
+            if connected_start is None:
+                return []
+            start_tile = connected_start
+
+        # 2) 현재 위치에서 경유점까지 벽을 가로지르지 않도록 출발 중심을 먼저 연결한다.
+        path = terrain.astar(start_tile, target_tile, radius=enemy.radius)
+        if path and not terrain.segment_fits(enemy.x, enemy.y, *terrain.center(*path[0]), enemy.radius):
+            path.insert(0, start_tile)
+        return path
 
     def _target_pos(self, enemy: Tank) -> WorldPoint | None:
         """적 AI가 현재 추적해야 할 목표 좌표를 조회한다.

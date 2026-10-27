@@ -20,6 +20,8 @@ from space_z.config import GameConfig
 from space_z.game.game_core import GameCore
 from space_z.app import GameApplication
 from space_z.rl.environment import TankEnv
+from space_z.config import RewardConfig
+from space_z.rl import VectorObservation, DiscreteActionDecoder, RewardCalculator
 from space_z.rendering.menu_layout import build_menu_buttons
 from space_z.rendering.renderer import DEATH_FRAMES, SCORE_POPUP_FRAMES, Renderer
 from space_z.resource_paths import resource_path
@@ -242,6 +244,10 @@ class AssetRefreshTests(unittest.TestCase):
         # 빈칸 없는 8×8 벽 영역에만 큰 이미지를 사용하는지 확인한다.
         self.assertEqual(sizes.count(8 * terrain.tile), 1)
         self.assertEqual(sizes.count(terrain.tile), 63)
+        # 실제로 막히는 큰 벽의 네 모서리는 빈 우주 배경으로 보이면 안 된다.
+        edge = 8 * terrain.tile - 1
+        for corner in ((0, 0), (edge, 0), (0, edge), (edge, edge)):
+            self.assertEqual(tuple(self.renderer._floor.get_at(corner))[:3], (119, 127, 136))
         self.assertEqual((terrain.tiles, terrain.hp, terrain.version), before)
 
     def test_large_blocks_follow_random_map_center_offset(self):
@@ -462,7 +468,7 @@ class AssetRefreshTests(unittest.TestCase):
     ):
         # 검사에 사용할 설정·개체·입력을 준비한다.
         self.score_popup_game()
-        environment = TankEnv(game_config=self.config, render_mode="human")
+        environment = TankEnv(self.config, VectorObservation(), DiscreteActionDecoder(), RewardCalculator(RewardConfig()), render_mode="human")
 
         # 화면을 켠 학습 환경에서 점수 연출이 중복 전달되지 않는지 확인한다.
         with patch(
@@ -471,9 +477,9 @@ class AssetRefreshTests(unittest.TestCase):
             environment.reset(seed=17)
             original_step = environment.game.step
 
-            def step_with_score_award(action):
+            def step_with_score_award(action, **kwargs):
                 environment.game.record_score_award(100, 200, 10, "square")
-                original_step(action)
+                original_step(action, **kwargs)
 
             with patch.object(
                 environment.game, "step", side_effect=step_with_score_award

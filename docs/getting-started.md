@@ -28,14 +28,25 @@ python -m space_z --limited-ammo
 
 ## 화면 없이 환경 사용
 
-```python
-from space_z.rl.environment import TankEnv
+먼저 `python -m pip install -e ".[rl]"`로 선택 의존성을 설치합니다.
 
-environment = TankEnv()
-observation, information = environment.reset(seed=42)
-observation, reward, terminated, truncated, information = environment.step(0)
+```python
+from space_z.config import GameConfig, RewardConfig
+from space_z.rl import TankEnv, VectorObservation, DiscreteActionDecoder, RewardCalculator
+
+env = TankEnv(
+    GameConfig(),
+    VectorObservation(),
+    DiscreteActionDecoder(enable_stat_upgrades=True, enable_evolution=True),
+    RewardCalculator(RewardConfig()),
+)
+try:
+    observation, info = env.reset(seed=42)
+    observation, reward, terminated, truncated, info = env.step(0)
+finally:
+    env.close()
 ```
 
-Gymnasium 연동이 필요하면 `python -m pip install -e ".[rl]"`로 선택 의존성을 설치합니다. 현재 실제 모델 학습 프로그램은 없으며 환경·관찰·보상을 제공합니다.
+관찰·행동 교체, 평가·자원 측정은 [[reinforcement-learning/environment|환경 사용법]]을 참고하세요. 실제 모델 학습 프로그램인 `train.py`는 아직 구현하지 않았습니다.
 
 다음: [[game/README|게임 안내]] · [[development/README|개발 안내]] · [[reinforcement-learning/README|강화학습 안내]] · [[README|문서 목차]]

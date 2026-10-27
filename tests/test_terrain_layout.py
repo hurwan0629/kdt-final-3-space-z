@@ -328,27 +328,32 @@ class SweptCircleTests(unittest.TestCase):
 
 
 class RemovedStealthObservationTests(unittest.TestCase):
-    def test_flat_and_dict_observations_use_only_current_terrain(self):
+    def test_vector_and_pixel_observations_use_only_current_terrain(self):
         # 검사에 사용할 설정·개체·입력을 준비한다.
         from space_z.rl.environment import TankEnv
+        from space_z.rl import VectorObservation, PixelObservation, DiscreteActionDecoder, RewardCalculator
+        from space_z.config import RewardConfig
 
-        # 평탄화·사전 관측 모두 현재 지형만 반영하는지 확인한다.
-        for mode in ("flat", "dict"):
+        # 벡터·픽셀 관찰 모두 현재 지형만 반영하는지 확인한다.
+        for mode in ("vector", "pixel"):
             for stage2 in (False, True):
                 config = GameConfig(num_enemies=1, num_shapes=2)
                 config.terrain.mud_enabled = config.terrain.breakable_enabled = stage2
-                environment = TankEnv(config, ObsConfig(obs_mode=mode))
+                observation_config = ObsConfig(include_mud=stage2, include_breakable=stage2)
+                builder = VectorObservation(observation_config) if mode == "vector" else PixelObservation(observation_config)
+                environment = TankEnv(config, builder, DiscreteActionDecoder(), RewardCalculator(RewardConfig()))
                 try:
                     observation, info = environment.reset(seed=3)
                     channels = 3 if stage2 else 1
-                    if mode == "dict":
-                        self.assertEqual(observation["vector"].shape, (120,))
-                        self.assertEqual(observation["grid"].shape, (channels, 11, 11))
+                    self.assertTrue(environment.observation_space.contains(observation))
+                    if mode == "pixel":
+                        self.assertEqual(observation["image"].shape, (4, 116, 180))
+                        self.assertEqual(observation["progression"].shape, (123,))
                     else:
-                        self.assertEqual(observation.shape, (120 + channels * 121,))
+                        self.assertEqual(observation.shape, (observation_config.flat_size(channels),))
                     self.assertNotIn("active_skill", info)
                     self.assertNotIn("skill_cooldown_seconds", info)
-                    self.assertEqual(environment.action_space.n, 27)
+                    self.assertEqual(environment.action_space.n, 54)
                     self.assertEqual(len(environment.game.shapes), 2)
                     observation, reward, _, _, _ = environment.step(0)
                     self.assertTrue(np.isfinite(reward))
