@@ -14,6 +14,8 @@ import pygame
 
 from space_z.config import GameConfig
 from space_z.rl.environment import TankEnv
+from space_z.config import RewardConfig
+from space_z.rl import VectorObservation, DiscreteActionDecoder, RewardCalculator
 from space_z.game.game_core import GameCore, Tank, decode_action, encode_action
 from space_z.app import GameApplication, read_player_input
 from space_z.rendering.renderer import Renderer
@@ -167,7 +169,7 @@ class MouseControlTests(unittest.TestCase):
 
         # 새 판은 탄약을 복구하고 학습 환경은 무제한 탄약을 사용하는지 확인한다.
         self.assertEqual(game.player.ammo, 120)
-        environment = TankEnv()
+        environment = TankEnv(GameConfig(), VectorObservation(), DiscreteActionDecoder(), RewardCalculator(RewardConfig()))
         self.assertFalse(environment.game_config.limited_ammo)
         environment.game.combat._fire(environment.game.player, True)
         self.assertEqual(environment.game.player.ammo, environment.game.player.max_ammo)

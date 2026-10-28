@@ -91,20 +91,23 @@ def _hp_color(ratio: float) -> RGB:
 
 class Renderer:
     # 읽는 순서: __init__() → draw() / draw_main_menu() → 필요한 세부 그리기 함수.
-    def __init__(self, config: GameConfig, caption: str = "Space Z - RL Demo") -> None:
+    def __init__(self, config: GameConfig, caption: str = "Space Z - RL Demo", *, visible: bool = True) -> None:
         # 화면 설정을 검증하고 창·이미지·프레임 제어 객체를 준비한다.
         self.config = config
         if not 0 < config.camera_zoom <= 1:
             raise ValueError("camera_zoom은 0보다 크고 1 이하여야 합니다.")
         self.fullscreen = False
         self.windowed_size = (config.window_width, config.window_height)
-        self.screen = pygame.display.set_mode(self.windowed_size, pygame.RESIZABLE)
+        self.visible = visible  # 픽셀 관찰은 창을 만들지 않고 독립 Surface에 그린다.
+        self.screen = (pygame.display.set_mode(self.windowed_size, pygame.RESIZABLE)
+                       if visible else pygame.Surface(self.windowed_size))
         self.assets = SpriteAssets()
         self._explosion_frames = (
             self._make_explosion_frames()
         )  # 중심과 캔버스를 맞춘 폭발 8단계
         self.set_zoom(config.camera_zoom)
-        pygame.display.set_caption(caption)
+        if visible:
+            pygame.display.set_caption(caption)
         self.clock = pygame.time.Clock()
         # 시스템 폰트가 없으면 pygame 기본 폰트로 대체됨 → 실행 파일에서도 안전
         font_families = (
@@ -169,6 +172,7 @@ class Renderer:
         selected_button_index: int=-1,
         show_stats: bool=False,
         stat_panel_collapsed: bool=False,
+        include_ui: bool=True,
     ) -> None:
         self._tick += 1
         self._update_camera(game.player)
@@ -242,6 +246,8 @@ class Renderer:
         self.screen = display
         pygame.transform.smoothscale(display_surface, self.size, display)
         self._draw_world_boundary()
+        if not include_ui:
+            return  # 학습 이미지에는 미니맵·메뉴·점수 문구를 포함하지 않는다.
         self._draw_score_text(game)
 
         # 화면 좌표로 HUD·메뉴·디버그 패널을 덧그린다.
@@ -408,15 +414,17 @@ class Renderer:
                 image = self.assets.image(
                     f"etc/guard_{variant:02d}", block * terrain.tile
                 )
+                # 둥근 이미지의 투명 모서리도 실제 8×8 충돌 영역만큼 벽색으로 채운다.
+                block_image = pygame.Surface(image.get_size())
+                block_image.fill((119, 127, 136))  # guard 이미지 네 종류의 공통 바탕색
+                block_image.blit(image, (0, 0))
                 breakable = [
                     (tile_col, tile_row)
                     for tile_col, tile_row in cells
                     if terrain.tiles[tile_row][tile_col] == BREAKABLE
                 ]
                 if breakable:
-                    image = (
-                        image.copy()
-                    )  # 일반 벽과 섞여 있어도 파괴 가능한 영역만 착색한다.
+                    # 모서리 바탕까지 포함해 파괴 가능한 타일 영역만 착색한다.
                     for tile_col, tile_row in breakable:
                         area = pygame.Rect(
                             (tile_col - col) * terrain.tile,
@@ -424,12 +432,12 @@ class Renderer:
                             terrain.tile,
                             terrain.tile,
                         )
-                        image.fill(
+                        block_image.fill(
                             (230, 175, 130, 255),
                             area,
                             special_flags=pygame.BLEND_RGBA_MULT,
                         )
-                floor.blit(image, (col * terrain.tile, row * terrain.tile))
+                floor.blit(block_image, (col * terrain.tile, row * terrain.tile))
                 covered.update(cells)
         return covered
 
@@ -738,7 +746,7 @@ class Renderer:
         # 선체를 그릴 때 반올림해도 정중앙에 오도록 뷰 크기를 짝수로 유지한다.
         self.view_width = max(2, 2 * round(self.size[0] / (2 * zoom)))
         self.view_height = max(2, 2 * round(self.size[1] / (2 * zoom)))
-        self._view = pygame.Surface((self.view_width, self.view_height)).convert()
+        self._view = pygame.Surface((self.view_width, self.view_height))
 
     def world_to_view(self, x: float, y: float) -> WorldPoint:
         return x - self.camera_x, y - self.camera_y

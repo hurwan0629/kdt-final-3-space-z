@@ -176,7 +176,7 @@ class SpriteAssets:
         처리:
             1) 진영 접미사가 있으면 원본 키를 재귀적으로 조회해 선체 색상을 바꾼다.
             2) PNG를 로드하고 픽셀 알파를 사용하는 표면으로 변환한다.
-               convert_alpha()를 사용하므로 pygame 화면 모드가 먼저 설정되어 있어야 한다.
+               화면이 있으면 convert_alpha(), 없으면 원본 알파 표면으로 사용한다.
             3) 장애물·메뉴 버튼의 투명 여백을 제거하고 지정된 우주선의 포신을 다시 그린다.
 
         반환:
@@ -185,7 +185,9 @@ class SpriteAssets:
         for suffix, tint in HEALTH_TINTS.items():
             if path.endswith(suffix):
                 return _recolor_health(self._source(path[: -len(suffix)]), tint)
-        image = pygame.image.load(resource_path(f"assets/{path}.png")).convert_alpha()
+        image = pygame.image.load(resource_path(f"assets/{path}.png"))
+        if pygame.display.get_surface() is not None:
+            image = image.convert_alpha()
         if path.startswith(("etc/guard_", "etc/home_")):
             # 장애물·버튼은 큰 투명 여백을 제외한 실제 그림을 표시 영역에 맞춘다.
             image = image.subsurface(image.get_bounding_rect()).copy()

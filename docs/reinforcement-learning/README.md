@@ -2,7 +2,7 @@
 
 현재는 학습 알고리즘을 실행하는 프로그램보다 **학습에 사용할 공통 게임 환경**을 제공합니다.
 
-- [환경 인터페이스·관찰·보상](environment.md): `TankEnv.reset()/step()`과 반환 데이터.
+- [환경 인터페이스·관찰·보상](environment.md): `TankEnv.reset()/step()`, 벡터·픽셀 관찰, 이산·연속 행동, 평가·자원 측정.
 - [[development/classes/GameCore|화면 없는 공통 게임 코어]]: 실제 규칙과 프레임 진행.
 - [[development/configuration|학습 설정 위치]]: `ObsConfig`·`RewardConfig`·`EnvConfig`.
 - [[development/testing-and-changes|무작위 행동·seed 재현성 검증]]: 개발 도구 실행.

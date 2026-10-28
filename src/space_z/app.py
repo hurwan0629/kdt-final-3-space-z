@@ -8,7 +8,6 @@ from space_z.rendering.menu_layout import MenuButton
 import pygame
 
 from space_z.game.game_core import GameCore
-from space_z.rl.environment import build_vector
 from space_z.game.game_core import encode_action, move_from_vector
 from space_z.rendering.menu_layout import DIFFICULTY_OPTIONS, build_menu_buttons
 from space_z.rendering.progression_panel import (
@@ -50,94 +49,31 @@ def read_player_input(keys: pygame.key.ScancodeWrapper | Mapping[int, bool], ren
 
 
 def debug_lines(game: GameCore, observation_config: ObsConfig, action: int) -> list[str]:
-    """현재 관측값과 AI 감지 상태를 디버그 화면용 문장 목록으로 만든다.
+    """현재 지역 관찰과 AI 감지 상태를 디버그 문장으로 반환한다.
 
-    인자:
-        game: 관측을 만들 GameCore. 플레이어·적·천체·탄환·지형 상태를 조회한다.
-        observation_config: 관측 슬롯 수와 각 항목의 벡터 길이를 정의하는 ObsConfig.
-        action: 디버그 화면에 표시할 현재 행동 번호.
-
-    처리:
-        1) 관측 벡터를 만들고 정규화된 플레이어 상태와 플레이어를 보는 적 수를 표시한다.
-        2) 적 관측 슬롯 전체와 천체 관측 슬롯 최대 세 개의 존재 여부·상대 위치 등을 표시한다.
-        3) 관측에 포함된 적 탄환 수와 AI 감지·경로 선의 색상 안내를 덧붙인다.
-
-    반환:
-        list[str]: 렌더러가 위에서 아래로 그릴 디버그 문장 목록.
-        위치·속도·체력 등은 원래 게임 단위가 아닌 관측 벡터의 정규화된 값이다.
-        게임 상태는 변경하지 않는다.
+    인자: 현재 코어, 관찰 슬롯·범위 설정, 표시할 행동 번호.
+    게임 상태는 읽기만 하며 상세 벡터 구간은 VectorObservation.slices를 사용한다.
+    RL 선택 의존성이 없으면 기본 게임 상태와 설치 안내를 표시한다.
     """
-    # 플레이어 관측값을 위치·속도·체력·방향·발사 준비도로 나눈다.
-    observation = build_vector(game, observation_config)
-    (
-        player_x,
-        player_y,
-        velocity_x,
-        velocity_y,
-        health_ratio,
-        direction_sine,
-        direction_cosine,
-        fire_readiness,
-    ) = observation[: observation_config.SELF_DIM]
-    seeing_enemy_count = sum(enemy.alive and enemy.ai_can_see for enemy in game.enemies)
-
-    # 관측 크기와 플레이어 상태를 디버그 화면에 표시할 문장으로 만든다.
-    lines = [
-        f"vector obs {observation.size} (+ terrain grid)   action {action}   frame {game.frame}",
-        f"self x,y {player_x:+.2f} {player_y:+.2f}"
-        f"  v {velocity_x:+.2f} {velocity_y:+.2f}",
-        f"self hp {health_ratio:+.2f}"
-        f"  sin/cos {direction_sine:+.2f} {direction_cosine:+.2f}"
-        f"  rl {fire_readiness:+.2f}",
-        f"map {game.terrain.name}   enemies seeing you: {seeing_enemy_count}",
-    ]
-
-    # 적 관측 슬롯별로 존재 여부·상대 위치·체력 비율을 표시한다.
-    observation_offset = observation_config.SELF_DIM
-    for slot_index in range(observation_config.n_enemies):
-        enemy_observation = observation[
-            observation_offset : observation_offset + observation_config.ENEMY_DIM
-        ]
-        exists, relative_x, relative_y, _, _, health_ratio, _, _ = enemy_observation
-        lines.append(
-            f"enemy{slot_index} ex{exists:.0f}"
-            f" d({relative_x:+.2f},{relative_y:+.2f}) hp{health_ratio:.2f}"
-        )
-        observation_offset += observation_config.ENEMY_DIM
-
-    # 천체는 앞의 세 슬롯까지 상대 위치·체력·점수 비율을 표시한다.
-    for slot_index in range(min(3, observation_config.n_shapes)):
-        shape_observation = observation[
-            observation_offset : observation_offset + observation_config.SHAPE_DIM
-        ]
-        exists, relative_x, relative_y, health_ratio, score_ratio, _ = shape_observation
-        lines.append(
-            f"shape{slot_index} ex{exists:.0f}"
-            f" d({relative_x:+.2f},{relative_y:+.2f})"
-            f" hp{health_ratio:.2f} sc{score_ratio:.2f}"
-        )
-        observation_offset += observation_config.SHAPE_DIM
-
-    # 적 탄환 구간의 시작 위치를 구하고 실제 탄환이 들어 있는 슬롯을 센다.
-    observation_offset = (
-        observation_config.vector_size
-        - observation_config.n_rays
-        - observation_config.n_bullets * observation_config.BULLET_DIM
-    )
-    visible_bullet_count = int(
-        sum(
-            observation[
-                observation_offset + bullet_index * observation_config.BULLET_DIM
-            ]
-            for bullet_index in range(observation_config.n_bullets)
-        )
-    )
-
-    # 탄환 수와 AI 경로 표시의 색상 안내를 덧붙인다.
-    lines.append(
-        f"enemy bullets in obs: {visible_bullet_count}/{observation_config.n_bullets}"
-    )
-    lines.append("(lines: green = enemy sees you, yellow = A* path)")
+    lines = [f"map {game.terrain.name}   action {action}   frame {game.frame}",
+             f"hp {game.player.hp:.1f}/{game.player.max_hp:.1f}   level {game.progression.level}"]
+    try:
+        from space_z.rl.observations.vector_observation import VectorObservation
+    except ModuleNotFoundError as error:
+        if error.name != "gymnasium":
+            raise
+        return lines + ["Vector debug requires: pip install -e .[rl]"]
+    builder = VectorObservation(observation_config)
+    observation = builder.build(game)
+    lines.append(f"vector obs {observation.size}   area {observation_config.grid_width}x{observation_config.grid_height} tiles")
+    for name, dimension in (("enemies", observation_config.ENEMY_DIM),
+                            ("shapes", observation_config.SHAPE_DIM),
+                            ("bullets", observation_config.BULLET_DIM)):
+        slots = observation[builder.slices[name]].reshape(-1, dimension)
+        count = int(slots[:, 0].sum())
+        lines.append(f"{name} in obs: {count}/{len(slots)}")
+    seeing = sum(enemy.alive and enemy.ai_can_see for enemy in game.enemies)
+    lines.append(f"enemies seeing you: {seeing} (green = sees you, yellow = A* path)")
     return lines
 
 

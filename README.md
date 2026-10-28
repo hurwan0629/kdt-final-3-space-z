@@ -99,16 +99,26 @@ Q·Space 액티브 스킬은 제거했습니다. 설정 메뉴의 Q 종료 단�
 
 ## 강화학습
 
-기본 `TankEnv()`는 성장과 탄약 제한을 끄고, 이동 9방향 × 회전 3가지의 27개 행동으로 자동 발사합니다. 관찰은 기본 float32 길이 **241**(자기 8 + 적 24 + 천체 48 + 적 탄환 40 + 벽 121)입니다. 은신 채널이 사라져 기존 363차원 모델과 입력 크기가 다릅니다.
+`python -m pip install -e ".[rl]"`로 선택 의존성을 설치합니다. 환경에 관찰 생성기·행동 해석기·보상 계산기를 전달하며 게임 설정의 성장 여부를 그대로 사용합니다.
 
 ```python
-from space_z.rl.environment import TankEnv
-env = TankEnv()
-observation, info = env.reset(seed=42)
-observation, reward, terminated, truncated, info = env.step(0)
+from space_z.config import GameConfig, RewardConfig
+from space_z.rl import TankEnv, VectorObservation, DiscreteActionDecoder, RewardCalculator
+
+env = TankEnv(
+    GameConfig(),
+    VectorObservation(),
+    DiscreteActionDecoder(enable_stat_upgrades=True, enable_evolution=True),
+    RewardCalculator(RewardConfig()),
+)
+try:
+    observation, info = env.reset(seed=42)
+    observation, reward, terminated, truncated, info = env.step(0)
+finally:
+    env.close()
 ```
 
-중력장·파괴 가능 벽을 모두 켜면 관찰은 483차원입니다. 같은 seed·행동·강화 선택은 같은 결과를 재현합니다. 성장 사용 시 `env.game.progression.upgrade_stat(key)`와 `env.game.progression.choose_reward(index)`로 별도 선택합니다.
+기본 벡터는 45×29타일 범위의 5139차원이며, 픽셀 관찰은 이미지 4장과 성장 벡터를 반환합니다. 이산·연속 행동을 교체할 수 있고 발사·스탯 강화·전직 요청을 지원합니다. 같은 seed·행동·성장 선택으로 결과를 재현합니다. 평가·자원 측정도 제공하며 `train.py`는 아직 구현하지 않았습니다. [상세 사용법과 반환 형식](docs/reinforcement-learning/environment.md)을 참고하세요.
 
 ## 실행 파일 만들기
 

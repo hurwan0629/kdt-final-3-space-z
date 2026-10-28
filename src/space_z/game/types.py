@@ -27,3 +27,4 @@ class CombatEvents(TypedDict):
     enemies_killed: int
     damage_taken: float
     died: bool
+    player_shots_fired: int  # 플레이어가 실제 발사한 탄환 수(포신별·예약 발사 포함)

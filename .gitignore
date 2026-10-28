@@ -86,6 +86,7 @@ vec_normalize.pkl
 /models/**/*.keras
 /models/**/*.zip
 /models/**/*.pkl
+trained_models/
 
 # Large/generated datasets: keep small fixtures and metadata elsewhere
 /data/raw/

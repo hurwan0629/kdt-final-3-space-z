@@ -39,10 +39,10 @@ def empty_events() -> CombatEvents:
         없음.
 
     처리:
-        피해·파괴·처치 수치는 0, 사망 여부는 False로 초기화한다.
+        피해·파괴·처치·실제 발사 수치는 0, 사망 여부는 False로 초기화한다.
 
     반환:
-        dict: 천체 가중 피해·파괴 점수·파괴 수, 적 피해·처치 수, 피격 피해, 사망 여부를 담은 새 딕셔너리.
+        dict: 천체·적 전투 결과, 피격 피해, 사망 여부, 플레이어 실제 발사 수를 담은 새 딕셔너리.
     """
     return {
         "shape_damage_weighted": 0.0,  # Σ 데미지 × (점수/최대체력)
@@ -52,6 +52,7 @@ def empty_events() -> CombatEvents:
         "enemies_killed": 0,
         "damage_taken": 0.0,
         "died": False,
+        "player_shots_fired": 0,  # 실제 생성한 플레이어 탄환 수
     }
 
 
@@ -180,6 +181,7 @@ class GameCore:
         *,
         want_fire: bool = True,
         aim_position: WorldPoint | None=None,
+        rotation_input: float | None = None,
         want_skill: bool = False,
         want_dash: bool = False,
     ) -> None:
@@ -189,6 +191,7 @@ class GameCore:
             action: 이동·회전을 결합한 행동 번호(0~26).
             want_fire: 새 발사 묶음을 시작할지 여부. 이미 예약된 점사는 별도로 진행된다.
             aim_position: 조준할 월드 좌표(x, y). None이면 행동의 회전 입력만 사용한다.
+            rotation_input: 선택적인 연속 회전 세기(-1~1). aim_position이 있으면 좌표 조준이 우선한다.
             want_skill: 이전 호출 형식과의 호환용 인자. 현재는 사용하지 않는다.
             want_dash: 이전 호출 형식과의 호환용 인자. 현재는 사용하지 않는다.
 
@@ -210,11 +213,16 @@ class GameCore:
         if self.game_over:
             return
         move, rotation = decode_action(action)
+        if rotation_input is not None and (not math.isfinite(rotation_input) or not -1 <= rotation_input <= 1):
+            raise ValueError("rotation_input은 -1~1 범위의 유한한 값이어야 합니다.")
         self.combat._tick_effects()
         self.enemy_controller._update_enemy_scaling()
 
         # 2) 플레이어 이동·조준과 살아 있는 적의 AI 또는 죽은 적의 재등장을 처리한다.
-        self._move_player(move, rotation, aim_position)
+        if rotation_input is None:
+            self._move_player(move, rotation, aim_position)
+        else:
+            self._move_player(move, 0, aim_position, rotation_input)
         self._update_enemies()
 
         # 3) 발사·천체 이동·탄환 이동·몸체 충돌·체력 회복을 처리한다.
@@ -714,6 +722,7 @@ class GameCore:
         move: int,
         rotation: int,
         aim_position: tuple[float, float] | None = None,
+        rotation_input: float | None = None,
     ) -> None:
         """플레이어의 한 프레임 이동과 목표 좌표 조준을 처리한다.
 
@@ -721,6 +730,7 @@ class GameCore:
             move: 정지 또는 8방향 이동 번호(0~8). step()에서 해석한 값을 전달한다.
             rotation: 회전 번호(0=유지, 1=반시계, 2=시계).
             aim_position: 조준할 월드 좌표 (x, y), 단위는 px. None이면 회전 입력만 사용한다.
+            rotation_input: 좌표 조준이 없을 때 적용할 연속 회전 세기(-1~1).
 
         처리:
             1) 목표 좌표가 있으면 이동 전 위치에서 목표를 향하도록 각도를 맞춘다.
@@ -738,6 +748,8 @@ class GameCore:
         self._apply_tank_control(
             self.player, move, rotation, self.player.accel_scale, 1.0
         )
+        if rotation_input is not None and aim_position is None:
+            self.player.angle = wrap_angle(self.player.angle + rotation_input * self.config.turn_speed)
 
         # 이동으로 달라진 위치에서도 같은 월드 지점을 향하도록 조준을 보정한다.
         if aim_position is not None:

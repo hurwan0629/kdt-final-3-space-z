@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "development/flows/damage-and-kills.md",
+                "file": "development/flows/firing-projectiles.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "damage-and-kills"
+              "title": "firing-projectiles"
             }
           }
         ]
@@ -190,6 +190,7 @@
   },
   "active": "3c47a43530498af9",
   "lastOpenFiles": [
+    "development/flows/damage-and-kills.md",
     "development/classes/Explosion.md",
     "development/classes/Beam.md",
     "reinforcement-learning/README.md",
@@ -206,7 +207,6 @@
     "development/flows/upgrades-and-evolution.md",
     "development/flows/README.md",
     "development/flows/firing-projectiles.md",
-    "development/flows/damage-and-kills.md",
     "development/classes/Tank.md",
     "development/classes/Shape.md",
     "development/classes/Renderer.md",

@@ -410,6 +410,94 @@ class SmarterEnemyAITests(unittest.TestCase):
         for _ in range(frames):
             game.step(0, want_fire=fire)
 
+    def make_corner_game(self, radius=44):
+        """발사를 끄고 8×8 벽 블록 옆의 적 이동만 검사한다."""
+        from space_z.game.terrain import TileMap, EMPTY, WALL
+
+        game = self.make(1)
+        game.config.enemy_ai.mercy_seconds = 0
+        game.frame = 1
+        game.combat._fire = lambda *args: None
+        tiles = [[EMPTY] * 60 for _ in range(45)]
+        for row in range(5, 13):
+            for col in range(10, 18):
+                tiles[row][col] = WALL
+        game.terrain = TileMap(tiles, 48, (2, 2), [], "corner", game.config.terrain)
+        game.enemies[0].radius = radius
+        return game
+
+    def test_enemy_connects_wall_side_position_to_a_walkable_path(self):
+        """현재 타일 중심이 막혀 있어도 실제 위치에서 우회 경로에 진입한다."""
+        for radius in (44, 88, 96):
+            with self.subTest(radius=radius):
+                game = self.make_corner_game(radius)
+                enemy, player = game.enemies[0], game.player
+                self.place(enemy, 480 - radius, 500)
+                self.place(player, 1056, 500)
+                enemy.ai_last_seen = (player.x, player.y)
+                enemy.ai_last_seen_frame = game.frame
+                start = (enemy.x, enemy.y)
+                tile = game.terrain.tile_of(*start)
+                self.assertTrue(game.terrain.circle_fits(*start, radius))
+                self.assertFalse(game.terrain.circle_fits(*game.terrain.center(*tile), radius))
+
+                self.run_frames(game, 1)
+                self.assertTrue(enemy.ai_path)
+                self.assertTrue(game.terrain.segment_fits(
+                    enemy.x, enemy.y, *game.terrain.center(*enemy.ai_path[0]), radius
+                ))
+                for _ in range(179):
+                    self.run_frames(game, 1)
+                    self.assertTrue(game.terrain.circle_fits(enemy.x, enemy.y, radius))
+                self.assertGreater(math.hypot(enemy.x - start[0], enemy.y - start[1]), 24)
+
+    def test_enemy_path_connection_does_not_cross_a_separating_wall(self):
+        """출발점 보정으로 실제 통과할 수 없는 벽을 건너뛰지 않는다."""
+        from space_z.game.terrain import TileMap, EMPTY, WALL
+
+        game = self.make_corner_game()
+        tiles = [[WALL if 10 <= col < 18 else EMPTY for col in range(60)] for _ in range(45)]
+        game.terrain = TileMap(tiles, 48, (2, 2), [], "separated", game.config.terrain)
+        enemy = game.enemies[0]
+        self.place(enemy, 436, 500)
+
+        path = game.enemy_controller._path_to_target(enemy, 1056, 500)
+
+        self.assertEqual(path, [])
+        self.assertEqual((enemy.x, enemy.y), (436, 500))
+
+    def test_enemy_reverses_strafe_when_the_chosen_side_hits_a_wall(self):
+        """플레이어가 보여도 벽을 향한 옆돌기를 반복하지 않는다."""
+        game = self.make_corner_game()
+        enemy, player = game.enemies[0], game.player
+        self.place(enemy, 436, 500)
+        self.place(player, 436, 700)
+        enemy.ai_target = ("player", player.id)
+        enemy.ai_timer = 19
+        enemy.ai_strafe = -1.0
+        self.assertTrue(game.terrain.segment_fits(enemy.x, enemy.y, player.x, player.y, enemy.radius))
+        self.assertFalse(game.terrain.segment_fits(enemy.x, enemy.y, enemy.x + 4, enemy.y, enemy.radius))
+
+        self.run_frames(game, 18)
+
+        self.assertTrue(enemy.ai_can_see)
+        self.assertLess(enemy.x, 428)
+        self.assertTrue(game.terrain.circle_fits(enemy.x, enemy.y, enemy.radius))
+
+    def test_enemy_escapes_world_corner_when_retreat_is_blocked(self):
+        """후진할 수 없는 모서리에서는 가능한 방향으로 움직인다."""
+        game = self.make(1)
+        game.combat._fire = lambda *args: None
+        enemy, player = game.enemies[0], game.player
+        self.place(enemy, 44, 44)
+        self.place(player, 140, 140)
+
+        self.run_frames(game, 18)
+
+        self.assertTrue(enemy.ai_can_see)
+        self.assertGreater(math.hypot(enemy.x - 44, enemy.y - 44), 10)
+        self.assertTrue(game.terrain.circle_fits(enemy.x, enemy.y, enemy.radius))
+
     def test_sees_player_diagonally_at_screen_distance_instead_of_farming(self):
         # 검사에 사용할 설정·개체·입력을 준비한다.
         game = self.make(1)
