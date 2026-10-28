@@ -42,7 +42,7 @@ class ModelTrainer:
         self.is_post_train = True if post_train is not None else False
 
         if post_train is not None:
-            self.model = PPO.load(post_train, env=training_environment)
+            self.model = PPO.load(post_train, env=training_environment, device="cpu")
         else:
             self.model = PPO(
                 policy,
@@ -82,12 +82,12 @@ def make_environment(pixels: bool = False) -> TankEnv:
         PixelObservation() if pixels else VectorObservation(),
         ContinuousActionDecoder(enable_stat_upgrades=True, enable_evolution=True),
         RewardCalculator(RewardConfig(
-            shape_damage = 0.02,
-            shape_destroy = 0.04,
-            enemy_damage = 0.04,
-            enemy_kill = 2.0,
+            shape_damage = 5.0,
+            shape_destroy = 0.5,
+            enemy_damage = 0.5,
+            enemy_kill = 5.0,
             damage_taken = -0.02,
-            death = -20.0,
+            death = -5.0,
             time_step = -0.0001,
             shot_cost = 0.0001,
         )),
