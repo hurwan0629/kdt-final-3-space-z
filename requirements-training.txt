@@ -1,0 +1,6 @@
+# Python 3.12; keep the playable game's environment separate.
+torch==2.9.0
+stable-baselines3==2.7.0
+gymnasium==1.2.1
+pygame==2.6.1
+psutil==7.1.3
