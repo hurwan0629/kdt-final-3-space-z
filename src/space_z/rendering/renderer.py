@@ -1551,7 +1551,17 @@ class Renderer:
             True,
             COLORS["white"],
         )
-        self.screen.blit(text, text.get_rect(midleft=(badge.right + 9, rect.centery)))
+        text_rect = text.get_rect(midleft=(badge.right + 9, rect.centery))
+        self.screen.blit(text, text_rect)
+        points = game.progression.upgrade_points
+        if points > 0:
+            count = self.font_small.render(str(points), True, COLORS["white"])
+            notification = pygame.Rect(0, 0, max(20, count.get_width() + 10), 20)
+            notification.midleft = (text_rect.right + 2, text_rect.top)
+            pygame.draw.rect(
+                self.screen, (225, 80, 85), notification, border_radius=10
+            )
+            self.screen.blit(count, count.get_rect(center=notification.center))
 
     def _tooltip(self, lines: Sequence[str], position: tuple[int, int], width: int) -> None:
         wrapped = [
