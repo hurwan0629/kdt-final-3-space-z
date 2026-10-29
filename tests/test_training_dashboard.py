@@ -12,11 +12,11 @@ os.environ.setdefault('SDL_AUDIODRIVER', 'dummy')
 @unittest.skipUnless(importlib.util.find_spec('stable_baselines3'), 'Optional training dependencies are not installed')
 class DashboardTests(unittest.TestCase):
     def test_dashboard_renders_a_real_checkpoint_without_changing_training_control(self):
-        self.assertIsNotNone(importlib.util.find_spec('space_z.rl.training.dashboard'),
+        self.assertIsNotNone(importlib.util.find_spec('space_z.rl.training_wooki.dashboard'),
                              'The visible training dashboard must exist')
-        dashboard = importlib.import_module('space_z.rl.training.dashboard')
-        from space_z.rl.training.runtime import make_model, make_vec_env, publish_checkpoint, atomic_json, read_json
-        from space_z.rl.training.settings import TrainSettings
+        dashboard = importlib.import_module('space_z.rl.training_wooki.dashboard')
+        from space_z.rl.training_wooki.runtime import make_model, make_vec_env, publish_checkpoint, atomic_json, read_json
+        from space_z.rl.training_wooki.settings import TrainSettings
         import pygame
         cfg = TrainSettings(workers=1, rollout_steps=8, batch_size=8, max_steps=8)
         env = make_vec_env(cfg)

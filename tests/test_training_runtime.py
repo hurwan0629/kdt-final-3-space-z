@@ -8,14 +8,15 @@ import unittest
 from unittest.mock import patch
 
 import numpy as np
+from space_z.config import ObsConfig
 
 
 @unittest.skipUnless(importlib.util.find_spec('stable_baselines3'), 'Optional training dependencies are not installed')
 class RuntimeTests(unittest.TestCase):
     def runtime(self):
-        self.assertIsNotNone(importlib.util.find_spec('space_z.rl.training.runtime'),
+        self.assertIsNotNone(importlib.util.find_spec('space_z.rl.training_wooki.runtime'),
                              'The checkpoint/runtime implementation must exist')
-        return importlib.import_module('space_z.rl.training.runtime')
+        return importlib.import_module('space_z.rl.training_wooki.runtime')
 
     def test_runtime_exists(self):
         self.runtime()
@@ -31,16 +32,16 @@ class RuntimeTests(unittest.TestCase):
 
     def test_model_and_normalization_roundtrip_preserves_predictions_and_history(self):
         r = self.runtime()
-        from space_z.rl.training.settings import TrainSettings
+        from space_z.rl.training_wooki.settings import TrainSettings
         cfg = TrainSettings(workers=1, rollout_steps=8, batch_size=8, history=4,
                             max_steps=8, eval_steps=8, eval_episodes=1)
         env = r.make_vec_env(cfg, subprocess=False)
         model = r.make_model(cfg, env)
         try:
             obs = env.reset()
-            self.assertEqual(obs['vector'].shape, (1, 1060))
-            self.assertEqual(obs['grid'].shape, (1, 4, 21, 21))
-            self.assertTrue(np.all(obs['vector'][:, :-265] == 0))
+            self.assertEqual(obs['vector'].shape, (1, ObsConfig().vector_size * cfg.history))
+            self.assertEqual(obs['grid'].shape, (1, ObsConfig().grid_shape()[0] * cfg.history, *ObsConfig().grid_shape()[1:]))
+            self.assertTrue(np.all(obs['vector'][:, :-ObsConfig().vector_size] == 0))
             with tempfile.TemporaryDirectory() as tmp:
                 entry = r.publish_checkpoint(model, env, Path(tmp), cfg)
                 loaded, norm = r.load_checkpoint(Path(tmp), entry)
@@ -54,7 +55,7 @@ class RuntimeTests(unittest.TestCase):
 
     def test_evaluation_does_not_update_training_observation_statistics(self):
         r = self.runtime()
-        from space_z.rl.training.settings import TrainSettings
+        from space_z.rl.training_wooki.settings import TrainSettings
         cfg = TrainSettings(workers=1, rollout_steps=8, batch_size=8,
                             max_steps=8, eval_steps=2, eval_episodes=1)
         env = r.make_vec_env(cfg, subprocess=False)
@@ -73,20 +74,20 @@ class RuntimeTests(unittest.TestCase):
 
     def test_dqn_replay_receives_full_stacked_observations(self):
         r = self.runtime()
-        from space_z.rl.training.settings import TrainSettings
+        from space_z.rl.training_wooki.settings import TrainSettings
         cfg = TrainSettings(algorithm='dqn', workers=1, max_steps=8)
         env = r.make_vec_env(cfg)
         model = r.make_model(cfg, env)
         try:
             model.learn(8)
             self.assertEqual(model.replay_buffer.size(), 8)
-            self.assertEqual(model.replay_buffer.observations['vector'].shape[-1], 1060)
+            self.assertEqual(model.replay_buffer.observations['vector'].shape[-1], ObsConfig().vector_size * cfg.history)
         finally:
             env.close()
 
     def test_corrupt_statistics_closes_the_environment_created_for_loading(self):
         r = self.runtime()
-        from space_z.rl.training.settings import TrainSettings
+        from space_z.rl.training_wooki.settings import TrainSettings
         cfg = TrainSettings(workers=1, rollout_steps=8, batch_size=8)
         env = r.make_vec_env(cfg)
         model = r.make_model(cfg, env)

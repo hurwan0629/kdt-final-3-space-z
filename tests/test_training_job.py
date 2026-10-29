@@ -8,14 +8,14 @@ import unittest
 @unittest.skipUnless(importlib.util.find_spec('stable_baselines3'), 'Optional training dependencies are not installed')
 class TrainingJobTests(unittest.TestCase):
     def trainer(self):
-        self.assertIsNotNone(importlib.util.find_spec('space_z.rl.training.train'),
+        self.assertIsNotNone(importlib.util.find_spec('space_z.rl.training_wooki.train'),
                              'A real trainer must connect environments, evaluation and checkpoints')
-        return importlib.import_module('space_z.rl.training.train')
+        return importlib.import_module('space_z.rl.training_wooki.train')
 
     def test_short_job_updates_weights_and_can_resume_with_optimizer_state(self):
         trainer = self.trainer()
-        from space_z.rl.training.settings import TrainSettings
-        from space_z.rl.training.runtime import read_json, load_checkpoint
+        from space_z.rl.training_wooki.settings import TrainSettings
+        from space_z.rl.training_wooki.runtime import read_json, load_checkpoint
         cfg = TrainSettings(total_steps=32, workers=1, rollout_steps=16, batch_size=16,
                             epochs=1, max_steps=8, eval_steps=2, eval_episodes=1,
                             eval_every=32, checkpoint_every=16)
@@ -40,8 +40,8 @@ class TrainingJobTests(unittest.TestCase):
 
     def test_stop_before_learning_still_saves_a_valid_checkpoint(self):
         trainer = self.trainer()
-        from space_z.rl.training.settings import TrainSettings
-        from space_z.rl.training.runtime import atomic_json, read_json
+        from space_z.rl.training_wooki.settings import TrainSettings
+        from space_z.rl.training_wooki.runtime import atomic_json, read_json
         cfg = TrainSettings(total_steps=64, workers=1, rollout_steps=8, batch_size=8,
                             max_steps=8, eval_steps=2, eval_episodes=1)
         with tempfile.TemporaryDirectory() as tmp:
@@ -53,7 +53,7 @@ class TrainingJobTests(unittest.TestCase):
 
     def test_resume_keeps_historical_best_after_recent_history_rolls_over(self):
         trainer = self.trainer()
-        from space_z.rl.training.settings import TrainSettings
+        from space_z.rl.training_wooki.settings import TrainSettings
         with tempfile.TemporaryDirectory() as tmp:
             callback = trainer.LiveCallback(tmp, TrainSettings(), {
                 'best': 100., 'evaluations': [{'kind': 'model', 'mean': 1.}]*100})
@@ -61,8 +61,8 @@ class TrainingJobTests(unittest.TestCase):
 
     def test_best_checkpoint_score_recovers_from_an_interrupted_status_write(self):
         trainer = self.trainer()
-        from space_z.rl.training.settings import TrainSettings
-        from space_z.rl.training.runtime import atomic_json
+        from space_z.rl.training_wooki.settings import TrainSettings
+        from space_z.rl.training_wooki.runtime import atomic_json
         with tempfile.TemporaryDirectory() as tmp:
             atomic_json(Path(tmp)/'best.json', {'evaluation': {'mean': 42.}})
             callback = trainer.LiveCallback(tmp, TrainSettings(), {})

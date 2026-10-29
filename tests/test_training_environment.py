@@ -1,6 +1,8 @@
 import importlib
 import importlib.util
 import unittest
+from unittest.mock import patch
+from space_z.config import ObsConfig
 
 import numpy as np
 
@@ -8,34 +10,39 @@ import numpy as np
 @unittest.skipUnless(importlib.util.find_spec('gymnasium'), 'Optional training dependencies are not installed')
 class TrainingEnvironmentTests(unittest.TestCase):
     def module(self):
-        self.assertIsNotNone(importlib.util.find_spec('space_z.rl.training'),
+        self.assertIsNotNone(importlib.util.find_spec('space_z.rl.training_wooki'),
                              'The isolated training package must exist')
-        return importlib.import_module('space_z.rl.training.environment')
+        return importlib.import_module('space_z.rl.training_wooki.environment')
 
     def test_training_package_exists(self):
         self.module()
 
-    def test_destroy_reward_does_not_scale_with_inflated_game_points(self):
-        m = self.module()
-        from space_z.game.game_core import empty_events
-        ev = empty_events()
-        ev.update(shapes_destroyed=1, shape_destroyed_score=10000)
-        a = m.reward_components(ev, 0., 0., False)
-        ev['shape_destroyed_score'] = 25000
-        b = m.reward_components(ev, 0., 0., False)
-        self.assertEqual(a['shapes'], b['shapes'])
-        ev = empty_events()
-        ev['enemies_killed'] = 1
-        self.assertGreater(m.reward_components(ev, 0., 0., False)['kills'], a['shapes'] * 30)
+    def test_score_objective_rewards_score_delta_and_penalizes_death(self):
+        env = self.module().TrainingEnv(score_objective=True)
+        try:
+            env.reset(seed=17)
+            obs, _, _, _, info = env.env.step(0)
+            info['score'] = env.env.game.progression.score + 200
+            with patch.object(env.env, 'step', return_value=(obs, 999., False, False, info)):
+                _, reward, _, _, _ = env.step(0)
+            self.assertAlmostEqual(reward, 1.)
+            with patch.object(env.env, 'step', return_value=(obs, 999., True, False, info)):
+                _, reward, _, _, _ = env.step(0)
+            self.assertAlmostEqual(reward, .5)
+        finally:
+            env.close()
 
-    def test_no_free_survival_reward_and_terminal_potential_is_zero(self):
-        m = self.module()
-        from space_z.game.game_core import empty_events
-        self.assertEqual(sum(m.reward_components(empty_events(), 0., 0., False).values()), 0.)
-        r = m.reward_components(empty_events(), .3, .4, True)
-        self.assertAlmostEqual(r['potential'], -.3)
-        r = m.reward_components(empty_events(), .3, .4, False)
-        self.assertAlmostEqual(r['potential'], .995 * .4 - .3)
+    def test_score_objective_gives_no_free_survival_reward(self):
+        env = self.module().TrainingEnv(score_objective=True)
+        try:
+            env.reset(seed=17)
+            obs, _, _, _, info = env.env.step(0)
+            info['score'] = env.env.game.progression.score
+            with patch.object(env.env, 'step', return_value=(obs, 999., False, False, info)):
+                _, reward, _, _, _ = env.step(0)
+            self.assertEqual(reward, 0.)
+        finally:
+            env.close()
 
     def test_observation_bounds_and_seeded_reset_sequences(self):
         m = self.module()
@@ -44,8 +51,8 @@ class TrainingEnvironmentTests(unittest.TestCase):
             oa, ia = a.reset(seed=17)
             ob, ib = b.reset(seed=17)
             self.assertTrue(a.observation_space.contains(oa))
-            self.assertEqual(oa['vector'].shape, (265,))
-            self.assertEqual(oa['grid'].shape, (1, 21, 21))
+            self.assertEqual(oa['vector'].shape, (ObsConfig().vector_size,))
+            self.assertEqual(oa['grid'].shape, ObsConfig().grid_shape())
             for key in oa:
                 np.testing.assert_array_equal(oa[key], ob[key])
             for action in (0, 14, 23):
@@ -87,8 +94,8 @@ class TrainingEnvironmentTests(unittest.TestCase):
             env.reset(seed=19)
             self.assertEqual(env.stage, 2)
             self.assertEqual(len(env.unwrapped.game.enemies), 9)
-            self.assertFalse(env.unwrapped.game_cfg.progression_enabled)
-            self.assertFalse(env.unwrapped.game_cfg.limited_ammo)
+            self.assertFalse(env.unwrapped.game_config.progression_enabled)
+            self.assertFalse(env.unwrapped.game_config.limited_ammo)
         finally:
             env.close()
         test_env = m.TrainingEnv(evaluation=True)

@@ -11,6 +11,7 @@ class TrainSettings:
     evaluation_seed: int = 900001
     objective: str = 'combat'
     corner_recovery: bool = False
+    full_growth: bool = False
     history: int = 4
     max_steps: int = 3000
     eval_steps: int = 1500
@@ -28,6 +29,8 @@ class TrainSettings:
     def validate(self):
         if self.algorithm not in ('ppo', 'dqn'):
             raise ValueError('algorithm must be ppo or dqn')
+        if self.full_growth and self.algorithm!='ppo':
+            raise ValueError('Full growth uses factorized PPO actions')
         if self.objective not in ('combat', 'score100'):
             raise ValueError('objective must be combat or score100')
         if type(self.evaluation_seed) is not int or self.evaluation_seed < 0:

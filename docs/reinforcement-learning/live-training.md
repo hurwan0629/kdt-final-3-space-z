@@ -62,11 +62,11 @@ PPO: γ=.995, GAE=.95, clip=.15, rollout512×4환경, batch256, 6 epochs, gradie
 
 ```powershell
 $env:PYTHONPATH = "$PWD\src"
-..\.venv-rl\Scripts\python.exe -m space_z.rl.training.launch
-..\.venv-rl\Scripts\python.exe -m space_z.rl.training.launch --resume
-..\.venv-rl\Scripts\python.exe -m space_z.rl.training.launch --algorithm dqn --no-curriculum
-..\.venv-rl\Scripts\python.exe -m space_z.rl.training.launch --algorithm ppo --no-curriculum
-..\.venv-rl\Scripts\python.exe -m space_z.rl.training.launch --run-dir runs\실행폴더 --watch
+..\.venv-rl\Scripts\python.exe -m space_z.rl.training_wooki.launch
+..\.venv-rl\Scripts\python.exe -m space_z.rl.training_wooki.launch --resume
+..\.venv-rl\Scripts\python.exe -m space_z.rl.training_wooki.launch --algorithm dqn --no-curriculum
+..\.venv-rl\Scripts\python.exe -m space_z.rl.training_wooki.launch --algorithm ppo --no-curriculum
+..\.venv-rl\Scripts\python.exe -m space_z.rl.training_wooki.launch --run-dir runs\실행폴더 --watch
 ```
 
 DQN은 같은 관찰/보상을 사용하며 replay20,000, warmup3000, batch128, train frequency4, target update2000, ε 탐색을 사용합니다. DQN/PPO 발표 비교에서는 curriculum 사용 여부, 총 환경 step, 평가 seed와 horizon, 장비를 맞추고 알고리즘별 병렬 환경 수 및 소요 시간을 함께 공개합니다. 현재 기본 성능 향상은 실험 전 가설이며, smoke test 통과는 학습 성능 보장이 아닙니다.

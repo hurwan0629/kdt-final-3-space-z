@@ -1,11 +1,14 @@
 """Model factories, isolated evaluation and atomic model/statistics snapshots."""
 import copy
+from contextlib import contextmanager
+import importlib
 from functools import partial
 import json
 import math
 import os
 from pathlib import Path
 import shutil
+import sys
 import time
 import uuid
 
@@ -66,7 +69,7 @@ def _one_env(cfg, rank=0, evaluation=False):
     env = Monitor(TrainingEnv(max_steps=cfg.eval_steps if evaluation else cfg.max_steps,
                               curriculum=cfg.curriculum, evaluation=evaluation, gamma=cfg.gamma,
                               score_objective=cfg.objective == 'score100',
-                              corner_recovery=cfg.corner_recovery))
+                              corner_recovery=cfg.corner_recovery,full_growth=cfg.full_growth))
     return env
 
 
@@ -90,7 +93,7 @@ def make_vec_env(cfg, subprocess=False, evaluation=False):
     raw = base_vec(cfg, subprocess, evaluation)
     # Off-policy algorithms obtain get_original_obs() from VecNormalize. It must
     # therefore contain the FULL history, not an unstacked single observation.
-    norm = VecNormalize(stack(raw, cfg.history), norm_obs=True, norm_reward=False,
+    norm = VecNormalize(stack(raw, cfg.history), norm_obs=not cfg.full_growth, norm_reward=False,
                         norm_obs_keys=['vector'], clip_obs=10.)
     norm.training = not evaluation
     return norm
@@ -110,9 +113,14 @@ def learning_rate(progress_remaining, initial=.0003):
 def make_model(cfg, env):
     torch.set_num_threads(cfg.torch_threads)
     kwargs = dict(features_extractor_class=SpaceFeatures, normalize_images=False)
+    policy='MultiInputPolicy'
+    if cfg.full_growth:
+        from .growth import FullGrowthPolicy,GrowthFeatures
+        policy=FullGrowthPolicy
+        kwargs.update(features_extractor_class=GrowthFeatures,combat_recovery=cfg.corner_recovery)
     if cfg.algorithm == 'ppo':
         kwargs.update(net_arch=dict(pi=[128, 128], vf=[128, 128]))
-        return PPO('MultiInputPolicy', env, learning_rate=partial(learning_rate, initial=cfg.learning_rate), n_steps=cfg.rollout_steps,
+        return PPO(policy, env, learning_rate=partial(learning_rate, initial=cfg.learning_rate), n_steps=cfg.rollout_steps,
                    batch_size=min(cfg.batch_size, cfg.rollout_steps*cfg.workers), n_epochs=cfg.epochs,
                    gamma=cfg.gamma, gae_lambda=.95, clip_range=.15, ent_coef=.02, vf_coef=.5,
                    max_grad_norm=.5, target_kl=.025, policy_kwargs=kwargs, seed=cfg.seed, device='cpu')
@@ -163,6 +171,26 @@ def checkpoint_path(run_dir, entry):
     return directory
 
 
+@contextmanager
+def legacy_checkpoint_modules():
+    """Resolve pre-rename pickle classes only while loading saved models."""
+    legacy = 'space_z.rl.' + 'training'
+    current = __package__
+    aliases = {legacy: importlib.import_module(current)}
+    for name in ('policy', 'growth', 'runtime', 'settings'):
+        aliases[f'{legacy}.{name}'] = importlib.import_module(f'{current}.{name}')
+    previous = {name: sys.modules.get(name) for name in aliases}
+    sys.modules.update(aliases)
+    try:
+        yield
+    finally:
+        for name, module in previous.items():
+            if module is None:
+                sys.modules.pop(name, None)
+            else:
+                sys.modules[name] = module
+
+
 def load_checkpoint(run_dir, entry, training=False, subprocess=False, cfg=None, evaluation=False):
     if entry.get('format') != 3:
         raise ValueError('Checkpoint uses an incompatible observation pipeline; start a new run')
@@ -174,7 +202,8 @@ def load_checkpoint(run_dir, entry, training=False, subprocess=False, cfg=None, 
         env = VecNormalize.load(str(directory/'obs_stats.pkl'), stack(raw, cfg.history))
         env.training, env.norm_reward = training, False
         cls = PPO if cfg.algorithm == 'ppo' else DQN
-        model = cls.load(directory/'model.zip', env=env, device='cpu')
+        with legacy_checkpoint_modules():
+            model = cls.load(directory/'model.zip', env=env, device='cpu')
     except Exception:
         raw.close()
         raise
@@ -185,8 +214,10 @@ def evaluate(model, training_env, cfg, random_policy=False, heartbeat=None, seed
     """Held-out evaluation: fixed full difficulty and a copy of frozen statistics."""
     env = make_vec_env(cfg, evaluation=True)
     seed_start = cfg.evaluation_seed if seed_start is None else seed_start
-    normalizer(env).obs_rms = copy.deepcopy(normalizer(training_env).obs_rms)
-    normalizer(env).norm_obs = normalizer(training_env).norm_obs
+    training_norm=normalizer(training_env)
+    normalizer(env).norm_obs=training_norm.norm_obs
+    if training_norm.norm_obs:
+        normalizer(env).obs_rms=copy.deepcopy(training_norm.obs_rms)
     episodes = []
     rng = np.random.default_rng(918273)
     try:
@@ -196,7 +227,10 @@ def evaluate(model, training_env, cfg, random_policy=False, heartbeat=None, seed
             while True:
                 if heartbeat is not None and not heartbeat():
                     return None
-                action = [rng.integers(env.action_space.n)] if random_policy else model.predict(obs, deterministic=True)[0]
+                if random_policy:
+                    action=np.array([[rng.integers(int(n)) for n in env.action_space.nvec]]) if cfg.full_growth else [rng.integers(env.action_space.n)]
+                else:
+                    action=model.predict(obs, deterministic=True)[0]
                 obs, _, done, info = env.step(action)
                 if done[0]:
                     episodes.append(info[0]['episode_metrics'])
@@ -208,6 +242,12 @@ def evaluate(model, training_env, cfg, random_policy=False, heartbeat=None, seed
                 'seconds': float(np.mean([e['seconds'] for e in episodes])),
                 'score': float(np.mean([e['score'] for e in episodes])),
                 'metric': 'score' if cfg.objective == 'score100' else 'reward',
+                'level':float(np.mean([e['level'] for e in episodes])),
+                'max_level':max(e['level'] for e in episodes),
+                'stat_upgrades':float(np.mean([e['stat_upgrades'] for e in episodes])),
+                'evolutions':float(np.mean([e['evolutions'] for e in episodes])),
+                'masteries':float(np.mean([e['masteries'] for e in episodes])),
+                'ships_observed':sorted({ship for e in episodes for ship in e['ship_history']}),
                 'episodes': episodes, 'horizon': cfg.eval_steps, 'seeds': list(range(seed_start, seed_start+cfg.eval_episodes))}
     finally:
         env.close()

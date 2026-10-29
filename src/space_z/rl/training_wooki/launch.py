@@ -37,6 +37,15 @@ def main():
         run_dashboard(directory, stop_on_close=False)
         return
     cfg = settings_from_args(args)
+    transferred=False
+    if args.init_combat:
+        if args.resume:
+            raise ValueError('Use --init-combat or --resume, not both')
+        from .growth import migrate_combat
+        cfg=migrate_combat(args.init_combat,directory)
+        cfg.total_steps=args.steps;cfg.workers=args.workers
+        atomic_json(directory/'config.json',cfg.to_dict())
+        transferred=True
     import psutil
     existing = read_json(directory/'status.json', {})
     if existing.get('pid') and existing.get('status') not in ('completed', 'stopped', 'failed'):
@@ -45,14 +54,16 @@ def main():
     atomic_json(runs/'last_run.json', {'directory': str(directory)})
     atomic_json(directory/'control.json', {'command': 'run'})
     if args.headless:
-        run_training(directory, cfg, args.resume)
+        run_training(directory, cfg, args.resume or transferred)
         return
-    command = [sys.executable, '-u', '-m', 'space_z.rl.training.train', '--run-dir', str(directory),
+    command = [sys.executable, '-u', '-m', 'space_z.rl.training_wooki.train', '--run-dir', str(directory),
                '--algorithm', cfg.algorithm, '--steps', str(cfg.total_steps), '--workers', str(cfg.workers),
                '--seed', str(cfg.seed)]
-    if args.resume:
+    if args.resume or transferred:
         command.append('--resume')
-    if args.no_curriculum:
+    elif cfg.full_growth:
+        command.append('--full-growth')
+    if args.no_curriculum and not transferred:
         command.append('--no-curriculum')
     if args.smoke:
         command.append('--smoke')

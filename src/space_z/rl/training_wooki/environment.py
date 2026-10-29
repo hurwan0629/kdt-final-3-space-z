@@ -30,7 +30,8 @@ class TrainingEnv(gym.Wrapper):
     """Adapt main observation arrays for SB3 without changing game interfaces."""
 
     def __init__(self, max_steps=3000, curriculum=True, evaluation=False, gamma=.995,
-                 score_objective=False, corner_recovery=False):
+                 score_objective=False, corner_recovery=False, full_growth=False):
+        self.full_growth=full_growth
         self.score_objective = score_objective
         self.corner_recovery = corner_recovery
         self.max_steps = int(max_steps)
@@ -42,6 +43,9 @@ class TrainingEnv(gym.Wrapper):
         self.sensor_cfg = ObsConfig()
         self.seed_rng = np.random.default_rng(42)
         super().__init__(self._new_env())
+        if self.full_growth:
+            from .growth import STAT_COUNT,EVOLUTION_COUNT
+            self.action_space=spaces.MultiDiscrete([54,STAT_COUNT,EVOLUTION_COUNT])
         self.observation_space = spaces.Dict({
             'vector': spaces.Box(-1., 1., (self.sensor_cfg.vector_size,), np.float32),
             'grid': spaces.Box(-1., 1., self.sensor_cfg.grid_shape(), np.float32),
@@ -53,8 +57,9 @@ class TrainingEnv(gym.Wrapper):
     def _new_env(self):
         self.builder = VectorObservation(self.sensor_cfg)
         self.reward_config = RewardConfig()
-        return TankEnv(game_config(self.stage), self.builder,
-                       DiscreteActionDecoder(), RewardCalculator(self.reward_config),
+        cfg=game_config(self.stage);cfg.progression_enabled=self.full_growth
+        return TankEnv(cfg, self.builder,
+                       DiscreteActionDecoder(enable_stat_upgrades=self.full_growth,enable_evolution=self.full_growth), RewardCalculator(self.reward_config),
                        env_config=EnvConfig(frame_skip=4, max_steps=self.max_steps))
 
     def set_training_step(self, step):
@@ -87,13 +92,20 @@ class TrainingEnv(gym.Wrapper):
         self.crowded_steps = self.retreat_steps = 0
         self.crowded_hurt = 0.
         self.empty_steps = self.empty_idle_steps = 0
+        self.stat_upgrades=0;self.evolutions=0;self.masteries=0;self.ship_history=[self.env.game.player.job]
         self._components = dict.fromkeys(('damage', 'kills', 'shapes', 'hurt', 'death', 'time', 'shots'), 0.)
         info.update(episode_seed=episode_seed, stage=self.stage)
         return self._observation(obs), info
 
     def step(self, action):
+        from .growth import encode_growth_action
+        main_action=encode_growth_action(action) if self.full_growth else action
+        combat_action=int(action[0]) if self.full_growth else int(action)
         before = self._last_main_obs
         before_score = self.env.game.progression.score
+        progression=self.env.game.progression
+        before_stats=sum(progression.stat_levels.values());before_special=sum(progression.special_levels.values())
+        before_ship=self.env.game.player.job
         cfg = self.sensor_cfg
         enemies = before[self.builder.slices['enemies']].reshape(cfg.n_enemies, cfg.ENEMY_DIM)
         shapes = before[self.builder.slices['shapes']].reshape(cfg.n_shapes, cfg.SHAPE_DIM)
@@ -106,17 +118,23 @@ class TrainingEnv(gym.Wrapper):
         crowded = int(near.sum()) >= 2
         if crowded:
             self.crowded_steps += 1
-            control = self.env.action_decoder.decode(action)
+            control = self.env.action_decoder.decode(main_action)
             toward = positions[near].sum(axis=0)
             if control.move_x*toward[0] + control.move_y*toward[1] < 0:
                 self.retreat_steps += 1
-        obs, reward, terminated, truncated, info = self.env.step(action)
+        obs, reward, terminated, truncated, info = self.env.step(main_action)
+        self.stat_upgrades+=sum(progression.stat_levels.values())-before_stats
+        changes=sum(progression.special_levels.values())-before_special
+        if self.env.game.player.job!=before_ship:
+            self.evolutions+=changes;self.ship_history.append(self.env.game.player.job)
+        else:
+            self.masteries+=changes
         self._last_main_obs = obs
         if self.corner_recovery:
             ev=info['events']
             productive=ev['enemy_damage']>0 or ev['shape_damage_weighted']>0 or info['score']>before_score
             self.recovery.update(self.env.game,obs[self.builder.slices['grid']].reshape(self.sensor_cfg.grid_shape())[0],
-                                 attempted=int(action)//6!=0,productive=productive)
+                                 attempted=combat_action//6!=0,productive=productive)
         events, cfg = info['events'], self.reward_config
         if crowded:
             self.crowded_hurt += events['damage_taken']
@@ -157,5 +175,9 @@ class TrainingEnv(gym.Wrapper):
                 'crowded_hurt': self.crowded_hurt,
                 'empty_steps': self.empty_steps, 'empty_idle_steps': self.empty_idle_steps,
                 'corner_recoveries': self.recovery.count,
+                'level':progression.level,'stat_upgrades':self.stat_upgrades,
+                'evolutions':self.evolutions,'masteries':self.masteries,
+                'stat_levels':dict(progression.stat_levels),'ship_history':list(self.ship_history),
+                'upgrade_points':progression.upgrade_points,'pending_evolutions':len(progression.special_reward_levels),
             }
         return self._observation(obs), reward, terminated, truncated, info

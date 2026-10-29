@@ -124,7 +124,10 @@ class LiveCallback(BaseCallback):
         self.state(force=True)
 
     def _on_step(self):
-        for action in np.asarray(self.locals.get('actions', []), dtype=int).ravel():
+        actions=np.asarray(self.locals.get('actions', []),dtype=int)
+        if self.cfg.full_growth and actions.size:
+            actions=actions[:,0]
+        for action in actions.ravel():
             self.action_counts[action] += 1
         for info in self.locals.get('infos', []):
             if 'episode_metrics' in info:
@@ -136,6 +139,8 @@ class LiveCallback(BaseCallback):
                                          'shapes', 'seconds', 'death', 'stage', 'seed')},
                     **({'score': ep['score']} if self.cfg.objective == 'score100' else {}),
                     **({'corner_recoveries': ep['corner_recoveries']} if self.cfg.corner_recovery else {}),
+                    **({k:ep[k] for k in ('level','stat_upgrades','evolutions','masteries','upgrade_points')}
+                       if self.cfg.full_growth else {}),
                     components=json.dumps(ep['components'])))
         return self.control()
 
@@ -213,6 +218,8 @@ def parser(require_run=True):
     p.add_argument('--no-curriculum', action='store_true')
     p.add_argument('--resume', action='store_true')
     p.add_argument('--smoke', action='store_true')
+    p.add_argument('--full-growth',action='store_true')
+    p.add_argument('--init-combat',help='Best existing combat run to transfer into a new growth run')
     return p
 
 
@@ -220,6 +227,9 @@ def settings_from_args(args):
     cfg = TrainSettings(algorithm=args.algorithm, total_steps=args.steps,
                         workers=args.workers if args.algorithm == 'ppo' else 1,
                         seed=args.seed, curriculum=not args.no_curriculum)
+    if args.full_growth:
+        cfg.full_growth=True;cfg.corner_recovery=True;cfg.curriculum=False
+        cfg.objective='score100';cfg.max_steps=9000;cfg.eval_steps=1500;cfg.gamma=.9995
     if args.resume:
         saved = read_json(Path(args.run_dir)/'config.json')
         if not saved:
@@ -237,6 +247,15 @@ def settings_from_args(args):
 def main():
     args = parser().parse_args()
     try:
+        if args.init_combat:
+            if args.resume:
+                raise ValueError('Use --init-combat for a new run or --resume for an existing run')
+            from .growth import migrate_combat
+            cfg=migrate_combat(args.init_combat,args.run_dir)
+            cfg.total_steps=args.steps;cfg.workers=args.workers
+            atomic_json(Path(args.run_dir)/'config.json',cfg.to_dict())
+            run_training(args.run_dir,cfg,resume=True)
+            return
         run_training(args.run_dir, settings_from_args(args), resume=args.resume)
     except Exception as error:
         state = read_json(Path(args.run_dir)/'status.json', {})

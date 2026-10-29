@@ -95,6 +95,7 @@ class Demo:
         self.entry = None
         self.last_check = 0
         self.last_action = 0
+        self.last_stat=self.last_evolution=0
         self.last_parts = {}
         self.probs = np.zeros(54)
         self.error = ''
@@ -136,11 +137,16 @@ class Demo:
         with torch.no_grad():
             tensor, _ = self.model.policy.obs_to_tensor(self.obs)
             if self.entry['settings']['algorithm'] == 'ppo':
-                self.probs = self.model.policy.get_distribution(tensor).distribution.probs[0].cpu().numpy()
+                distribution=self.model.policy.get_distribution(tensor).distribution
+                categorical=distribution[0] if self.entry['settings'].get('full_growth') else distribution
+                self.probs = categorical.probs[0].cpu().numpy()
             else:
                 self.probs = torch.softmax(self.model.q_net(tensor)[0], dim=0).cpu().numpy()
             action = self.model.predict(self.obs, deterministic=deterministic)[0]
-        self.last_action = int(action[0])
+        if self.entry['settings'].get('full_growth'):
+            self.last_action,self.last_stat,self.last_evolution=(int(x) for x in action[0])
+        else:
+            self.last_action = int(action[0])
         self.obs, _, _, infos = self.env.step(action)
         self.last_parts = infos[0].get('reward_components', {})
 
@@ -174,16 +180,23 @@ def draw_panel(ui, screen, state, demo, deterministic, speed):
     pygame.draw.rect(screen, EDGE, (x, 141, 338, 6), border_radius=3)
     pygame.draw.rect(screen, CYAN, (x, 141, int(338*min(1., step/max(1, target))), 6), border_radius=3)
     phase = min(2, max(0, state.get('stage', 0)))
-    ui.text(screen, STAGE_NAMES[phase], (x, 158), 16, GOLD)
+    growth_mode=(state.get('settings') or {}).get('full_growth',False)
+    ui.text(screen, '전체 성장 · 레벨/스탯/전직 포함' if growth_mode else STAGE_NAMES[phase], (x, 158), 16, GOLD)
     ui.text(screen, f"{state.get('workers', 4)} 환경 · {state.get('fps', 0):.0f} step/s · CPU", (x, 184), 14, MUTED)
     ui.text(screen, f"경과 {duration(state.get('elapsed'))}  예상 {duration(state.get('eta'))}", (x, 208), 14)
     ui.text(screen, f"에피소드 {state.get('episode_count', 0)} · 업데이트 {state.get('updates', 0)}", (x, 231), 14)
     ui.text(screen, '평가 최고 정책 시연 · 별도 환경', (x, 265), 19)
     if demo.raw is not None:
         raw, game = demo.raw, demo.raw.env.game
-        ui.text(screen, f"정책 저장 시점 {demo.entry['step']:,} step", (x, 295), 14, MUTED)
+        if raw.full_growth:
+            from space_z.config.progression_definitions import SHIPS
+            heading=f"Lv.{game.progression.level} {SHIPS[game.player.job].title} · {demo.entry['step']:,} step"
+        else:
+            heading=f"정책 저장 시점 {demo.entry['step']:,} step"
+        ui.text(screen, heading, (x, 295), 14, MUTED)
         ui.text(screen, f'시연 체력 {game.player.hp:.0f}  생존 {game.frame/60:.1f}s  처치 {game.progression.kills}', (x, 319), 14)
-        summary = (f'획득 점수 {game.progression.score:,} · 목표 100초'
+        summary = (f'획득 점수 {game.progression.score:,} · 스탯 {raw.stat_upgrades} · 전직 {raw.evolutions}'
+                   if raw.full_growth else f'획득 점수 {game.progression.score:,} · 목표 100초'
                    if raw.score_objective else
                    f'시연 보상 {raw.episode_return:+.2f}  기본 과제 {raw.task_return:+.2f}')
         ui.text(screen, summary, (x, 343), 14, GREEN)
@@ -204,6 +217,11 @@ def draw_panel(ui, screen, state, demo, deterministic, speed):
             labels = [('game_score', '점수 기여'), ('death', '사망')]
         for i, (key, label) in enumerate(labels):
             ui.text(screen, f'{label:<9} {raw._components.get(key, 0):+7.3f}', (x, 522+i*19), 13)
+        if raw.full_growth:
+            levels=game.progression.stat_levels
+            ui.text(screen,f"체{levels['health']} 공{levels['damage']} 사{levels['range']} 연{levels['rapid']} 이{levels['speed']}",(x,575),13,CYAN)
+            ui.text(screen,f'남은 포인트 {game.progression.upgrade_points} · 전직 대기 {len(game.progression.special_reward_levels)}',(x,599),13)
+            ui.text(screen,f'숙련 적용 {raw.masteries}회',(x,623),13,MUTED)
         # Show the latest wall-channel input, not the colored game picture.
         grid = raw._observation(raw.builder.build(game))['grid'][0]
         for r in range(grid.shape[0]):
@@ -227,7 +245,7 @@ def draw_panel(ui, screen, state, demo, deterministic, speed):
                                     ('value_loss', 'value loss'), ('explained_variance', '설명 분산')]):
         value = loss.get(key)
         ui.text(screen, f'{label}: {value:.4f}' if value is not None else f'{label}: --', (x, 706+i*22), 14, MUTED)
-    ui.text(screen, 'main 관찰 × 4시점 · 정책 54행동', (x, 808), 13, CYAN)
+    ui.text(screen, '전투 54 × 스탯 6 × 전직 5' if growth_mode else 'main 관찰 × 4시점 · 정책 54행동', (x, 808), 13, CYAN)
     caption = ('100초 획득 점수가 가장 높은 정책을 보존합니다'
                if (state.get('settings') or {}).get('objective') == 'score100'
                else '학습 보상과 게임 점수는 서로 다릅니다')
@@ -290,7 +308,7 @@ def run_dashboard(directory, capture=None, max_frames=None, stop_on_close=True):
             eps = state.get('episodes', [])
             score_mode = (state.get('settings') or {}).get('objective') == 'score100'
             ui.plot(screen, pygame.Rect(8, 712, 469, 150),
-                    '100초 획득 점수 · 사망 시 종료' if score_mode else '훈련 과제 보상 · 난이도 변경 시 주의',
+                    '훈련 누적 점수 · 레벨 1부터 성장' if (state.get('settings') or {}).get('full_growth') else '100초 획득 점수 · 사망 시 종료' if score_mode else '훈련 과제 보상 · 난이도 변경 시 주의',
                     [(e.get('global_step', i), e['score'] if score_mode else e['task_return'], 0) for i, e in enumerate(eps)])
             evaluations = state.get('evaluations', [])
             baseline = state.get('baseline') or {}
