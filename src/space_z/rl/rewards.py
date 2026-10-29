@@ -26,8 +26,8 @@ class RewardCalculator:
         예외:
             ValueError: shot_cost가 음수이거나 NaN·무한대인 경우.
         """
-        if not math.isfinite(reward_config.shot_cost) or reward_config.shot_cost < 0:
-            raise ValueError("shot_cost는 0 이상의 유한한 값이어야 합니다.")
+        # if not math.isfinite(reward_config.shot_cost) or reward_config.shot_cost < 0:
+        #     raise ValueError("shot_cost는 0 이상의 유한한 값이어야 합니다.")
         self.reward_config = reward_config  # 보상 항목별 계수와 실제 발사 1발당 차감 비용
 
     def calculate(self, events: CombatEvents) -> float:

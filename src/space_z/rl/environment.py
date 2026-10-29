@@ -70,8 +70,10 @@ class TankEnv(gym.Env[Observation, "int | NDArray[np.float32]"]):
             raise TypeError("관찰 생성기와 행동 해석기는 공통 인터페이스를 구현해야 합니다.")
         if not callable(getattr(reward_calculator, "calculate", None)):
             raise TypeError("보상 계산기는 calculate(events)를 제공해야 합니다.")
+        
         self.observation_space = observation_builder.observation_space
         self.action_space = action_decoder.action_space
+
         if not isinstance(self.observation_space, Space) or not isinstance(self.action_space, Space):
             raise TypeError("관찰·행동 공간은 Gymnasium Space여야 합니다.")
         self.game_config = game_config

@@ -48,6 +48,7 @@ htmlcov/
 
 # Reinforcement learning: generated experiment output directories
 # Keep experiment scripts/configs outside these directories.
+runs
 /runs/
 /logs/
 /outputs/
