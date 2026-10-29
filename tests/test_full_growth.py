@@ -156,7 +156,7 @@ class FullGrowthTests(unittest.TestCase):
 
     def test_growth_ppo_updates_saves_and_resumes(self):
         from space_z.rl.training_wooki.settings import TrainSettings
-        from space_z.rl.training_wooki.train import run_training
+        from space_z.rl.training_wooki.wooki01 import run_training
         from space_z.rl.training_wooki.runtime import read_json,load_checkpoint
         cfg=TrainSettings(full_growth=True,corner_recovery=True,curriculum=False,
                           objective='score100',workers=1,total_steps=16,rollout_steps=8,

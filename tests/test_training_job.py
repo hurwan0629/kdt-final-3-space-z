@@ -8,9 +8,9 @@ import unittest
 @unittest.skipUnless(importlib.util.find_spec('stable_baselines3'), 'Optional training dependencies are not installed')
 class TrainingJobTests(unittest.TestCase):
     def trainer(self):
-        self.assertIsNotNone(importlib.util.find_spec('space_z.rl.training_wooki.train'),
+        self.assertIsNotNone(importlib.util.find_spec('space_z.rl.training_wooki.wooki01'),
                              'A real trainer must connect environments, evaluation and checkpoints')
-        return importlib.import_module('space_z.rl.training_wooki.train')
+        return importlib.import_module('space_z.rl.training_wooki.wooki01')
 
     def test_short_job_updates_weights_and_can_resume_with_optimizer_state(self):
         trainer = self.trainer()

@@ -11,7 +11,7 @@ os.environ.setdefault('MKL_NUM_THREADS', '1')
 os.environ.setdefault('PYGAME_HIDE_SUPPORT_PROMPT', '1')
 
 from .runtime import atomic_json, read_json
-from .train import parser, settings_from_args, run_training
+from .wooki01 import parser, settings_from_args, run_training
 
 
 def main():
@@ -56,7 +56,7 @@ def main():
     if args.headless:
         run_training(directory, cfg, args.resume or transferred)
         return
-    command = [sys.executable, '-u', '-m', 'space_z.rl.training_wooki.train', '--run-dir', str(directory),
+    command = [sys.executable, '-u', '-m', 'space_z.rl.training_wooki.wooki01', '--run-dir', str(directory),
                '--algorithm', cfg.algorithm, '--steps', str(cfg.total_steps), '--workers', str(cfg.workers),
                '--seed', str(cfg.seed)]
     if args.resume or transferred:
