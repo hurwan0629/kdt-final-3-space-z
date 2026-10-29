@@ -15,6 +15,12 @@
   - 관찰 구조를 이용하는 네트워크: 지형은 CNN, 적·천체·탄환은 슬롯 공유 인코더.
   - 환경 여러 개를 프로세스로 병렬 실행하고, 리플레이는 GPU 메모리에 둔다.
 
+이어하기
+  저장 폴더 안의 dqn03_run/ 한 곳에 상태 파일을 같은 이름으로 덮어쓰며 저장한다(파일이 쌓이지 않는다).
+  같은 명령으로 다시 실행하면 자동으로 이어서 학습한다. 처음부터 다시 하려면 --fresh.
+  --steps / --episodes 는 이어하기 지점부터 추가로 학습할 양이다.
+  리플레이 버퍼(약 2GB)는 저장하지 않고 새로 채운다.
+
 실행
   학습:  python src/space_z/rl/heeseung/DQN03/DQN_03.py --save-dir <저장 폴더>
   평가:  python src/space_z/rl/heeseung/DQN03/DQN_03.py --play <dqn03_best.pt> --eval-episodes 10 --baseline
@@ -79,6 +85,8 @@ EVAL_SEED_BASE = 90000000  # 학습 중 평가(최고 모델 선택)에 쓰는 �
 TEST_SEED_BASE = 95000000  # --play 최종 검증용 시드. 모델 선택에 쓰지 않은 시드라야 선택 편향 없이 실력을 잰다
 SAVE_EVERY_STEPS = 50000  # 몇 step마다 dqn03_last.pt를 저장할지
 SAVE_DIR = "trained_models"  # 체크포인트·로그 저장 폴더 (코랩은 Drive 경로 권장)
+RUN_NAME = "dqn03_run"  # SAVE_DIR 안의 학습 폴더 이름. 같은 이름이면 상태 파일을 덮어쓰며 이어서 학습한다
+EPS_RESTART = 0.3  # 이어서 학습할 때 ε이 이 값보다 낮으면 이 값으로 올려서 다시 줄인다(0이면 올리지 않음)
 
 # --------------------------------------------------------------------------
 # 보상 (승인된 표). 변수 이름은 공통 RewardConfig의 필드와 같고, score_gain만 추가했다.
@@ -549,10 +557,17 @@ def quality(summary: dict, baseline: dict) -> tuple[float, float, float]:
 # --------------------------------------------------------------------------
 # 저장
 # --------------------------------------------------------------------------
-def save_checkpoint(path: Path, online: BranchingQNetwork) -> None:
-    """모델 가중치와 재생에 필요한 형식 정보를 저장한다."""
+def atomic_save(obj: dict, path: Path) -> None:
+    """임시 파일에 먼저 쓴 뒤 교체한다. 저장 도중 중단돼도 기존 파일이 깨지지 않고, 같은 이름으로 덮어써 쌓이지 않는다."""
     path.parent.mkdir(parents=True, exist_ok=True)
-    torch.save({"state_dict": online.state_dict(), "n_evolution": online.spec["branches"][2]}, path)
+    temporary = path.with_name(path.name + ".tmp")
+    torch.save(obj, temporary)
+    os.replace(temporary, path)
+
+
+def save_checkpoint(path: Path, online: BranchingQNetwork) -> None:
+    """모델 가중치와 재생에 필요한 형식 정보만 저장한다(평가·플레이용)."""
+    atomic_save({"state_dict": online.state_dict(), "n_evolution": online.spec["branches"][2]}, path)
 
 
 def load_checkpoint(path: Path) -> BranchingQNetwork:
@@ -568,57 +583,103 @@ def load_checkpoint(path: Path) -> BranchingQNetwork:
 # 학습
 # --------------------------------------------------------------------------
 def train(args: argparse.Namespace) -> None:
-    """병렬 환경으로 경험을 모으며 DQN을 학습하고 체크포인트와 로그(CSV)를 저장한다."""
+    """병렬 환경으로 경험을 모으며 DQN을 학습한다. 저장된 상태가 있으면 이어서 학습한다."""
     set_seed(args.seed)
     num_envs = args.num_envs or max(1, min(os.cpu_count() or 1, 8))
     main_env = make_env(None)  # 평가용이자 행동 개수·관찰 크기를 읽는 용도
     n_evolution = n_evolution_choices(main_env)
     spec = make_obs_spec(n_evolution)
     obs_dim = spec["size"]
-    goal = f"{args.episodes} 에피소드" if args.episodes else f"{args.steps} step"
-    print(f"장치={DEVICE} | 병렬 환경={num_envs}개 | 관찰={obs_dim}차원 | 분기 행동={spec['branches']} | 목표={goal}")
 
     online = BranchingQNetwork(spec).to(DEVICE)
     target = BranchingQNetwork(spec).to(DEVICE)
-    target.load_state_dict(online.state_dict())
-    target.eval()
     optimizer = optim.Adam(online.parameters(), lr=args.lr, eps=ADAM_EPS)
     replay = ReplayBuffer(args.buffer, obs_dim)
 
-    out_dir = Path(args.save_dir) / datetime.now().strftime("%Y%m%d%H%M%S_dqn03")
-    out_dir.mkdir(parents=True, exist_ok=True)
-    log_file = open(out_dir / "episodes.csv", "w", newline="", encoding="utf-8")
+    run_dir = Path(args.save_dir) / args.run_name
+    state_path = run_dir / "dqn03_state.pt"
+    resumed = state_path.exists() and not args.fresh
+    steps, episode, updates = 0, 0, 0
+    best_quality = -float("inf")
+    eps_start, eps_anchor = 1.0, 0  # ε = eps_start에서 eps_anchor step부터 줄이기 시작한다
+    baseline, baseline_n = None, 0
+
+    if resumed:
+        state = torch.load(state_path, map_location=DEVICE)
+        online.load_state_dict(state["online"])
+        target.load_state_dict(state["target"])
+        optimizer.load_state_dict(state["optimizer"])
+        steps, episode, updates = state["steps"], state["episode"], state["updates"]
+        best_quality = state["best_quality"]
+        baseline, baseline_n = state["baseline"], state["baseline_n"]
+        current = max(args.eps_end, state["eps_start"] - (state["eps_start"] - args.eps_end)
+                      * (steps - state["eps_anchor"]) / args.eps_decay_steps)
+        eps_start, eps_anchor = max(current, args.eps_restart), steps  # 낮아져 있으면 올려서 다시 줄인다
+    else:
+        if args.fresh and state_path.exists():
+            print(f"[경고] --fresh: 기존 상태를 덮어씁니다 ({state_path})")
+        target.load_state_dict(online.state_dict())
+        if args.init_weights:
+            data = torch.load(args.init_weights, map_location=DEVICE)
+            online.load_state_dict(data["state_dict"])
+            target.load_state_dict(data["state_dict"])
+            eps_start = args.eps_restart or 1.0
+    target.eval()
+
+    step_limit, episode_limit = steps + args.steps, episode + args.episodes
+    goal = f"+{args.episodes} 에피소드" if args.episodes else f"+{args.steps} step"
+    origin = f"이어하기 @step {steps}, 에피소드 {episode}" if resumed else (
+        f"가중치 불러옴({args.init_weights})" if args.init_weights else "새로 시작")
+    print(f"장치={DEVICE} | 병렬 환경={num_envs}개 | 관찰={obs_dim}차원 | 분기 행동={spec['branches']} | "
+          f"목표={goal} | {origin} | ε 시작 {eps_start:.2f}")
+
+    run_dir.mkdir(parents=True, exist_ok=True)
+    episodes_path, eval_path = run_dir / "episodes.csv", run_dir / "eval.csv"
+    log_new, eval_new = not (resumed and episodes_path.exists()), not (resumed and eval_path.exists())
+    log_file = open(episodes_path, "w" if log_new else "a", newline="", encoding="utf-8")
     log = csv.writer(log_file)
-    log.writerow(["episode", "steps", "env", "ep_steps", "survival_sec", "return", "score", "kills", "level",
-                  "epsilon", "loss", "mean_q"])
-    eval_file = open(out_dir / "eval.csv", "w", newline="", encoding="utf-8")
+    if log_new:
+        log.writerow(["episode", "steps", "env", "ep_steps", "survival_sec", "return", "score", "kills", "level",
+                      "epsilon", "loss", "mean_q"])
+    eval_file = open(eval_path, "w" if eval_new else "a", newline="", encoding="utf-8")
     eval_log = csv.writer(eval_file)
-    eval_log.writerow(["steps", "survival", "score", "kills", "level", "survival_ratio", "score_ratio", "quality"])
+    if eval_new:
+        eval_log.writerow(["steps", "survival", "score", "kills", "level", "survival_ratio", "score_ratio", "quality"])
 
     eval_seeds = [EVAL_SEED_BASE + i for i in range(args.eval_episodes)]  # 학습에 쓰지 않는 시드
-    baseline = None
     if args.eval_every_steps > 0:
-        baseline = run_episodes(main_env, random_chooser(spec, np.random.default_rng(args.seed)), eval_seeds)["summary"]
+        if baseline is None or baseline_n != len(eval_seeds):
+            baseline = run_episodes(main_env, random_chooser(spec, np.random.default_rng(args.seed)), eval_seeds)["summary"]
+            baseline_n = len(eval_seeds)
         print(f"[기준선: 무작위 정책] 생존 {baseline['survival']:.1f}초 | 점수 {baseline['score']:.1f} | "
               f"처치 {baseline['kills']:.1f} | 레벨 {baseline['level']:.1f}  (평가 시드 {eval_seeds[0]}~, {len(eval_seeds)}판)")
 
-    envs = ParallelEnvs(num_envs, args.seed)
+    def save_state() -> None:
+        """이어하기에 필요한 전체 상태(리플레이 제외)와 평가용 가중치를 같은 이름으로 덮어쓴다."""
+        atomic_save({"online": online.state_dict(), "target": target.state_dict(), "optimizer": optimizer.state_dict(),
+                     "steps": steps, "episode": episode, "updates": updates, "best_quality": best_quality,
+                     "eps_start": eps_start, "eps_anchor": eps_anchor, "baseline": baseline,
+                     "baseline_n": baseline_n}, state_path)
+        save_checkpoint(run_dir / "dqn03_last.pt", online)
+
+    envs = ParallelEnvs(num_envs, args.seed + steps)  # 이어할 때마다 다른 판이 나오도록 시드를 옮긴다
     obs = envs.reset()
     windows = [deque() for _ in range(num_envs)]  # 환경별 N-step 계산용 최근 (s, 행동, r)
     eps_scale = np.linspace(1.0, 0.25, num_envs) if num_envs > 1 else np.ones(1)  # 환경마다 탐험 정도를 다르게
-    rng = np.random.default_rng(args.seed + 1)
+    rng = np.random.default_rng(args.seed + 1 + steps)
 
     recent = {key: deque(maxlen=20) for key in ("return", "survival", "score", "kills", "level")}
     losses: deque[float] = deque(maxlen=200)
     q_means: deque[float] = deque(maxlen=200)
-    best_quality = -float("inf")
-    steps, episode, updates, update_credit = 0, 0, 0, 0.0
-    last_eval_bucket, last_save_bucket = 0, 0
-    started = time.time()
+    update_credit = 0.0
+    last_eval_bucket = steps // args.eval_every_steps if args.eval_every_steps > 0 else 0
+    last_save_bucket = steps // SAVE_EVERY_STEPS
+    started, started_steps = time.time(), steps
 
     try:
-        while not (episode >= args.episodes if args.episodes else steps >= args.steps):
-            epsilon = np.maximum(args.eps_end, max(args.eps_end, 1.0 - steps / args.eps_decay_steps) * eps_scale)
+        while not (episode >= episode_limit if args.episodes else steps >= step_limit):
+            epsilon = np.maximum(args.eps_end, max(args.eps_end, eps_start - (eps_start - args.eps_end)
+                                                   * (steps - eps_anchor) / args.eps_decay_steps) * eps_scale)
             greedy = greedy_actions(online, obs)
             random_actions = np.stack([rng.integers(0, count, size=num_envs) for count in spec["branches"]], axis=1)
             explore = rng.random((num_envs, 3)) < epsilon[:, None]  # 분기마다 독립적으로 탐험
@@ -643,7 +704,7 @@ def train(args: argparse.Namespace) -> None:
                                   f"{epsilon[env_id]:.3f}", f"{mean_loss:.5f}", f"{mean_q:.4f}"])
                     log_file.flush()
                     if episode % args.log_every == 0:
-                        speed = (steps + num_envs) / max(time.time() - started, 1e-9)
+                        speed = (steps + num_envs - started_steps) / max(time.time() - started, 1e-9)
                         print(f"에피소드 {episode:5d} | step {steps + num_envs:8d} | "
                               f"최근20 생존 {np.mean(recent['survival']):5.0f}초 점수 {np.mean(recent['score']):6.1f} "
                               f"처치 {np.mean(recent['kills']):4.1f} 레벨 {np.mean(recent['level']):4.1f} "
@@ -665,10 +726,6 @@ def train(args: argparse.Namespace) -> None:
                     q_means.append(q_value)
                     updates += 1
 
-            if steps // SAVE_EVERY_STEPS > last_save_bucket:
-                last_save_bucket = steps // SAVE_EVERY_STEPS
-                save_checkpoint(out_dir / "dqn03_last.pt", online)
-
             if baseline is not None and steps // args.eval_every_steps > last_eval_bucket:
                 last_eval_bucket = steps // args.eval_every_steps
                 online.eval()
@@ -684,16 +741,19 @@ def train(args: argparse.Namespace) -> None:
                       f"레벨 {summary['level']:.1f} | 종합 ×{overall:.2f}")
                 if overall > best_quality:
                     best_quality = overall
-                    save_checkpoint(out_dir / "dqn03_best.pt", online)
-                save_checkpoint(out_dir / "dqn03_last.pt", online)
+                    save_checkpoint(run_dir / "dqn03_best.pt", online)
+
+            if steps // SAVE_EVERY_STEPS > last_save_bucket:
+                last_save_bucket = steps // SAVE_EVERY_STEPS
+                save_state()
     finally:
         # 직접 중지(Ctrl+C·코랩 중지)해도 마지막 상태를 저장하고 총 판 수를 출력한다.
-        save_checkpoint(out_dir / "dqn03_last.pt", online)
+        save_state()
         log_file.close()
         eval_file.close()
         envs.close()
         main_env.close()
-        print(f"학습 종료: 총 {episode} 에피소드, {steps} step, 학습 {updates}회 | 저장 완료: {out_dir.resolve()}")
+        print(f"학습 종료: 누적 {episode} 에피소드, {steps} step, 학습 {updates}회 | 저장 완료: {run_dir.resolve()}")
 
 
 def play(args: argparse.Namespace) -> None:
@@ -747,11 +807,19 @@ def main() -> None:
     parser.add_argument("--eval-every-steps", type=int, default=EVAL_EVERY_STEPS, help="몇 step마다 평가할지(0이면 끔)")
     parser.add_argument("--eval-episodes", type=int, default=EVAL_EPISODES, help="평가 에피소드 수")
     parser.add_argument("--save-dir", type=str, default=SAVE_DIR, help="체크포인트·로그 저장 폴더(코랩은 Drive 경로 권장)")
+    parser.add_argument("--run-name", type=str, default=RUN_NAME, help="저장 폴더 안의 학습 폴더 이름(같으면 이어서 학습)")
+    parser.add_argument("--fresh", action="store_true", help="저장된 상태가 있어도 무시하고 처음부터 시작(기존 상태를 덮어씀)")
+    parser.add_argument("--init-weights", type=str, default=None,
+                        help="새 학습을 시작하되 이 .pt 파일의 모델 가중치에서 출발한다(옵티마이저·step은 새로 시작)")
+    parser.add_argument("--eps-restart", type=float, default=EPS_RESTART,
+                        help="이어하기·--init-weights 때 ε을 이 값까지 올려서 다시 줄인다(0이면 올리지 않음)")
     parser.add_argument("--play", type=str, default=None, help="학습 대신 저장한 .pt 모델을 평가한다")
     parser.add_argument("--baseline", action="store_true", help="--play에서 같은 시드의 무작위 정책도 함께 평가한다")
     args = parser.parse_args()
     if args.steps <= 0 or args.seed < 0 or args.episodes < 0 or args.num_envs < 0:
         parser.error("--steps는 양수, --episodes·--seed·--num-envs는 0 이상이어야 합니다.")
+    if args.fresh and args.init_weights:
+        pass  # --fresh와 함께 쓰면 기존 상태를 버리고 이 가중치에서 새로 출발한다
     if args.n_step < 1:
         parser.error("--n-step은 1 이상이어야 합니다.")
     if args.reward_scale <= 0:
