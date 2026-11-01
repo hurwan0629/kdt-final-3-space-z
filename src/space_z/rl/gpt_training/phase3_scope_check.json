@@ -1,0 +1,48 @@
+{
+  "checked_at_utc": "2026-11-01T00:51:01.879569+00:00",
+  "shared_source_and_map_files_checked": 47,
+  "changed_shared_files": [],
+  "changed_existing_own_python_files": [
+    "environment.py",
+    "improve.py",
+    "research_check.py",
+    "score_reward.py"
+  ],
+  "new_experimental_source": "experiments/022_checkpoint_blend/create_candidates.py",
+  "all_changes_and_outputs_within": "src/space_z/rl/gpt_training",
+  "maximum_observed_own_python_processes": 8,
+  "maximum_configured_environment_workers": 6,
+  "own_python_processes_before_final_verifier": 0,
+  "default_model_and_metadata_preserved": true,
+  "default_model_sha256": "657c380fef9b0bb3b3158b9ae6f876e25828fe768eeb70cf949b09ebb38cf08e",
+  "experimental_model_sha256": "71665f9ad32efb8467d150f29213944691f74dde143af2b96107c6a2f6f32cef",
+  "ppo_steps_executed": 464896,
+  "weight_averaging_additional_ppo_steps": 0,
+  "source_archives_verified": 4,
+  "code_self_check_exit_code": 0,
+  "actual_native_model_and_capture_checks_passed": true,
+  "tensorboard_readback": {
+    "direct": {
+      "scalar_tags": 27,
+      "text_tags": 3,
+      "image_tags": 1
+    },
+    "blend": {
+      "scalar_tags": 27,
+      "text_tags": 3,
+      "image_tags": 1
+    },
+    "development": {
+      "scalar_tags": 24,
+      "screen_points_per_metric": 4
+    }
+  },
+  "graphify_update_skipped_reason": "User explicitly limited writes to gpt_training; graphify update writes outside that folder.",
+  "performance_decision": "No new default publication: early lower-quartile score failed both independent test rounds.",
+  "limitations": [
+    "Only the recorded seeds and up to 400 game seconds were evaluated",
+    "Average score improvement does not imply improvement in every seed",
+    "Early score lower quartile regressed",
+    "All maps, longer visible play and other machines/library versions were not verified"
+  ]
+}

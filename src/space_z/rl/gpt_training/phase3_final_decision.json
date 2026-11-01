@@ -1,0 +1,18 @@
+{
+  "completed_at_utc": "2026-11-01T00:48:03.697204+00:00",
+  "status": "additional_experiments_completed_default_model_retained",
+  "default_checkpoint": "experiments/018_reaction_calibration/checkpoints/candidate.zip",
+  "default_sha256": "657c380fef9b0bb3b3158b9ae6f876e25828fe768eeb70cf949b09ebb38cf08e",
+  "default_training_timesteps": 1474560,
+  "experimental_higher_mean_score_checkpoint": "experiments/022_checkpoint_blend/checkpoints/blend_050.zip",
+  "experimental_sha256": "71665f9ad32efb8467d150f29213944691f74dde143af2b96107c6a2f6f32cef",
+  "experimental_parent_training_timesteps": 1808384,
+  "experimental_method": "50% average of two PPO-trained checkpoints; zero imitation and zero extra PPO steps during averaging",
+  "additional_ppo_steps_executed_this_phase": 464896,
+  "selected_parent_lineage_additional_ppo_steps": 333824,
+  "study_executed_ppo_steps": 3188736,
+  "first_independent_test_summary": "phase3_results_summary.json",
+  "second_independent_test_summary": "phase3_blend_results_summary.json",
+  "reason_default_retained": "Both new independent test rounds failed the early-score lower-quartile requirement. The weight-average candidate did improve final mean score and mean survival in its own twenty-seed test.",
+  "no_further_training_or_candidate_tuning_after_second_heldout": true
+}

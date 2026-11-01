@@ -1,0 +1,1 @@
+﻿Pause this experiment at the next validation boundary to compare sampled PPO execution with greedy evaluation, and diagnose skill-transfer differences using matched full-game and firing-range evaluations.

@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "deliver",
+  "type": "architecture",
+  "input": "C:\\LANG_CHAIN_2026\\final-project\\2026-10-12_game\\docs\\archify\\space-z.architecture.json",
+  "output": "C:\\LANG_CHAIN_2026\\final-project\\2026-10-12_game\\docs\\archify\\space-z.html",
+  "specification": {
+    "sha256": "e8fd24aa2c5140c08606409cce9b7c0cbbb34a6a45bd081d750bd02a004fabe7",
+    "bytes": 6672
+  },
+  "artifact": {
+    "sha256": "c38ef650a120412a39bc259c339668f623c1cc95bcf2843f5b79142a4af7f0d6",
+    "bytes": 816168
+  },
+  "validation": {
+    "checksPassed": 9,
+    "checkCount": 9,
+    "compositionProfile": "showcase",
+    "compositionStatus": "pass",
+    "errors": 0,
+    "warnings": 0
+  }
+}

@@ -1,0 +1,27 @@
+{
+    "recorded_at":  "2026-11-01T04:06:58.6104322Z",
+    "checkpoint":  "C:\\LANG_CHAIN_2026\\final-project\\2026-10-12_game\\src\\space_z\\rl\\gpt_training_rotation_continuous\\experiments\\003_body_stability\\checkpoints\\evaluated_000800000.zip",
+    "checkpoint_sha256":  "48bf691420e92593fbe2bca815b9ad86d121d0ea7ed206ab1a336cf3415b288a",
+    "new_action_lineage_steps":  800000,
+    "research_steps_used_before_phase004":  1000000,
+    "development_summary":  {
+                                "score_at_120_seconds":  {
+                                                             "mean":  1927.5,
+                                                             "p25":  1667.5
+                                                         },
+                                "score":  {
+                                              "mean":  2823.75,
+                                              "p25":  2417.5
+                                          },
+                                "survival_seconds":  {
+                                                         "mean":  195.6,
+                                                         "p25":  195.97916666666666
+                                                     },
+                                "kills":  {
+                                              "mean":  9.25,
+                                              "p25":  7.75
+                                          }
+                            },
+    "replay_mode":  "greedy",
+    "decision":  "Highest early mean+p25 on eight broader development seeds with all promotion guards passed; preserve aim and continue body adaptation for 500000 steps"
+}

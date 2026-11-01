@@ -1,0 +1,26 @@
+{
+  "checked_at_utc": "2026-10-31T19:44:09.662211+00:00",
+  "shared_source_and_map_file_count": 47,
+  "changed_shared_files": [],
+  "gpt_python_processes_before_final_verifier": 0,
+  "peak_python_processes_during_experiments": 8,
+  "maximum_parallel_training_environment_workers": 6,
+  "published_sha256": "657c380fef9b0bb3b3158b9ae6f876e25828fe768eeb70cf949b09ebb38cf08e",
+  "published_default_play_completed": true,
+  "matched_0_2_game_seconds_for_frame_skips_4_and_2": true,
+  "tensorboard_scalar_tag_count": 26,
+  "tensorboard_text_tags": [
+    "experiment/goal/text_summary",
+    "experiment/protocol/text_summary"
+  ],
+  "tensorboard_image_tags": [
+    "test/paired_results"
+  ],
+  "graphify_update_skipped_reason": "User restricted writes to rl/gpt_training; graphify update would write outside the authorized folder.",
+  "remaining_limitations": [
+    "20 heldout seeds and at most 400 game seconds",
+    "Final scores improved in 10 of 20 paired episodes",
+    "16 of 20 selected episodes died before 400 seconds",
+    "Visible window long duration performance not benchmarked"
+  ]
+}

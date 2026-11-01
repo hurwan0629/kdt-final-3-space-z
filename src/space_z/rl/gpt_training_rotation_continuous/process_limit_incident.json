@@ -1,0 +1,7 @@
+{
+    "recorded_at":  "2026-11-01T03:44:23.4564893Z",
+    "incident":  "Two optional evaluation jobs overlapped while training owned six Python processes",
+    "maximum_observed_python_processes":  10,
+    "remediation":  "Cancelled competing optional evaluations; replacing optional-job scheduling with a named mutex and process-count gate",
+    "training_interrupted":  false
+}

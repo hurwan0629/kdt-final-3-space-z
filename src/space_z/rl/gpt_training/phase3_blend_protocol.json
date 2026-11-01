@@ -1,0 +1,64 @@
+{
+  "created_at_utc": "2026-11-01T00:28:19.091089+00:00",
+  "reason": "Direct continuation improved mean points but failed heldout lower-tail and survival gates; preserve published 018 and test smaller weight changes.",
+  "first_round_test": "phase3_results_summary.json",
+  "training_method": "Only PPO-trained parent weights; no imitation or demonstration data",
+  "additional_ppo_steps": 0,
+  "baseline_checkpoint": "experiments/018_reaction_calibration/checkpoints/candidate.zip",
+  "baseline_sha256": "657c380fef9b0bb3b3158b9ae6f876e25828fe768eeb70cf949b09ebb38cf08e",
+  "trained_checkpoint": "experiments/020_time_discount/checkpoints/evaluated_001808384.zip",
+  "trained_sha256": "5632d6037d04b238a399366980339dce651b3a993c8cf211fd42d1705cf0361a",
+  "candidate_trained_weights": [
+    0.25,
+    0.5,
+    0.75
+  ],
+  "screening_seeds": [
+    17001,
+    17506,
+    18102,
+    18809,
+    23001,
+    23506,
+    24001,
+    24506
+  ],
+  "screening_max_game_seconds": 200,
+  "broader_development_sources": [
+    "phase2_heldout_400_seconds.json",
+    "phase3_heldout_400_seconds.json"
+  ],
+  "broader_development_seed_count": 40,
+  "broader_max_game_seconds": 200,
+  "heldout_seeds": [
+    31001,
+    31102,
+    31203,
+    31304,
+    31405,
+    31506,
+    31607,
+    31708,
+    31809,
+    31910,
+    32001,
+    32102,
+    32203,
+    32304,
+    32405,
+    32506,
+    32607,
+    32708,
+    32809,
+    32910
+  ],
+  "heldout_max_game_seconds": 400,
+  "frame_skip": 2,
+  "promotion_requirements": [
+    "early_mean_at_least_baseline",
+    "early_p25_at_least_baseline",
+    "final_mean_at_least_baseline",
+    "survival_at_least_baseline"
+  ],
+  "screening_selection_rule": "Only candidates meeting early mean, early p25, 200-second mean and censored survival baseline on screening seeds qualify; rank by early mean+p25, p25, 200-second mean, survival. Require the same four guards again on all 40 development seeds before a new heldout test."
+}

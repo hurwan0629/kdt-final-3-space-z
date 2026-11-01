@@ -1,0 +1,162 @@
+{
+  "basis": "current working tree; includes uncommitted structure changes",
+  "base_revision": "6d17fcdba2fcbaa56ab5e64eadb184bd2e572ac7",
+  "captured_date": "2026-10-30",
+  "components": [
+    {
+      "id": "settings",
+      "sources": [
+        {
+          "path": "src/space_z/config/game.py",
+          "line": 58,
+          "sha256": "6e125cb8176d1adef22ae054f0bb9c61fca5a9a9cdafbb1ba530ac138838fdc2"
+        },
+        {
+          "path": "src/space_z/config/progression_definitions.py",
+          "line": 50,
+          "sha256": "88461856a3040631d8398884b8795e5d5272ef6a269eff6446f5b67f9847c481"
+        }
+      ]
+    },
+    {
+      "id": "startup",
+      "sources": [
+        {
+          "path": "src/space_z/main.py",
+          "line": 19,
+          "sha256": "9cac28c53fac3034b2502aa819374375884a3d8be577222e4ac1546461807751"
+        }
+      ]
+    },
+    {
+      "id": "human_app",
+      "sources": [
+        {
+          "path": "src/space_z/app.py",
+          "line": 80,
+          "sha256": "09bc9b0f6bef818dc9b2914391e15a775f8e22b9b007105e06996244787eced7"
+        }
+      ]
+    },
+    {
+      "id": "presentation",
+      "sources": [
+        {
+          "path": "src/space_z/rendering/renderer.py",
+          "line": 92,
+          "sha256": "9f0f344e3090a28b78d03d917ccdf035d5d7c08ab0fc377c9292009c9f2e1434"
+        },
+        {
+          "path": "src/space_z/rendering/progression_panel.py",
+          "line": 55,
+          "sha256": "29a3219963edcb7b7f3029de42ee6addba2a41087624b16583a1d7c4fd254f7d"
+        }
+      ]
+    },
+    {
+      "id": "asset_loading",
+      "sources": [
+        {
+          "path": "src/space_z/rendering/sprite_assets.py",
+          "line": 137,
+          "sha256": "388e5a161f6d518348350b4aec4dd28871aba099fa612542f2a17583c64d26b2"
+        },
+        {
+          "path": "src/space_z/resource_paths.py",
+          "line": 1,
+          "sha256": "33d67b956f0e214f12fd76d448dfb7193f08a2d5ddca4906ed60dff7d9bcb38c"
+        }
+      ]
+    },
+    {
+      "id": "simulation",
+      "sources": [
+        {
+          "path": "src/space_z/game/game_core.py",
+          "line": 59,
+          "sha256": "838416d2bd8bccb2bbc1a26f6824e80c76430c91a1e652d158ced5489e62d465"
+        }
+      ]
+    },
+    {
+      "id": "world_state",
+      "sources": [
+        {
+          "path": "src/space_z/game/entities.py",
+          "line": 9,
+          "sha256": "47e4e31033fb838d46ca816b519a24e35fc24484675cdecef0bff7634e1fce2a"
+        },
+        {
+          "path": "src/space_z/game/terrain.py",
+          "line": 67,
+          "sha256": "a30929392d86411a3fcc53a120794f2bbceb34bf2690b0597226fec7542ab2d1"
+        }
+      ]
+    },
+    {
+      "id": "enemy_rules",
+      "sources": [
+        {
+          "path": "src/space_z/game/enemy_controller.py",
+          "line": 17,
+          "sha256": "219cf135e3cf2dc0855bf456e9a238f207656a09629f27743d5d088484c2980a"
+        }
+      ]
+    },
+    {
+      "id": "training_run",
+      "sources": [
+        {
+          "path": "src/space_z/rl/train.py",
+          "line": 27,
+          "sha256": "06915a81a364b01c11259b2d85e1c955e78a87e17f6c0eb6b4dbce7234dc954a"
+        },
+        {
+          "path": "src/space_z/rl/train_v2.py",
+          "line": 180,
+          "sha256": "809d534ef45dbca2d1c8c660082609f07ec0089eb64f75419889d06a09aded1e"
+        },
+        {
+          "path": "src/space_z/rl/evaluate.py",
+          "line": 19,
+          "sha256": "3f06faa9b092bbe1172f5a4d44097bf4561c2712fb458ad207b8f2e5ccb7c03b"
+        }
+      ]
+    },
+    {
+      "id": "learning_env",
+      "sources": [
+        {
+          "path": "src/space_z/rl/environment.py",
+          "line": 25,
+          "sha256": "26a88749bc9cdb1d91260c62092ebed05b6d1136162b820cab2894d8a7963513"
+        },
+        {
+          "path": "src/space_z/rl/rewards.py",
+          "line": 10,
+          "sha256": "9bb135c6db7f50d544dc8449edc494b6d19cedc21062b1b47a36da16ce5078fd"
+        }
+      ]
+    },
+    {
+      "id": "combat_rules",
+      "sources": [
+        {
+          "path": "src/space_z/game/combat.py",
+          "line": 22,
+          "sha256": "39434286919bd9d5bb5748178bebb12285df420a434a151eb5e560104514f1e4"
+        }
+      ]
+    },
+    {
+      "id": "growth_rules",
+      "sources": [
+        {
+          "path": "src/space_z/game/player_progression.py",
+          "line": 22,
+          "sha256": "6a216cdc45d7349cd5deb36f84f24e4bf5b3497c1dce34f62ee29097125f64e4"
+        }
+      ]
+    }
+  ]
+}

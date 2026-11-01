@@ -44,7 +44,14 @@ src/space_z/
 │   ├── menu_layout.py          # 메뉴 버튼 문구와 영역
 │   └── progression_panel.py    # 강화·진화 UI 배치와 표시 계산
 └── rl/
-    └── environment.py          # TankEnv·관찰·보상
+    ├── environment.py          # TankEnv: 게임과 학습의 연결·종료 처리
+    ├── actions/                # 학습 행동을 게임 입력으로 해석
+    ├── observations/           # 현재 게임 상태를 관찰로 변환
+    ├── rewards.py              # 전투 이벤트를 학습 보상으로 변환
+    ├── evaluate.py             # 정책 평가
+    ├── resource_monitor.py     # 실행 자원 측정
+    ├── train.py, train_v2.py   # 학습 실행
+    └── …                      # 개인 폴더는 별도 유지
 ```
 
 각 패키지의 `__init__.py`는 위 트리에서 생략했습니다. 설정을 가져올 때는 `from space_z.config import GameConfig`처럼 사용합니다.
@@ -67,7 +74,7 @@ src/space_z/
 
 ## 학습 환경 경로
 
-외부 프로그램 → `TankEnv.reset()/step()` → 같은 `GameCore` → 이벤트 소비·관찰·보상·종료 정보 반환 순서입니다. 모델의 행동 결정과 학습은 외부 프로그램의 역할입니다. 실제 학습용 `train.py`는 아직 없습니다. [[reinforcement-learning/environment|환경 인터페이스]]와 `scripts/random_agent_test.py`를 참고합니다.
+학습 실행 코드 → `TankEnv.reset()/step()` → 같은 `GameCore` → 이벤트 소비·관찰·보상·종료 정보 반환 순서입니다. 모델의 행동 결정과 갱신은 학습 실행 코드의 역할입니다. 구현된 실행 경로는 [RL 안내](../../src/space_z/rl/README.md), 공통 계약은 [[reinforcement-learning/environment|환경 인터페이스]]를 참고합니다. 개인 폴더의 위치·내부 구현·저장 모델은 공통 구조 정리 대상에서 제외합니다.
 
 ## 한 프레임의 개요
 
@@ -76,6 +83,39 @@ src/space_z/
 상세 순서는 [[development/classes/GameCore#한 프레임의 순서|GameCore.step]]에 한 번만 정리합니다. 사람 플레이는 기본 1/60초 단위, 한 화면 갱신당 최대 5프레임이며, 학습의 한 step은 기본 4개 게임 프레임입니다.
 
 ## 소유와 협력
+
+### 상태의 저장 위치와 변경 책임
+
+| 상태 | 저장 위치 | 변경 책임 |
+|---|---|---|
+| 메뉴·일시정지·입력·누적 시간 | `GameApplication` | 앱의 이벤트 처리와 `update()` |
+| 월드·개체 목록·프레임·종료·난수 | `GameCore` | `reset()`·`step()`·월드 이동/생성 처리 |
+| 위치·체력·무장·AI 상태 | `Tank`, `Shape` 등 | 이동은 코어, 피해·회복은 전투, 강화·진화는 성장, 적 행동은 적 컨트롤러 |
+| 점수·레벨·강화 포인트·진화 선택지 | `PlayerProgression` | 성장 규칙. 다른 영역과의 연결은 코어에 요청 |
+| 탄환·재장전·전투 효과 | `Combat` | 전투 규칙. 처치 후 성장·점수 연결은 코어에 요청 |
+| 적 공통 성장 단계 | `EnemyController` | 적 규칙. 적별 상태는 각 `Tank`에 저장 |
+| 타일·벽 체력·변경 버전 | `TileMap` | 지형 메서드. 변경 버전으로 화면·관찰 캐시 갱신 |
+| 카메라·점수 팝업·화면 캐시 | `Renderer` | 렌더러. 입력 변환 전 `update_camera()` 호출 |
+| 환경 step 수·reset 필요 여부 | `TankEnv` | 환경의 `reset()`·`step()` |
+
+저장 위치가 곧 단독 변경 권한을 뜻하지는 않습니다. 담당 객체는 같은 `GameCore`와 가변 개체를 참조합니다. 이 구조는 유지하되, 다른 담당 영역에 걸친 결과 적용은 아래 코어 메서드에서 동기적으로 조율합니다. 이벤트 버스를 추가하거나 프레임 뒤로 처리를 미루지 않습니다.
+
+| 코어 메서드 | 처리 순서 |
+|---|---|
+| `resolve_player_evolution(promoted)` | 플레이어 위치 보정 → 실제 진화 단계가 올랐으면 적 진화 |
+| `refresh_enemy_stats()` | 강화 단계가 변경된 상태에서 적 대응 스탯 갱신 |
+| `record_player_kill(enemy)` | 확정된 처치 이벤트 → 처치 수 → 엘리트 회복·알림 → 점수 지급 |
+| `award_score(x, y, amount, kind)` | 점수 획득 위치 기록 → 점수·경험치·레벨 반영 |
+
+`Combat`은 피해·사망과 재등장 타이머를 확정한 뒤 `record_player_kill()`을 요청합니다. 이 메서드는 임의로 처치를 생성하는 입력용 메서드가 아닙니다. 기존 `progression.choose_reward()`·`upgrade_stat()` 호출은 유지되며 내부에서 코어 조율을 요청합니다. 따라서 성장 선택은 `step()` 밖에서도 즉시 적용됩니다.
+
+능력치의 게임 계산은 `Combat.weapon_values()`, `Combat.base_regeneration()`, `GameCore.movement_speed()`에 있습니다. 화면은 이를 조회하고 초·거리 단위와 문구로 변환합니다. 회복 지연·최대 체력 제한은 실제 회복 처리에만 적용하고, 표시용 기본 회복량 조회는 상태를 변경하지 않습니다.
+
+### 입력과 화면, 설정의 공유
+
+앱은 입력 좌표를 변환하기 전에 `Renderer.update_camera(player)`를 호출합니다. 카메라의 좌표·줌·변환 계산은 렌더러가 소유합니다. 기존 `_update_camera()` 경로는 호환을 위해 유지합니다.
+
+`GameConfig`는 복사하지 않는 공유 객체입니다. 실행 준비, 앱의 메뉴 설정, 렌더러의 줌 변경 책임은 [[development/configuration|설정 변경 주체]]에 정리합니다. 필드·생성자·기본값은 유지하며, 설정을 바꾼다고 이미 생성된 개체나 맵을 자동으로 재생성하지는 않습니다.
 
 `GameCore`는 월드와 개체 목록을, 각 담당 객체는 성장·전투·적 성장 상태를 소유합니다. `Tank` 같은 데이터 객체에는 체력이 저장되지만 실제 피해 규칙은 `Combat`이 처리합니다. [[development/classes/README|클래스 목차]]에서 보유 상태와 변경자를 함께 확인합니다.
 

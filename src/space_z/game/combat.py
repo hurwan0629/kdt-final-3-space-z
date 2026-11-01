@@ -550,23 +550,7 @@ class Combat:
             tank.alive = False
             tank.respawn_timer = self.game.config.enemy_ai.respawn_frames
             if by_player:
-                self.game.events["enemies_killed"] += 1
-                self.game.progression.record_kill()
-                enemy_ai_config, player = self.game.config.enemy_ai, self.game.player
-                if tank.elite:
-                    player.hp = min(
-                        player.max_hp,
-                        player.hp + player.max_hp * enemy_ai_config.elite_heal_ratio,
-                    )
-                    self.game.progression._reward_notice("엘리트 처치 보상 (체력 회복)")
-                amount = round(
-                    self.game.config.enemy_kill_score
-                    * (enemy_ai_config.elite_score_scale if tank.elite else 1)
-                )
-                self.game.record_score_award(
-                    tank.x, tank.y, amount, "elite" if tank.elite else "enemy"
-                )
-                self.game.progression._add_score(amount)
+                self.game.record_player_kill(tank)
 
     def _damage_shape(self, shape: Shape, damage: float, by_player: bool) -> None:
         """천체 피해를 적용하고 플레이어 공격의 보상 이벤트를 기록한다.
@@ -598,8 +582,7 @@ class Combat:
             if shape.hp <= 0:
                 self.game.events["shape_destroyed_score"] += shape.score
                 self.game.events["shapes_destroyed"] += 1
-                self.game.record_score_award(shape.x, shape.y, shape.score, shape.kind)
-                self.game.progression._add_score(shape.score)
+                self.game.award_score(shape.x, shape.y, shape.score, shape.kind)
 
     def _collide_bodies(self) -> None:
         """선체와 천체의 몸체 충돌을 해결하고 접촉 피해를 적용한다.
@@ -658,6 +641,11 @@ class Combat:
             self.game._clamp_to_arena(entity)
             self.game._fit_tank(entity)
 
+    def base_regeneration(self, tank: Tank) -> float:
+        """최대 체력에 비례한 기본 회복량을 반환한다. 개체의 추가 회복은 별도다."""
+        config = self.game.config
+        return config.regen_rate * (tank.max_hp / config.player_hp)
+
     def _regen_player(self) -> None:
         """피격 후 대기 시간이 지난 플레이어의 체력을 회복한다.
 
@@ -682,7 +670,7 @@ class Combat:
             # 체력(health 스탯·전직 보너스 등)이 늘어난 만큼 회복량도 비례해서 커진다
             # (기준 체력 대비 같은 비율로 회복 → 최대 체력의 일정 %/초를 유지).
             # 2) 최대 체력에 비례한 기본 회복량과 추가 회복량을 더하되 최대 체력을 넘지 않게 한다.
-            rate = config.regen_rate * (player.max_hp / config.player_hp)
+            rate = self.base_regeneration(player)
             player.hp = min(player.max_hp, player.hp + rate + player.regen_bonus)
 
 

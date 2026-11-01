@@ -1,0 +1,22 @@
+{"name": "001_imitation_combat", "status": "completed", "timesteps": 34048}
+{"name": "002_full_ppo", "status": "completed", "timesteps": 66304}
+{"name": "003_dagger_full", "status": "completed", "timesteps": 16640}
+{"name": "004_pure_ppo_harvest", "status": "completed", "timesteps": 132608}
+{"name": "005_pure_ppo_full", "status": "completed", "timesteps": 396032}
+{"name": "006_spatial_aim", "status": "completed", "timesteps": 264192}
+{"name": "007_spatial_duel", "status": "completed", "timesteps": 399360}
+{"name": "008_full_score_v3", "status": "stopped", "timesteps": 337920}
+{"name": "009_focused_arena", "status": "completed", "timesteps": 399360}
+{"name": "010_stationary_range", "status": "completed", "timesteps": 466944}
+{"name": "011_unified_moving_range", "status": "stopped", "timesteps": 669696}
+{"name": "012_independent_static", "status": "completed", "timesteps": 933888}
+{"name": "013_independent_moving", "status": "completed", "timesteps": 1136640}
+{"name": "014_full_body_control", "status": "stopped", "timesteps": 1339392}
+{"name": "015_full_early_stability", "status": "stopped", "timesteps": 1603584}
+{"name": "016_full_score_focus", "status": "stopped", "timesteps": 1474560}
+{"name": "017_full_aim_refinement", "status": "completed", "timesteps": 1470464}
+{"name": "018_reaction_calibration", "status": "published", "experiment_kind": "inference_calibration", "timesteps": 1474560, "additional_ppo_steps": 0}
+{"name": "019_deployment_cadence", "status": "stopped", "timesteps": 1677312}
+{"name": "020_time_discount", "status": "completed", "timesteps": 1808384}
+{"name": "021_cadence_aim_refinement", "status": "completed", "timesteps": 1808384}
+{"name": "022_checkpoint_blend", "status": "evaluated_not_promoted", "timesteps": 1808384, "additional_ppo_steps": 0, "method": "checkpoint_weight_averaging"}

@@ -1,0 +1,76 @@
+{
+  "selected_at_utc": "2026-11-01T00:17:44.520631+00:00",
+  "selected_checkpoint": "experiments\\020_time_discount\\checkpoints\\evaluated_001808384.zip",
+  "selected_sha256": "5632d6037d04b238a399366980339dce651b3a993c8cf211fd42d1705cf0361a",
+  "baseline_checkpoint": "experiments/018_reaction_calibration/checkpoints/candidate.zip",
+  "baseline_sha256": "657c380fef9b0bb3b3158b9ae6f876e25828fe768eeb70cf949b09ebb38cf08e",
+  "timesteps": 1808384,
+  "development_report": "phase3_development_comparison.json",
+  "development_020_checks": {
+    "score_at_120_seconds_mean": true,
+    "score_at_120_seconds_p25": true,
+    "score_at_200_seconds_mean": true,
+    "survival_seconds_mean": true
+  },
+  "selection_reason": "020 final passes all four broader 20-seed development checks. 019 loses early lower quartile; 021 final regresses strongly in four-seed selection. No fresh test has started.",
+  "heldout_seeds": [
+    23001,
+    23102,
+    23203,
+    23304,
+    23405,
+    23506,
+    23607,
+    23708,
+    23809,
+    23910,
+    24001,
+    24102,
+    24203,
+    24304,
+    24405,
+    24506,
+    24607,
+    24708,
+    24809,
+    24910
+  ],
+  "max_game_seconds": 400,
+  "frame_skip": 2,
+  "execution_mode": "greedy",
+  "promotion_requirements": {
+    "early_mean_at_least_baseline": true,
+    "early_p25_at_least_baseline": true,
+    "final_mean_at_least_baseline": true,
+    "survival_at_least_baseline": true
+  },
+  "experiments": {
+    "019_deployment_cadence": {
+      "initial_timesteps": 1474560,
+      "final_timesteps": 1677312,
+      "executed_steps": 202752,
+      "elapsed_seconds": 736.7350000000442,
+      "best_checkpoint": "experiments\\019_deployment_cadence\\checkpoints\\evaluated_001677312.zip",
+      "best_sha256": "29827f6a0894c6cbf57027eab1d8dd1f31cbbce16d0c585c39440b2ee3883070"
+    },
+    "020_time_discount": {
+      "initial_timesteps": 1677312,
+      "final_timesteps": 1808384,
+      "executed_steps": 131072,
+      "elapsed_seconds": 609.109999999986,
+      "best_checkpoint": "experiments\\020_time_discount\\checkpoints\\evaluated_001677312.zip",
+      "best_sha256": "4a660b47dc792091fcd2dbcc3c13435a297120933109ff42b04e28c668a9cb28"
+    },
+    "021_cadence_aim_refinement": {
+      "initial_timesteps": 1677312,
+      "final_timesteps": 1808384,
+      "executed_steps": 131072,
+      "elapsed_seconds": 485.5469999999623,
+      "best_checkpoint": "experiments\\021_cadence_aim_refinement\\checkpoints\\evaluated_001677312.zip",
+      "best_sha256": "13d52a24d74d6bcd2deea70e3b4ee4c171726b02441f1e47b0bf74fbc7eb61a5"
+    }
+  },
+  "phase3_executed_ppo_steps": 464896,
+  "selected_lineage_additional_steps": 333824,
+  "study_executed_ppo_steps": 3188736
+}

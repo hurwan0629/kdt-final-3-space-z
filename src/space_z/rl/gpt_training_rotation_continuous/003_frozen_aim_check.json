@@ -1,0 +1,7 @@
+{
+  "aim_bit_identical": true,
+  "rotation_std_bit_identical": true,
+  "body_changed": true,
+  "parent_steps": 300000,
+  "child_steps": 400000
+}

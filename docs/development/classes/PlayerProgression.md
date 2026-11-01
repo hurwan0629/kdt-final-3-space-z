@@ -28,7 +28,7 @@ tags: [space-z, class]
 | `level` | 현재 플레이어 레벨 | `1` | `reset()`, `_add_score()` |
 | `xp` | 현재 레벨에서 다음 레벨을 위해 쌓인 경험치 | `0` | `reset()`, `_add_score()` |
 
-피해 처리 객체가 처치 시 `record_kill()`과 `_add_score(amount)`를 요청합니다. 점수는 성장 비활성화 상태에서도 증가합니다. `cfg.progression_enabled`가 꺼져 있으면 경험치·레벨 처리는 진행하지 않습니다.
+전투가 확정한 처치·점수를 코어가 받아 `record_kill()`과 `_add_score(amount)`에 반영합니다. 점수는 성장 비활성화 상태에서도 증가합니다. `cfg.progression_enabled`가 꺼져 있으면 경험치·레벨 처리는 진행하지 않습니다.
 
 `xp_to_next_level`은 저장 필드가 아닌 property입니다. `cfg.level_xp_base + (level - 1) * cfg.level_xp_growth`로 전체 필요 경험치를 계산합니다. `_add_score()`는 한 번에 여러 레벨을 올릴 수 있고, 레벨마다 필요량을 `xp`에서 차감합니다.
 
@@ -55,7 +55,7 @@ tags: [space-z, class]
 
 `open_rewards()`는 10레벨의 첫 계열, 20·30레벨의 현재 우주선 자식, 그 이후 현재 우주선의 숙련 순으로 선택지를 준비합니다. 이미 선택지가 있으면 유지합니다. 큰 경험치로 여러 진화 레벨을 지나도 대기 목록을 앞에서부터 소비합니다.
 
-`choose_reward(index)`는 플레이어의 `job`, 체력, 반지름, 발사 패턴 수, 발사 대기와 예약 점사를 바꿉니다. 코어에 진화 후 위치 보정을 요청하고, 실제 진화 단계가 달라진 경우 적의 진화 갱신도 요청합니다. 숙련의 실제 공격력 배율 계산은 `Combat.weapon_values()`가 맡습니다.
+`choose_reward(index)`는 플레이어의 `job`, 체력, 반지름, 발사 패턴 수, 발사 대기와 예약 점사를 바꿉니다. `GameCore.resolve_player_evolution(promoted)`이 진화 후 위치 보정과 필요한 적 진화를 조율합니다. 일반 강화 뒤 적 대응 스탯 갱신도 코어의 `refresh_enemy_stats()`를 통합니다. 기존 성장 메서드의 인자·반환 형식은 유지합니다. 숙련의 실제 공격력 배율 계산은 `Combat.weapon_values()`가 맡습니다.
 
 `pending_rewards`도 property입니다. `upgrade_points + len(special_reward_levels)`이며 별도 카운터로 저장하지 않습니다.
 

@@ -1,0 +1,14 @@
+{
+  "unchanged": {
+    "features": true,
+    "movement_and_growth": true,
+    "body_actor": true
+  },
+  "aim_changed": true,
+  "parent_steps": 800000,
+  "child_steps": 900000,
+  "parent_sha256": "48bf691420e92593fbe2bca815b9ad86d121d0ea7ed206ab1a336cf3415b288a",
+  "child_sha256": "dfc14feb9b19e5e05a0daea4f63652e0f50987ad440b31d5c01aec22fb484a8d",
+  "old_rotation_std": 0.22448304295539856,
+  "new_rotation_std": 0.22434799373149872
+}

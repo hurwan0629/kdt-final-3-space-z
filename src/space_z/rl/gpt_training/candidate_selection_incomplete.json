@@ -1,0 +1,25 @@
+{
+    "selected_at_utc":  "2026-10-31T17:43:54.8277901Z",
+    "checkpoint":  null,
+    "checkpoint_sha256":  null,
+    "training_method":  "pure_ppo",
+    "selection_reason":  "014 final dominates other 014 candidates in 200-second score and survival; 400-second validation confirms improvement over old pure PPO.",
+    "validation_report":  "validation_400_seconds.json",
+    "validation_summary":  null,
+    "score_prefix_reproduced_for_all_6_validation_seeds":  true,
+    "holdout_not_yet_run_at_selection":  true,
+    "holdout_seeds":  [
+                          7001,
+                          7102,
+                          7203,
+                          7304,
+                          7405,
+                          7506,
+                          7607,
+                          7708,
+                          7809,
+                          7910
+                      ],
+    "holdout_max_steps":  6000,
+    "policy_changes_after_selection":  "none"
+}

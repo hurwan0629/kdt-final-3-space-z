@@ -1,0 +1,74 @@
+{
+  "calculated_at_utc": "2026-11-01T00:37:50.788686+00:00",
+  "purpose": "40 previously observed development seeds; not an independent test",
+  "max_game_seconds": 200,
+  "baseline_source": "phase3_blend_development_baseline.json",
+  "candidate_checkpoint": "experiments\\022_checkpoint_blend\\checkpoints\\blend_050.zip",
+  "candidate_sha256": "71665f9ad32efb8467d150f29213944691f74dde143af2b96107c6a2f6f32cef",
+  "repeated_8_screening_episodes_identical": true,
+  "metrics": {
+    "score_at_60_seconds": {
+      "baseline018": {
+        "mean": 697.875,
+        "p25": 551.25,
+        "median": 677.5,
+        "min": 100.0
+      },
+      "blend050": {
+        "mean": 802.875,
+        "p25": 470.0,
+        "median": 770.0,
+        "min": 190.0
+      }
+    },
+    "score_at_120_seconds": {
+      "baseline018": {
+        "mean": 1007.25,
+        "p25": 781.25,
+        "median": 1025.0,
+        "min": 100.0
+      },
+      "blend050": {
+        "mean": 1257.125,
+        "p25": 912.5,
+        "median": 1075.0,
+        "min": 275.0
+      }
+    },
+    "score": {
+      "baseline018": {
+        "mean": 1290.625,
+        "p25": 891.25,
+        "median": 1280.0,
+        "min": 100.0
+      },
+      "blend050": {
+        "mean": 1598.75,
+        "p25": 1056.25,
+        "median": 1525.0,
+        "min": 275.0
+      }
+    },
+    "survival_seconds": {
+      "baseline018": {
+        "mean": 160.72166666666666,
+        "p25": 124.875,
+        "median": 200.0,
+        "min": 25.5
+      },
+      "blend050": {
+        "mean": 161.54583333333332,
+        "p25": 129.80416666666667,
+        "median": 200.0,
+        "min": 44.71666666666667
+      }
+    }
+  },
+  "checks": {
+    "score_at_120_seconds_mean": true,
+    "score_at_120_seconds_p25": true,
+    "score_mean": true,
+    "survival_seconds_mean": true
+  },
+  "qualifies_for_new_heldout_test": true
+}

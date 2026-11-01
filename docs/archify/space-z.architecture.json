@@ -1,0 +1,309 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Space Z · 프로젝트 구조와 책임",
+    "quality_profile": "showcase",
+    "viewBox": [
+      1370,
+      770
+    ],
+    "legend": {
+      "entries": {
+        "frontend": {
+          "label": "입력·화면"
+        },
+        "backend": {
+          "label": "게임·학습 처리"
+        },
+        "database": {
+          "label": "상태·리소스"
+        },
+        "external": {
+          "label": "설정·실행"
+        }
+      }
+    }
+  },
+  "components": [
+    {
+      "id": "settings",
+      "type": "external",
+      "label": "설정과 콘텐츠",
+      "sublabel": "config/ · 동일 인스턴스 공유",
+      "pos": [
+        50,
+        60
+      ],
+      "size": [
+        220,
+        86
+      ]
+    },
+    {
+      "id": "startup",
+      "type": "external",
+      "label": "게임 실행",
+      "sublabel": "main.py · 생성과 메인 루프",
+      "pos": [
+        50,
+        320
+      ],
+      "size": [
+        220,
+        86
+      ]
+    },
+    {
+      "id": "human_app",
+      "type": "frontend",
+      "label": "GameApplication",
+      "sublabel": "입력·메뉴·일시정지·시간 누적",
+      "pos": [
+        390,
+        320
+      ],
+      "size": [
+        220,
+        86
+      ]
+    },
+    {
+      "id": "presentation",
+      "type": "frontend",
+      "label": "Renderer",
+      "sublabel": "화면·카메라·점수 팝업",
+      "pos": [
+        390,
+        60
+      ],
+      "size": [
+        220,
+        86
+      ]
+    },
+    {
+      "id": "asset_loading",
+      "type": "database",
+      "label": "에셋과 경로",
+      "sublabel": "SpriteAssets · assets/ · maps/",
+      "pos": [
+        730,
+        60
+      ],
+      "size": [
+        220,
+        86
+      ]
+    },
+    {
+      "id": "simulation",
+      "type": "backend",
+      "label": "GameCore",
+      "sublabel": "공유 월드·한 프레임·영역 간 조율",
+      "tag": "화면 없는 게임 규칙",
+      "pos": [
+        730,
+        320
+      ],
+      "size": [
+        220,
+        86
+      ]
+    },
+    {
+      "id": "world_state",
+      "type": "database",
+      "label": "개체와 지형",
+      "sublabel": "Tank · Shape · TileMap",
+      "pos": [
+        1070,
+        320
+      ],
+      "size": [
+        220,
+        86
+      ]
+    },
+    {
+      "id": "enemy_rules",
+      "type": "backend",
+      "label": "EnemyController",
+      "sublabel": "적 생성·성장·감지·행동",
+      "pos": [
+        1070,
+        60
+      ],
+      "size": [
+        220,
+        86
+      ]
+    },
+    {
+      "id": "training_run",
+      "type": "external",
+      "label": "학습 실행·평가",
+      "sublabel": "train.py · train_v2.py · evaluate",
+      "pos": [
+        50,
+        600
+      ],
+      "size": [
+        220,
+        86
+      ]
+    },
+    {
+      "id": "learning_env",
+      "type": "backend",
+      "label": "TankEnv",
+      "sublabel": "행동 해석·관찰·보상·종료",
+      "pos": [
+        390,
+        600
+      ],
+      "size": [
+        220,
+        86
+      ]
+    },
+    {
+      "id": "combat_rules",
+      "type": "backend",
+      "label": "Combat",
+      "sublabel": "발사·탄환·피해·충돌·회복",
+      "pos": [
+        730,
+        600
+      ],
+      "size": [
+        220,
+        86
+      ]
+    },
+    {
+      "id": "growth_rules",
+      "type": "backend",
+      "label": "PlayerProgression",
+      "sublabel": "점수·레벨·강화·진화",
+      "pos": [
+        1070,
+        600
+      ],
+      "size": [
+        220,
+        86
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "id": "setup-game",
+      "from": "settings",
+      "to": "startup",
+      "label": "초기 설정",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "labelDy": 40
+    },
+    {
+      "id": "start-human",
+      "from": "startup",
+      "to": "human_app",
+      "label": "이벤트 루프",
+      "variant": "emphasis"
+    },
+    {
+      "id": "human-frame",
+      "from": "human_app",
+      "to": "simulation",
+      "label": "step()",
+      "variant": "emphasis"
+    },
+    {
+      "id": "render-state",
+      "from": "human_app",
+      "to": "presentation",
+      "label": "상태 전달·그리기",
+      "fromSide": "top",
+      "toSide": "bottom"
+    },
+    {
+      "id": "load-sprites",
+      "from": "asset_loading",
+      "to": "presentation",
+      "label": "이미지 로딩"
+    },
+    {
+      "id": "own-world",
+      "from": "simulation",
+      "to": "world_state",
+      "label": "생성·이동"
+    },
+    {
+      "id": "update-enemies",
+      "from": "simulation",
+      "to": "enemy_rules",
+      "label": "적 갱신",
+      "fromSide": "top",
+      "toSide": "bottom"
+    },
+    {
+      "id": "start-learning",
+      "from": "training_run",
+      "to": "learning_env",
+      "label": "reset / step"
+    },
+    {
+      "id": "learning-frame",
+      "from": "learning_env",
+      "to": "simulation",
+      "label": "반복 step",
+      "fromSide": "top",
+      "toSide": "left"
+    },
+    {
+      "id": "update-combat",
+      "from": "simulation",
+      "to": "combat_rules",
+      "label": "전투 처리",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "labelDy": 40
+    },
+    {
+      "id": "apply-growth",
+      "from": "simulation",
+      "to": "growth_rules",
+      "label": "점수·경험치",
+      "fromSide": "right",
+      "toSide": "top"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "동일한 게임 규칙",
+      "items": [
+        "사람 입력과 학습 행동은 같은 GameCore를 진행합니다.",
+        "그림은 상태를 읽고, 카메라·팝업·캐시는 렌더러가 관리합니다."
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "상태 변경과 전달",
+      "items": [
+        "성장·전투·적 처리는 가변 개체를 공유하고 코어가 연결을 조율합니다.",
+        "TankEnv는 전투 이벤트를 소비해 학습 보상을 계산합니다."
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "지도의 범위",
+      "items": [
+        "주요 호출·소유 관계를 표시하며 모든 import를 나열하지 않습니다.",
+        "개인 폴더는 그대로 유지합니다. 테스트·빌드 도구는 README에서 안내합니다."
+      ]
+    }
+  ]
+}

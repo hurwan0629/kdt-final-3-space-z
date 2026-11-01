@@ -202,9 +202,7 @@ class PlayerProgression:
         player.projectiles = len(card.shots)
         player.cooldown = 0
         player.pending_shots.clear()
-        self.game._fit_player_after_evolution()
-        if promoted:
-            self.game.enemy_controller._promote_enemies()
+        self.game.resolve_player_evolution(promoted)
 
         # 3) 보상을 소모하고 숙련 횟수·알림·초상화를 갱신한 뒤 다음 선택지를 준비한다.
         self.special_levels[card.key] += 1
@@ -291,7 +289,7 @@ class PlayerProgression:
         # 2) 포인트를 차감하고 스탯 레벨을 올린 뒤 적 스탯을 재배분해 능력치를 갱신한다.
         self.upgrade_points -= 1
         self.stat_levels[key] += 1
-        self.game.enemy_controller._refresh_stats()
+        self.game.refresh_enemy_stats()
 
         # 3) 강화 알림과 스탯 선택 목록을 갱신한다.
         self._reward_notice(

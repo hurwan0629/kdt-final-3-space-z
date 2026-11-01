@@ -1,0 +1,33 @@
+{
+  "selected_sha256": "5632d6037d04b238a399366980339dce651b3a993c8cf211fd42d1705cf0361a",
+  "baseline_sha256": "657c380fef9b0bb3b3158b9ae6f876e25828fe768eeb70cf949b09ebb38cf08e",
+  "original_observation_count": 5139,
+  "action_counts": [
+    9,
+    9,
+    2,
+    6,
+    5
+  ],
+  "timesteps": 1808384,
+  "decision_frame_skip": 2,
+  "gamma": 0.9974968671630001,
+  "rollout_buffer_gamma": 0.9974968671630001,
+  "gae_lambda": 0.95,
+  "aim_weights_identical_018_019_020": true,
+  "terrain_cnn_changed_018_to_019": true,
+  "body_weights_changed_019_to_020": true,
+  "body_weights_identical_019_to_021": true,
+  "aim_weights_changed_019_to_021": true,
+  "actual_model_predict_and_native_step_passed": true,
+  "training_and_evaluation_use_unchanged_default_game": true,
+  "shared_files_unchanged": 47,
+  "check_harness_note": "Normalize dataclass tuples to JSON arrays before comparing saved configuration values.",
+  "first_heldout_20_seed_matching_verified": true,
+  "matched_400_game_seconds_verified": true,
+  "failed_candidate_not_published": true,
+  "native_capture_matches_development_episode": true,
+  "native_capture_seed505_score": 1885,
+  "native_capture_seed505_hp": 125.0,
+  "round1_tensorboard_written": true
+}

@@ -1,0 +1,10 @@
+{
+  "checkpoint": "C:\\LANG_CHAIN_2026\\final-project\\2026-10-12_game\\src\\space_z\\rl\\gpt_training_rotation_continuous\\selected_model.zip",
+  "checkpoint_sha256": "205b19d907f233f4a89f6770008ce1a30d32f23d2921be3f380286b0163a8bea",
+  "seed": 51001,
+  "replay_mode": "greedy",
+  "policy_seed": null,
+  "max_seconds": 400,
+  "frame_skip": 2,
+  "camera_zoom": 0.35
+}

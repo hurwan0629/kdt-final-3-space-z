@@ -402,7 +402,7 @@ class GameApplication:
 
         # 고정 프레임마다 조준·이동·발사를 적용하고 발생한 화면 연출을 전달한다.
         while self.accumulated_time >= seconds_per_frame:
-            self.renderer._update_camera(self.game.player)
+            self.renderer.update_camera(self.game.player)
             self.action, target, want_fire = read_player_input(
                 keys, self.renderer, mouse_pos, buttons
             )

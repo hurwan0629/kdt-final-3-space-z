@@ -1,0 +1,122 @@
+{
+  "seeds": [
+    101,
+    202,
+    303,
+    404,
+    505,
+    606,
+    7001,
+    7102,
+    7203,
+    7304,
+    7405,
+    7506,
+    7607,
+    7708,
+    7809,
+    7910
+  ],
+  "max_game_seconds": 200,
+  "configurations": [
+    {
+      "configuration": "014_frame4",
+      "seeds": 16,
+      "mean_score60": 705.9375,
+      "mean_score120": 1095.0,
+      "p25_score120": 933.75,
+      "min_score120": 220,
+      "mean_score200": 1287.8125,
+      "mean_survival_seconds": 144.88645833333334,
+      "selection_score": 2028.75
+    },
+    {
+      "configuration": "014_frame1",
+      "seeds": 16,
+      "mean_score60": 741.25,
+      "mean_score120": 1049.6875,
+      "p25_score120": 856.25,
+      "min_score120": 410,
+      "mean_score200": 1228.4375,
+      "mean_survival_seconds": 122.125,
+      "selection_score": 1905.9375
+    },
+    {
+      "configuration": "014_frame2",
+      "seeds": 16,
+      "mean_score60": 790.625,
+      "mean_score120": 1160.3125,
+      "p25_score120": 948.75,
+      "min_score120": 510,
+      "mean_score200": 1324.0625,
+      "mean_survival_seconds": 133.303125,
+      "selection_score": 2109.0625
+    },
+    {
+      "configuration": "014_frame3",
+      "seeds": 16,
+      "mean_score60": 733.75,
+      "mean_score120": 1093.125,
+      "p25_score120": 785.0,
+      "min_score120": 455,
+      "mean_score200": 1235.9375,
+      "mean_survival_seconds": 137.38854166666667,
+      "selection_score": 1878.125
+    },
+    {
+      "configuration": "015_frame4",
+      "seeds": 16,
+      "mean_score60": 836.25,
+      "mean_score120": 1093.125,
+      "p25_score120": 841.25,
+      "min_score120": 260,
+      "mean_score200": 1196.5625,
+      "mean_survival_seconds": 108.80416666666667,
+      "selection_score": 1934.375
+    },
+    {
+      "configuration": "016_frame4",
+      "seeds": 16,
+      "mean_score60": 796.5625,
+      "mean_score120": 1065.0,
+      "p25_score120": 831.25,
+      "min_score120": 270,
+      "mean_score200": 1199.6875,
+      "mean_survival_seconds": 115.51979166666668,
+      "selection_score": 1896.25
+    },
+    {
+      "configuration": "016_frame2",
+      "seeds": 16,
+      "mean_score60": 925.3125,
+      "mean_score120": 1302.5,
+      "p25_score120": 1143.75,
+      "min_score120": 650,
+      "mean_score200": 1666.25,
+      "mean_survival_seconds": 165.20208333333332,
+      "selection_score": 2446.25
+    }
+  ],
+  "selected": {
+    "configuration": "016_frame2",
+    "seeds": 16,
+    "mean_score60": 925.3125,
+    "mean_score120": 1302.5,
+    "p25_score120": 1143.75,
+    "min_score120": 650,
+    "mean_score200": 1666.25,
+    "mean_survival_seconds": 165.20208333333332,
+    "selection_score": 2446.25
+  },
+  "baseline": {
+    "configuration": "014_frame4",
+    "seeds": 16,
+    "mean_score60": 705.9375,
+    "mean_score120": 1095.0,
+    "p25_score120": 933.75,
+    "min_score120": 220,
+    "mean_score200": 1287.8125,
+    "mean_survival_seconds": 144.88645833333334,
+    "selection_score": 2028.75
+  }
+}

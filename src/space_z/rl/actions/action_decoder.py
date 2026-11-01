@@ -20,6 +20,9 @@ class ActionDecoder(ABC):
     게임 진행·충돌·발사 대기·탄환 생성은 담당하지 않는다.
     """
 
+    def __init__(self, *, enable_stat_upgrades: bool = False, enable_evolution: bool = False) -> None:
+        pass
+
     @property
     @abstractmethod
     def action_space(self) -> Space[Any]:

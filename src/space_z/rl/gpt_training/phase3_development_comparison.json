@@ -1,0 +1,99 @@
+{
+  "purpose": "development only; these 20 seeds were already observed in phase2",
+  "max_seconds": 200,
+  "baseline_source": "phase2_heldout_400_seconds.json; milestone scores and survival clipped at 200",
+  "candidate_source": "phase3_019_development_200_seconds.json",
+  "summary": {
+    "score_at_60_seconds": {
+      "baseline018": {
+        "mean": 687.25,
+        "p25": 531.25,
+        "median": 682.5,
+        "minimum": 120.0
+      },
+      "candidate019": {
+        "mean": 763.0,
+        "p25": 438.75,
+        "median": 807.5,
+        "minimum": 60.0
+      },
+      "paired_wins": 11,
+      "candidate020": {
+        "mean": 690.75,
+        "p25": 488.75,
+        "median": 640.0,
+        "minimum": 135.0
+      }
+    },
+    "score_at_120_seconds": {
+      "baseline018": {
+        "mean": 1003.75,
+        "p25": 788.75,
+        "median": 1020.0,
+        "minimum": 190.0
+      },
+      "candidate019": {
+        "mean": 1123.5,
+        "p25": 603.75,
+        "median": 1095.0,
+        "minimum": 280.0
+      },
+      "paired_wins": 11,
+      "candidate020": {
+        "mean": 1148.5,
+        "p25": 907.5,
+        "median": 1157.5,
+        "minimum": 560.0
+      }
+    },
+    "score_at_200_seconds": {
+      "baseline018": {
+        "mean": 1217.0,
+        "p25": 801.25,
+        "median": 1092.5,
+        "minimum": 355.0
+      },
+      "candidate019": {
+        "mean": 1550.25,
+        "p25": 726.25,
+        "median": 1620.0,
+        "minimum": 305.0
+      },
+      "paired_wins": 10,
+      "candidate020": {
+        "mean": 1591.75,
+        "p25": 1206.25,
+        "median": 1380.0,
+        "minimum": 580.0
+      }
+    },
+    "survival_seconds": {
+      "baseline018": {
+        "mean": 147.0575,
+        "p25": 93.55,
+        "median": 190.525,
+        "minimum": 25.5
+      },
+      "candidate019": {
+        "mean": 174.94583333333333,
+        "p25": 183.7375,
+        "median": 200.0,
+        "minimum": 52.11666666666667
+      },
+      "paired_wins": 8,
+      "candidate020": {
+        "mean": 184.95666666666665,
+        "p25": 196.12916666666666,
+        "median": 200.0,
+        "minimum": 96.98333333333333
+      }
+    }
+  },
+  "development_checks": {
+    "early_mean": true,
+    "early_p25": false,
+    "200_second_mean": true,
+    "censored_survival_mean": true
+  },
+  "candidate020_source": "phase3_020_development_200_seconds.json"
+}

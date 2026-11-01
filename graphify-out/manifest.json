@@ -1,0 +1,4106 @@
+{
+  ".codex/hooks.json": {
+    "mtime": 1793279215.0593402,
+    "seen": 1793280350.7066274,
+    "ast_hash": "5ebef3dd159986e465ab65e4014107ec",
+    "semantic_hash": ""
+  },
+  "architecture/delivery-receipt.json": {
+    "mtime": 1793277757.595987,
+    "seen": 1793280350.7066333,
+    "ast_hash": "ae22881e737d1ffad6411902d4bd594d",
+    "semantic_hash": ""
+  },
+  "architecture/space-z.architecture.json": {
+    "mtime": 1793277745.9333022,
+    "seen": 1793280350.7066355,
+    "ast_hash": "97c6fe7546c87eac506e06c76744e669",
+    "semantic_hash": ""
+  },
+  "architecture/space-z.visual-check.json": {
+    "mtime": 1793277764.8573165,
+    "seen": 1793280350.7066364,
+    "ast_hash": "afc69340a8b947c2fa1934b5eef24979",
+    "semantic_hash": ""
+  },
+  "assets/catalog.json": {
+    "mtime": 1792314226.543345,
+    "seen": 1793280350.7066379,
+    "ast_hash": "df2c97bdd9fef15f5fa800531918bbf7",
+    "semantic_hash": ""
+  },
+  "assets/pre/v2/catalog.json": {
+    "mtime": 1792314226.615015,
+    "seen": 1793280350.7066386,
+    "ast_hash": "1f75b1b782d868af73e75f53fbb8b9cb",
+    "semantic_hash": ""
+  },
+  "assets/pre/v2/manifest.json": {
+    "mtime": 1792314226.6408165,
+    "seen": 1793280350.7066395,
+    "ast_hash": "0d8cf97270509d13ab6a9f1c75a50393",
+    "semantic_hash": ""
+  },
+  "assets/references/generation-prompts.json": {
+    "mtime": 1792839981.624828,
+    "seen": 1793280350.7066405,
+    "ast_hash": "1cda7d361c0f36dc46906d7e9d254b8c",
+    "semantic_hash": ""
+  },
+  "pyproject.toml": {
+    "mtime": 1793144449.3048322,
+    "seen": 1793280350.7066414,
+    "ast_hash": "5697c0dbc40a0de0ceddc3e00ae7f690",
+    "semantic_hash": ""
+  },
+  "scripts/build_windows_release.py": {
+    "mtime": 1792819467.539955,
+    "seen": 1793280350.706642,
+    "ast_hash": "347e9f13e004d4cee067ae7f4629eae1",
+    "semantic_hash": ""
+  },
+  "scripts/random_agent_test.py": {
+    "mtime": 1793110278.2455978,
+    "seen": 1793280350.7066426,
+    "ast_hash": "c5c5698d37b66eeaddd964c837b97360",
+    "semantic_hash": ""
+  },
+  "scripts/render_screens.py": {
+    "mtime": 1792819467.733253,
+    "seen": 1793280350.7066438,
+    "ast_hash": "fd493be3b6af1da9aac2d84d9a0585c6",
+    "semantic_hash": ""
+  },
+  "scripts/watch_wooki02_cmd.py": {
+    "mtime": 1793260437.9042015,
+    "seen": 1793280350.7066445,
+    "ast_hash": "ea9f331b2d502558f452345d1bc0b1fa",
+    "semantic_hash": ""
+  },
+  "src/space_z/__init__.py": {
+    "mtime": 1792483551.8546848,
+    "seen": 1793280350.706645,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "src/space_z/__main__.py": {
+    "mtime": 1792819462.5377128,
+    "seen": 1793280350.7066457,
+    "ast_hash": "26f2d971d60f7a377efaeaf8afdf7061",
+    "semantic_hash": ""
+  },
+  "src/space_z/app.py": {
+    "mtime": 1793280186.8499844,
+    "seen": 1793280350.7066464,
+    "ast_hash": "32aba7d77bda922fd05e0ab756799b19",
+    "semantic_hash": ""
+  },
+  "src/space_z/config/__init__.py": {
+    "mtime": 1792819484.8814209,
+    "seen": 1793280350.7066474,
+    "ast_hash": "2986f906e2ca5ab0a329db3d23f129e7",
+    "semantic_hash": ""
+  },
+  "src/space_z/config/enemy_ai.py": {
+    "mtime": 1792819484.861022,
+    "seen": 1793280350.706648,
+    "ast_hash": "b40a32faa8c0ccd26d67fdbde96b4ab3",
+    "semantic_hash": ""
+  },
+  "src/space_z/config/game.py": {
+    "mtime": 1793280261.0291018,
+    "seen": 1793280350.7066488,
+    "ast_hash": "e52f485e8fe2f8188812c321697a042c",
+    "semantic_hash": ""
+  },
+  "src/space_z/config/learning.py": {
+    "mtime": 1793110539.3546162,
+    "seen": 1793280350.7066495,
+    "ast_hash": "45082207009f67bdb3149e750a252cac",
+    "semantic_hash": ""
+  },
+  "src/space_z/config/progression_definitions.py": {
+    "mtime": 1792840718.1048372,
+    "seen": 1793280350.70665,
+    "ast_hash": "df426f679c71f8e25079e022caef789f",
+    "semantic_hash": ""
+  },
+  "src/space_z/config/terrain.py": {
+    "mtime": 1792838500.2474039,
+    "seen": 1793280350.706651,
+    "ast_hash": "a2066462b81997f3c0da92946b012a7f",
+    "semantic_hash": ""
+  },
+  "src/space_z/game/__init__.py": {
+    "mtime": 1792483551.875385,
+    "seen": 1793280350.7066526,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "src/space_z/game/actions.py": {
+    "mtime": 1792838481.086979,
+    "seen": 1793280350.706653,
+    "ast_hash": "f32471109d7e3f793a3d95dabe68c11d",
+    "semantic_hash": ""
+  },
+  "src/space_z/game/combat.py": {
+    "mtime": 1793280183.0041716,
+    "seen": 1793280350.7066543,
+    "ast_hash": "fe021aaa65e98a381b2d8b53b7df541c",
+    "semantic_hash": ""
+  },
+  "src/space_z/game/enemy_controller.py": {
+    "mtime": 1793086541.035237,
+    "seen": 1793280350.7066548,
+    "ast_hash": "fb2f929120028912b012647da085cddd",
+    "semantic_hash": ""
+  },
+  "src/space_z/game/entities.py": {
+    "mtime": 1792838502.9761972,
+    "seen": 1793280350.7066555,
+    "ast_hash": "ab87e6c446affaf0278f0a43b98ecea7",
+    "semantic_hash": ""
+  },
+  "src/space_z/game/game_core.py": {
+    "mtime": 1793280180.4564526,
+    "seen": 1793280350.7066565,
+    "ast_hash": "9c1573279863ed8af64b27bee9c838e7",
+    "semantic_hash": ""
+  },
+  "src/space_z/game/player_progression.py": {
+    "mtime": 1793280181.724692,
+    "seen": 1793280350.706657,
+    "ast_hash": "24dc2762ebe8a5bc757b01fef02e4b5b",
+    "semantic_hash": ""
+  },
+  "src/space_z/game/terrain.py": {
+    "mtime": 1792838735.0248034,
+    "seen": 1793280350.706658,
+    "ast_hash": "000f2ed8cd3e7e9b5476bb363f63752b",
+    "semantic_hash": ""
+  },
+  "src/space_z/game/types.py": {
+    "mtime": 1793091591.729241,
+    "seen": 1793280350.7066586,
+    "ast_hash": "88cd34480084833d2ab775cdf8792de6",
+    "semantic_hash": ""
+  },
+  "src/space_z/main.py": {
+    "mtime": 1792838483.0360808,
+    "seen": 1793280350.7066593,
+    "ast_hash": "c7d0e6792998b9b90a759c0b6022776c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rendering/__init__.py": {
+    "mtime": 1792483551.8964276,
+    "seen": 1793280350.70666,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "src/space_z/rendering/menu_layout.py": {
+    "mtime": 1792838482.1726027,
+    "seen": 1793280350.7066607,
+    "ast_hash": "0d46a218fa5447cc88cf7e5ed6f90988",
+    "semantic_hash": ""
+  },
+  "src/space_z/rendering/progression_panel.py": {
+    "mtime": 1793280184.332103,
+    "seen": 1793280350.7066615,
+    "ast_hash": "b3666d4b03b125bcc7a72e5fecf3c974",
+    "semantic_hash": ""
+  },
+  "src/space_z/rendering/renderer.py": {
+    "mtime": 1793280260.0622108,
+    "seen": 1793280350.7066622,
+    "ast_hash": "b7828c8f968d23b982242c64ba75909e",
+    "semantic_hash": ""
+  },
+  "src/space_z/rendering/sprite_assets.py": {
+    "mtime": 1793109806.4307158,
+    "seen": 1793280350.706663,
+    "ast_hash": "5d25b181e42e6bce20933896a57526da",
+    "semantic_hash": ""
+  },
+  "src/space_z/rendering/types.py": {
+    "mtime": 1792838635.2224116,
+    "seen": 1793280350.7066636,
+    "ast_hash": "44da35289df87d503383c01a53f1687d",
+    "semantic_hash": ""
+  },
+  "src/space_z/resource_paths.py": {
+    "mtime": 1792819462.5331953,
+    "seen": 1793280350.7066646,
+    "ast_hash": "4b6a6b180149e51c9f8ce8c7e3e06d9d",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/__init__.py": {
+    "mtime": 1793110140.730468,
+    "seen": 1793280350.7066653,
+    "ast_hash": "528b2b6e8c9f6407802a385b87764d96",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/actions/__init__.py": {
+    "mtime": 1793087975.953796,
+    "seen": 1793280350.706666,
+    "ast_hash": "68b329da9893e34099c7d8ad5cb9c940",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/actions/action_decoder.py": {
+    "mtime": 1793321413.6073077,
+    "seen": 1793330240.5885098,
+    "ast_hash": "e20ecb965bca4a0001ee210cf60e1d0d",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/actions/continuous_action_decoder.py": {
+    "mtime": 1793109797.5156703,
+    "seen": 1793280350.7066674,
+    "ast_hash": "0ff8c64a315a1d09746e986adb9fed04",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/actions/discrete_action_decoder.py": {
+    "mtime": 1793093189.3046024,
+    "seen": 1793280350.7066689,
+    "ast_hash": "2b1c5298d6c166f1e6d7346e54c4fcbf",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/actions/player_control.py": {
+    "mtime": 1793110541.029894,
+    "seen": 1793280350.7066696,
+    "ast_hash": "e8c6126734d32812a7228ea4cb7cd795",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/environment.py": {
+    "mtime": 1793260418.3674798,
+    "seen": 1793280350.7066705,
+    "ast_hash": "d742d25110c2115f81c2d6364428d044",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluate.py": {
+    "mtime": 1793110552.0934112,
+    "seen": 1793280350.7066715,
+    "ast_hash": "fb52016acff8fff96522a1d6ae7c62fd",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/observations/__init__.py": {
+    "mtime": 1793087969.0872436,
+    "seen": 1793280350.7066722,
+    "ast_hash": "68b329da9893e34099c7d8ad5cb9c940",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/observations/observation_builder.py": {
+    "mtime": 1793110139.1871014,
+    "seen": 1793280350.706673,
+    "ast_hash": "4df931e5acd8b3f64ffad6573395d3bd",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/observations/pixel_observation.py": {
+    "mtime": 1793110546.112341,
+    "seen": 1793280350.7066736,
+    "ast_hash": "c543aa0d669aa58784eb06fbe274cdd9",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/observations/progression_observation.py": {
+    "mtime": 1793109711.521093,
+    "seen": 1793280350.7066743,
+    "ast_hash": "058a30bf27c7e2dcfca741059a106637",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/observations/vector_observation.py": {
+    "mtime": 1793147116.6160316,
+    "seen": 1793280350.7066753,
+    "ast_hash": "09884a8f3524cfa2379eb49846d46f04",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/resource_monitor.py": {
+    "mtime": 1793110552.0924115,
+    "seen": 1793280350.7066762,
+    "ast_hash": "697cd19d2b013b17702811cb123e8a8f",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/rewards.py": {
+    "mtime": 1793260418.3684788,
+    "seen": 1793280350.706677,
+    "ast_hash": "2fd8f1bb0244f9efd7048ebfbdfaab8c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/train.py": {
+    "mtime": 1793260418.3724897,
+    "seen": 1793280350.7066777,
+    "ast_hash": "9e5ea70f08c7b17912d13823760ad15f",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/train_v2.py": {
+    "mtime": 1793321351.0371692,
+    "seen": 1793330240.5885482,
+    "ast_hash": "86c5edb026cb264db6b66eeed70a42f6",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/training_wooki/__init__.py": {
+    "mtime": 1793279544.580818,
+    "seen": 1793280350.706679,
+    "ast_hash": "f3ed7c9be0a55442e2d89e971a6bbf65",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/training_wooki/combat_bootstrap.py": {
+    "mtime": 1793279544.5828185,
+    "seen": 1793280350.7066798,
+    "ast_hash": "4bc4814625612e7c12fa63843900a151",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/training_wooki/corner_recovery.py": {
+    "mtime": 1793279544.585327,
+    "seen": 1793280350.7066805,
+    "ast_hash": "bb6a688677a47a1a8013ddc287b3ebe0",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/training_wooki/dashboard.py": {
+    "mtime": 1793279544.587342,
+    "seen": 1793280350.706681,
+    "ast_hash": "a844edd7b962a0d5ce7ba39a43f9c108",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/training_wooki/environment.py": {
+    "mtime": 1793279544.5903423,
+    "seen": 1793280350.706682,
+    "ast_hash": "472c2de72f92cf1699b633e8f97120a8",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/training_wooki/growth.py": {
+    "mtime": 1793279544.5923421,
+    "seen": 1793280350.7066827,
+    "ast_hash": "dd2b65f195e94ed5ec9768853188ac87",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/training_wooki/launch.py": {
+    "mtime": 1793279544.5944147,
+    "seen": 1793280350.706683,
+    "ast_hash": "c93b8178ee805e180ce6e8cb959b0c7d",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/training_wooki/local_navigation.py": {
+    "mtime": 1793279544.5964239,
+    "seen": 1793280350.7066836,
+    "ast_hash": "2640c55f27762051cbf5382b9ec38300",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/training_wooki/policy.py": {
+    "mtime": 1793279544.5984364,
+    "seen": 1793280350.706684,
+    "ast_hash": "66a161e05c05cce74f711dd3bc7d72aa",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/training_wooki/runtime.py": {
+    "mtime": 1793279544.600694,
+    "seen": 1793280350.7066848,
+    "ast_hash": "bb36291790f8cfe5d61fe1449af0fbfb",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/training_wooki/settings.py": {
+    "mtime": 1793279544.6027024,
+    "seen": 1793280350.7066858,
+    "ast_hash": "677e235f3f25e6fe739065f5ae3cc09f",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/training_wooki/verify_growth.py": {
+    "mtime": 1793279544.6047025,
+    "seen": 1793280350.7066865,
+    "ast_hash": "ccf76fe8d1e4f60684677db91b401efa",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/training_wooki/wooki01.py": {
+    "mtime": 1793279544.6070683,
+    "seen": 1793280350.706687,
+    "ast_hash": "631012c88f874375f600fb41487d0f48",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/training_wooki/wooki02.py": {
+    "mtime": 1793279544.6100698,
+    "seen": 1793280350.706688,
+    "ast_hash": "95c7324b1ad524a476e6556a4e695151",
+    "semantic_hash": ""
+  },
+  "tests/test_asset_refresh.py": {
+    "mtime": 1793112604.5462754,
+    "seen": 1793280350.7066884,
+    "ast_hash": "b07f99b2f4fb5fe7b60148064fadd3c7",
+    "semantic_hash": ""
+  },
+  "tests/test_centered_world.py": {
+    "mtime": 1792819465.019083,
+    "seen": 1793280350.7066894,
+    "ast_hash": "43db16310d80e2ec407ca950ad237a00",
+    "semantic_hash": ""
+  },
+  "tests/test_difficulty_menu.py": {
+    "mtime": 1793280190.604276,
+    "seen": 1793280350.7066898,
+    "ast_hash": "2819508558c70717c54de480ad89c9f8",
+    "semantic_hash": ""
+  },
+  "tests/test_discrete_action_decoder.py": {
+    "mtime": 1793093103.1238315,
+    "seen": 1793280350.7066905,
+    "ast_hash": "403e0ceb78d272fe61cc9f33653e06f7",
+    "semantic_hash": ""
+  },
+  "tests/test_display_assets.py": {
+    "mtime": 1792839981.621207,
+    "seen": 1793280350.706691,
+    "ast_hash": "12392d5c02610fff93e0208270f91c8f",
+    "semantic_hash": ""
+  },
+  "tests/test_enemy_growth.py": {
+    "mtime": 1793085300.506081,
+    "seen": 1793280350.706692,
+    "ast_hash": "4466587ea473f20922578e5a03e07ebd",
+    "semantic_hash": ""
+  },
+  "tests/test_full_growth.py": {
+    "mtime": 1793260437.9227347,
+    "seen": 1793280350.706693,
+    "ast_hash": "92923e2b8458ceb0656fc3424c98b230",
+    "semantic_hash": ""
+  },
+  "tests/test_menus_reload.py": {
+    "mtime": 1793280188.0480666,
+    "seen": 1793280350.7066936,
+    "ast_hash": "89864b7ceb04bd1e9a43900e7f5402de",
+    "semantic_hash": ""
+  },
+  "tests/test_minimap.py": {
+    "mtime": 1792819466.0283346,
+    "seen": 1793280350.7066944,
+    "ast_hash": "7e06f6a73b6fc5ee2fa395c3dbe888ea",
+    "semantic_hash": ""
+  },
+  "tests/test_minimap_input.py": {
+    "mtime": 1793280189.2689238,
+    "seen": 1793280350.706695,
+    "ast_hash": "1b8ef4f7fb9b51da7c602155395f2fdd",
+    "semantic_hash": ""
+  },
+  "tests/test_mouse_controls.py": {
+    "mtime": 1793110228.0511856,
+    "seen": 1793280350.706696,
+    "ast_hash": "02c01526c97c8b2bbd1da868b0b3520b",
+    "semantic_hash": ""
+  },
+  "tests/test_progression.py": {
+    "mtime": 1793110272.0945804,
+    "seen": 1793280350.7066967,
+    "ast_hash": "cad1cccc606a5be8e377882e4b80d3db",
+    "semantic_hash": ""
+  },
+  "tests/test_reward_calculator.py": {
+    "mtime": 1793091686.525965,
+    "seen": 1793280350.7066975,
+    "ast_hash": "68d8ecfd2729f4e8aeb76a4d8a5a14ef",
+    "semantic_hash": ""
+  },
+  "tests/test_rl_components.py": {
+    "mtime": 1793110722.860267,
+    "seen": 1793280350.706698,
+    "ast_hash": "c49f7cbe631bc41d4a062dcade198b29",
+    "semantic_hash": ""
+  },
+  "tests/test_state_ownership.py": {
+    "mtime": 1793280327.1819203,
+    "seen": 1793280350.7066987,
+    "ast_hash": "a0675b7fc683b1465f8fe40bca8f688a",
+    "semantic_hash": ""
+  },
+  "tests/test_stats_panel.py": {
+    "mtime": 1792839981.6238878,
+    "seen": 1793280350.7066996,
+    "ast_hash": "d402ce87d20bffaf51f08caa5e6aa1d3",
+    "semantic_hash": ""
+  },
+  "tests/test_terrain_layout.py": {
+    "mtime": 1793110274.7181978,
+    "seen": 1793280350.7067008,
+    "ast_hash": "94594c2bb0d4062291356e3637a53c8b",
+    "semantic_hash": ""
+  },
+  "tests/test_training_dashboard.py": {
+    "mtime": 1793260437.9227347,
+    "seen": 1793280350.7067013,
+    "ast_hash": "00b1a9546e8d8dd72c90bacc5ddba92f",
+    "semantic_hash": ""
+  },
+  "tests/test_training_environment.py": {
+    "mtime": 1793260437.9242404,
+    "seen": 1793280350.706702,
+    "ast_hash": "205a3ecee0347f1b1f4d706a9e59be7e",
+    "semantic_hash": ""
+  },
+  "tests/test_training_job.py": {
+    "mtime": 1793260437.9252481,
+    "seen": 1793280350.7067027,
+    "ast_hash": "7364a1f4a70d283b509ebb6bdf6f0a85",
+    "semantic_hash": ""
+  },
+  "tests/test_training_runtime.py": {
+    "mtime": 1793260437.9262466,
+    "seen": 1793280350.7067034,
+    "ast_hash": "a0be109fbd32cfc6458a436060e5ebfc",
+    "semantic_hash": ""
+  },
+  "tests/test_weapons_skills.py": {
+    "mtime": 1792839981.6238878,
+    "seen": 1793280350.706704,
+    "ast_hash": "736947f263555683e6199655e1305324",
+    "semantic_hash": ""
+  },
+  "AGENTS.md": {
+    "mtime": 1793318160.0316162,
+    "seen": 1793318327.039876,
+    "ast_hash": "45fe993b6e27f76162c13b5ec6190245",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1793280262.0670424,
+    "seen": 1793280350.706705,
+    "ast_hash": "610fee65fb2570066bd39b57d078f1a6",
+    "semantic_hash": ""
+  },
+  "architecture/README.md": {
+    "mtime": 1793277793.6229146,
+    "seen": 1793280350.7067058,
+    "ast_hash": "e0bbaea9e800865c563b200dddf2b2b9",
+    "semantic_hash": ""
+  },
+  "architecture/space-z.html": {
+    "mtime": 1793277757.3998866,
+    "seen": 1793280350.7067068,
+    "ast_hash": "51befa65760a1251db79111a418daf0d",
+    "semantic_hash": ""
+  },
+  "architecture/space-z.visual-check.html": {
+    "mtime": 1793277764.8537965,
+    "seen": 1793280350.7067075,
+    "ast_hash": "60a50324d19d5f7b223fcfa7bad0461e",
+    "semantic_hash": ""
+  },
+  "assets/README.md": {
+    "mtime": 1792365838.3438897,
+    "seen": 1793280350.7067082,
+    "ast_hash": "93c102b58726ccd529e38ff7e168950e",
+    "semantic_hash": ""
+  },
+  "assets/new-images/README.md": {
+    "mtime": 1792314226.5613658,
+    "seen": 1793280350.706709,
+    "ast_hash": "3f50e1ef66d6b73fd5a1b55dc50f5163",
+    "semantic_hash": ""
+  },
+  "assets/pre/v2/README.md": {
+    "mtime": 1792314226.583266,
+    "seen": 1793280350.7067094,
+    "ast_hash": "e349007c1a4ec642856459a2197662e1",
+    "semantic_hash": ""
+  },
+  "docs/README.md": {
+    "mtime": 1792483551.6339908,
+    "seen": 1793280350.7067103,
+    "ast_hash": "3c5fdc5218845c27ee2080305fb1b134",
+    "semantic_hash": ""
+  },
+  "docs/development/README.md": {
+    "mtime": 1792483551.6365156,
+    "seen": 1793280350.7067108,
+    "ast_hash": "88f2a64e9b513486ba5b5ec270bbd342",
+    "semantic_hash": ""
+  },
+  "docs/development/classes/Beam.md": {
+    "mtime": 1792833956.552441,
+    "seen": 1793280350.7067118,
+    "ast_hash": "55f56b87d30ba0b9a5a24d5ebe561d4b",
+    "semantic_hash": ""
+  },
+  "docs/development/classes/Bullet.md": {
+    "mtime": 1792483551.6425302,
+    "seen": 1793280350.7067122,
+    "ast_hash": "b9352c21477dd40e16e7f6411ea9990d",
+    "semantic_hash": ""
+  },
+  "docs/development/classes/Combat.md": {
+    "mtime": 1793280384.6948643,
+    "seen": 1793280415.4209018,
+    "ast_hash": "46c742c91819546466a17fe75cb1a30b",
+    "semantic_hash": ""
+  },
+  "docs/development/classes/EnemyController.md": {
+    "mtime": 1792483551.6455314,
+    "seen": 1793280350.7067137,
+    "ast_hash": "d265a17088d9c7bca829f946eada9ff0",
+    "semantic_hash": ""
+  },
+  "docs/development/classes/Explosion.md": {
+    "mtime": 1792833959.0901182,
+    "seen": 1793280350.7067144,
+    "ast_hash": "23a8383e5db16ff9283ff619088e4fb6",
+    "semantic_hash": ""
+  },
+  "docs/development/classes/GameApplication.md": {
+    "mtime": 1793110426.858361,
+    "seen": 1793280350.706715,
+    "ast_hash": "abf64a0bd11260e2ea66cdb3cc65b16f",
+    "semantic_hash": ""
+  },
+  "docs/development/classes/GameCore.md": {
+    "mtime": 1793280383.7366889,
+    "seen": 1793280415.4209082,
+    "ast_hash": "d290affe7769a47e6ba3ed435a4180f3",
+    "semantic_hash": ""
+  },
+  "docs/development/classes/PlayerProgression.md": {
+    "mtime": 1793280329.8476748,
+    "seen": 1793280350.7067168,
+    "ast_hash": "85da3349931946fb99a395fa94a9720f",
+    "semantic_hash": ""
+  },
+  "docs/development/classes/README.md": {
+    "mtime": 1792500622.942281,
+    "seen": 1793280350.7067175,
+    "ast_hash": "2b02cc8da4e08644e0c9d6e1060ab4fe",
+    "semantic_hash": ""
+  },
+  "docs/development/classes/Renderer.md": {
+    "mtime": 1793280382.682087,
+    "seen": 1793280415.420913,
+    "ast_hash": "4a4a45f489fa6d78cb739224bd6089dc",
+    "semantic_hash": ""
+  },
+  "docs/development/classes/Shape.md": {
+    "mtime": 1792500622.945275,
+    "seen": 1793280350.7067187,
+    "ast_hash": "80b0af1afa022425c529f213c54956f7",
+    "semantic_hash": ""
+  },
+  "docs/development/classes/Tank.md": {
+    "mtime": 1792483551.6658099,
+    "seen": 1793280350.7067194,
+    "ast_hash": "1bcc5c098e24457217f0aded9f3d271b",
+    "semantic_hash": ""
+  },
+  "docs/development/configuration.md": {
+    "mtime": 1793280263.965045,
+    "seen": 1793280350.7067204,
+    "ast_hash": "3df4935dc5b089042b96130d8f3d1572",
+    "semantic_hash": ""
+  },
+  "docs/development/flows/README.md": {
+    "mtime": 1792483551.6708355,
+    "seen": 1793280350.706721,
+    "ast_hash": "9744e735ab7074580f35136fe1d93b77",
+    "semantic_hash": ""
+  },
+  "docs/development/flows/damage-and-kills.md": {
+    "mtime": 1793280328.1586378,
+    "seen": 1793280350.7067218,
+    "ast_hash": "895efc903fcffb33df75a2d730d65dc8",
+    "semantic_hash": ""
+  },
+  "docs/development/flows/firing-projectiles.md": {
+    "mtime": 1792483551.6748328,
+    "seen": 1793280350.7067227,
+    "ast_hash": "99c40456a9044f5a3baa3faf71c0f383",
+    "semantic_hash": ""
+  },
+  "docs/development/flows/upgrades-and-evolution.md": {
+    "mtime": 1793280329.024767,
+    "seen": 1793280350.7067237,
+    "ast_hash": "608e8df9c7f1272a75326afcf2437373",
+    "semantic_hash": ""
+  },
+  "docs/development/name-and-path-changes.md": {
+    "mtime": 1792483551.6809351,
+    "seen": 1793280350.7067242,
+    "ast_hash": "a833e5a155f11fd4ab38af392ab62e95",
+    "semantic_hash": ""
+  },
+  "docs/development/project-structure.md": {
+    "mtime": 1793280262.974865,
+    "seen": 1793280350.7067251,
+    "ast_hash": "6b2b9d762c938b99efcfabd2c7410ece",
+    "semantic_hash": ""
+  },
+  "docs/development/testing-and-changes.md": {
+    "mtime": 1792500622.9502733,
+    "seen": 1793280350.7067256,
+    "ast_hash": "01ef58b234d46ea93b0fcd46e4c457c5",
+    "semantic_hash": ""
+  },
+  "docs/development/windows-release.md": {
+    "mtime": 1792500622.9512768,
+    "seen": 1793280350.7067263,
+    "ast_hash": "755e5333a1b49ea54d36bd529f095a22",
+    "semantic_hash": ""
+  },
+  "docs/game/README.md": {
+    "mtime": 1792483551.689479,
+    "seen": 1793280350.7067273,
+    "ast_hash": "e8095d55e29f7162a236c0c6a3749de0",
+    "semantic_hash": ""
+  },
+  "docs/game/combat-and-reloading.md": {
+    "mtime": 1792483551.821653,
+    "seen": 1793280350.7067277,
+    "ast_hash": "85a5e7085b8f3f908cfa8be679805d5d",
+    "semantic_hash": ""
+  },
+  "docs/game/controls.md": {
+    "mtime": 1792500622.9523568,
+    "seen": 1793280350.7067285,
+    "ast_hash": "421bd5f19a4f93ef57a2ec4041429a54",
+    "semantic_hash": ""
+  },
+  "docs/game/enemies-and-world.md": {
+    "mtime": 1792483551.8256533,
+    "seen": 1793280350.706729,
+    "ast_hash": "5260447e3bc83deafa35b2480128de01",
+    "semantic_hash": ""
+  },
+  "docs/game/known-issues.md": {
+    "mtime": 1792483551.828088,
+    "seen": 1793280350.7067297,
+    "ast_hash": "89e86db97eda05bf880e767425f5c1fa",
+    "semantic_hash": ""
+  },
+  "docs/game/maps-and-navigation.md": {
+    "mtime": 1792483551.8300877,
+    "seen": 1793280350.7067306,
+    "ast_hash": "b7cd50092bf6c48b57b662a72fd752a3",
+    "semantic_hash": ""
+  },
+  "docs/game/upgrades-and-evolution.md": {
+    "mtime": 1792483551.8320887,
+    "seen": 1793280350.706731,
+    "ast_hash": "8b169b79d6f3da30dec53481b51baca1",
+    "semantic_hash": ""
+  },
+  "docs/getting-started.md": {
+    "mtime": 1793144449.2923117,
+    "seen": 1793280350.7067318,
+    "ast_hash": "1d43cb309b9e9b7af3dc657c3a3ee6bf",
+    "semantic_hash": ""
+  },
+  "docs/reinforcement-learning/README.md": {
+    "mtime": 1793280264.8807516,
+    "seen": 1793280350.7067323,
+    "ast_hash": "f2da12c7218670d6548354e21d93b48d",
+    "semantic_hash": ""
+  },
+  "docs/reinforcement-learning/environment.md": {
+    "mtime": 1793144449.3048322,
+    "seen": 1793280350.706733,
+    "ast_hash": "d8550fce0f0f409e8cbd0718f08c2a87",
+    "semantic_hash": ""
+  },
+  "docs/reinforcement-learning/full-growth.md": {
+    "mtime": 1793260437.8985054,
+    "seen": 1793280350.7067335,
+    "ast_hash": "91cc1d742d44f2b223b7b2761ed4edaf",
+    "semantic_hash": ""
+  },
+  "docs/reinforcement-learning/live-training.md": {
+    "mtime": 1793260437.8995075,
+    "seen": 1793280350.7067344,
+    "ast_hash": "3ad5748a352bfdffba0ac399715daddc",
+    "semantic_hash": ""
+  },
+  "docs/superpowers/plans/2026-10-29-full-growth-rl.md": {
+    "mtime": 1793260437.9015055,
+    "seen": 1793280350.706735,
+    "ast_hash": "f1160fc11ea89d0ee5ff84b4fb9f72a2",
+    "semantic_hash": ""
+  },
+  "maps/belt.txt": {
+    "mtime": 1792314226.8515024,
+    "seen": 1793280350.7067356,
+    "ast_hash": "30b9076e0113a33cce2473b2b1c35960",
+    "semantic_hash": ""
+  },
+  "maps/drift.txt": {
+    "mtime": 1792314226.8515024,
+    "seen": 1793280350.706736,
+    "ast_hash": "83186d7e06685eb44c9ae8655c2bede2",
+    "semantic_hash": ""
+  },
+  "maps/hello-world.txt": {
+    "mtime": 1792314226.852557,
+    "seen": 1793280350.7067368,
+    "ast_hash": "3957096a73cd24fd67c4a8cab3c20ec4",
+    "semantic_hash": ""
+  },
+  "maps/ring.txt": {
+    "mtime": 1792314226.8535624,
+    "seen": 1793280350.7067375,
+    "ast_hash": "2c626bac599b84df6d960a9d83e85d72",
+    "semantic_hash": ""
+  },
+  "requirements-training.txt": {
+    "mtime": 1793260437.9015055,
+    "seen": 1793280350.7067382,
+    "ast_hash": "b5ff2c141c5bcdea59e772988541ae71",
+    "semantic_hash": ""
+  },
+  "requirements.txt": {
+    "mtime": 1792483551.8446214,
+    "seen": 1793280350.7067387,
+    "ast_hash": "5fde45fedbc0622f2a84eb2e2a4540c9",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/AGENTS.md": {
+    "mtime": 1793145360.5173738,
+    "seen": 1793280350.7067392,
+    "ast_hash": "a49177b196382557d871248c30d622ff",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/README.md": {
+    "mtime": 1793145359.688852,
+    "seen": 1793280350.70674,
+    "ast_hash": "1f75b4e2c90a49228df28fdb8c1ac3da",
+    "semantic_hash": ""
+  },
+  "todo.md": {
+    "mtime": 1793260437.9282525,
+    "seen": 1793280350.7067406,
+    "ast_hash": "9d074c872982a434884125f91dfe9dfe",
+    "semantic_hash": ""
+  },
+  "architecture/space-z.visual-check.1440x900.dark.png": {
+    "mtime": 1793277764.2806053,
+    "seen": 1793280350.7067416,
+    "ast_hash": "89cd6ca50014720e3878ef2905445162",
+    "semantic_hash": ""
+  },
+  "architecture/space-z.visual-check.1440x900.light.png": {
+    "mtime": 1793277762.4587362,
+    "seen": 1793280350.7067423,
+    "ast_hash": "834bc9961f75e0d7bb545b2203bc00c0",
+    "semantic_hash": ""
+  },
+  "architecture/space-z.visual-check.2048x1320.dark.png": {
+    "mtime": 1793277764.8507967,
+    "seen": 1793280350.7067428,
+    "ast_hash": "fdaffb10144cf08093e8e794938edfcd",
+    "semantic_hash": ""
+  },
+  "architecture/space-z.visual-check.2048x1320.light.png": {
+    "mtime": 1793277763.7515802,
+    "seen": 1793280350.7067432,
+    "ast_hash": "cdbdd5a8dc5cce7957dcff32f9708151",
+    "semantic_hash": ""
+  },
+  "assets/backgrounds/deep_space.png": {
+    "mtime": 1792314226.5325272,
+    "seen": 1793280350.706744,
+    "ast_hash": "8e9371e845e5989a1eb4d132091f784d",
+    "semantic_hash": ""
+  },
+  "assets/backgrounds/main.png": {
+    "mtime": 1792314226.5378356,
+    "seen": 1793280350.706745,
+    "ast_hash": "d735dd0002c0054821adff925a60e151",
+    "semantic_hash": ""
+  },
+  "assets/backgrounds/nebula.png": {
+    "mtime": 1792314226.5423436,
+    "seen": 1793280350.7067456,
+    "ast_hash": "b6cc4b1c891faba9ffc1b5429cd9049d",
+    "semantic_hash": ""
+  },
+  "assets/etc/boom_effect_01.png": {
+    "mtime": 1792314226.5443432,
+    "seen": 1793280350.706746,
+    "ast_hash": "32a5178bebcafa020cd30f66d1af5f02",
+    "semantic_hash": ""
+  },
+  "assets/etc/boom_effect_02.png": {
+    "mtime": 1792314226.5453434,
+    "seen": 1793280350.7067468,
+    "ast_hash": "d17c2d3914a8ad840b2a766ca3d9deaa",
+    "semantic_hash": ""
+  },
+  "assets/etc/boom_effect_03.png": {
+    "mtime": 1792314226.548927,
+    "seen": 1793280350.7067473,
+    "ast_hash": "4227d828612ac432982c34ae19aaa042",
+    "semantic_hash": ""
+  },
+  "assets/etc/boom_effect_04.png": {
+    "mtime": 1792314226.549991,
+    "seen": 1793280350.7067482,
+    "ast_hash": "6b93236550a1f47f9132b088e4238ec5",
+    "semantic_hash": ""
+  },
+  "assets/etc/boom_effect_05.png": {
+    "mtime": 1792314226.5509908,
+    "seen": 1793280350.706749,
+    "ast_hash": "80fabe46d432bd79d78017647c7ec1b1",
+    "semantic_hash": ""
+  },
+  "assets/etc/boom_effect_06.png": {
+    "mtime": 1792314226.5517156,
+    "seen": 1793280350.7067494,
+    "ast_hash": "78ddee6d179705e94ee3b54fc95bab52",
+    "semantic_hash": ""
+  },
+  "assets/etc/boom_effect_07.png": {
+    "mtime": 1792314226.5527217,
+    "seen": 1793280350.70675,
+    "ast_hash": "9ddaf4b6460a22e193f36b63ca4f4775",
+    "semantic_hash": ""
+  },
+  "assets/etc/boom_effect_08.png": {
+    "mtime": 1792314226.553722,
+    "seen": 1793280350.7067506,
+    "ast_hash": "cfa9ed18af684d5ff3b02c69211a9ab4",
+    "semantic_hash": ""
+  },
+  "assets/etc/guard_01.png": {
+    "mtime": 1792314226.5547214,
+    "seen": 1793280350.7067513,
+    "ast_hash": "7b1b4bebc9ad979ad9928e73b34fd43b",
+    "semantic_hash": ""
+  },
+  "assets/etc/guard_02.png": {
+    "mtime": 1792314226.5567884,
+    "seen": 1793280350.706752,
+    "ast_hash": "c39fdd90c0990e4ded78e639a93b23d7",
+    "semantic_hash": ""
+  },
+  "assets/etc/guard_03.png": {
+    "mtime": 1792314226.55779,
+    "seen": 1793280350.7067525,
+    "ast_hash": "95f5b8c117abbb4430e4f2a48385ceb6",
+    "semantic_hash": ""
+  },
+  "assets/etc/guard_04.png": {
+    "mtime": 1792314226.5593605,
+    "seen": 1793280350.706753,
+    "ast_hash": "fe27c9ad5a49544a3de3dc275266f476",
+    "semantic_hash": ""
+  },
+  "assets/etc/home_selected.png": {
+    "mtime": 1792314226.5603664,
+    "seen": 1793280350.7067537,
+    "ast_hash": "fa4c41b4de18ffbdeedd9022dd4a8d8b",
+    "semantic_hash": ""
+  },
+  "assets/etc/home_selected_normal.png": {
+    "mtime": 1792314226.5613658,
+    "seen": 1793280350.7067542,
+    "ast_hash": "29e4b7f1617dc79af5abf471fbfdbfdc",
+    "semantic_hash": ""
+  },
+  "assets/objects/gravity_field.png": {
+    "mtime": 1792108296.0,
+    "seen": 1793280350.706755,
+    "ast_hash": "56c631658fb968c003afe5f910f3241e",
+    "semantic_hash": ""
+  },
+  "assets/objects/ring_planet.png": {
+    "mtime": 1792314226.579656,
+    "seen": 1793280350.7067556,
+    "ast_hash": "c7fe6f5a7bd7165c588699cf741b6929",
+    "semantic_hash": ""
+  },
+  "assets/objects/rock_planet.png": {
+    "mtime": 1792314226.5806694,
+    "seen": 1793280350.706756,
+    "ast_hash": "959e6051a7076810dd6fd3b53c71025f",
+    "semantic_hash": ""
+  },
+  "assets/objects/star_fragment.png": {
+    "mtime": 1792314226.5822623,
+    "seen": 1793280350.7067566,
+    "ast_hash": "64893f20ad10093ae7fadb5fd1aed280",
+    "semantic_hash": ""
+  },
+  "assets/pre/v2/backgrounds/deep_space.png": {
+    "mtime": 1792314226.5986958,
+    "seen": 1793280350.7067573,
+    "ast_hash": "e0530070daf43cb2662575ac61d71fc5",
+    "semantic_hash": ""
+  },
+  "assets/pre/v2/backgrounds/nebula.png": {
+    "mtime": 1792314226.6140163,
+    "seen": 1793280350.706759,
+    "ast_hash": "660513262d419184b983482c89f6a250",
+    "semantic_hash": ""
+  },
+  "assets/pre/v2/enemies/fighter.png": {
+    "mtime": 1792314226.6239054,
+    "seen": 1793280350.7067597,
+    "ast_hash": "1da39eb03898a28a38e36b091e7bf8ce",
+    "semantic_hash": ""
+  },
+  "assets/pre/v2/enemies/heavy.png": {
+    "mtime": 1792314226.6339214,
+    "seen": 1793280350.7067602,
+    "ast_hash": "7669f81e56a37867b8aa4b0d136ef99a",
+    "semantic_hash": ""
+  },
+  "assets/pre/v2/enemies/scout.png": {
+    "mtime": 1792314226.639817,
+    "seen": 1793280350.706761,
+    "ast_hash": "9f6d58a268a4b0a3ce65a1987825b48e",
+    "semantic_hash": ""
+  },
+  "assets/pre/v2/objects/asteroid_wall.png": {
+    "mtime": 1792314226.6545086,
+    "seen": 1793280350.7067618,
+    "ast_hash": "759ab6716dd5f0070d0113efd5558d2f",
+    "semantic_hash": ""
+  },
+  "assets/pre/v2/objects/breakable_asteroid.png": {
+    "mtime": 1792314226.666779,
+    "seen": 1793280350.7067626,
+    "ast_hash": "e8dec52e4aeebff60fe8bc0e5f301c52",
+    "semantic_hash": ""
+  },
+  "assets/pre/v2/objects/gas_cloud.png": {
+    "mtime": 1792314226.677182,
+    "seen": 1793280350.7067635,
+    "ast_hash": "2d8543b5b0eb1387bab90546f7d853d5",
+    "semantic_hash": ""
+  },
+  "assets/pre/v2/objects/gravity_field.png": {
+    "mtime": 1792314226.6904824,
+    "seen": 1793280350.706764,
+    "ast_hash": "56c631658fb968c003afe5f910f3241e",
+    "semantic_hash": ""
+  },
+  "assets/pre/v2/objects/ring_planet.png": {
+    "mtime": 1792314226.6970358,
+    "seen": 1793280350.7067647,
+    "ast_hash": "e3903c7d482bf55c6d415a9514fbb902",
+    "semantic_hash": ""
+  },
+  "assets/pre/v2/objects/rock_planet.png": {
+    "mtime": 1792314226.710369,
+    "seen": 1793280350.7067654,
+    "ast_hash": "52941600ba6e8c6188682b0f41b716d5",
+    "semantic_hash": ""
+  },
+  "assets/pre/v2/objects/star_fragment.png": {
+    "mtime": 1792314226.7158742,
+    "seen": 1793280350.7067661,
+    "ast_hash": "abf9b4189f0cc9a536a31e54beee133d",
+    "semantic_hash": ""
+  },
+  "assets/pre/v2/projectiles/homing_missile.png": {
+    "mtime": 1792314226.7189767,
+    "seen": 1793280350.7067666,
+    "ast_hash": "2b7eff24ab2a9cd051886595a301f187",
+    "semantic_hash": ""
+  },
+  "assets/pre/v2/projectiles/mine.png": {
+    "mtime": 1792314226.7271416,
+    "seen": 1793280350.7067673,
+    "ast_hash": "a762fdb75b543dcaefb4245fe548f3c2",
+    "semantic_hash": ""
+  },
+  "assets/pre/v2/references/\uc6b0\uc8fc\uc120_\uc9c4\ud654\ud2b8\ub9ac.png": {
+    "mtime": 1792314226.730173,
+    "seen": 1793280350.7067697,
+    "ast_hash": "6bd7579b6b40949080a2671530d319b9",
+    "semantic_hash": ""
+  },
+  "assets/pre/v2/ships/booster.png": {
+    "mtime": 1792314226.740489,
+    "seen": 1793280350.7067702,
+    "ast_hash": "3e12445522361fffc00469e5ef18f3e0",
+    "semantic_hash": ""
+  },
+  "assets/pre/v2/ships/cross.png": {
+    "mtime": 1792314226.748046,
+    "seen": 1793280350.706771,
+    "ast_hash": "7a57d7e449165ea51b6a2613c1d62c52",
+    "semantic_hash": ""
+  },
+  "assets/pre/v2/ships/gatling.png": {
+    "mtime": 1792314226.7582853,
+    "seen": 1793280350.7067716,
+    "ast_hash": "a2ad7dd63661f1e87a69c8fbea72afba",
+    "semantic_hash": ""
+  },
+  "assets/pre/v2/ships/guardian.png": {
+    "mtime": 1792314226.7698328,
+    "seen": 1793280350.7067723,
+    "ast_hash": "5a3e37c4c4465183afab1e572c240eae",
+    "semantic_hash": ""
+  },
+  "assets/pre/v2/ships/homing.png": {
+    "mtime": 1792314226.7782116,
+    "seen": 1793280350.706773,
+    "ast_hash": "8456c5eaabf63486def9279e568c8096",
+    "semantic_hash": ""
+  },
+  "assets/pre/v2/ships/minelayer.png": {
+    "mtime": 1792314226.789299,
+    "seen": 1793280350.7067735,
+    "ast_hash": "f59dd59ea30ddc5fb0a15fc182bd15fd",
+    "semantic_hash": ""
+  },
+  "assets/pre/v2/ships/railgun.png": {
+    "mtime": 1792314226.795817,
+    "seen": 1793280350.7067742,
+    "ast_hash": "8d8dd3be1347b94fa2bad5102ca516ca",
+    "semantic_hash": ""
+  },
+  "assets/pre/v2/ships/ram.png": {
+    "mtime": 1792314226.8059373,
+    "seen": 1793280350.706775,
+    "ast_hash": "0e61d0713285a62450caedd0b3f35446",
+    "semantic_hash": ""
+  },
+  "assets/pre/v2/ships/rookie.png": {
+    "mtime": 1792314226.8118591,
+    "seen": 1793280350.706776,
+    "ast_hash": "d3d4a10e343662835d145ff493f4f9dc",
+    "semantic_hash": ""
+  },
+  "assets/pre/v2/ships/shotgun.png": {
+    "mtime": 1792314226.8224342,
+    "seen": 1793280350.7067764,
+    "ast_hash": "d070a12714d3f5f93e85392c6b83b52c",
+    "semantic_hash": ""
+  },
+  "assets/pre/v2/ships/sniper.png": {
+    "mtime": 1792314226.8273785,
+    "seen": 1793280350.706777,
+    "ast_hash": "c5b6254ec2947e008c6adb885cb1ff74",
+    "semantic_hash": ""
+  },
+  "assets/pre/v2/ships/triple.png": {
+    "mtime": 1792314226.8348234,
+    "seen": 1793280350.7067776,
+    "ast_hash": "4cef534f85ab220918dc5f49d5b0de71",
+    "semantic_hash": ""
+  },
+  "assets/pre/v2/ships/twin.png": {
+    "mtime": 1792314226.842503,
+    "seen": 1793280350.706778,
+    "ast_hash": "caed5872ff1c05ebe34706d929105972",
+    "semantic_hash": ""
+  },
+  "assets/pre/v2/ships/\uc6b0\uc8fc\uc120_\uc9c4\ud654\ud2b8\ub9ac.png": {
+    "mtime": 1792314226.8466282,
+    "seen": 1793280350.7067792,
+    "ast_hash": "6bd7579b6b40949080a2671530d319b9",
+    "semantic_hash": ""
+  },
+  "assets/projectiles/cannon_shell.png": {
+    "mtime": 1792108296.6352105,
+    "seen": 1793280350.70678,
+    "ast_hash": "c8c213bbb65643f18b28247d25e4242a",
+    "semantic_hash": ""
+  },
+  "assets/projectiles/enemy_plasma.png": {
+    "mtime": 1792108296.640331,
+    "seen": 1793280350.7067807,
+    "ast_hash": "a5df5aad5da11cce5f51c1d25e90a71b",
+    "semantic_hash": ""
+  },
+  "assets/projectiles/player_plasma.png": {
+    "mtime": 1792108296.6679327,
+    "seen": 1793280350.7067814,
+    "ast_hash": "753fec9edeb683436b4011d8cd81765d",
+    "semantic_hash": ""
+  },
+  "assets/ships/Lv10_\uac00\ub514\uc5b8.png": {
+    "mtime": 1792135293.701642,
+    "seen": 1793280350.706782,
+    "ast_hash": "34b3464d007999f7db4f6205c9a35062",
+    "semantic_hash": ""
+  },
+  "assets/ships/Lv10_\uc2a4\ub098\uc774\ud37c.png": {
+    "mtime": 1792135293.7040133,
+    "seen": 1793280350.706783,
+    "ast_hash": "ee50297e96b83167938cc709c80108ef",
+    "semantic_hash": ""
+  },
+  "assets/ships/Lv10_\ud2b8\uc708.png": {
+    "mtime": 1792135293.7055235,
+    "seen": 1793280350.7067838,
+    "ast_hash": "f988a8bebaea3a430471143ff95d586e",
+    "semantic_hash": ""
+  },
+  "assets/ships/Lv10_\ud50c\ub7ad\ud06c.png": {
+    "mtime": 1792135293.707441,
+    "seen": 1793280350.7067845,
+    "ast_hash": "62b3f473bb31dde7d6555b7cbd251f4b",
+    "semantic_hash": ""
+  },
+  "assets/ships/Lv1_\ubca0\uc774\uc9c1.png": {
+    "mtime": 1792135293.707441,
+    "seen": 1793280350.7067852,
+    "ast_hash": "0f66be8d1a7a4e78943e52712d4e8f6d",
+    "semantic_hash": ""
+  },
+  "assets/ships/Lv20_\ub4c0\uc5bc \uc2a4\ud2b8\ub77c\uc774\ucee4.png": {
+    "mtime": 1792135293.7115304,
+    "seen": 1793280350.7067864,
+    "ast_hash": "6b2b0bf4e40dfe9c07488a635e48c64c",
+    "semantic_hash": ""
+  },
+  "assets/ships/Lv20_\ub808\uc77c\uac70\ub108.png": {
+    "mtime": 1792135293.7115304,
+    "seen": 1793280350.706787,
+    "ast_hash": "41be03cefdb3868ad0c6d3d356476842",
+    "semantic_hash": ""
+  },
+  "assets/ships/Lv20_\ubc14\uc2a4\ud2f0\uc628.png": {
+    "mtime": 1792135293.7157912,
+    "seen": 1793280350.7067876,
+    "ast_hash": "159c6a044b7c89b20177624916ddf953",
+    "semantic_hash": ""
+  },
+  "assets/ships/Lv20_\uc774\uc9c0\uc2a4.png": {
+    "mtime": 1792135293.7157912,
+    "seen": 1793280350.7067883,
+    "ast_hash": "b6faa8d289ab33b0356e3f5ff7c49631",
+    "semantic_hash": ""
+  },
+  "assets/ships/Lv20_\ucffc\ub4dc \uc719.png": {
+    "mtime": 1792135293.7157912,
+    "seen": 1793280350.706789,
+    "ast_hash": "2c12ff98737c174d4a7a9665137c8bd0",
+    "semantic_hash": ""
+  },
+  "assets/ships/Lv20_\ud2b8\ub9ac\ud50c \uc719.png": {
+    "mtime": 1792135293.7157912,
+    "seen": 1793280350.70679,
+    "ast_hash": "203aec0803ac53538211e4278d069820",
+    "semantic_hash": ""
+  },
+  "assets/ships/Lv20_\ud2b8\uc708 \ud50c\ub7ad\ud06c.png": {
+    "mtime": 1792135293.7220657,
+    "seen": 1793280350.7067907,
+    "ast_hash": "7a4ef5963b7e5f3c3c2c268c83433c57",
+    "semantic_hash": ""
+  },
+  "assets/ships/Lv20_\ud5cc\ud130.png": {
+    "mtime": 1792135293.7220657,
+    "seen": 1793280350.7067914,
+    "ast_hash": "36da74ead3ba934706e6f62e97809b46",
+    "semantic_hash": ""
+  },
+  "assets/ships/Lv30_\uac1c\ud2c0\ub9c1 \uc2a4\ud1b0.png": {
+    "mtime": 1792135293.7220657,
+    "seen": 1793280350.706792,
+    "ast_hash": "684c4b3e2c642429f41da063faf2b0b4",
+    "semantic_hash": ""
+  },
+  "assets/ships/Lv30_\uc2dc\ud0c0\ub378.png": {
+    "mtime": 1792135293.7220657,
+    "seen": 1793280350.7067933,
+    "ast_hash": "5047759569bf761d9d64c3c4e51a9401",
+    "semantic_hash": ""
+  },
+  "assets/ships/Lv30_\uc625\ud0c0 \uc2a4\ud0c0.png": {
+    "mtime": 1792135293.7304103,
+    "seen": 1793280350.706794,
+    "ast_hash": "0eafca104ea4413d56552a4f8c124abd",
+    "semantic_hash": ""
+  },
+  "assets/ships/Lv30_\ucf5c\ub85c\uc11c\uc2a4.png": {
+    "mtime": 1792135293.7324235,
+    "seen": 1793280350.7067947,
+    "ast_hash": "fbc4c6fed6681817d56420eb05fb7311",
+    "semantic_hash": ""
+  },
+  "assets/ships/Lv30_\ud39c\ud0c0 \uc719.png": {
+    "mtime": 1792135293.7324235,
+    "seen": 1793280350.7067955,
+    "ast_hash": "5cbf678c43cf7f674107dd1bbd70c900",
+    "semantic_hash": ""
+  },
+  "assets/ships/Lv30_\ud504\ub808\ub370\ud130.png": {
+    "mtime": 1792135293.7379582,
+    "seen": 1793280350.7067962,
+    "ast_hash": "2d23e7e62b4ecf01e9b095e22428d771",
+    "semantic_hash": ""
+  },
+  "assets/ships/Lv30_\ud558\uc774\ud37c \ub808\uc77c\uac74.png": {
+    "mtime": 1792135293.7382758,
+    "seen": 1793280350.706797,
+    "ast_hash": "d0ddf77389a39a464387d76b271363a2",
+    "semantic_hash": ""
+  },
+  "assets/ships/Lv30_\ud5e5\uc0ac \ud06c\ub8e8\uc800.png": {
+    "mtime": 1792135293.743198,
+    "seen": 1793280350.7067976,
+    "ast_hash": "8c0b09457634e3d886b778d451558c9c",
+    "semantic_hash": ""
+  },
+  "docs/game/assets/01-main-menu.png": {
+    "mtime": 1792483551.7005477,
+    "seen": 1793280350.7067983,
+    "ast_hash": "546f4949204d3a22eb396e46e8c7746c",
+    "semantic_hash": ""
+  },
+  "docs/game/assets/02-playing.png": {
+    "mtime": 1792483551.7107935,
+    "seen": 1793280350.706799,
+    "ast_hash": "ae5d27ee923d378cc8c04caef4fa8a53",
+    "semantic_hash": ""
+  },
+  "docs/game/assets/03-reloading.png": {
+    "mtime": 1792483551.7193108,
+    "seen": 1793280350.7067995,
+    "ast_hash": "3c77ff669b66a11515f2ffe6f5b0af31",
+    "semantic_hash": ""
+  },
+  "docs/game/assets/04-rewards.png": {
+    "mtime": 1792483551.7268322,
+    "seen": 1793280350.7068002,
+    "ast_hash": "2726bb799f894315c937ac44dcd29ae1",
+    "semantic_hash": ""
+  },
+  "docs/game/assets/05-settings.png": {
+    "mtime": 1792483551.7348342,
+    "seen": 1793280350.706801,
+    "ast_hash": "c9cb370271ee2893d5ac84a83cbfde48",
+    "semantic_hash": ""
+  },
+  "docs/game/assets/06-game-over.png": {
+    "mtime": 1792483551.7418902,
+    "seen": 1793280350.7068014,
+    "ast_hash": "891523792a1b223bf124f18ab5ae2bca",
+    "semantic_hash": ""
+  },
+  "docs/game/assets/07-terrain-stage2.png": {
+    "mtime": 1792483551.7494154,
+    "seen": 1793280350.7068021,
+    "ast_hash": "146663c4fd88285f6edf3dd71a88ccd6",
+    "semantic_hash": ""
+  },
+  "docs/game/assets/08-hidden-player.png": {
+    "mtime": 1792108296.8896124,
+    "seen": 1793280350.7068026,
+    "ast_hash": "36454c03374f1da4dee10fdc3ad36acd",
+    "semantic_hash": ""
+  },
+  "docs/game/assets/08-wall-maze.png": {
+    "mtime": 1792483551.7584918,
+    "seen": 1793280350.7068038,
+    "ast_hash": "d5c3a37c66db58abdbf5fd5aece89e40",
+    "semantic_hash": ""
+  },
+  "docs/game/assets/09-stats.png": {
+    "mtime": 1792483551.766541,
+    "seen": 1793280350.7068043,
+    "ast_hash": "4a29daf73818f0856cda7e3235be37e6",
+    "semantic_hash": ""
+  },
+  "docs/game/assets/10-laser.png": {
+    "mtime": 1792108296.9002378,
+    "seen": 1793280350.7068048,
+    "ast_hash": "5040428631b31f3d5f5b284b79e3a9dc",
+    "semantic_hash": ""
+  },
+  "docs/game/assets/10-piercing.png": {
+    "mtime": 1792135293.8513143,
+    "seen": 1793280350.7068055,
+    "ast_hash": "68c98dbad6391437c00074a5d6f97795",
+    "semantic_hash": ""
+  },
+  "docs/game/assets/10-sniper-line.png": {
+    "mtime": 1792483551.7745514,
+    "seen": 1793280350.706806,
+    "ast_hash": "426a78c00a70c89ecc4057c4265af37f",
+    "semantic_hash": ""
+  },
+  "docs/game/assets/11-cannon.png": {
+    "mtime": 1792108296.9123776,
+    "seen": 1793280350.7068064,
+    "ast_hash": "783748f6f087364ebf7c0bdf5bed0df2",
+    "semantic_hash": ""
+  },
+  "docs/game/assets/11-fan-fire.png": {
+    "mtime": 1792483551.784777,
+    "seen": 1793280350.7068074,
+    "ast_hash": "b44e5b245e1378eb245c04a8ee54c548",
+    "semantic_hash": ""
+  },
+  "docs/game/assets/12-burst.png": {
+    "mtime": 1792135293.8842628,
+    "seen": 1793280350.7068079,
+    "ast_hash": "bea46e47650db0467a474efaf077f3db",
+    "semantic_hash": ""
+  },
+  "docs/game/assets/12-skills.png": {
+    "mtime": 1792108296.9240525,
+    "seen": 1793280350.7068086,
+    "ast_hash": "cbf85d85bc3e10d66fe6e1fb56244a37",
+    "semantic_hash": ""
+  },
+  "docs/game/assets/12-sniper.png": {
+    "mtime": 1792483551.7932968,
+    "seen": 1793280350.706809,
+    "ast_hash": "df3a0121c47bcb71a4f5f70c0dc51384",
+    "semantic_hash": ""
+  },
+  "docs/game/assets/13-stats-panel.png": {
+    "mtime": 1792483551.8008382,
+    "seen": 1793280350.7068098,
+    "ast_hash": "95a55719c52f4f1f9bb559d2a8dec735",
+    "semantic_hash": ""
+  },
+  "docs/game/assets/14-evolution.png": {
+    "mtime": 1792483551.81113,
+    "seen": 1793280350.7068105,
+    "ast_hash": "d7200c0c634f6bf22345e3cc5d78cf5f",
+    "semantic_hash": ""
+  },
+  "docs/game/assets/15-final-evolution.png": {
+    "mtime": 1792483551.8196533,
+    "seen": 1793280350.706811,
+    "ast_hash": "e0fd49c85e0860244d61b5a01326bb03",
+    "semantic_hash": ""
+  },
+  "docs/game/assets/15-unique-skill.png": {
+    "mtime": 1792108296.9397957,
+    "seen": 1793280350.7068117,
+    "ast_hash": "b9a4f3ab59432a1629d3a369cad608ff",
+    "semantic_hash": ""
+  },
+  "docs/game/assets/map-belt.png": {
+    "mtime": 1792135293.930753,
+    "seen": 1793280350.7068124,
+    "ast_hash": "1bf528616b6ae27dc1c5eb42e14b806c",
+    "semantic_hash": ""
+  },
+  "docs/game/assets/map-drift.png": {
+    "mtime": 1792135293.9390428,
+    "seen": 1793280350.7068129,
+    "ast_hash": "af0ba6809f47c3c121deb146af235bfa",
+    "semantic_hash": ""
+  },
+  "docs/game/assets/map-hello-world.png": {
+    "mtime": 1792135293.9470394,
+    "seen": 1793280350.7068138,
+    "ast_hash": "fb14b615bba2262fe23a659432f38651",
+    "semantic_hash": ""
+  },
+  "docs/game/assets/map-ring.png": {
+    "mtime": 1792135293.955688,
+    "seen": 1793280350.7068143,
+    "ast_hash": "8099a52febd3751ab63f4e15f4c3df9f",
+    "semantic_hash": ""
+  },
+  "docs/archify/source-evidence.json": {
+    "mtime": 1793315310.3292048,
+    "seen": 1793315983.9412258,
+    "ast_hash": "d77de8bcb8b2f6880a8a7344a6715337",
+    "semantic_hash": ""
+  },
+  "docs/archify/space-z.architecture.json": {
+    "mtime": 1793316036.132801,
+    "seen": 1793317080.013594,
+    "ast_hash": "d0322fc0c6ecab1a168a4212088ef3dc",
+    "semantic_hash": ""
+  },
+  "docs/archify/delivery-receipt.json": {
+    "mtime": 1793316053.580087,
+    "seen": 1793317080.0135853,
+    "ast_hash": "cf2bfc9e48645e26987555d461a355ff",
+    "semantic_hash": ""
+  },
+  "docs/archify/space-z.visual-check.json": {
+    "mtime": 1793316063.27527,
+    "seen": 1793317080.013597,
+    "ast_hash": "e2ea1f7a3af7307128ca0901f167d18c",
+    "semantic_hash": ""
+  },
+  "docs/archify/README.md": {
+    "mtime": 1793316101.9225407,
+    "seen": 1793317080.0138404,
+    "ast_hash": "76bc9a1bcb60134543fd905a01fefa56",
+    "semantic_hash": ""
+  },
+  "docs/archify/space-z.html": {
+    "mtime": 1793316051.27487,
+    "seen": 1793317080.0138426,
+    "ast_hash": "588bb8d70d38d47789696310ab3550f8",
+    "semantic_hash": ""
+  },
+  "docs/archify/space-z.visual-check.html": {
+    "mtime": 1793316063.2722704,
+    "seen": 1793317080.0138457,
+    "ast_hash": "60a50324d19d5f7b223fcfa7bad0461e",
+    "semantic_hash": ""
+  },
+  "docs/archify/space-z.visual-check.1440x900.dark.png": {
+    "mtime": 1793316062.7752688,
+    "seen": 1793317080.0141764,
+    "ast_hash": "53766372fe92c1efe24581e05311fa09",
+    "semantic_hash": ""
+  },
+  "docs/archify/space-z.visual-check.1440x900.light.png": {
+    "mtime": 1793316061.0126495,
+    "seen": 1793317080.014179,
+    "ast_hash": "2d5cecf2711d9bd55254a613084e8280",
+    "semantic_hash": ""
+  },
+  "docs/archify/space-z.visual-check.2048x1320.dark.png": {
+    "mtime": 1793316063.269269,
+    "seen": 1793317080.0141814,
+    "ast_hash": "2efa6d733d1bde666048be3bcbb57fd9",
+    "semantic_hash": ""
+  },
+  "docs/archify/space-z.visual-check.2048x1320.light.png": {
+    "mtime": 1793316062.3313303,
+    "seen": 1793317080.014184,
+    "ast_hash": "e91a3e5636b5558c36ea7d18f8c273ce",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/tmp.md": {
+    "mtime": 1793325258.379389,
+    "seen": 1793330240.5887928,
+    "ast_hash": "2f02ce0e23b9f1b84b1f6e644b44a554",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/training_hurwan/__init__.py": {
+    "mtime": 1793325367.8215554,
+    "seen": 1793330240.5885518,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/training_hurwan/configuration.py": {
+    "mtime": 1793330059.611552,
+    "seen": 1793330240.5885544,
+    "ast_hash": "4ec3a90fc8ea915a3182a4f2a8a6b685",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/training_hurwan/environments.py": {
+    "mtime": 1793327889.3818192,
+    "seen": 1793330240.5885584,
+    "ast_hash": "fa9ba3432d50078131a55dcfa4f50d57",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/training_hurwan/feature_extractors.py": {
+    "mtime": 1793330026.4674811,
+    "seen": 1793330240.588561,
+    "ast_hash": "2826ae29bc53d6f7f792150cbce5ae02",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/training_hurwan/run_session.py": {
+    "mtime": 1793423402.8560894,
+    "seen": 1793510283.1186762,
+    "ast_hash": "19f46ebbb31230269f631772d46a46dc",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/training_hurwan/train.py": {
+    "mtime": 1793326262.991298,
+    "seen": 1793330240.5885656,
+    "ast_hash": "ac18c38d0601388b8f9b07c1e4d64819",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/training_hurwan/trainer.py": {
+    "mtime": 1793336076.7163625,
+    "seen": 1793510283.118678,
+    "ast_hash": "d50190d562b0cb6a46d959f3697582a3",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/training_hurwan/training_log.py": {
+    "mtime": 1793326132.8190098,
+    "seen": 1793330240.58857,
+    "ast_hash": "d7efeaef842126907eb2f685be1ffc6c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/actions/rotation_continuous_action_decoder.py": {
+    "mtime": 1793511804.7767122,
+    "seen": 1793513368.160674,
+    "ast_hash": "716de8a6ae20ef090a2a7031e902c360",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/__init__.py": {
+    "mtime": 1793448238.1209874,
+    "seen": 1793510283.118509,
+    "ast_hash": "7935300bdc5ca7e0491c746d010f2a84",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/benchmark_reward.py": {
+    "mtime": 1793461290.2592957,
+    "seen": 1793510283.1185098,
+    "ast_hash": "a86cb18e6865af7a7a91d9ec86775196",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/best_model.json": {
+    "mtime": 1793448967.6228094,
+    "seen": 1793510283.118511,
+    "ast_hash": "69135136029b18395b93b1dcb2d833f8",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/candidate_selection.json": {
+    "mtime": 1793468827.5376146,
+    "seen": 1793510283.118512,
+    "ast_hash": "c44228fee63b080c36fff771eafd62d2",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/candidate_selection_incomplete.json": {
+    "mtime": 1793468827.5167716,
+    "seen": 1793510283.1185129,
+    "ast_hash": "49e3aa3a7c40097732e23088dd911426",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/capture.py": {
+    "mtime": 1793473707.4621298,
+    "seen": 1793510283.1185138,
+    "ast_hash": "d1509e25627b32ca81d76b58e07f5957",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/check.py": {
+    "mtime": 1793455215.624979,
+    "seen": 1793510283.1185148,
+    "ast_hash": "dcf6c8390926597afa604e86bed5db78",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/environment.py": {
+    "mtime": 1793490737.0349526,
+    "seen": 1793510283.1185157,
+    "ast_hash": "44b3f63a71d92ccfd88d23d2ed1411df",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/evaluate.py": {
+    "mtime": 1793473707.4610476,
+    "seen": 1793510283.1185162,
+    "ast_hash": "5f902d60f0980ac01b6166c769916992",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/experiments/001_imitation_combat/experiment.json": {
+    "mtime": 1793447998.4562435,
+    "seen": 1793510283.1185172,
+    "ast_hash": "38b46e35ffc09d5d01777abae9431d27",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/experiments/002_full_ppo/experiment.json": {
+    "mtime": 1793448280.0967698,
+    "seen": 1793510283.118518,
+    "ast_hash": "c8258dd9d4d893ed87808e5d1fbab9fb",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/experiments/003_dagger_full/experiment.json": {
+    "mtime": 1793448573.4827306,
+    "seen": 1793510283.1185188,
+    "ast_hash": "adef9e6f2c0ff8d1b606a62e8518e1f3",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/experiments/004_pure_ppo_harvest/experiment.json": {
+    "mtime": 1793455448.2252603,
+    "seen": 1793510283.1185195,
+    "ast_hash": "ccbd9fabcf11ed6ac027872dea612a3f",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/experiments/005_pure_ppo_full/experiment.json": {
+    "mtime": 1793455968.2721975,
+    "seen": 1793510283.1185203,
+    "ast_hash": "b8626cd77ec842cb64189c6e7bef1c7a",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/experiments/006_spatial_aim/experiment.json": {
+    "mtime": 1793459259.4956472,
+    "seen": 1793510283.1185215,
+    "ast_hash": "37570b5ecc9fa8fa712989a9dced225d",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/experiments/007_spatial_duel/experiment.json": {
+    "mtime": 1793460039.33401,
+    "seen": 1793510283.1185222,
+    "ast_hash": "dd24219fe3185c0778a865caadcb586c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/experiments/008_full_score_v3/experiment.json": {
+    "mtime": 1793460780.8493166,
+    "seen": 1793510283.1185226,
+    "ast_hash": "b01b36435f0a4c3dbd7ee7f2b5c7ce97",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/experiments/009_focused_arena/experiment.json": {
+    "mtime": 1793462161.3859584,
+    "seen": 1793510283.1185234,
+    "ast_hash": "b3fb2827b4f178dca71d018f6b5ec562",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/experiments/010_stationary_range/experiment.json": {
+    "mtime": 1793462828.3329058,
+    "seen": 1793510283.1185238,
+    "ast_hash": "1ae02ae5fd08c89fe5d285933671b3e7",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/experiments/011_unified_moving_range/experiment.json": {
+    "mtime": 1793463633.0356355,
+    "seen": 1793510283.1185248,
+    "ast_hash": "59eae64b043fe4f8feff5636a1892fef",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/experiments/012_independent_static/experiment.json": {
+    "mtime": 1793465511.924883,
+    "seen": 1793510283.1185255,
+    "ast_hash": "2c5a7f73847347992441a1b9966c0bc5",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/experiments/013_independent_moving/experiment.json": {
+    "mtime": 1793467000.5842583,
+    "seen": 1793510283.1185262,
+    "ast_hash": "4c2ea7d308e40a04e6cdab5699e70931",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/experiments/014_full_body_control/experiment.json": {
+    "mtime": 1793468364.0090098,
+    "seen": 1793510283.118527,
+    "ast_hash": "c9a427df82fe14522fd5be17fd1bd6f4",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/experiments/015_full_early_stability/experiment.json": {
+    "mtime": 1793471649.1847153,
+    "seen": 1793510283.1185277,
+    "ast_hash": "01232e396808ac99adfd084e9953516f",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/experiments/016_full_score_focus/experiment.json": {
+    "mtime": 1793472622.3413813,
+    "seen": 1793510283.1185288,
+    "ast_hash": "00462a52c9f4c9a1e743b1dee85f50d2",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/experiments/017_full_aim_refinement/experiment.json": {
+    "mtime": 1793473501.6426647,
+    "seen": 1793510283.1185296,
+    "ast_hash": "febf230b9699c39bd7434e67778c38ad",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/experiments/018_reaction_calibration/experiment.json": {
+    "mtime": 1793475413.9370768,
+    "seen": 1793510283.11853,
+    "ast_hash": "7477d05ce03323c6215b345e158fb141",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/experiments/019_deployment_cadence/experiment.json": {
+    "mtime": 1793490879.0364077,
+    "seen": 1793510283.1185308,
+    "ast_hash": "3d6523a9efddd9c42d23a6edb6ab2db0",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/experiments/020_time_discount/experiment.json": {
+    "mtime": 1793491618.7516353,
+    "seen": 1793510283.1185315,
+    "ast_hash": "b8411c136004155942e9bd3c5ea8c65c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/experiments/021_cadence_aim_refinement/experiment.json": {
+    "mtime": 1793492166.0660205,
+    "seen": 1793510283.1185324,
+    "ast_hash": "bf78fa550451d6475c6aae6b8f42ac62",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/experiments/022_checkpoint_blend/create_candidates.py": {
+    "mtime": 1793492899.152724,
+    "seen": 1793510283.1185334,
+    "ast_hash": "1ea6c54ab9e8ea8aff0e69f498feef40",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/experiments/022_checkpoint_blend/experiment.json": {
+    "mtime": 1793494083.709914,
+    "seen": 1793510283.1185338,
+    "ast_hash": "9681ecf0f977373879c2cc3e0191856e",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/final_model_checks.json": {
+    "mtime": 1793469115.2333813,
+    "seen": 1793510283.1185343,
+    "ast_hash": "4cd1a55448eecccc14a97bb8a3857c6c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/final_unseen_evaluation.json": {
+    "mtime": 1793448823.1807702,
+    "seen": 1793510283.1185353,
+    "ast_hash": "f7494774e813131f76dffe98e1803a15",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/heldout_001_002.json": {
+    "mtime": 1793448469.6480742,
+    "seen": 1793510283.1185358,
+    "ast_hash": "470faf76b3ad7ca1cd335dc16381a3f8",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/heldout_003.json": {
+    "mtime": 1793448608.6886055,
+    "seen": 1793510283.1185365,
+    "ast_hash": "7a712d051d44db5cd0184291a25d5fce",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/heldout_400_seconds.json": {
+    "mtime": 1793469002.9190814,
+    "seen": 1793510283.1185374,
+    "ast_hash": "191912a2682adf13c6c41e1f2968883a",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/improve.py": {
+    "mtime": 1793490737.0359547,
+    "seen": 1793510283.118538,
+    "ast_hash": "93f0bc26e563bc961e245086bad59f65",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/networks.py": {
+    "mtime": 1793465775.462213,
+    "seen": 1793510283.1185384,
+    "ast_hash": "be2b366e2d163b098b04d5f0bfb5d893",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/old_pure_validation_6.json": {
+    "mtime": 1793459326.6151593,
+    "seen": 1793510283.1185393,
+    "ast_hash": "1faf539a09885ae40876908d046502b9",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase2_baseline_sampled_validation.json": {
+    "mtime": 1793471857.9517639,
+    "seen": 1793510283.11854,
+    "ast_hash": "c38a84f8175d78cfd8fbedf2a92334e6",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase2_candidate_selection.json": {
+    "mtime": 1793474501.3438115,
+    "seen": 1793510283.1185408,
+    "ast_hash": "21afac7712d0b1f9d2b328977d7ee0de",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase2_development_014.json": {
+    "mtime": 1793472832.6092865,
+    "seen": 1793510283.1185415,
+    "ast_hash": "8c5cad86bedc461ed7ff9b5e24f5fa89",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase2_development_015.json": {
+    "mtime": 1793472813.386051,
+    "seen": 1793510283.1185422,
+    "ast_hash": "f9da9cc42df1d213933d9460749a2420",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase2_development_016.json": {
+    "mtime": 1793472925.876189,
+    "seen": 1793510283.118543,
+    "ast_hash": "df62103a4c33098e1027291e93908782",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase2_development_comparison.json": {
+    "mtime": 1793474498.244102,
+    "seen": 1793510283.1185434,
+    "ast_hash": "90c04669194bdf47df18f948bc059a66",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase2_duration_smoke.json": {
+    "mtime": 1793473775.0181448,
+    "seen": 1793510283.118544,
+    "ast_hash": "1cf53c158527ef44da49952b63821d3a",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase2_frequency1_development16.json": {
+    "mtime": 1793473916.1762426,
+    "seen": 1793510283.1185446,
+    "ast_hash": "aef6221a8c9f1aa089301f092c731682",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase2_frequency2_development.json": {
+    "mtime": 1793473256.9791,
+    "seen": 1793510283.1185453,
+    "ast_hash": "501be7589b526b17737a3354baf04eff",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase2_frequency2_validation6.json": {
+    "mtime": 1793473953.373513,
+    "seen": 1793510283.1185462,
+    "ast_hash": "1b938009bf7df3c8a500eb174a7e05a8",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase2_frequency3_development16.json": {
+    "mtime": 1793474093.9178627,
+    "seen": 1793510283.118547,
+    "ast_hash": "33b3f0cfac1bec11e7ee6bcf88c061f6",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase2_frequency_protocol.json": {
+    "mtime": 1793473053.1586926,
+    "seen": 1793510283.1185477,
+    "ast_hash": "c34b8ed67d310ab6b836068b35745ba1",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase2_heldout_400_seconds.json": {
+    "mtime": 1793474946.1650555,
+    "seen": 1793510283.1185484,
+    "ast_hash": "1be8235c5f03f5e58a10770a8bfe11c9",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase2_heldout_batch_1.json": {
+    "mtime": 1793474852.6528308,
+    "seen": 1793510283.1185493,
+    "ast_hash": "3ecb44298f4e915f066dd22d2e72e018",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase2_heldout_batch_2.json": {
+    "mtime": 1793474811.3202317,
+    "seen": 1793510283.11855,
+    "ast_hash": "e2c1045eef9166ff60d7a2a86b048127",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase2_heldout_batch_3.json": {
+    "mtime": 1793474695.0361876,
+    "seen": 1793510283.1185505,
+    "ast_hash": "3b834fd4b879fb084134fbcbf0b8c5a2",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase2_heldout_batch_4.json": {
+    "mtime": 1793474678.7456253,
+    "seen": 1793510283.118551,
+    "ast_hash": "31b58df6995dc18e852f1ecb8dcea399",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase2_model_checks.json": {
+    "mtime": 1793475849.662212,
+    "seen": 1793510283.1185517,
+    "ast_hash": "c27f2935f9e63bd4e6b5062c37e0938a",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase2_published_duration_smoke.json": {
+    "mtime": 1793475707.9980574,
+    "seen": 1793510283.1185527,
+    "ast_hash": "2aac9eb36f8ab74b2ebcfb0fe50fd37c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase2_realtime_smoke.json": {
+    "mtime": 1793475085.9599974,
+    "seen": 1793510283.1185532,
+    "ast_hash": "a3506d64aa7dd7f7df12b830fe3d2184",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase2_results_summary.json": {
+    "mtime": 1793475413.1087055,
+    "seen": 1793510283.1185536,
+    "ast_hash": "c3c3c577a93c724eab0874fc8579fc7b",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase2_scope_check.json": {
+    "mtime": 1793475849.663211,
+    "seen": 1793510283.1185544,
+    "ast_hash": "22884c35501705194013fa40b17928a2",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase2_scorefocus_frequency2_development16.json": {
+    "mtime": 1793474222.4809725,
+    "seen": 1793510283.1185548,
+    "ast_hash": "2ebe4d347992230bf07112fd72257c64",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_019_development_200_seconds.json": {
+    "mtime": 1793491470.090302,
+    "seen": 1793510283.1185553,
+    "ast_hash": "dd17b516f3d93bd819b1101f525247f4",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_020_development_200_seconds.json": {
+    "mtime": 1793492116.9178262,
+    "seen": 1793510283.1185563,
+    "ast_hash": "a3df5f5b888fe3bee8f0fe897f7c0646",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_021_development_batch_1.json": {
+    "mtime": 1793492315.3992813,
+    "seen": 1793510283.1185567,
+    "ast_hash": "fc8abfff6a7766852ac988c4afb0d77c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_blend_025_screen.json": {
+    "mtime": 1793493146.2021165,
+    "seen": 1793510283.1185572,
+    "ast_hash": "a7e9cf915d50c70e9b6fe1603d57adf6",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_blend_050_screen.json": {
+    "mtime": 1793493137.2372549,
+    "seen": 1793510283.118558,
+    "ast_hash": "15cc8a5e5e4e3a93b219784b527adc91",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_blend_075_screen.json": {
+    "mtime": 1793493145.8750782,
+    "seen": 1793510283.1185586,
+    "ast_hash": "1b496ba3398c07220225fc7094cdb08c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_blend_broader_200_seconds.json": {
+    "mtime": 1793493470.7886865,
+    "seen": 1793510283.1185591,
+    "ast_hash": "9f6af4cb5fa6893aea4d2ceb324b2c32",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_blend_broader_batch_1.json": {
+    "mtime": 1793493439.143857,
+    "seen": 1793510283.11856,
+    "ast_hash": "aff18decb1ec8dceabf5dfa36ca6c3f8",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_blend_broader_batch_2.json": {
+    "mtime": 1793493399.3329751,
+    "seen": 1793510283.1185608,
+    "ast_hash": "e2afe146ca1815084ce81102a39e217a",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_blend_broader_batch_3.json": {
+    "mtime": 1793493419.968356,
+    "seen": 1793510283.1185687,
+    "ast_hash": "1da0b66253322dcfb3ea9bf954e6103c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_blend_broader_batch_4.json": {
+    "mtime": 1793493434.7554793,
+    "seen": 1793510283.1185694,
+    "ast_hash": "e8ad63154e9de1275327bc924dc16ba4",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_blend_broader_summary.json": {
+    "mtime": 1793493470.790339,
+    "seen": 1793510283.1185703,
+    "ast_hash": "84bb8a47aeabdc6b828be46a595e9741",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_blend_candidate_selection.json": {
+    "mtime": 1793493512.5895853,
+    "seen": 1793510283.118571,
+    "ast_hash": "84d23586ac69ba62cba786029d328f3a",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_blend_development_baseline.json": {
+    "mtime": 1793492984.9812894,
+    "seen": 1793510283.1185718,
+    "ast_hash": "bf23f7a7cbe4bb6a1345310920d8f294",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_blend_heldout_400_seconds.json": {
+    "mtime": 1793493914.5336072,
+    "seen": 1793510283.1185722,
+    "ast_hash": "83cfb480d76e71e8f181d07ea46b5037",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_blend_heldout_batch_1.json": {
+    "mtime": 1793493731.8275104,
+    "seen": 1793510283.118573,
+    "ast_hash": "3aedc58bd5bf49ba7d4e7db3f6b4fe78",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_blend_heldout_batch_2.json": {
+    "mtime": 1793493822.7677143,
+    "seen": 1793510283.1185737,
+    "ast_hash": "35a7362cf065f7eca022bdd3eca4af32",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_blend_heldout_batch_3.json": {
+    "mtime": 1793493876.8510547,
+    "seen": 1793510283.1185744,
+    "ast_hash": "fe3207d78b110a2e6bed138c2edda537",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_blend_heldout_batch_4.json": {
+    "mtime": 1793493744.4519403,
+    "seen": 1793510283.1185749,
+    "ast_hash": "bac95f69dabf482a224f20be9c443fd0",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_blend_model_checks.json": {
+    "mtime": 1793494083.7282884,
+    "seen": 1793510283.1185756,
+    "ast_hash": "d57cf3359787995c84cfd59e1cd2864c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_blend_protocol.json": {
+    "mtime": 1793492984.969057,
+    "seen": 1793510283.118576,
+    "ast_hash": "2c49b72c92715a533455fdd745f46c1a",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_blend_results_summary.json": {
+    "mtime": 1793493914.5348296,
+    "seen": 1793510283.118577,
+    "ast_hash": "d68d6ea6c8488491411638b557734552",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_blend_screening_summary.json": {
+    "mtime": 1793493173.645657,
+    "seen": 1793510283.1185775,
+    "ast_hash": "862d19fd98b93c96bc20414405341b1d",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_candidate_selection.json": {
+    "mtime": 1793492264.5226328,
+    "seen": 1793510283.1185782,
+    "ast_hash": "48c06c62c6969b87f49100f0253f2193",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_development_comparison.json": {
+    "mtime": 1793492158.0508947,
+    "seen": 1793510283.1185787,
+    "ast_hash": "f368d09ae9ae7a4533e12841f534d0f7",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_final_decision.json": {
+    "mtime": 1793494083.7292976,
+    "seen": 1793510283.1185794,
+    "ast_hash": "cfbcbbde14ebc1883dde623e89c53a30",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_heldout_400_seconds.json": {
+    "mtime": 1793492727.384343,
+    "seen": 1793510283.1185799,
+    "ast_hash": "0b524c137bc5fe3699898a9ba0bc7168",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_heldout_batch_1.json": {
+    "mtime": 1793492560.0107694,
+    "seen": 1793510283.1185808,
+    "ast_hash": "b3c19e916decc520a625f7f993ce9b20",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_heldout_batch_2.json": {
+    "mtime": 1793492588.8077495,
+    "seen": 1793510283.1185815,
+    "ast_hash": "9f13fd628069ecac3e4f2922d3c33bdd",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_heldout_batch_3.json": {
+    "mtime": 1793492629.6592033,
+    "seen": 1793510283.118582,
+    "ast_hash": "e3ba11c4bdb4d636869d7fd33ef04089",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_heldout_batch_4.json": {
+    "mtime": 1793492574.0933402,
+    "seen": 1793510283.1185827,
+    "ast_hash": "ad0019de79ee021696c3f207b0212540",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_model_checks.json": {
+    "mtime": 1793493065.320579,
+    "seen": 1793510283.1185834,
+    "ast_hash": "dfe82a1caa22e8819636243399c2df15",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_protocol.json": {
+    "mtime": 1793490132.19708,
+    "seen": 1793510283.1185844,
+    "ast_hash": "84d3cd2adda0286c42c9c32514c74987",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_results_summary.json": {
+    "mtime": 1793492727.3853428,
+    "seen": 1793510283.1185849,
+    "ast_hash": "00647db1c9f93f3e96b6f89ec120f22f",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_scope_check.json": {
+    "mtime": 1793494261.8805635,
+    "seen": 1793510283.1185856,
+    "ast_hash": "d182767097b73d6af6df82e0123eb6f6",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/play.py": {
+    "mtime": 1793473707.4616187,
+    "seen": 1793510283.118586,
+    "ast_hash": "fe7abb1969e74d7fb8ad4463c85daf4a",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/probe_full_sampled.json": {
+    "mtime": 1793464098.4567032,
+    "seen": 1793510283.1185868,
+    "ast_hash": "5de1d0673722d17d0cef77acae8a3a8c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/probe_range_greedy.json": {
+    "mtime": 1793463996.9166234,
+    "seen": 1793510283.1185875,
+    "ast_hash": "eae844aec6cef846b75263ccd8f2acf4",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/probe_range_sampled.json": {
+    "mtime": 1793463998.4096458,
+    "seen": 1793510283.1185884,
+    "ast_hash": "57dcd121b0964012317edc73df66a532",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/pure_ppo_heldout.json": {
+    "mtime": 1793456177.4149148,
+    "seen": 1793510283.1185892,
+    "ast_hash": "6222b8031c518303b4e48aed9607703e",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/pure_ppo_model.json": {
+    "mtime": 1793475413.9104884,
+    "seen": 1793510283.1185896,
+    "ast_hash": "a3b4e32cb0e7cda9109fc427bf5004f4",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/pure_ppo_model_before_improvement.json": {
+    "mtime": 1793469115.2057056,
+    "seen": 1793510283.11859,
+    "ast_hash": "fe8216f00b76437537ee8580c460b277",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/pure_ppo_model_before_phase2.json": {
+    "mtime": 1793475413.9002848,
+    "seen": 1793510283.118591,
+    "ast_hash": "2887935ac5563fe9060f6c3ef7d85da3",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/pure_ppo_model_before_phase3.json": {
+    "mtime": 1793490132.198082,
+    "seen": 1793510283.1185918,
+    "ast_hash": "d74a3251f8fbfad4fd24f596ac25fbc8",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/research_check.py": {
+    "mtime": 1793490737.0369544,
+    "seen": 1793510283.1185923,
+    "ast_hash": "7008747f97bae5d4d1dc8542c6d40477",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/results_summary.json": {
+    "mtime": 1793469114.6206417,
+    "seen": 1793510283.118593,
+    "ast_hash": "2b321c939a1246c667d0f0b8170232fc",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/reward_benchmark.json": {
+    "mtime": 1793461331.7854848,
+    "seen": 1793510283.1185937,
+    "ast_hash": "ffd549c544ba702bfcc8abec3898eb78",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/scope_check.json": {
+    "mtime": 1793469231.0225167,
+    "seen": 1793510283.1185946,
+    "ast_hash": "753ae84cc046715edb7bb749c4c07175",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/score_reward.py": {
+    "mtime": 1793490737.0349526,
+    "seen": 1793510283.1185954,
+    "ast_hash": "e34d3690c69fc10842397ff4cbba71e7",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/shared_source_manifest.json": {
+    "mtime": 1793448406.5468044,
+    "seen": 1793510283.118596,
+    "ast_hash": "f6543f985e1fdee90d58e41e73b48350",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/train.py": {
+    "mtime": 1793473767.2517686,
+    "seen": 1793510283.1185966,
+    "ast_hash": "441a54cad713c91ed4cecd811689f731",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/validation_400_seconds.json": {
+    "mtime": 1793468574.8880796,
+    "seen": 1793510283.1185973,
+    "ast_hash": "ba0a30605e38ba58dbd013e78a73c6c8",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_006_full/frames.json": {
+    "mtime": 1793459313.154244,
+    "seen": 1793510283.118598,
+    "ast_hash": "2df92d124797149f439fbb7f2a4f62e2",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_final_validation/frames.json": {
+    "mtime": 1793468532.8776708,
+    "seen": 1793510283.118599,
+    "ast_hash": "58f1a34c9b96ad240eacf3616907dace",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_phase2_seed505/frames.json": {
+    "mtime": 1793471765.7525709,
+    "seen": 1793510283.1185994,
+    "ast_hash": "65085f8a327f3b4705d13536e40990dc",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_phase2_selected_seed505/frames.json": {
+    "mtime": 1793475114.3895473,
+    "seen": 1793510283.1186001,
+    "ast_hash": "7caf246dfa5672ad4aae85e0a3f0285c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_phase3_blend050_seed505/frames.json": {
+    "mtime": 1793493846.7625203,
+    "seen": 1793510283.1186006,
+    "ast_hash": "1cc7b6e30177369f1a8c2178d45ef99d",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_phase3_selected_seed505/frames.json": {
+    "mtime": 1793492673.8976772,
+    "seen": 1793510283.1186016,
+    "ast_hash": "118c248c884ae2c138bc2e01361ce85e",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/001_broader_development.json": {
+    "mtime": 1793503182.447178,
+    "seen": 1793510283.118602,
+    "ast_hash": "96b638eebf20318f2624eb88147dd635",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/001_broader_development_comparison.json": {
+    "mtime": 1793503437.6730363,
+    "seen": 1793510283.1186028,
+    "ast_hash": "a8ea8d647f1334582adff2caac5663a2",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/002_400k_broader_development.json": {
+    "mtime": 1793503415.163174,
+    "seen": 1793510283.1186035,
+    "ast_hash": "f079d8f962674ba974067813dfbdc8ef",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/002_400k_broader_development_comparison.json": {
+    "mtime": 1793503437.69421,
+    "seen": 1793510283.1186042,
+    "ast_hash": "bf60ec065c56cea8be6e0afec63ddea1",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/002_500k_broader_development.json": {
+    "mtime": 1793503772.9875648,
+    "seen": 1793510283.118605,
+    "ast_hash": "925f9f1c82bef2087d3916f1fbeb967d",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/002_500k_broader_development_comparison.json": {
+    "mtime": 1793503817.732705,
+    "seen": 1793510283.1186059,
+    "ast_hash": "bfb74e309068becb35cf1a76e3cb829d",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/003_400k_broader_development.json": {
+    "mtime": 1793504317.3313522,
+    "seen": 1793510283.1186066,
+    "ast_hash": "26bac91dd8c927d5b4b2f03cd9efc112",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/003_400k_broader_development_comparison.json": {
+    "mtime": 1793504317.3379576,
+    "seen": 1793510283.118607,
+    "ast_hash": "b01217c80784f5031ee3d2002aa9f1c9",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/003_400k_extra_development.json": {
+    "mtime": 1793504312.623001,
+    "seen": 1793510283.1186075,
+    "ast_hash": "50b9cc3038726ec2cd626f88ea541c75",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/003_400k_sampled_development_retry.json": {
+    "mtime": 1793504991.0230222,
+    "seen": 1793510283.1186085,
+    "ast_hash": "7cab09125592df7283f03615bd29168c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/003_500k_broader_development.json": {
+    "mtime": 1793504629.781182,
+    "seen": 1793510283.118609,
+    "ast_hash": "938bfe82d09433c9aafae2f3b05855a9",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/003_500k_broader_development_comparison.json": {
+    "mtime": 1793504629.7862172,
+    "seen": 1793510283.1186097,
+    "ast_hash": "e0b281278c94b617a3927df313168d40",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/003_500k_extra_development.json": {
+    "mtime": 1793504626.0355208,
+    "seen": 1793510283.1186101,
+    "ast_hash": "25bb5c627317b4c9b6deb0c98706b5af",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/003_600k_broader_development.json": {
+    "mtime": 1793505469.318396,
+    "seen": 1793510283.1186109,
+    "ast_hash": "3f3e71091b2c25cbe24687df711ddc56",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/003_600k_broader_development_comparison.json": {
+    "mtime": 1793505469.3257723,
+    "seen": 1793510283.1186118,
+    "ast_hash": "4be6707cc900a9e01a43352c0b66b656",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/003_600k_extra_development.json": {
+    "mtime": 1793505154.7927601,
+    "seen": 1793510283.1186123,
+    "ast_hash": "f06232a9997b0a106d9faad114ee1b97",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/003_600k_sampled_development.json": {
+    "mtime": 1793505463.8883934,
+    "seen": 1793510283.1186128,
+    "ast_hash": "16430264d247bd0f3bd6f308c645009d",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/003_700k_broader_development.json": {
+    "mtime": 1793505643.857214,
+    "seen": 1793510283.1186135,
+    "ast_hash": "0412f05e1c86465b289cdaa234b99cea",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/003_700k_broader_development_comparison.json": {
+    "mtime": 1793505643.8639078,
+    "seen": 1793510283.118614,
+    "ast_hash": "56149d656f02cef8eaf819db30aa88f0",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/003_700k_extra_development.json": {
+    "mtime": 1793505638.4704633,
+    "seen": 1793510283.1186147,
+    "ast_hash": "c3f97f7884c7782c50a7736f923debb1",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/003_800k_broader_development.json": {
+    "mtime": 1793505907.5421557,
+    "seen": 1793510283.1186154,
+    "ast_hash": "4a70918906a6d778169b52add46839aa",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/003_800k_broader_development_comparison.json": {
+    "mtime": 1793505907.5491743,
+    "seen": 1793510283.1186159,
+    "ast_hash": "681a3faf59da869c11a94f048b0dc365",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/003_800k_development_400_seconds.json": {
+    "mtime": 1793507054.7161806,
+    "seen": 1793510283.1186166,
+    "ast_hash": "7b9d159d5be67fe3e9917285d0bb9933",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/003_800k_extra_development.json": {
+    "mtime": 1793505901.6154315,
+    "seen": 1793510283.1186173,
+    "ast_hash": "3969ebf9cb94ad39c2c197174aaf0466",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/003_800k_sampled_development.json": {
+    "mtime": 1793506263.3527546,
+    "seen": 1793510283.1186178,
+    "ast_hash": "e09a56f076cfd6d60d99adaa8b1e18f0",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/003_800k_sampled_development_comparison.json": {
+    "mtime": 1793506403.4917684,
+    "seen": 1793510283.1186182,
+    "ast_hash": "db5a2afcdfe7b9a3fb02e16f25d3aaf2",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/003_frozen_aim_check.json": {
+    "mtime": 1793504281.9737766,
+    "seen": 1793510283.118619,
+    "ast_hash": "395fd627533f0e6f1e1815e491effa1f",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/004_1000k_broader_development.json": {
+    "mtime": 1793507203.5687509,
+    "seen": 1793510283.1186194,
+    "ast_hash": "6e44cfb1d5de36e6e2ad7763f09cb611",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/004_1000k_broader_development_comparison.json": {
+    "mtime": 1793507203.5803137,
+    "seen": 1793510283.1186202,
+    "ast_hash": "d4c0297c6a6dff8d4ff2dcf1e31856b5",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/004_1000k_extra_development.json": {
+    "mtime": 1793507197.967422,
+    "seen": 1793510283.1186206,
+    "ast_hash": "410dea5a2280384d00af6414cc3d057c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/004_1100k_broader_development.json": {
+    "mtime": 1793507490.8594232,
+    "seen": 1793510283.1186213,
+    "ast_hash": "3aef96cf8ea06b7649f6b55ecd4d5317",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/004_1100k_broader_development_comparison.json": {
+    "mtime": 1793507490.8654668,
+    "seen": 1793510283.1186223,
+    "ast_hash": "dc621fb4797502129d9b3b2d8458628d",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/004_1100k_extra_development.json": {
+    "mtime": 1793507470.5583534,
+    "seen": 1793510283.1186228,
+    "ast_hash": "36582fd3c46e919ace445db1c00e6aee",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/004_1200k_broader_development.json": {
+    "mtime": 1793507898.6022997,
+    "seen": 1793510283.1186235,
+    "ast_hash": "d39084bc2c7550c39b767d5873f4d43a",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/004_1200k_broader_development_comparison.json": {
+    "mtime": 1793507898.6123412,
+    "seen": 1793510283.1186242,
+    "ast_hash": "eb85a46d9eddb51ed3c820cc0786cd11",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/004_1200k_extra_development.json": {
+    "mtime": 1793507892.4583669,
+    "seen": 1793510283.118625,
+    "ast_hash": "4ef080eb7d67fd735bc39f5fb863808b",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/004_1300k_broader_development.json": {
+    "mtime": 1793508414.6090634,
+    "seen": 1793510283.1186256,
+    "ast_hash": "4a5716f6c47996e42077079140c696f7",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/004_1300k_broader_development_comparison.json": {
+    "mtime": 1793508414.6166532,
+    "seen": 1793510283.1186264,
+    "ast_hash": "481a1b34d9a7b807b73b224f067073bc",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/004_1300k_extra_development.json": {
+    "mtime": 1793508408.4465406,
+    "seen": 1793510283.118627,
+    "ast_hash": "b524911fb09f69d7d53d0df6c2db93a8",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/004_900k_broader_development.json": {
+    "mtime": 1793506588.7186213,
+    "seen": 1793510283.1186275,
+    "ast_hash": "b55b71e4af63539929451b0a4d4d0e7f",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/004_900k_broader_development_comparison.json": {
+    "mtime": 1793506588.727234,
+    "seen": 1793510283.1186283,
+    "ast_hash": "fba142f6f7e1a3e3d5a576874c1384d0",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/004_900k_extra_development.json": {
+    "mtime": 1793506553.4743106,
+    "seen": 1793510283.1186292,
+    "ast_hash": "d8a6e1cff4350336ebc4cb91e7d49c22",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/004_completion_recovery.json": {
+    "mtime": 1793508462.536263,
+    "seen": 1793510283.11863,
+    "ast_hash": "68819b3e7c80f0c955587caaebbc445b",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/005_1000k_broader_development.json": {
+    "mtime": 1793509219.9220507,
+    "seen": 1793510283.1186304,
+    "ast_hash": "961260fb333da8dd17a390e9f6ed9440",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/005_1000k_broader_development_comparison.json": {
+    "mtime": 1793509219.9293582,
+    "seen": 1793510283.1186311,
+    "ast_hash": "35c39986d0c403105fe1e0b0a7a26133",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/005_1000k_extra_development.json": {
+    "mtime": 1793509215.0881453,
+    "seen": 1793510283.1186316,
+    "ast_hash": "ad760bdf366adc8cd3e0ab4dc861c48a",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/005_1100k_broader_development.json": {
+    "mtime": 1793509509.8694422,
+    "seen": 1793510283.1186326,
+    "ast_hash": "7233ce93dfec08978db66d50086bbcc8",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/005_1100k_broader_development_comparison.json": {
+    "mtime": 1793509509.8749547,
+    "seen": 1793510283.1186333,
+    "ast_hash": "5cb15b3aa44e007b456df409eddbba7c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/005_1100k_extra_development.json": {
+    "mtime": 1793509495.2813928,
+    "seen": 1793510283.1186337,
+    "ast_hash": "548809899d12ec3a71341eafe2c71ae7",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/005_1200k_broader_development.json": {
+    "mtime": 1793509837.2159255,
+    "seen": 1793510283.1186345,
+    "ast_hash": "37b107aeb0e799609980d2d828ae4427",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/005_1200k_broader_development_comparison.json": {
+    "mtime": 1793509837.2202375,
+    "seen": 1793510283.118635,
+    "ast_hash": "984940734e618a1741b2864cbe0220a1",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/005_1200k_extra_development.json": {
+    "mtime": 1793509817.4021533,
+    "seen": 1793510283.1186354,
+    "ast_hash": "28dc1c527e7d986a7d094918107700b4",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/005_1300k_broader_development.json": {
+    "mtime": 1793510156.5578854,
+    "seen": 1793510283.1186361,
+    "ast_hash": "91939921dc253cca5b24e3711014a71f",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/005_1300k_broader_development_comparison.json": {
+    "mtime": 1793510156.5652287,
+    "seen": 1793510283.1186368,
+    "ast_hash": "e744c9e014426d1c6b6541e3ca2c2bf1",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/005_1300k_extra_development.json": {
+    "mtime": 1793510151.508995,
+    "seen": 1793510283.1186376,
+    "ast_hash": "ecca77bd79cc4ba03cdf47ddaeea2644",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/005_900k_broader_development.json": {
+    "mtime": 1793508924.4238498,
+    "seen": 1793510283.118638,
+    "ast_hash": "fcaf349fa7baabb2204c7df1ca2a98da",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/005_900k_broader_development_comparison.json": {
+    "mtime": 1793508924.42685,
+    "seen": 1793510283.1186388,
+    "ast_hash": "0cede649fd05f634d8d8af9990c14bdc",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/005_900k_extra_development.json": {
+    "mtime": 1793508912.3274088,
+    "seen": 1793510283.1186397,
+    "ast_hash": "202bdc4210f5e19e94d42313658f07bb",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/005_frozen_body_check.json": {
+    "mtime": 1793508919.7585998,
+    "seen": 1793510283.1186402,
+    "ast_hash": "82e798d0f179ff0495b95cbc69d75d38",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/baseline_development.json": {
+    "mtime": 1793502366.2130888,
+    "seen": 1793510283.1186407,
+    "ast_hash": "491deb5c8f14303eb1d480191206eb2a",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/candidate_selection.json": {
+    "mtime": 1793510170.3135102,
+    "seen": 1793510283.1186414,
+    "ast_hash": "93dc1c4ac242264c6211ad4da4dbb74f",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/check.py": {
+    "mtime": 1793513190.9476833,
+    "seen": 1793513368.160871,
+    "ast_hash": "f35320d5e4360a3abbf3828dc5841563",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/checks/action_schema_validation.json": {
+    "mtime": 1793509826.3403378,
+    "seen": 1793510283.1186428,
+    "ast_hash": "ced1be9292f28d80eeb4fc6528445f7e",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/checks/native_process_exit.json": {
+    "mtime": 1793508462.468058,
+    "seen": 1793510283.1186433,
+    "ast_hash": "bed4dba1c773c0f1ac56b261a8a8c645",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/checks/replay_and_scope.json": {
+    "mtime": 1793506409.5182457,
+    "seen": 1793510283.118644,
+    "ast_hash": "a92f8822d360a90bac97d88c4728d297",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/checks/results.json": {
+    "mtime": 1793513224.1830695,
+    "seen": 1793513368.160879,
+    "ast_hash": "181e19c04402488e0368ca7665eaa3f7",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/cpu_thread_benchmark.json": {
+    "mtime": 1793504080.1817918,
+    "seen": 1793510283.1186454,
+    "ast_hash": "6a078d60d2ec4f9f9721991456fc2580",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/environment.py": {
+    "mtime": 1793509360.456939,
+    "seen": 1793510283.1186464,
+    "ast_hash": "51a242a0ffa62883ad552ce5d36ce5b3",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/evaluate.py": {
+    "mtime": 1793512145.7736406,
+    "seen": 1793513368.1608891,
+    "ast_hash": "b357d8448c22984c4d9c00391bc7b5b0",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/experiments/001_aim_adaptation/experiment.json": {
+    "mtime": 1793502939.155547,
+    "seen": 1793510283.1186473,
+    "ast_hash": "02233e3f792d2c930d8860324c2d4d7b",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/experiments/002_full_adaptation/experiment.json": {
+    "mtime": 1793503679.5797591,
+    "seen": 1793510283.118648,
+    "ast_hash": "c1d9fb8f1347389092e2005c563d8578",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/experiments/003_body_stability/experiment.json": {
+    "mtime": 1793505887.147568,
+    "seen": 1793510283.1186485,
+    "ast_hash": "fdcd2d3f12577ce2dcf74fa20f7ef527",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/experiments/004_body_continuation/experiment.json": {
+    "mtime": 1793508327.0264838,
+    "seen": 1793510283.1186492,
+    "ast_hash": "ea28013feacecc11762360496599fab9",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/experiments/005_aim_precision/experiment.json": {
+    "mtime": 1793510136.0422542,
+    "seen": 1793510283.1186502,
+    "ast_hash": "10fbf45c5f96cb4bdcf1980fd0417462",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/extra_validation.ps1": {
+    "mtime": 1793506060.762658,
+    "seen": 1793510283.1186507,
+    "ast_hash": "178a5e5df3776df20a3588e5938ba3cd",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/finish_study.ps1": {
+    "mtime": 1793508948.1676872,
+    "seen": 1793510283.1186512,
+    "ast_hash": "cfdd81535f21a59745e882235a7fe4d7",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/heldout_baseline.json": {
+    "mtime": 1793503052.178212,
+    "seen": 1793510283.1186519,
+    "ast_hash": "f298e51b455f11563ba8511eaa0b1921",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/phase004_parent_selection.json": {
+    "mtime": 1793506018.6285698,
+    "seen": 1793510283.1186523,
+    "ast_hash": "a2a100f1f8b92f9c5ed0b0fc621d30fd",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/phase005_parent_selection.json": {
+    "mtime": 1793508464.3466964,
+    "seen": 1793510283.1186533,
+    "ast_hash": "3fe49127dfe46e3c13ab2efc24ac568c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/play.py": {
+    "mtime": 1793512437.7837782,
+    "seen": 1793513368.1609128,
+    "ast_hash": "04c6c1a23242823a805aa6f44bc60437",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/policy.py": {
+    "mtime": 1793509800.082134,
+    "seen": 1793510283.118655,
+    "ast_hash": "2a02f7900caf2e2beaa10f2990931677",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/process_limit_incident.json": {
+    "mtime": 1793505264.751999,
+    "seen": 1793510283.1186554,
+    "ast_hash": "bca74db8c4c07ddd16d4f61a0ad2ec62",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/process_slot.ps1": {
+    "mtime": 1793508458.0631044,
+    "seen": 1793510283.1186562,
+    "ast_hash": "fe675cd25d50dead2afaabb68dcc0f1b",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/protocol.json": {
+    "mtime": 1793505264.7505982,
+    "seen": 1793510283.118657,
+    "ast_hash": "187832d3c0c36a67222aa09ee5111880",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/report.py": {
+    "mtime": 1793513190.947169,
+    "seen": 1793513368.160918,
+    "ast_hash": "2184a846a53f6d79497fefe5c90b2401",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/run_final_block.ps1": {
+    "mtime": 1793508022.4441879,
+    "seen": 1793510283.1186583,
+    "ast_hash": "776028e061ae8f34274cf82b150aca9f",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/scope_before.json": {
+    "mtime": 1793502021.6421432,
+    "seen": 1793510283.1186588,
+    "ast_hash": "3ce6fa1fecd5965a1211a9d341f1233c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/scope_mid_check.json": {
+    "mtime": 1793503817.754361,
+    "seen": 1793510283.1186595,
+    "ast_hash": "1eb4f28c0b8840cb7dcf86e98307a2a3",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/select_model.py": {
+    "mtime": 1793509069.2301643,
+    "seen": 1793510283.1186607,
+    "ast_hash": "160f07bf55a54c815ae538abfafe44ff",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/selected_model.json": {
+    "mtime": 1793513327.2305098,
+    "seen": 1793513368.1609244,
+    "ast_hash": "21067a09a606aa8d3b91f65482fc0d8c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/train.py": {
+    "mtime": 1793505925.417549,
+    "seen": 1793510283.1186619,
+    "ast_hash": "005624ee6636b565ee63abaa6f8d01e8",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/versions.json": {
+    "mtime": 1793506409.5202417,
+    "seen": 1793510283.1186624,
+    "ast_hash": "9a9b330c399899e5954a7a98bf2d1373",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/visual_001_seed505/frames.json": {
+    "mtime": 1793503251.5969293,
+    "seen": 1793510283.118663,
+    "ast_hash": "ec38fca9448e56775978fce633361af0",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/visual_003_500k_seed45506/frames.json": {
+    "mtime": 1793505176.263736,
+    "seen": 1793510283.1186638,
+    "ast_hash": "588dd35ee3b2192446b31446ed5303ab",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/EXPERIMENTS.md": {
+    "mtime": 1793456226.1556325,
+    "seen": 1793510283.118753,
+    "ast_hash": "67c6b2f3890de76621061ff21048e7e2",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/README.md": {
+    "mtime": 1793494145.270964,
+    "seen": 1793510283.118754,
+    "ast_hash": "a8e25d965fc2510dcbf87c8e97e2917b",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/RESEARCH.md": {
+    "mtime": 1793475701.6610608,
+    "seen": 1793510283.1187546,
+    "ast_hash": "50cbf58772538ec109522e7d61139373",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/RESEARCH_PHASE2.md": {
+    "mtime": 1793475849.663211,
+    "seen": 1793510283.1187553,
+    "ast_hash": "9b905dc61828304069444ebcdbb7620c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/RESEARCH_PHASE3.md": {
+    "mtime": 1793494276.357927,
+    "seen": 1793510283.1187558,
+    "ast_hash": "d37d5bbeeb32c433f6ec5f557fd40632",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/RESULTS.md": {
+    "mtime": 1793475701.6596818,
+    "seen": 1793510283.1187565,
+    "ast_hash": "d907d788008de68a50c9ba7e49cf4836",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/RESULTS_PHASE2.md": {
+    "mtime": 1793475555.5251975,
+    "seen": 1793510283.118757,
+    "ast_hash": "19db26f3e0c11ed7eac9aff1f4bc8be5",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/RESULTS_PHASE3.md": {
+    "mtime": 1793494145.2689605,
+    "seen": 1793510283.1187577,
+    "ast_hash": "5254ecdad95c1229c98e13abefc108b1",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/environment.lock.txt": {
+    "mtime": 1793447801.5986106,
+    "seen": 1793510283.1187582,
+    "ast_hash": "be34045df80e6cd1dac3744aad450c4f",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_019_development_exit_code.txt": {
+    "mtime": 1793491470.8296688,
+    "seen": 1793510283.118759,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_019_exit_code.txt": {
+    "mtime": 1793490879.838467,
+    "seen": 1793510283.1187596,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_020_development_exit_code.txt": {
+    "mtime": 1793492117.6221168,
+    "seen": 1793510283.11876,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_020_exit_code.txt": {
+    "mtime": 1793491619.4856708,
+    "seen": 1793510283.118761,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_021_development_batch_1_exit_code.txt": {
+    "mtime": 1793492315.9308774,
+    "seen": 1793510283.1187615,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_021_exit_code.txt": {
+    "mtime": 1793492166.783413,
+    "seen": 1793510283.118762,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_blend_025_screen_exit_code.txt": {
+    "mtime": 1793493146.91035,
+    "seen": 1793510283.1187625,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_blend_050_screen_exit_code.txt": {
+    "mtime": 1793493137.7544947,
+    "seen": 1793510283.1187632,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_blend_075_screen_exit_code.txt": {
+    "mtime": 1793493146.4153118,
+    "seen": 1793510283.1187637,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_blend_broader_batch_1_exit_code.txt": {
+    "mtime": 1793493439.8472147,
+    "seen": 1793510283.1187646,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_blend_broader_batch_2_exit_code.txt": {
+    "mtime": 1793493399.9139585,
+    "seen": 1793510283.118765,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_blend_broader_batch_3_exit_code.txt": {
+    "mtime": 1793493420.5590796,
+    "seen": 1793510283.1187658,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_blend_broader_batch_4_exit_code.txt": {
+    "mtime": 1793493435.3144312,
+    "seen": 1793510283.1187663,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_blend_capture_exit_code.txt": {
+    "mtime": 1793493847.3816226,
+    "seen": 1793510283.118767,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_blend_creation_exit_code.txt": {
+    "mtime": 1793492938.78483,
+    "seen": 1793510283.1187675,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_blend_heldout_batch_1_exit_code.txt": {
+    "mtime": 1793493732.436085,
+    "seen": 1793510283.1187685,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_blend_heldout_batch_2_exit_code.txt": {
+    "mtime": 1793493823.393193,
+    "seen": 1793510283.118769,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_blend_heldout_batch_3_exit_code.txt": {
+    "mtime": 1793493877.5676334,
+    "seen": 1793510283.1187696,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_blend_heldout_batch_4_exit_code.txt": {
+    "mtime": 1793493745.0083883,
+    "seen": 1793510283.1187704,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_capture_exit_code.txt": {
+    "mtime": 1793492674.6704128,
+    "seen": 1793510283.1187708,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_heldout_batch_1_exit_code.txt": {
+    "mtime": 1793492560.5783572,
+    "seen": 1793510283.1187718,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_heldout_batch_2_exit_code.txt": {
+    "mtime": 1793492589.3446705,
+    "seen": 1793510283.1187723,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_heldout_batch_3_exit_code.txt": {
+    "mtime": 1793492630.2944906,
+    "seen": 1793510283.1187727,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_heldout_batch_4_exit_code.txt": {
+    "mtime": 1793492574.6521935,
+    "seen": 1793510283.1187735,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_research_checks_exit_code.txt": {
+    "mtime": 1793490963.6974132,
+    "seen": 1793510283.118774,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/001_broader_development_exit_code.txt": {
+    "mtime": 1793503183.0020835,
+    "seen": 1793510283.118775,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/001_exit_code.txt": {
+    "mtime": 1793502939.8812432,
+    "seen": 1793510283.1187754,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/002_400k_broader_development_exit_code.txt": {
+    "mtime": 1793503415.754397,
+    "seen": 1793510283.118776,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/002_500k_broader_development_exit_code.txt": {
+    "mtime": 1793503773.6434095,
+    "seen": 1793510283.1187768,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/002_exit_code.txt": {
+    "mtime": 1793503680.3170712,
+    "seen": 1793510283.1187775,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/003_400k_sampled_development_exit_code.txt": {
+    "mtime": 1793504595.4482982,
+    "seen": 1793510283.1187782,
+    "ast_hash": "aa4367f1fe496fd3c34d87d036a83e8e",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/003_400k_sampled_development_retry_exit_code.txt": {
+    "mtime": 1793504991.7605379,
+    "seen": 1793510283.1187787,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/003_600k_sampled_development_exit_code.txt": {
+    "mtime": 1793505464.6754873,
+    "seen": 1793510283.1187794,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/003_800k_development_400_seconds_exit_code.txt": {
+    "mtime": 1793507055.3484674,
+    "seen": 1793510283.11878,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/003_800k_sampled_development_exit_code.txt": {
+    "mtime": 1793506264.0619805,
+    "seen": 1793510283.1187804,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/003_exit_code.txt": {
+    "mtime": 1793505887.9136658,
+    "seen": 1793510283.1187809,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/003_extra_validation_exit_code.txt": {
+    "mtime": 1793505907.9597614,
+    "seen": 1793510283.1187818,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/004_exit_code.txt": {
+    "mtime": 1793508462.5343919,
+    "seen": 1793510283.1187823,
+    "ast_hash": "a5ea0ad9260b1550a14cc58d2c39b03d",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/004_extra_validation_exit_code.txt": {
+    "mtime": 1793508415.0447261,
+    "seen": 1793510283.1187828,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/005_exit_code.txt": {
+    "mtime": 1793510136.6456006,
+    "seen": 1793510283.1187835,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/005_extra_validation_exit_code.txt": {
+    "mtime": 1793510157.010239,
+    "seen": 1793510283.1187842,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/005_frozen_body_check_exit_code.txt": {
+    "mtime": 1793508920.2371979,
+    "seen": 1793510283.1187851,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/README.md": {
+    "mtime": 1793513275.5405617,
+    "seen": 1793513368.161098,
+    "ast_hash": "0fabed83ef84a0b0ccdc7d9174481699",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/RESEARCH.md": {
+    "mtime": 1793513322.8068912,
+    "seen": 1793513368.1610992,
+    "ast_hash": "a8dce233eda4bd5e5f4a3c96225d0419",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/baseline_development_exit_code.txt": {
+    "mtime": 1793502366.9754834,
+    "seen": 1793510283.1187868,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/environment.lock.txt": {
+    "mtime": 1793447801.5986106,
+    "seen": 1793510283.1187875,
+    "ast_hash": "be34045df80e6cd1dac3744aad450c4f",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/heldout_baseline_exit_code.txt": {
+    "mtime": 1793503052.8644538,
+    "seen": 1793510283.1187882,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/visual_001_exit_code.txt": {
+    "mtime": 1793503252.221321,
+    "seen": 1793510283.1187892,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/heldout_comparison.png": {
+    "mtime": 1793469115.0543883,
+    "seen": 1793510283.1188805,
+    "ast_hash": "26cb993a724ce040e0751637ef289cb9",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase2_comparison.png": {
+    "mtime": 1793475413.7101386,
+    "seen": 1793510283.118881,
+    "ast_hash": "c7f0e248cbd96559adeb1785b71c35d8",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_blend_comparison.png": {
+    "mtime": 1793494083.5092726,
+    "seen": 1793510283.1188815,
+    "ast_hash": "8580b9f9fe913f95f8fa5913f9fdd58a",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/phase3_comparison.png": {
+    "mtime": 1793493065.18207,
+    "seen": 1793510283.1188824,
+    "ast_hash": "5c69cbc16ffb0fbb68ca21a1306435aa",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_006_full/step_000000.png": {
+    "mtime": 1793459304.71673,
+    "seen": 1793510283.1188831,
+    "ast_hash": "a6493e2136615c6770d8b9d684e0a6f1",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_006_full/step_000300.png": {
+    "mtime": 1793459306.9118896,
+    "seen": 1793510283.1188836,
+    "ast_hash": "ca756b9ade66e515c7af8a4fc7b4fe03",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_006_full/step_000600.png": {
+    "mtime": 1793459309.0677855,
+    "seen": 1793510283.118884,
+    "ast_hash": "b67d93f6595936a448ba4abf6ddf66dc",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_006_full/step_000900.png": {
+    "mtime": 1793459311.5482516,
+    "seen": 1793510283.1188848,
+    "ast_hash": "0d55cc0b8a040bf16266e2aad4653ede",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_006_full/step_001062.png": {
+    "mtime": 1793459313.152736,
+    "seen": 1793510283.1188853,
+    "ast_hash": "4bb9f132753c8ebe2a4a1b9f814d2dc2",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_final_validation/step_000000.png": {
+    "mtime": 1793468506.0937045,
+    "seen": 1793510283.118886,
+    "ast_hash": "84d45f014592a531e36b1bb1f4bf4db3",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_final_validation/step_000750.png": {
+    "mtime": 1793468513.212466,
+    "seen": 1793510283.118887,
+    "ast_hash": "4cb6699ae2c77bf1edc98cf288c7c82a",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_final_validation/step_001500.png": {
+    "mtime": 1793468518.0103748,
+    "seen": 1793510283.1188874,
+    "ast_hash": "ce67517e2d43bb8bed615ee7847d2216",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_final_validation/step_002250.png": {
+    "mtime": 1793468523.1023974,
+    "seen": 1793510283.118888,
+    "ast_hash": "55965943d9fff35a4ab7cbf0b4c5383a",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_final_validation/step_003000.png": {
+    "mtime": 1793468529.2603288,
+    "seen": 1793510283.1188886,
+    "ast_hash": "d4cb6fc938cb22a3ff3556c159c3ef07",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_final_validation/step_003353.png": {
+    "mtime": 1793468532.8766692,
+    "seen": 1793510283.1188896,
+    "ast_hash": "598fc98c7ebe8d9fb329ba04a703f3d8",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_phase2_seed505/step_000000.png": {
+    "mtime": 1793471762.5239255,
+    "seen": 1793510283.11889,
+    "ast_hash": "f634cbcd6bddf7d01863f92663690f8c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_phase2_seed505/step_000090.png": {
+    "mtime": 1793471763.4669251,
+    "seen": 1793510283.1188905,
+    "ast_hash": "63e5f84aca7811ac495817907b54b792",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_phase2_seed505/step_000180.png": {
+    "mtime": 1793471764.1355813,
+    "seen": 1793510283.1188912,
+    "ast_hash": "74d85b8e30d5583ce9e42ece1bdf9f26",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_phase2_seed505/step_000270.png": {
+    "mtime": 1793471764.7231061,
+    "seen": 1793510283.1188917,
+    "ast_hash": "9798d96bf19c4c7d9e857bc72b0baa86",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_phase2_seed505/step_000360.png": {
+    "mtime": 1793471765.3297038,
+    "seen": 1793510283.1188922,
+    "ast_hash": "2a57cbcdea616e7b9d581537b51f0c8b",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_phase2_seed505/step_000395.png": {
+    "mtime": 1793471765.7505739,
+    "seen": 1793510283.1188931,
+    "ast_hash": "393b610d0147878b73875098b911f42e",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_phase2_selected_seed505/step_000000.png": {
+    "mtime": 1793475082.59234,
+    "seen": 1793510283.1188939,
+    "ast_hash": "f634cbcd6bddf7d01863f92663690f8c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_phase2_selected_seed505/step_000360.png": {
+    "mtime": 1793475084.0737746,
+    "seen": 1793510283.1188943,
+    "ast_hash": "d72f65e71afeab65286e4b1c1b602124",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_phase2_selected_seed505/step_000720.png": {
+    "mtime": 1793475085.5564222,
+    "seen": 1793510283.1188948,
+    "ast_hash": "6b7fb5d410e31e946e58a1aef67a7c93",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_phase2_selected_seed505/step_001080.png": {
+    "mtime": 1793475086.9767976,
+    "seen": 1793510283.1188955,
+    "ast_hash": "0143e0932f273f50532d3cd893faadcf",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_phase2_selected_seed505/step_001440.png": {
+    "mtime": 1793475088.683613,
+    "seen": 1793510283.1188962,
+    "ast_hash": "5af009d03c4383e0c88e77c994ab96a4",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_phase2_selected_seed505/step_001800.png": {
+    "mtime": 1793475090.700046,
+    "seen": 1793510283.1188967,
+    "ast_hash": "e80f724fa04d017fdc8e5e7a6e3aac3e",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_phase2_selected_seed505/step_002160.png": {
+    "mtime": 1793475092.4137657,
+    "seen": 1793510283.1188974,
+    "ast_hash": "54ff6fdbca7133672dd781b816d8f615",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_phase2_selected_seed505/step_002520.png": {
+    "mtime": 1793475094.1848466,
+    "seen": 1793510283.118898,
+    "ast_hash": "9b23738ee4cb89601710fb9efa07d8ab",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_phase2_selected_seed505/step_002880.png": {
+    "mtime": 1793475096.5057733,
+    "seen": 1793510283.1188986,
+    "ast_hash": "452ea2821488dc5fd4b173d0a7dc2eb6",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_phase2_selected_seed505/step_003240.png": {
+    "mtime": 1793475098.2344832,
+    "seen": 1793510283.118899,
+    "ast_hash": "bdf9a122093648a9a765ca389613f57b",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_phase2_selected_seed505/step_003600.png": {
+    "mtime": 1793475100.1134431,
+    "seen": 1793510283.1188998,
+    "ast_hash": "07a29a00759f551cee9677d83182a3ea",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_phase2_selected_seed505/step_003960.png": {
+    "mtime": 1793475102.0211952,
+    "seen": 1793510283.1189003,
+    "ast_hash": "02dff6685ac9ce895da6a85156883054",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_phase2_selected_seed505/step_004320.png": {
+    "mtime": 1793475103.7848134,
+    "seen": 1793510283.118901,
+    "ast_hash": "a30c1a83ee243224be94747ed3a4d06d",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_phase2_selected_seed505/step_004680.png": {
+    "mtime": 1793475106.15064,
+    "seen": 1793510283.1189015,
+    "ast_hash": "1b06ec775e3688751d1a662063e86bcf",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_phase2_selected_seed505/step_005040.png": {
+    "mtime": 1793475108.3481257,
+    "seen": 1793510283.1189022,
+    "ast_hash": "430d440ced5c140b5e111990c62d160b",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_phase2_selected_seed505/step_005400.png": {
+    "mtime": 1793475110.6828184,
+    "seen": 1793510283.1189027,
+    "ast_hash": "e04bd49f04489263bf16b84a1576970f",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_phase2_selected_seed505/step_005760.png": {
+    "mtime": 1793475113.0803442,
+    "seen": 1793510283.1189036,
+    "ast_hash": "3bb5a947891ea111881824bac9820999",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_phase2_selected_seed505/step_006000.png": {
+    "mtime": 1793475114.3875892,
+    "seen": 1793510283.118904,
+    "ast_hash": "2044fbc93a946f4fab2a1ee660225d15",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_phase3_blend050_seed505/step_000000.png": {
+    "mtime": 1793493828.682206,
+    "seen": 1793510283.1189046,
+    "ast_hash": "f634cbcd6bddf7d01863f92663690f8c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_phase3_blend050_seed505/step_000600.png": {
+    "mtime": 1793493831.3119574,
+    "seen": 1793510283.1189053,
+    "ast_hash": "a312506da201a6dad9b45178162cd5eb",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_phase3_blend050_seed505/step_001200.png": {
+    "mtime": 1793493833.8715742,
+    "seen": 1793510283.118906,
+    "ast_hash": "ba814e6fe632e4b539fcc6ab48c8b29e",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_phase3_blend050_seed505/step_001800.png": {
+    "mtime": 1793493836.5815465,
+    "seen": 1793510283.1189067,
+    "ast_hash": "dd418c8fe4451176a44f06b9a818ec4b",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_phase3_blend050_seed505/step_002400.png": {
+    "mtime": 1793493839.2919486,
+    "seen": 1793510283.1189072,
+    "ast_hash": "baaa7f61d88b0bb8aa1b5dad3a4d2bc3",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_phase3_blend050_seed505/step_003000.png": {
+    "mtime": 1793493841.9639616,
+    "seen": 1793510283.118908,
+    "ast_hash": "58827b8e6f9cf4518e925a6c63f231d4",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_phase3_blend050_seed505/step_003600.png": {
+    "mtime": 1793493844.6818442,
+    "seen": 1793510283.1189084,
+    "ast_hash": "1fb83f0a6142b86ef09d0a92d3ea8096",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_phase3_blend050_seed505/step_004048.png": {
+    "mtime": 1793493846.7605176,
+    "seen": 1793510283.1189091,
+    "ast_hash": "8543a5cd8666e133f603f9d89ad5c5b7",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_phase3_selected_seed505/step_000000.png": {
+    "mtime": 1793492647.5735085,
+    "seen": 1793510283.1189096,
+    "ast_hash": "f634cbcd6bddf7d01863f92663690f8c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_phase3_selected_seed505/step_000600.png": {
+    "mtime": 1793492650.3315456,
+    "seen": 1793510283.1189106,
+    "ast_hash": "be1eecb3732e764eca2e00579a6e1ec9",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_phase3_selected_seed505/step_001200.png": {
+    "mtime": 1793492652.9149103,
+    "seen": 1793510283.118911,
+    "ast_hash": "9ca3c448f567678799bb2e3b05ea75d6",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_phase3_selected_seed505/step_001800.png": {
+    "mtime": 1793492655.4357781,
+    "seen": 1793510283.1189115,
+    "ast_hash": "8ae7fa65a018c7cef8a9455ddd991f9d",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_phase3_selected_seed505/step_002400.png": {
+    "mtime": 1793492657.9003031,
+    "seen": 1793510283.1189122,
+    "ast_hash": "553424a49ceb03ad89ad46bef7cb7292",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_phase3_selected_seed505/step_003000.png": {
+    "mtime": 1793492660.4921374,
+    "seen": 1793510283.1189127,
+    "ast_hash": "e42aa8a4e1d3a5d42d27ace26a55e8a8",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_phase3_selected_seed505/step_003600.png": {
+    "mtime": 1793492663.111104,
+    "seen": 1793510283.1189132,
+    "ast_hash": "b61babff22a414000d52d5ada58cfbc7",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_phase3_selected_seed505/step_004200.png": {
+    "mtime": 1793492665.8109848,
+    "seen": 1793510283.1189141,
+    "ast_hash": "5f2edc2aa45f09849ccaf34f9ef85155",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_phase3_selected_seed505/step_004800.png": {
+    "mtime": 1793492668.4307127,
+    "seen": 1793510283.1189146,
+    "ast_hash": "908a556188f69f8c1eb034c27d1b918f",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_phase3_selected_seed505/step_005400.png": {
+    "mtime": 1793492671.4313374,
+    "seen": 1793510283.118915,
+    "ast_hash": "f66dc86830623e9d1850fb4631a959f6",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/visual_phase3_selected_seed505/step_006000.png": {
+    "mtime": 1793492673.8952913,
+    "seen": 1793510283.1189158,
+    "ast_hash": "f55ea4020515424a95e89bb1be5b4fa0",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/visual_001_seed505/step_003000.png": {
+    "mtime": 1793503240.1578953,
+    "seen": 1793510283.1189165,
+    "ast_hash": "f13ef581130993a4406c0660bddef40d",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/visual_001_seed505/step_006000.png": {
+    "mtime": 1793503251.5949242,
+    "seen": 1793510283.1189172,
+    "ast_hash": "c4053ccaac7eb83ea99d228dd1d806c1",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/visual_003_500k_seed45506/step_001183.png": {
+    "mtime": 1793505176.261229,
+    "seen": 1793510283.118918,
+    "ast_hash": "6f428ceee216df8b15b449ef4a067aa0",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/graphify_process_limit_incident.json": {
+    "mtime": 1793510738.7812605,
+    "seen": 1793510807.1941872,
+    "ast_hash": "f2c1cfa5879e926e5228dad4a43b8564",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/graphify_update_exit_code.txt": {
+    "mtime": 1793510283.5738819,
+    "seen": 1793510807.194624,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/checks/evolution_application.json": {
+    "mtime": 1793511811.3948328,
+    "seen": 1793513368.1608732,
+    "ast_hash": "47e3f828969bc5782dd78c70baf36d9f",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/checks/final_validation.json": {
+    "mtime": 1793513334.4343486,
+    "seen": 1793513368.1608746,
+    "ast_hash": "f0a0b9b4facede3efdd65df749c3eeb9",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/checks/pre_fix_results.json": {
+    "mtime": 1793502017.6921735,
+    "seen": 1793513368.1608765,
+    "ast_hash": "e270335ad586e32cd3214fe6f9d60c3a",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/corrected_candidate_selection.json": {
+    "mtime": 1793512320.2684484,
+    "seen": 1793513368.1608799,
+    "ast_hash": "1564a5c94d98675f348dc4f4efff33ba",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/corrected_development.json": {
+    "mtime": 1793512135.0209084,
+    "seen": 1793513368.160881,
+    "ast_hash": "083e36f2ec4eac5fd842b5b8d4720b96",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/corrected_development_comparison.json": {
+    "mtime": 1793512320.2536466,
+    "seen": 1793513368.160882,
+    "ast_hash": "70f5917d7687fdfcb72206f5eb7718ca",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/corrected_heldout_baseline.json": {
+    "mtime": 1793512973.8638463,
+    "seen": 1793513368.160883,
+    "ast_hash": "69e008d65a23f68ebb9b55ffdb8715ed",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/corrected_heldout_candidate.json": {
+    "mtime": 1793513117.9035816,
+    "seen": 1793513368.1608837,
+    "ast_hash": "54e94cd1a4440260c99ec492310f34ae",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/corrected_heldout_comparison.json": {
+    "mtime": 1793513326.6321318,
+    "seen": 1793513368.1608846,
+    "ast_hash": "702fbb14a52f8e37d7bf1092f69f9494",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/decoder_correction_protocol.json": {
+    "mtime": 1793512320.2704477,
+    "seen": 1793513368.1608865,
+    "ast_hash": "2ed05d53187aceeb9ad5b5c3dc02b613",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/evaluate_corrected.py": {
+    "mtime": 1793512314.9011266,
+    "seen": 1793513368.16089,
+    "ast_hash": "a1143b13b93e39b66b10e05dba78d503",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/final_validation.py": {
+    "mtime": 1793513301.6554043,
+    "seen": 1793513368.1608977,
+    "ast_hash": "2fc4a0d3ab1ebe033b459097ed1e57ed",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/heldout_candidate.json": {
+    "mtime": 1793511340.0756564,
+    "seen": 1793513368.1609035,
+    "ast_hash": "6ffbfdbd38796eb397725dd9e510f079",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/heldout_comparison.json": {
+    "mtime": 1793511346.4070218,
+    "seen": 1793513368.1609042,
+    "ast_hash": "793f8124790bc533b0c1b5ffdce312bb",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/initial_decoder_results/baseline_development.json": {
+    "mtime": 1793502366.2130888,
+    "seen": 1793513368.160905,
+    "ast_hash": "491deb5c8f14303eb1d480191206eb2a",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/initial_decoder_results/candidate_selection.json": {
+    "mtime": 1793510170.3135102,
+    "seen": 1793513368.1609058,
+    "ast_hash": "93dc1c4ac242264c6211ad4da4dbb74f",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/initial_decoder_results/heldout_baseline.json": {
+    "mtime": 1793503052.178212,
+    "seen": 1793513368.1609068,
+    "ast_hash": "f298e51b455f11563ba8511eaa0b1921",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/initial_decoder_results/heldout_candidate.json": {
+    "mtime": 1793511340.0756564,
+    "seen": 1793513368.1609075,
+    "ast_hash": "6ffbfdbd38796eb397725dd9e510f079",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/initial_decoder_results/heldout_comparison.json": {
+    "mtime": 1793511346.4070218,
+    "seen": 1793513368.1609085,
+    "ast_hash": "793f8124790bc533b0c1b5ffdce312bb",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/initial_decoder_results/selected_model.json": {
+    "mtime": 1793511347.3050575,
+    "seen": 1793513368.1609094,
+    "ast_hash": "35457105d0f1e230bd0398193d33d1c6",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/visual_corrected_seed505/frames.json": {
+    "mtime": 1793513171.144118,
+    "seen": 1793513368.1609297,
+    "ast_hash": "6c40641ea6a6cbfd62abe71d8c7f5b82",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/visual_corrected_seed505/metadata.json": {
+    "mtime": 1793513139.8365502,
+    "seen": 1793513368.1609306,
+    "ast_hash": "b19dcd322794cd7218cf8ca050f3a73f",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/visual_corrected_seed61001/frames.json": {
+    "mtime": 1793513213.2237468,
+    "seen": 1793513368.1609316,
+    "ast_hash": "9a7b581fe3178182520b90c00e6f40e9",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/visual_corrected_seed61001/metadata.json": {
+    "mtime": 1793513179.720696,
+    "seen": 1793513368.160932,
+    "ast_hash": "107e51752f88e6f1a63b3f218d96416f",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/visual_selected_seed505/frames.json": {
+    "mtime": 1793511409.0402098,
+    "seen": 1793513368.160933,
+    "ast_hash": "dcc654045abd357a3af549dcd13e5652",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/visual_selected_seed505/metadata.json": {
+    "mtime": 1793511357.1102772,
+    "seen": 1793513368.1609337,
+    "ast_hash": "173b391f26699aff74a2218ecc7ef2e5",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/visual_selected_seed51001/frames.json": {
+    "mtime": 1793511508.0784705,
+    "seen": 1793513368.1609347,
+    "ast_hash": "4fc2c4df4e01444658b0b21fbc1fc45b",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/visual_selected_seed51001/metadata.json": {
+    "mtime": 1793511417.6533535,
+    "seen": 1793513368.1609354,
+    "ast_hash": "6d94f72636c5e2cb890dd589dff967ee",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/RESULTS.md": {
+    "mtime": 1793513275.554175,
+    "seen": 1793513368.1611004,
+    "ast_hash": "05a73c95cba5b202c2483ea0720622fa",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/checks/corrected_full_check_exit_code.txt": {
+    "mtime": 1793513224.6494007,
+    "seen": 1793513368.1611023,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/corrected_captures_exit_code.txt": {
+    "mtime": 1793513213.747112,
+    "seen": 1793513368.1611037,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/corrected_development_exit_code.txt": {
+    "mtime": 1793512135.6624248,
+    "seen": 1793513368.1611044,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/corrected_final_comparison_exit_code.txt": {
+    "mtime": 1793513131.2815151,
+    "seen": 1793513368.1611054,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/corrected_heldout_exit_code.txt": {
+    "mtime": 1793513119.7453198,
+    "seen": 1793513368.161106,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/final_comparison_exit_code.txt": {
+    "mtime": 1793511347.9331343,
+    "seen": 1793513368.161108,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/graphify_update_sequential_exit_code.txt": {
+    "mtime": 1793510807.9088154,
+    "seen": 1793513368.16111,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/initial_decoder_results/README.md": {
+    "mtime": 1793512857.506515,
+    "seen": 1793513368.1611125,
+    "ast_hash": "5a6928fa359329e56aa730134a10b179",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/selected_captures_exit_code.txt": {
+    "mtime": 1793511508.8592203,
+    "seen": 1793513368.1611133,
+    "ast_hash": "21438ef4b9ad4fc266b6129a2f60de29",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/corrected_heldout_comparison.png": {
+    "mtime": 1793513326.9720123,
+    "seen": 1793513368.1612854,
+    "ast_hash": "90341c8acb0cbdacdf4f6b4c26b4acce",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/corrected_training_progress.png": {
+    "mtime": 1793513327.203662,
+    "seen": 1793513368.1612866,
+    "ast_hash": "13563eb7ba59574f8d47ee134b432ca7",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/heldout_comparison.png": {
+    "mtime": 1793511346.991429,
+    "seen": 1793513368.1612873,
+    "ast_hash": "5d0a3a015744542abcac88a6045867ab",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/initial_decoder_results/heldout_comparison.png": {
+    "mtime": 1793511346.991429,
+    "seen": 1793513368.1612885,
+    "ast_hash": "5d0a3a015744542abcac88a6045867ab",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/initial_decoder_results/training_progress.png": {
+    "mtime": 1793511347.3010352,
+    "seen": 1793513368.1612895,
+    "ast_hash": "27d22bd7913558632d3a2d0921073fc3",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/training_progress.png": {
+    "mtime": 1793511347.3010352,
+    "seen": 1793513368.1612902,
+    "ast_hash": "27d22bd7913558632d3a2d0921073fc3",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/visual_corrected_seed505/step_003000.png": {
+    "mtime": 1793513154.4845333,
+    "seen": 1793513368.1612947,
+    "ast_hash": "ddd97a88003bcdc6ab7b64e2367cd5b4",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/visual_corrected_seed505/step_006000.png": {
+    "mtime": 1793513168.4704113,
+    "seen": 1793513368.1612954,
+    "ast_hash": "1d715d75a9a65851dd33bae8270c8895",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/visual_corrected_seed505/step_006564.png": {
+    "mtime": 1793513171.1426363,
+    "seen": 1793513368.161296,
+    "ast_hash": "badd8c7fa5a59e111df3232531ee8b64",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/visual_corrected_seed61001/step_003000.png": {
+    "mtime": 1793513194.2006094,
+    "seen": 1793513368.1612968,
+    "ast_hash": "5a65f267e94d49da2c6a79df8c73b944",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/visual_corrected_seed61001/step_006000.png": {
+    "mtime": 1793513206.479239,
+    "seen": 1793513368.1612973,
+    "ast_hash": "fe22bfbb50b9050adbcb518ed240c761",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/visual_corrected_seed61001/step_007587.png": {
+    "mtime": 1793513213.2237468,
+    "seen": 1793513368.1612983,
+    "ast_hash": "db673b76fe30ad35cd79748b290235fb",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/visual_selected_seed505/step_003000.png": {
+    "mtime": 1793511378.2220426,
+    "seen": 1793513368.161299,
+    "ast_hash": "ddd97a88003bcdc6ab7b64e2367cd5b4",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/visual_selected_seed505/step_006000.png": {
+    "mtime": 1793511398.4042828,
+    "seen": 1793513368.1612997,
+    "ast_hash": "2e0f169800840999c1e5143376e4d94b",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/visual_selected_seed505/step_007583.png": {
+    "mtime": 1793511409.0382104,
+    "seen": 1793513368.1613004,
+    "ast_hash": "67252e151e28a8a36f2dd87eb6749042",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/visual_selected_seed51001/step_003000.png": {
+    "mtime": 1793511442.0846186,
+    "seen": 1793513368.1613011,
+    "ast_hash": "7ba9d00f64d4e5a81a419591b1071e33",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/visual_selected_seed51001/step_006000.png": {
+    "mtime": 1793511464.095931,
+    "seen": 1793513368.161302,
+    "ast_hash": "aeb6b153fd1d9c816146948011317c97",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/visual_selected_seed51001/step_009000.png": {
+    "mtime": 1793511486.3411622,
+    "seen": 1793513368.1613028,
+    "ast_hash": "b71e7ac90da7ea44e9ff2fe4eb293d81",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/visual_selected_seed51001/step_012000.png": {
+    "mtime": 1793511508.0764706,
+    "seen": 1793513368.1613038,
+    "ast_hash": "fa59ecf72aa4f18d4061554e876a7509",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/completion.json": {
+    "mtime": 1793513376.530859,
+    "seen": 1793514474.3742487,
+    "ast_hash": "4608cd178a15d407433e78b1cfaf655c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_report/REPORT.md": {
+    "mtime": 1793514443.4303148,
+    "seen": 1793514474.3906593,
+    "ast_hash": "e52340498f5b1ee20a8a4b3a7717f2c4",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/graphify_final_update_exit_code.txt": {
+    "mtime": 1793513368.6184216,
+    "seen": 1793514474.3968415,
+    "ast_hash": "cfcd208495d565ef66e7dff9f98764da",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_report/comparison.png": {
+    "mtime": 1793514443.4228015,
+    "seen": 1793514474.407863,
+    "ast_hash": "f8eb96860cff85740ace729f1b758165",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_report/REPORT.html": {
+    "mtime": 1793516723.7521384,
+    "seen": 1793516786.417761,
+    "ast_hash": "9eebdc8269ad2460c38a0995c77899e6",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/best_model_execute/__init__.py": {
+    "mtime": 1793527759.3163862,
+    "seen": 1793528222.818094,
+    "ast_hash": "3f7892d9e90e7a1adaa0d07e3a1b5ff7",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/best_model_execute/action_decoder.py": {
+    "mtime": 1793527798.7267387,
+    "seen": 1793528222.8180997,
+    "ast_hash": "c15e492f3e4a44b11a1c8ed93bf08f92",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/best_model_execute/check.py": {
+    "mtime": 1793527890.008992,
+    "seen": 1793528222.8181028,
+    "ast_hash": "5104a4442fa33ae0a671c171e3a8000c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/best_model_execute/decoders.py": {
+    "mtime": 1793527759.318396,
+    "seen": 1793528222.818106,
+    "ast_hash": "4f6f4dfb677310739d571e6a85e82674",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/best_model_execute/environment.py": {
+    "mtime": 1793527798.7933662,
+    "seen": 1793528222.818109,
+    "ast_hash": "2fae29d9057e91be4442a1e3cbf8785e",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/best_model_execute/models.json": {
+    "mtime": 1793527817.0940523,
+    "seen": 1793528222.8181114,
+    "ast_hash": "5aa8e1f6e5b450eda798f427b384f47e",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/best_model_execute/networks.py": {
+    "mtime": 1793527798.8248267,
+    "seen": 1793528222.8181143,
+    "ast_hash": "52536140049361a7a2017324c5733bb4",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/best_model_execute/observation_builder.py": {
+    "mtime": 1793527798.7531269,
+    "seen": 1793528222.8181176,
+    "ast_hash": "6f1c5e87427e27cb88d8d4a5df99050c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/best_model_execute/play.py": {
+    "mtime": 1793527890.007482,
+    "seen": 1793528222.8181207,
+    "ast_hash": "1a837136c73dc99301ccc2be4ff59c58",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/best_model_execute/player_control.py": {
+    "mtime": 1793527798.7408416,
+    "seen": 1793528222.8181236,
+    "ast_hash": "dbe589fb603e2ee5507dad55c4980186",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/best_model_execute/progression_observation.py": {
+    "mtime": 1793527798.765675,
+    "seen": 1793528222.8181267,
+    "ast_hash": "a1e46a32b1001dc0db625677ee3e8eb1",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/best_model_execute/rewards.py": {
+    "mtime": 1793527798.8127599,
+    "seen": 1793528222.818129,
+    "ast_hash": "2fd8f1bb0244f9efd7048ebfbdfaab8c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/best_model_execute/rotation_policy.py": {
+    "mtime": 1793527798.8412752,
+    "seen": 1793528222.818132,
+    "ast_hash": "689ef6e336dad0eae7b37a542f55821f",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/best_model_execute/vector_observation.py": {
+    "mtime": 1793527798.779317,
+    "seen": 1793528222.818135,
+    "ast_hash": "395cb352fd59d8574534a5c3f206ce49",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/best_model_execute/verification.json": {
+    "mtime": 1793528107.4141402,
+    "seen": 1793528222.818138,
+    "ast_hash": "f8beb9cd3df58297405f80ff64e71452",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/best_model_execute/README.md": {
+    "mtime": 1793528178.609554,
+    "seen": 1793528222.885699,
+    "ast_hash": "67d203816405b202d54c1486052c77a4",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/best_model_execute/requirements.txt": {
+    "mtime": 1793527759.3224072,
+    "seen": 1793528222.885941,
+    "ast_hash": "c5244d97daedaf5f32a589c0251e452d",
+    "semantic_hash": ""
+  }
+}

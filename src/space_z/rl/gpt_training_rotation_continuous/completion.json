@@ -1,0 +1,15 @@
+{
+    "entire_study_limit_respected":  false,
+    "maximum_since_expanded_monitor":  7,
+    "graphify_max_workers":  1,
+    "graphify_final_exit_code":  0,
+    "verification_ppo_steps":  128,
+    "finished_at":  "2026-11-01T06:09:36.5130271Z",
+    "existing_user_replay_pids_preserved":  [
+                                                399992,
+                                                394276
+                                            ],
+    "final_validation":  "checks/final_validation.json",
+    "status":  "completed",
+    "research_ppo_steps":  2000000
+}

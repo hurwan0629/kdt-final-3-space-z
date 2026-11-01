@@ -1,0 +1,40 @@
+{
+  "name": "018_reaction_calibration",
+  "experiment_kind": "inference_calibration",
+  "goal": "Improve early score and lower-tail consistency using score-focused PPO weights and 30-Hz decisions",
+  "status": "published",
+  "training_method": "pure_ppo",
+  "demonstration_steps": 0,
+  "initial_timesteps": 1474560,
+  "timesteps": 1474560,
+  "additional_ppo_steps": 0,
+  "source_checkpoint": "experiments\\016_full_score_focus\\checkpoints\\evaluated_001474560.zip",
+  "source_sha256": "284d4cd43cd21ff5a3f392ccb1dcee0450a393c58c808d0913ea72f4d3e8c5c2",
+  "checkpoint": "experiments\\018_reaction_calibration\\checkpoints\\candidate.zip",
+  "sha256": "657c380fef9b0bb3b3158b9ae6f876e25828fe768eeb70cf949b09ebb38cf08e",
+  "arguments": {
+    "stage": "full",
+    "frame_skip": 2,
+    "game_fps": 60,
+    "max_game_seconds": 400
+  },
+  "calibration_recipe": {
+    "load_source": "experiments\\016_full_score_focus\\checkpoints\\evaluated_001474560.zip",
+    "set_model_attribute": {
+      "decision_frame_skip": 2
+    },
+    "save_without_updating_weights": true
+  },
+  "selected_at_utc": "2026-10-31T19:21:41.336653+00:00",
+  "selection_record": "phase2_candidate_selection.json",
+  "source_sha256_archive": "2b39dafa920fb0d9d4771e26288961cb1aad4112511d4483c54686c7e0a8cbc7",
+  "heldout_report": "phase2_heldout_400_seconds.json",
+  "heldout_seed_count": 20,
+  "goal_checks": {
+    "early_mean_plus_15pct": true,
+    "early_p25_plus_15pct": true,
+    "final_score_improved": true,
+    "survival_at_least_90pct": true
+  },
+  "published_at_utc": "2026-10-31T19:36:53.898780+00:00"
+}

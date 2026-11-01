@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "smoke_ppo_steps": 64,
+  "observation_size": 5139,
+  "continuous_rotation_unique_samples": 2000,
+  "checkpoint_sha256": "e4a0437cd3461573adb6e51c28e58dcf790187841a7ff0ac1cf260e1750a3bde",
+  "assertions": [
+    "decoder_bounds",
+    "integral_choices",
+    "continuous_sampling",
+    "joint_log_probability",
+    "tanh_jacobian",
+    "baseline_aim_features",
+    "fire_probability_transfer",
+    "growth_masks",
+    "rollout_log_probability_replay",
+    "actual_ppo_update",
+    "save_load_predictions",
+    "gamma_buffer",
+    "actual_game_rotation"
+  ]
+}

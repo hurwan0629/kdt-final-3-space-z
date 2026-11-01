@@ -1,0 +1,12 @@
+{
+    "recorded_at":  "2026-11-01T05:25:38.6695685Z",
+    "tool":  "graphify update .",
+    "configured_process_workers":  24,
+    "pool_implementation":  "concurrent.futures.ProcessPoolExecutor",
+    "concurrent_model_evaluation_python":  2,
+    "overall_peak_measured":  false,
+    "reason":  "The model-job mutex and monitor did not cover the graph indexing tool; default worker count was not checked before launch",
+    "evidence":  "graphify_update.log: AST extraction [24 workers]; installed graphify/extract.py _extract_parallel",
+    "remediation":  "Graph job has ended; all further graph updates use GRAPHIFY_MAX_WORKERS=1, which the installed implementation runs sequentially without a process pool",
+    "process_limit_respected":  false
+}

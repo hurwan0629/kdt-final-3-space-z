@@ -1,0 +1,22 @@
+{
+  "checkpoint": "experiments\\014_full_body_control\\checkpoints\\best.zip",
+  "sha256": "6130963d09099d8a3c50c02c11fe0ca4766cc359a1b23aff40c515007489aa12",
+  "timesteps": 1339392,
+  "training_method": "pure_ppo",
+  "original_observation_count": 5139,
+  "action_branches": [
+    9,
+    9,
+    2,
+    6,
+    5
+  ],
+  "aim_parameters_bitwise_unchanged_from_parent": true,
+  "terrain_cnn_weights_changed": true,
+  "save_load_checks": "research_checks_final.log",
+  "pure_rl_and_legacy_checks": "compatibility_checks_final.log",
+  "tensorboard_validation_points": 4,
+  "tensorboard_goal_text_present": true,
+  "published_alias_hash_verified": true,
+  "heldout_protocol_and_seed_matching_verified": true
+}

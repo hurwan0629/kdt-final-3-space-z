@@ -49,7 +49,7 @@ tags: [space-z, class]
 |---|---|---|---|
 | `frame` | 이번 판에 처리한 게임 프레임 수 | `0` | `reset()`, 진행 중 `step()` 끝부분에서 증가 |
 | `game_over` | 플레이어 사망으로 판이 끝났는지 | `False` | `reset()`, `step()`의 마지막 사망 판정 |
-| `events` | 플레이어 관점의 전투 결과 누적 | `empty_events()` | 피해·처치는 `Combat`, 사망은 `step()`, 소비·교체는 `pop_events()` |
+| `events` | 플레이어 관점의 전투 결과 누적 | `empty_events()` | 피해·천체 파괴는 `Combat`, 적 처치는 `record_player_kill()`, 사망은 `step()`, 소비·교체는 `pop_events()` |
 
 이벤트에는 천체 가중 피해·파괴 점수·파괴 수, 적 피해·처치 수, 플레이어 피격 피해·사망 여부가 들어갑니다. `pop_events()`는 현재 딕셔너리를 반환한 뒤 새 빈 딕셔너리로 교체합니다. 학습 환경은 이를 보상으로 변환하고 사람 플레이는 업데이트 후 소비합니다. 코어 자체가 학습 보상을 계산하지는 않습니다.
 
@@ -83,7 +83,7 @@ tags: [space-z, class]
 |---|---|---|---|
 | `score_award_events` | 전달 대기 중인 `(발생 프레임, 월드 x, 월드 y, 획득 점수, 대상 종류)` 목록 | 빈 리스트 | `record_score_award()`, `pop_score_award_events()`, `reset()` |
 
-`Combat`이 처치·파괴 시 `record_score_award()`를 호출합니다. 이 메서드는 획득 사실만 기록하며 실제 점수나 화면 상태를 변경하지 않습니다. 실제 점수·경험치는 `PlayerProgression._add_score()`가 변경합니다.
+`Combat`은 확정된 적 처치를 `record_player_kill()`에, 천체 파괴 점수를 `award_score()`에 전달합니다. 코어의 `award_score()`는 `record_score_award()`로 획득 사실을 기록한 뒤 `PlayerProgression._add_score()`로 실제 점수·경험치를 변경합니다. `record_score_award()` 자체는 기존처럼 획득 사실만 기록하며 실제 점수나 화면 상태를 변경하지 않습니다.
 
 `GameApplication.update()`는 각 코어 프레임 직후 `pop_score_award_events()`로 기록을 꺼내 렌더러에 전달합니다. `TankEnv`는 화면을 그릴 때 모아서 전달하고, 화면 없는 학습에서는 매 코어 프레임 소비합니다. 꺼낸 목록은 코어에서 분리되므로 다음 호출에는 다시 나오지 않습니다.
 

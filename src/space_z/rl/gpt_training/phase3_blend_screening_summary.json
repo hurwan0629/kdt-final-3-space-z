@@ -1,0 +1,178 @@
+{
+  "evaluated_at_utc": "2026-11-01T00:32:53.644080+00:00",
+  "development_seeds": [
+    17001,
+    17506,
+    18102,
+    18809,
+    23001,
+    23506,
+    24001,
+    24506
+  ],
+  "baseline": {
+    "score_at_60_seconds": {
+      "mean": 788.75,
+      "p25": 635.0
+    },
+    "score_at_120_seconds": {
+      "mean": 1050.625,
+      "p25": 832.5
+    },
+    "score": {
+      "mean": 1343.125,
+      "p25": 851.25
+    },
+    "survival_seconds": {
+      "mean": 153.03125,
+      "p25": 142.79166666666669
+    }
+  },
+  "candidates": [
+    {
+      "code": "025",
+      "checkpoint": "experiments\\022_checkpoint_blend\\checkpoints\\blend_025.zip",
+      "sha256": "40fac357148e8cf189d999aacf5d258eda6ae35a02fe443d3598c3f024fc6595",
+      "statistics": {
+        "score_at_60_seconds": {
+          "mean": 1010.625,
+          "p25": 923.75
+        },
+        "score_at_120_seconds": {
+          "mean": 1324.375,
+          "p25": 965.0
+        },
+        "score": {
+          "mean": 1768.125,
+          "p25": 1128.75
+        },
+        "survival_seconds": {
+          "mean": 167.83125,
+          "p25": 160.375
+        }
+      },
+      "checks": {
+        "score_at_120_seconds_mean": true,
+        "score_at_120_seconds_p25": true,
+        "score_mean": true,
+        "survival_seconds_mean": true
+      },
+      "qualified": true,
+      "ranking": [
+        2289.375,
+        965.0,
+        1768.125,
+        167.83125
+      ]
+    },
+    {
+      "code": "050",
+      "checkpoint": "experiments\\022_checkpoint_blend\\checkpoints\\blend_050.zip",
+      "sha256": "71665f9ad32efb8467d150f29213944691f74dde143af2b96107c6a2f6f32cef",
+      "statistics": {
+        "score_at_60_seconds": {
+          "mean": 1082.5,
+          "p25": 677.5
+        },
+        "score_at_120_seconds": {
+          "mean": 1450.625,
+          "p25": 862.5
+        },
+        "score": {
+          "mean": 1788.75,
+          "p25": 862.5
+        },
+        "survival_seconds": {
+          "mean": 155.72916666666669,
+          "p25": 95.07916666666667
+        }
+      },
+      "checks": {
+        "score_at_120_seconds_mean": true,
+        "score_at_120_seconds_p25": true,
+        "score_mean": true,
+        "survival_seconds_mean": true
+      },
+      "qualified": true,
+      "ranking": [
+        2313.125,
+        862.5,
+        1788.75,
+        155.72916666666669
+      ]
+    },
+    {
+      "code": "075",
+      "checkpoint": "experiments\\022_checkpoint_blend\\checkpoints\\blend_075.zip",
+      "sha256": "0857a06881a84d96576a6714ad415785deed615f38b5f64dcb2e29293c43aa11",
+      "statistics": {
+        "score_at_60_seconds": {
+          "mean": 694.375,
+          "p25": 498.75
+        },
+        "score_at_120_seconds": {
+          "mean": 1195.0,
+          "p25": 900.0
+        },
+        "score": {
+          "mean": 1593.75,
+          "p25": 1488.75
+        },
+        "survival_seconds": {
+          "mean": 166.46666666666667,
+          "p25": 147.48333333333335
+        }
+      },
+      "checks": {
+        "score_at_120_seconds_mean": true,
+        "score_at_120_seconds_p25": true,
+        "score_mean": true,
+        "survival_seconds_mean": true
+      },
+      "qualified": true,
+      "ranking": [
+        2095.0,
+        900.0,
+        1593.75,
+        166.46666666666667
+      ]
+    }
+  ],
+  "selected_for_broader_validation": {
+    "code": "050",
+    "checkpoint": "experiments\\022_checkpoint_blend\\checkpoints\\blend_050.zip",
+    "sha256": "71665f9ad32efb8467d150f29213944691f74dde143af2b96107c6a2f6f32cef",
+    "statistics": {
+      "score_at_60_seconds": {
+        "mean": 1082.5,
+        "p25": 677.5
+      },
+      "score_at_120_seconds": {
+        "mean": 1450.625,
+        "p25": 862.5
+      },
+      "score": {
+        "mean": 1788.75,
+        "p25": 862.5
+      },
+      "survival_seconds": {
+        "mean": 155.72916666666669,
+        "p25": 95.07916666666667
+      }
+    },
+    "checks": {
+      "score_at_120_seconds_mean": true,
+      "score_at_120_seconds_p25": true,
+      "score_mean": true,
+      "survival_seconds_mean": true
+    },
+    "qualified": true,
+    "ranking": [
+      2313.125,
+      862.5,
+      1788.75,
+      155.72916666666669
+    ]
+  },
+  "rule": "Only candidates meeting early mean, early p25, 200-second mean and censored survival baseline on screening seeds qualify; rank by early mean+p25, p25, 200-second mean, survival. Require the same four guards again on all 40 development seeds before a new heldout test."
+}

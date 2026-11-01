@@ -1,0 +1,72 @@
+{
+  "status": "passed",
+  "new_training_steps": 0,
+  "source_comparisons": {
+    "discrete": {
+      "exact_observation_action_and_game_steps": 240,
+      "all_policy_tensors_bitwise_equal": true,
+      "score": 10,
+      "frames": 480
+    },
+    "rotation": {
+      "exact_observation_action_and_game_steps": 240,
+      "all_policy_tensors_bitwise_equal": true,
+      "score": 0,
+      "frames": 480
+    }
+  },
+  "discrete_decoder_combinations_verified": 4860,
+  "isolated_copy": {
+    "other_rl_files_or_folders_present": false,
+    "self_check": {
+      "status": "passed",
+      "models": {
+        "discrete": {
+          "prediction_steps": 120,
+          "game_frames": 240,
+          "evolved_ship": "twin",
+          "original_rl_package_imported": false
+        },
+        "rotation": {
+          "prediction_steps": 120,
+          "game_frames": 240,
+          "evolved_ship": "twin",
+          "original_rl_package_imported": false
+        }
+      }
+    },
+    "native_renderer": true,
+    "short_rendered_episodes": {
+      "discrete": {
+        "model": "discrete",
+        "seed": 61001,
+        "score": 0,
+        "kills": 0,
+        "seconds": 0.2,
+        "ship": "rookie",
+        "interrupted": false
+      },
+      "rotation": {
+        "model": "rotation",
+        "seed": 61001,
+        "score": 0,
+        "kills": 0,
+        "seconds": 0.2,
+        "ship": "rookie",
+        "interrupted": false
+      }
+    },
+    "full_rotation_seed61001": {
+      "model": "rotation",
+      "seed": 61001,
+      "score": 2855,
+      "kills": 9,
+      "seconds": 252.88333333333333,
+      "ship": "flank",
+      "interrupted": false
+    },
+    "matches_original_corrected_evaluation": true
+  },
+  "isolation_method": "Only game/config/rendering/resources and this folder copied; space_z.rl imports blocked in self-check",
+  "installation_on_another_physical_computer_tested": false
+}

@@ -1,0 +1,136 @@
+[
+  {
+    "step": 0,
+    "image": "step_000000.png",
+    "score": 0,
+    "kills": 0,
+    "seconds": 0.0,
+    "hp": 100.0,
+    "position": [
+      3432.0,
+      2616.0
+    ],
+    "angle": 0.397043267043534,
+    "action": null,
+    "ship": "rookie",
+    "stat_levels": {
+      "health": 0,
+      "damage": 0,
+      "range": 0,
+      "rapid": 0,
+      "speed": 0
+    }
+  },
+  {
+    "step": 300,
+    "image": "step_000300.png",
+    "score": 30,
+    "kills": 0,
+    "seconds": 20.0,
+    "hp": 100.0,
+    "position": [
+      3940.0,
+      1557.0476428426962
+    ],
+    "angle": 0.8702285742231233,
+    "action": [
+      4,
+      2,
+      1,
+      0,
+      0
+    ],
+    "ship": "rookie",
+    "stat_levels": {
+      "health": 0,
+      "damage": 0,
+      "range": 0,
+      "rapid": 0,
+      "speed": 0
+    }
+  },
+  {
+    "step": 600,
+    "image": "step_000600.png",
+    "score": 155,
+    "kills": 0,
+    "seconds": 40.0,
+    "hp": 70.00000000000028,
+    "position": [
+      3282.01237394758,
+      2635.9506664559144
+    ],
+    "angle": 2.970228574223132,
+    "action": [
+      7,
+      2,
+      1,
+      0,
+      0
+    ],
+    "ship": "rookie",
+    "stat_levels": {
+      "health": 0,
+      "damage": 0,
+      "range": 1,
+      "rapid": 0,
+      "speed": 0
+    }
+  },
+  {
+    "step": 900,
+    "image": "step_000900.png",
+    "score": 165,
+    "kills": 0,
+    "seconds": 60.0,
+    "hp": 100.0,
+    "position": [
+      2983.691876270696,
+      2740.0
+    ],
+    "angle": 2.620228574223132,
+    "action": [
+      5,
+      7,
+      1,
+      0,
+      0
+    ],
+    "ship": "rookie",
+    "stat_levels": {
+      "health": 0,
+      "damage": 0,
+      "range": 2,
+      "rapid": 0,
+      "speed": 0
+    }
+  },
+  {
+    "step": 1062,
+    "image": "step_001062.png",
+    "score": 165,
+    "kills": 0,
+    "seconds": 70.76666666666667,
+    "hp": 0.0,
+    "position": [
+      3355.902630812333,
+      2331.010073286676
+    ],
+    "angle": -0.05795673295644743,
+    "action": [
+      2,
+      2,
+      1,
+      0,
+      0
+    ],
+    "ship": "rookie",
+    "stat_levels": {
+      "health": 0,
+      "damage": 0,
+      "range": 2,
+      "rapid": 0,
+      "speed": 0
+    }
+  }
+]

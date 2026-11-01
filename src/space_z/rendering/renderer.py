@@ -175,7 +175,7 @@ class Renderer:
         include_ui: bool=True,
     ) -> None:
         self._tick += 1
-        self._update_camera(game.player)
+        self.update_camera(game.player)
 
         # 지난 화면과 현재 게임 상태를 비교해 등장·피격·파괴 연출을 갱신한다.
         self._track(game)
@@ -763,9 +763,14 @@ class Renderer:
             y * self.view_height / self.size[1] + self.camera_y,
         )
 
-    def _update_camera(self, player: Tank) -> None:
+    def update_camera(self, player: Tank) -> None:
+        """입력 좌표 변환과 그리기에 사용할 카메라를 현재 플레이어 위치에 맞춘다."""
         self.camera_x = player.x - self.view_width / 2
         self.camera_y = player.y - self.view_height / 2
+
+    def _update_camera(self, player: Tank) -> None:
+        """기존 카메라 호출 경로를 유지한다."""
+        self.update_camera(player)
 
     def _visible(self, x: float, y: float, margin: float=100) -> bool:
         view_x, view_y = self.world_to_view(x, y)

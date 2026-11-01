@@ -1,0 +1,11 @@
+{
+    "checked_at_utc":  "2026-10-31T17:53:50.9948709Z",
+    "shared_files_checked":  47,
+    "changed_shared_files":  0,
+    "observed_peak_training_python_processes":  8,
+    "environment_worker_limit":  6,
+    "total_training_python_process_limit":  8,
+    "remaining_gpt_python_processes":  0,
+    "graph_rebuild_skipped_reason":  "User restricted all writes to rl/gpt_training; graph rebuild would write outside that directory.",
+    "play_entry_point_smoke_test":  "passed; default published model, dummy display, two steps"
+}

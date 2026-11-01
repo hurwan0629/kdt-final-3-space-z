@@ -246,6 +246,41 @@ class GameCore:
             self.game_over = True
             self.events["died"] = True
 
+    # ---------------- 담당 영역 사이의 동기식 상태 변경 ----------------
+    def resolve_player_evolution(self, promoted: bool) -> None:
+        """기체 변경 직후 위치를 보정하고, 단계가 올랐을 때만 적을 진화시킨다."""
+        self._fit_player_after_evolution()
+        if promoted:
+            self.enemy_controller._promote_enemies()
+
+    def refresh_enemy_stats(self) -> None:
+        """플레이어 강화가 반영된 상태에서 적의 대응 능력치를 갱신한다."""
+        self.enemy_controller._refresh_stats()
+
+    def award_score(self, x: float, y: float, amount: int, kind: str) -> None:
+        """점수 획득 위치를 기록한 뒤 성장에 점수·경험치를 반영한다."""
+        self.record_score_award(x, y, amount, kind)
+        self.progression._add_score(amount)
+
+    def record_player_kill(self, enemy: Tank) -> None:
+        """전투에서 확정한 적 처치를 성장·엘리트 회복·점수에 순서대로 반영한다."""
+        self.events["enemies_killed"] += 1
+        self.progression.record_kill()
+        config, player = self.config.enemy_ai, self.player
+        if enemy.elite:
+            player.hp = min(
+                player.max_hp, player.hp + player.max_hp * config.elite_heal_ratio
+            )
+            self.progression._reward_notice("엘리트 처치 보상 (체력 회복)")
+        amount = round(
+            self.config.enemy_kill_score * (config.elite_score_scale if enemy.elite else 1)
+        )
+        self.award_score(enemy.x, enemy.y, amount, "elite" if enemy.elite else "enemy")
+
+    def movement_speed(self, tank: Tank) -> float:
+        """일반 지형에서의 기체 이동 속도 기준을 px/frame 단위로 조회한다."""
+        return self.config.max_speed * tank.accel_scale
+
     # ---------------- 공통 월드·개체 생성과 위치 보정 ----------------
     def _new_id(self) -> int:
         """게임 개체에 사용할 다음 고유 번호를 발급한다.

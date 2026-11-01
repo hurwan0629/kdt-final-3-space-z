@@ -1,0 +1,68 @@
+{
+  "status": "evaluated_corrected_decoder",
+  "training_method": "pure_ppo",
+  "demonstration_steps": 0,
+  "checkpoint": "selected_model.zip",
+  "sha256": "205b19d907f233f4a89f6770008ce1a30d32f23d2921be3f380286b0163a8bea",
+  "replay_mode": "greedy",
+  "game_fps": 60,
+  "decision_frame_skip": 2,
+  "observation_size": 5139,
+  "action_format": [
+    "move_category_9",
+    "continuous_rotation_minus1_to1",
+    "bernoulli_fire",
+    "stat_category_6",
+    "evolution_category_5"
+  ],
+  "research_ppo_steps": 2000000,
+  "verification_ppo_steps": 128,
+  "new_action_lineage_steps": 1200000,
+  "initial_parent_training_steps": 1474560,
+  "selection_record": "corrected_candidate_selection.json",
+  "original_default_model_replaced": false,
+  "independent_evaluation": "corrected_heldout_candidate.json",
+  "comparison": "corrected_heldout_comparison.json",
+  "heldout_summary": {
+    "score_at_120_seconds": {
+      "mean": 1530.0,
+      "p25": 912.5
+    },
+    "score": {
+      "mean": 2902.0,
+      "p25": 1695.0
+    },
+    "survival_seconds": {
+      "mean": 262.8408333333333,
+      "p25": 166.6875
+    },
+    "kills": {
+      "mean": 8.25,
+      "p25": 4.75
+    }
+  },
+  "recommended_over_previous_default": true,
+  "heldout_guards": {
+    "early_mean": true,
+    "early_p25": true,
+    "final_mean": true,
+    "mean_survival": true
+  },
+  "process_limit": 8,
+  "maximum_observed_training_evaluation_python": 10,
+  "graphify_initial_process_workers": 24,
+  "overall_process_peak_measured": false,
+  "process_limit_respected_entire_study": false,
+  "process_limit_incident_records": [
+    "process_limit_incident.json",
+    "graphify_process_limit_incident.json"
+  ],
+  "previous_evaluation_obsolete": true,
+  "decoder_issue": "Evolution index was numpy.int64; common core accepts only Python int",
+  "initial_results_archive": "initial_decoder_results",
+  "initial_results_obsolete": true,
+  "training_decoder_had_evolution_bug": true,
+  "additional_training_after_fix": 0,
+  "deployment_decoder_sha256": "a287a0066fbdef5585b632cfcfe3d927609ea8b4dcae6003973c2661d5f0018a",
+  "evolution_integration_verified": true
+}

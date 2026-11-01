@@ -1,0 +1,58 @@
+{
+  "selected_at_utc": "2026-10-31T17:43:54.8277901Z",
+  "checkpoint": "experiments\\014_full_body_control\\checkpoints\\best.zip",
+  "checkpoint_sha256": "6130963d09099d8a3c50c02c11fe0ca4766cc359a1b23aff40c515007489aa12",
+  "training_method": "pure_ppo",
+  "selection_reason": "014 final dominates other 014 candidates in 200-second score and survival; 400-second validation confirms improvement over old pure PPO.",
+  "validation_report": "validation_400_seconds.json",
+  "validation_summary": {
+    "score": {
+      "mean": 1565.0,
+      "std": 663.8461167067761
+    },
+    "kills": {
+      "mean": 4.5,
+      "std": 2.0615528128088303
+    },
+    "survival_seconds": {
+      "mean": 196.84722222222226,
+      "std": 112.22889491300829
+    },
+    "shots": {
+      "mean": 395.5,
+      "std": 231.47120051243235
+    },
+    "shapes_destroyed": {
+      "mean": 28.0,
+      "std": 17.483325389257807
+    },
+    "damage_taken": {
+      "mean": 324.1838263888892,
+      "std": 117.08782775230146
+    },
+    "score_at_200_seconds": {
+      "mean": 1459.1666666666667,
+      "std": 655.0408172184556
+    }
+  },
+  "score_prefix_reproduced_for_all_6_validation_seeds": true,
+  "holdout_not_yet_run_at_selection": true,
+  "holdout_seeds": [
+    7001,
+    7102,
+    7203,
+    7304,
+    7405,
+    7506,
+    7607,
+    7708,
+    7809,
+    7910
+  ],
+  "holdout_max_steps": 6000,
+  "policy_changes_after_selection": "none",
+  "metadata_corrected_at_utc": "2026-10-31T17:47:07.531709+00:00",
+  "correction_reason": "PowerShell JSON-array wrapping left metadata fields null; evaluation command used the correct literal checkpoint path. Corrected from pre-test checkpoint checks and validation; no policy changes.",
+  "original_metadata": "candidate_selection_incomplete.json",
+  "pre_holdout_checkpoint_proof": "final_model_checks.json and RESEARCH.md recorded this SHA-256 before holdout started"
+}

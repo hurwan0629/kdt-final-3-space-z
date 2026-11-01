@@ -1,0 +1,27 @@
+{
+  "selected_sha256": "657c380fef9b0bb3b3158b9ae6f876e25828fe768eeb70cf949b09ebb38cf08e",
+  "original_observation_count": 5139,
+  "action_counts": [
+    9,
+    9,
+    2,
+    6,
+    5
+  ],
+  "training_method": "pure_ppo",
+  "selected_016_aim_weights_identical_to_014": true,
+  "selected_016_terrain_cnn_changed": true,
+  "017_body_weights_identical_to_014": true,
+  "017_aim_weights_changed": true,
+  "calibrated_weights_identical_to_016_source": true,
+  "saved_decision_frame_skip_reloaded": 2,
+  "realtime_smoke_passed": true,
+  "heldout_20_seed_matching_verified": true,
+  "matched_400_game_seconds_verified": true,
+  "all_predeclared_goal_checks_passed": true,
+  "capture_matches_development_episode": true,
+  "published_alias_hash_verified": true,
+  "published_default_play_completed": true,
+  "published_per_model_physical_duration_verified": true,
+  "tensorboard_26_scalars_text_and_image_readback_verified": true
+}

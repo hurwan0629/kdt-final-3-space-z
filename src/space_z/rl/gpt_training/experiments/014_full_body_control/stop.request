@@ -1,0 +1,1 @@
+﻿After the third training block, save and compare the score/survival frontier on 400-second validation before allocating further training. The 200-second score target is not yet established.

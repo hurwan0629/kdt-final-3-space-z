@@ -1,0 +1,344 @@
+[
+  {
+    "policy": "experiments\\005_pure_ppo_full\\checkpoints\\best.zip",
+    "checkpoint_sha256": "60acbd6a0d02f04c25a0529b8fdc9211459e99b96889cefc034145571977773b",
+    "execution_mode": "greedy",
+    "stage": "full",
+    "max_steps": 6000,
+    "pure_rl": true,
+    "policy_seed": null,
+    "episodes": [
+      {
+        "seed": 7001,
+        "score": 0,
+        "kills": 0,
+        "survival_seconds": 38.15,
+        "terminated": true,
+        "truncated": false,
+        "training_reward": -4.357000000000005,
+        "shots": 71,
+        "shapes_destroyed": 0,
+        "damage_taken": 99.99999999999999,
+        "score_at_200_seconds": 0
+      },
+      {
+        "seed": 7102,
+        "score": 0,
+        "kills": 0,
+        "survival_seconds": 19.683333333333334,
+        "terminated": true,
+        "truncated": false,
+        "training_reward": -4.526500000000002,
+        "shots": 32,
+        "shapes_destroyed": 0,
+        "damage_taken": 99.99999999999997,
+        "score_at_200_seconds": 0
+      },
+      {
+        "seed": 7203,
+        "score": 25,
+        "kills": 0,
+        "survival_seconds": 46.483333333333334,
+        "terminated": true,
+        "truncated": false,
+        "training_reward": -4.130999999999977,
+        "shots": 93,
+        "shapes_destroyed": 1,
+        "damage_taken": 122.39999999999878,
+        "score_at_200_seconds": 25
+      },
+      {
+        "seed": 7304,
+        "score": 0,
+        "kills": 0,
+        "survival_seconds": 24.916666666666668,
+        "terminated": true,
+        "truncated": false,
+        "training_reward": -4.467000000000011,
+        "shots": 50,
+        "shapes_destroyed": 0,
+        "damage_taken": 99.99999999999999,
+        "score_at_200_seconds": 0
+      },
+      {
+        "seed": 7405,
+        "score": 30,
+        "kills": 0,
+        "survival_seconds": 277.51666666666665,
+        "terminated": true,
+        "truncated": false,
+        "training_reward": -0.4270000000001355,
+        "shots": 346,
+        "shapes_destroyed": 3,
+        "damage_taken": 100.0,
+        "score_at_200_seconds": 10
+      },
+      {
+        "seed": 7506,
+        "score": 0,
+        "kills": 0,
+        "survival_seconds": 27.283333333333335,
+        "terminated": true,
+        "truncated": false,
+        "training_reward": -4.432500000000002,
+        "shots": 57,
+        "shapes_destroyed": 0,
+        "damage_taken": 100.0,
+        "score_at_200_seconds": 0
+      },
+      {
+        "seed": 7607,
+        "score": 25,
+        "kills": 0,
+        "survival_seconds": 13.4,
+        "terminated": true,
+        "truncated": false,
+        "training_reward": -4.402050833333337,
+        "shots": 28,
+        "shapes_destroyed": 1,
+        "damage_taken": 100.00000000000001,
+        "score_at_200_seconds": 25
+      },
+      {
+        "seed": 7708,
+        "score": 0,
+        "kills": 0,
+        "survival_seconds": 33.766666666666666,
+        "terminated": true,
+        "truncated": false,
+        "training_reward": -4.353000000000004,
+        "shots": 70,
+        "shapes_destroyed": 0,
+        "damage_taken": 100.00000000000003,
+        "score_at_200_seconds": 0
+      },
+      {
+        "seed": 7809,
+        "score": 35,
+        "kills": 0,
+        "survival_seconds": 170.68333333333334,
+        "terminated": true,
+        "truncated": false,
+        "training_reward": -1.844000000000185,
+        "shots": 261,
+        "shapes_destroyed": 2,
+        "damage_taken": 100.0,
+        "score_at_200_seconds": 35
+      },
+      {
+        "seed": 7910,
+        "score": 0,
+        "kills": 0,
+        "survival_seconds": 25.55,
+        "terminated": true,
+        "truncated": false,
+        "training_reward": -4.511000000000003,
+        "shots": 53,
+        "shapes_destroyed": 0,
+        "damage_taken": 100.0,
+        "score_at_200_seconds": 0
+      }
+    ],
+    "summary": {
+      "score": {
+        "mean": 11.5,
+        "std": 14.326548781894402
+      },
+      "kills": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "survival_seconds": {
+        "mean": 67.74333333333334,
+        "std": 82.21802458504257
+      },
+      "shots": {
+        "mean": 106.1,
+        "std": 102.08863795741425
+      },
+      "shapes_destroyed": {
+        "mean": 0.7,
+        "std": 1.004987562112089
+      },
+      "damage_taken": {
+        "mean": 102.23999999999987,
+        "std": 6.719999999999636
+      },
+      "score_at_200_seconds": {
+        "mean": 9.5,
+        "std": 12.932517156377562
+      }
+    }
+  },
+  {
+    "policy": "experiments\\014_full_body_control\\checkpoints\\best.zip",
+    "checkpoint_sha256": "6130963d09099d8a3c50c02c11fe0ca4766cc359a1b23aff40c515007489aa12",
+    "execution_mode": "greedy",
+    "stage": "full",
+    "max_steps": 6000,
+    "pure_rl": true,
+    "policy_seed": null,
+    "episodes": [
+      {
+        "seed": 7001,
+        "score": 420,
+        "kills": 0,
+        "survival_seconds": 58.3,
+        "terminated": true,
+        "truncated": false,
+        "training_reward": 0.8960000000000088,
+        "shots": 118,
+        "shapes_destroyed": 12,
+        "damage_taken": 134.2000000000002,
+        "score_at_200_seconds": 420
+      },
+      {
+        "seed": 7102,
+        "score": 1215,
+        "kills": 5,
+        "survival_seconds": 66.35,
+        "terminated": true,
+        "truncated": false,
+        "training_reward": 8.714933380171628,
+        "shots": 135,
+        "shapes_destroyed": 8,
+        "damage_taken": 323.8749999999971,
+        "score_at_200_seconds": 1215
+      },
+      {
+        "seed": 7203,
+        "score": 1160,
+        "kills": 5,
+        "survival_seconds": 67.86666666666666,
+        "terminated": true,
+        "truncated": false,
+        "training_reward": 8.147873334896861,
+        "shots": 138,
+        "shapes_destroyed": 10,
+        "damage_taken": 264.71566666666814,
+        "score_at_200_seconds": 1160
+      },
+      {
+        "seed": 7304,
+        "score": 730,
+        "kills": 3,
+        "survival_seconds": 71.05,
+        "terminated": true,
+        "truncated": false,
+        "training_reward": 2.748387505690834,
+        "shots": 145,
+        "shapes_destroyed": 4,
+        "damage_taken": 265.1573333333334,
+        "score_at_200_seconds": 730
+      },
+      {
+        "seed": 7405,
+        "score": 965,
+        "kills": 2,
+        "survival_seconds": 400.0,
+        "terminated": false,
+        "truncated": true,
+        "training_reward": 16.90216165776621,
+        "shots": 815,
+        "shapes_destroyed": 28,
+        "damage_taken": 52.920000000000016,
+        "score_at_200_seconds": 850
+      },
+      {
+        "seed": 7506,
+        "score": 2545,
+        "kills": 3,
+        "survival_seconds": 320.31666666666666,
+        "terminated": true,
+        "truncated": false,
+        "training_reward": 27.775007724762965,
+        "shots": 573,
+        "shapes_destroyed": 64,
+        "damage_taken": 404.5884999999996,
+        "score_at_200_seconds": 1890
+      },
+      {
+        "seed": 7607,
+        "score": 1420,
+        "kills": 4,
+        "survival_seconds": 229.05,
+        "terminated": true,
+        "truncated": false,
+        "training_reward": 14.10918201048366,
+        "shots": 468,
+        "shapes_destroyed": 26,
+        "damage_taken": 320.16900000000004,
+        "score_at_200_seconds": 1300
+      },
+      {
+        "seed": 7708,
+        "score": 2375,
+        "kills": 6,
+        "survival_seconds": 400.0,
+        "terminated": false,
+        "truncated": true,
+        "training_reward": 28.736019883240676,
+        "shots": 736,
+        "shapes_destroyed": 62,
+        "damage_taken": 448.0509999999999,
+        "score_at_200_seconds": 1585
+      },
+      {
+        "seed": 7809,
+        "score": 965,
+        "kills": 3,
+        "survival_seconds": 113.01666666666667,
+        "terminated": true,
+        "truncated": false,
+        "training_reward": 7.007836337268964,
+        "shots": 226,
+        "shapes_destroyed": 20,
+        "damage_taken": 206.17250000000007,
+        "score_at_200_seconds": 965
+      },
+      {
+        "seed": 7910,
+        "score": 2095,
+        "kills": 6,
+        "survival_seconds": 250.65,
+        "terminated": true,
+        "truncated": false,
+        "training_reward": 21.061304793320737,
+        "shots": 560,
+        "shapes_destroyed": 37,
+        "damage_taken": 509.4371666666636,
+        "score_at_200_seconds": 1735
+      }
+    ],
+    "summary": {
+      "score": {
+        "mean": 1389.0,
+        "std": 679.9588222826438
+      },
+      "kills": {
+        "mean": 3.7,
+        "std": 1.7916472867168918
+      },
+      "survival_seconds": {
+        "mean": 197.66,
+        "std": 133.20108946000906
+      },
+      "shots": {
+        "mean": 391.4,
+        "std": 256.5596227000656
+      },
+      "shapes_destroyed": {
+        "mean": 27.1,
+        "std": 20.36884876471913
+      },
+      "damage_taken": {
+        "mean": 292.9286166666662,
+        "std": 133.04108426858676
+      },
+      "score_at_200_seconds": {
+        "mean": 1185.0,
+        "std": 438.99316623382646
+      }
+    }
+  }
+]
