@@ -1,0 +1,64 @@
+{
+  "comparison": "evaluations/004_pretraining_comparison",
+  "resume": "experiments/003_training_duration/checkpoints/final.zip",
+  "initial_timesteps": 327680,
+  "additional_timesteps": 307200,
+  "target_timesteps": 634880,
+  "environment_workers": 10,
+  "maximum_owned_python_processes": 12,
+  "rollout_size": 2560,
+  "checkpoint_interval_steps": 15360,
+  "evaluation_interval_steps": 61440,
+  "development_seeds": [
+    730001,
+    730102,
+    730203,
+    730304,
+    730405,
+    730506,
+    730607,
+    730708,
+    730809,
+    730910,
+    731011,
+    731112,
+    731213,
+    731314,
+    731415,
+    731516,
+    731617,
+    731718,
+    731819,
+    731920
+  ],
+  "confirmation_seeds": [
+    740101,
+    740202,
+    740303,
+    740404,
+    740505,
+    740606
+  ],
+  "selection": "Development mean score then survival, unchanged from previous experiment",
+  "continuation_choice": "Latest final checkpoint fixed before inspecting comparison results",
+  "unchanged": [
+    "network",
+    "reward coefficients",
+    "game settings",
+    "observation",
+    "action format",
+    "PPO hyperparameters"
+  ],
+  "changed": [
+    "parallel environments 4 to 10",
+    "rollout size 1024 to 2560",
+    "development evaluation 3 to 20 seeds",
+    "TensorBoard telemetry"
+  ],
+  "detailed_metrics_destinations": [
+    "TensorBoard",
+    "JSONL"
+  ],
+  "html": "Existing summary only; no new detailed telemetry fields",
+  "experiment": "004_parallel_continuation"
+}

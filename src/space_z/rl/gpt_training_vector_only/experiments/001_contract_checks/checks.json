@@ -1,0 +1,50 @@
+{
+  "tensor_shapes": {
+    "passed": true,
+    "observation": [
+      2,
+      5139
+    ],
+    "features": [
+      2,
+      64
+    ],
+    "attention_weights": [
+      2,
+      4,
+      1,
+      143
+    ],
+    "action_parameters": 22
+  },
+  "entity_order_invariance": {
+    "passed": true,
+    "maximum_absolute_error": 1.0132789611816406e-06
+  },
+  "empty_slot_invariance": {
+    "passed": true,
+    "maximum_absolute_error": 0.0
+  },
+  "hybrid_actions": {
+    "passed": true,
+    "shape": [
+      2,
+      5
+    ],
+    "finite_log_probability": true
+  },
+  "ppo_update": {
+    "passed": true,
+    "steps": 128,
+    "encoder_weights_changed": true
+  },
+  "checkpoint_restore": {
+    "passed": true,
+    "checkpoint": "checkpoints/integration.zip",
+    "sha256": "5dee4eb050337e7850b47b3ba32387a5ab51e6a18fe4a7f1df61da696dc4c675"
+  },
+  "protected_sources": {
+    "passed": true,
+    "file_count": 30
+  }
+}

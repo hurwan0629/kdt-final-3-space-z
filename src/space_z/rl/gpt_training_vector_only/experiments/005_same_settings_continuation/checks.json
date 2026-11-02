@@ -1,0 +1,14 @@
+{
+  "parent_weights": {
+    "passed": true,
+    "tensors": 153
+  },
+  "parent_optimizer": {
+    "passed": true,
+    "parameter_states": 56
+  },
+  "parent_hyperparameters": {
+    "passed": true,
+    "settings": 9
+  }
+}

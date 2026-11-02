@@ -1,0 +1,16 @@
+{
+  "status": "failed",
+  "timesteps": 819200,
+  "initial_timesteps": 573440,
+  "additional_timesteps": 245760,
+  "requested_steps": 307200,
+  "target_timesteps": 880640,
+  "updated_at": "2026-11-02T04:46:17.044415+00:00",
+  "process_id": 447492,
+  "latest_checkpoint": "checkpoints/step_000819200.zip",
+  "best_timesteps": 573440,
+  "best_checkpoint": "checkpoints/best.zip",
+  "best_score": 114.25,
+  "error": "PermissionError(13, 'Access is denied')",
+  "elapsed_seconds": 1592.0779999999795
+}

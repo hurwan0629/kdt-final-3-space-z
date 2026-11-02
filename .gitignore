@@ -104,6 +104,7 @@ trained_models/
 
 # Local caches, temporary files and runtime logs
 /.cache/
+/.vibe-wise/
 /graphify-out/cache/
 /tmp/
 /temp/

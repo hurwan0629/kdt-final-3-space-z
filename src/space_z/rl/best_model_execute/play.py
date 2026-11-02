@@ -66,7 +66,7 @@ def make_environment(model_name, manifest, max_seconds=400, zoom=0.35, headless=
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--model', choices=['discrete', 'rotation'], default='rotation')
-    parser.add_argument('--seed', type=int, default=61001)
+    parser.add_argument('--seed', type=int, default=223)#61001)
     parser.add_argument('--max-seconds', type=float, default=400)
     parser.add_argument('--zoom', type=float, default=0.35)
     parser.add_argument('--headless', action='store_true', help='화면 없이 게임을 진행한다')
