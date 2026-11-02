@@ -4044,9 +4044,9 @@
     "semantic_hash": ""
   },
   "src/space_z/rl/best_model_execute/play.py": {
-    "mtime": 1793527890.007482,
-    "seen": 1793528222.8181207,
-    "ast_hash": "1a837136c73dc99301ccc2be4ff59c58",
+    "mtime": 1793598024.722071,
+    "seen": 1793608313.146564,
+    "ast_hash": "23b1e923d56a76744b6cdde89a7dccd8",
     "semantic_hash": ""
   },
   "src/space_z/rl/best_model_execute/player_control.py": {
@@ -4116,15 +4116,15 @@
     "semantic_hash": ""
   },
   "src/space_z/rl/gpt_training_vector_only/environment.py": {
-    "mtime": 1793589604.734998,
-    "seen": 1793589830.0871766,
-    "ast_hash": "966475abda6dbd3ac05acc5f49d3ff9a",
+    "mtime": 1793598258.7566028,
+    "seen": 1793608313.2129521,
+    "ast_hash": "3c3ea70d50cf3e081c0ffbbac62741e9",
     "semantic_hash": ""
   },
   "src/space_z/rl/gpt_training_vector_only/experiment.py": {
-    "mtime": 1793589896.2552495,
-    "seen": 1793589961.2673445,
-    "ast_hash": "12371e06f192324bd9664305475f2e6c",
+    "mtime": 1793598224.0147974,
+    "seen": 1793608313.2135234,
+    "ast_hash": "2c1ae5151fae85b4e9579b935366f9cc",
     "semantic_hash": ""
   },
   "src/space_z/rl/gpt_training_vector_only/experiments/001_contract_checks/checks.json": {
@@ -4182,15 +4182,15 @@
     "semantic_hash": ""
   },
   "src/space_z/rl/gpt_training_vector_only/report.py": {
-    "mtime": 1793589802.2031548,
-    "seen": 1793589830.0885293,
-    "ast_hash": "198147ab94de6365663bf3240a7f0eba",
+    "mtime": 1793597984.9230113,
+    "seen": 1793608313.216632,
+    "ast_hash": "76b3cce9c74f4244a957f7ccb0a4bb53",
     "semantic_hash": ""
   },
   "src/space_z/rl/gpt_training_vector_only/storage.py": {
-    "mtime": 1793584353.3485427,
-    "seen": 1793584940.2937427,
-    "ast_hash": "5190166ff9f8db9f8253ad8d93f5d721",
+    "mtime": 1793597959.0219972,
+    "seen": 1793608313.2166345,
+    "ast_hash": "3c0f63dcc6d9b818294ce96e12abc567",
     "semantic_hash": ""
   },
   "src/space_z/rl/gpt_report/README.md": {
@@ -4206,9 +4206,9 @@
     "semantic_hash": ""
   },
   "src/space_z/rl/gpt_training_vector_only/agent_context/current.md": {
-    "mtime": 1793588801.3854268,
-    "seen": 1793589830.1050973,
-    "ast_hash": "9a5afeb176946cad582fa60fbbf6b7ae",
+    "mtime": 1793594180.384062,
+    "seen": 1793608313.2484677,
+    "ast_hash": "99b100e6d994c283618f826a78bd5eac",
     "semantic_hash": ""
   },
   "src/space_z/rl/gpt_training_vector_only/report_template.html": {
@@ -4224,9 +4224,9 @@
     "semantic_hash": ""
   },
   "src/space_z/rl/gpt_training_vector_only/reports/index.html": {
-    "mtime": 1793588844.1485324,
-    "seen": 1793589830.10519,
-    "ast_hash": "3675c068b9352cc2e77f3c57f3fb9ae2",
+    "mtime": 1793608163.4446628,
+    "seen": 1793608313.2488258,
+    "ast_hash": "a173d5dcebdd7615724c1d398b0708c5",
     "semantic_hash": ""
   },
   "src/space_z/rl/gpt_training_vector_only/experiments/002_full_game_pilot/replays/000000000_seed_710101_frame_000002.png": {
@@ -4326,9 +4326,9 @@
     "semantic_hash": ""
   },
   "src/space_z/rl/gpt_training_vector_only/agent_context/004_preflight.json": {
-    "mtime": 1793589897.2426097,
-    "seen": 1793589961.2665956,
-    "ast_hash": "36951509b3f9435b1024c6dbde513307",
+    "mtime": 1793590057.9705834,
+    "seen": 1793608313.2118645,
+    "ast_hash": "cb1b3502a9c1bc30e39b909d09d4ff8f",
     "semantic_hash": ""
   },
   "src/space_z/rl/gpt_training_vector_only/compare.py": {
@@ -4344,9 +4344,9 @@
     "semantic_hash": ""
   },
   "src/space_z/rl/gpt_training_vector_only/evaluations/004_pretraining_comparison/state.json": {
-    "mtime": 1793589959.0050995,
-    "seen": 1793589961.2673395,
-    "ast_hash": "a15a021d042f092f8a6d83cbddff59a4",
+    "mtime": 1793590268.6952705,
+    "seen": 1793608313.2132816,
+    "ast_hash": "4db08d139864e75ea1e45cb9adc1485b",
     "semantic_hash": ""
   },
   "src/space_z/rl/gpt_training_vector_only/experiments/003_training_duration/confirmation.json": {
@@ -4374,15 +4374,303 @@
     "semantic_hash": ""
   },
   "src/space_z/rl/gpt_training_vector_only/agent_context/004_plan.json": {
-    "mtime": 1793589953.2266493,
-    "seen": 1793589961.2665925,
-    "ast_hash": "99f76931c7c6c4e2870c22a6c24f47e1",
+    "mtime": 1793590349.4075398,
+    "seen": 1793608313.2118611,
+    "ast_hash": "183472311c9fa7e77e49005510aa5eb8",
     "semantic_hash": ""
   },
   "src/space_z/rl/gpt_training_vector_only/evaluations/004_pretraining_comparison/step_000065536.json": {
     "mtime": 1793589954.2817168,
     "seen": 1793589961.267342,
     "ast_hash": "8728d36094f2c3c7ed7a4bceb97d6fc0",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/agent_context/004_comparison_verification.json": {
+    "mtime": 1793590349.4055383,
+    "seen": 1793608313.2118556,
+    "ast_hash": "b00b75d693681284284ee9385ece75cd",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/agent_context/004_verification.json": {
+    "mtime": 1793593022.842652,
+    "seen": 1793608313.2118669,
+    "ast_hash": "4abb900c24d3e633ee1467d42727dc2c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/agent_context/005_plan.json": {
+    "mtime": 1793593291.8448322,
+    "seen": 1793608313.2118704,
+    "ast_hash": "21d9653cb9182174cc7a3153f0966afd",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/evaluations/004_pretraining_comparison/comparison.json": {
+    "mtime": 1793590268.692271,
+    "seen": 1793608313.2129567,
+    "ast_hash": "d0dc5c896dd8eaf0cc876b3f008c9967",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/evaluations/004_pretraining_comparison/step_000196608.json": {
+    "mtime": 1793590132.5785148,
+    "seen": 1793608313.2135153,
+    "ast_hash": "4fc1ddf6ae928e422cdbf9b80e2ab3cd",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/evaluations/004_pretraining_comparison/step_000327680.json": {
+    "mtime": 1793590268.6842697,
+    "seen": 1793608313.2135181,
+    "ast_hash": "2a41c5d170be2b5e425fb4056474c5fc",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/004_parallel_continuation/checks.json": {
+    "mtime": 1793590366.4849422,
+    "seen": 1793608313.2160988,
+    "ast_hash": "bc725f3cc33fc242091acb9595d22f8f",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/004_parallel_continuation/config.json": {
+    "mtime": 1793590356.0374024,
+    "seen": 1793608313.2161014,
+    "ast_hash": "d469ba3752d80c53e46eec7d94b9f294",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/004_parallel_continuation/confirmation.json": {
+    "mtime": 1793592695.4090362,
+    "seen": 1793608313.2161043,
+    "ast_hash": "cc6708c79a86a7fa6153cc4a152f561b",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/004_parallel_continuation/manifest.json": {
+    "mtime": 1793590356.1162593,
+    "seen": 1793608313.2161064,
+    "ast_hash": "e849f75800901289d3004d5cfddedf9e",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/004_parallel_continuation/state.json": {
+    "mtime": 1793592696.1529775,
+    "seen": 1793608313.2161093,
+    "ast_hash": "9f696f40a719f3a2ba76e1e28d94604d",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/005_same_settings_continuation/checks.json": {
+    "mtime": 1793593194.3835907,
+    "seen": 1793608313.2161124,
+    "ast_hash": "bc725f3cc33fc242091acb9595d22f8f",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/005_same_settings_continuation/config.json": {
+    "mtime": 1793593184.893863,
+    "seen": 1793608313.2161148,
+    "ast_hash": "a62f2cd8e1f0bb037bb035c04e3fc686",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/005_same_settings_continuation/manifest.json": {
+    "mtime": 1793593184.9578674,
+    "seen": 1793608313.2161162,
+    "ast_hash": "afe5ee0955f162592f711f62e7e1244e",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/005_same_settings_continuation/state.json": {
+    "mtime": 1793594777.046417,
+    "seen": 1793608313.2161183,
+    "ast_hash": "48e80bc51d1b163d9a37f94998cf29cf",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/006_lower_learning_rate/checks.json": {
+    "mtime": 1793599938.1568117,
+    "seen": 1793608313.2161202,
+    "ast_hash": "bc725f3cc33fc242091acb9595d22f8f",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/006_lower_learning_rate/config.json": {
+    "mtime": 1793599931.519173,
+    "seen": 1793608313.2161226,
+    "ast_hash": "501d1530886dc2cb9fd13da70ebfcea5",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/006_lower_learning_rate/confirmation.json": {
+    "mtime": 1793602046.2755766,
+    "seen": 1793608313.216124,
+    "ast_hash": "1af908e139394b11312d52d186a603fa",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/006_lower_learning_rate/manifest.json": {
+    "mtime": 1793599931.587418,
+    "seen": 1793608313.216126,
+    "ast_hash": "f984a1d6602ca0d76cb27a7cdbd06100",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/006_lower_learning_rate/state.json": {
+    "mtime": 1793602046.9994407,
+    "seen": 1793608313.216128,
+    "ast_hash": "7d9e18fcad551581f4dee9546d596733",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/007_higher_combat_reward/checks.json": {
+    "mtime": 1793606171.254963,
+    "seen": 1793608313.2161305,
+    "ast_hash": "bc725f3cc33fc242091acb9595d22f8f",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/007_higher_combat_reward/config.json": {
+    "mtime": 1793606162.595128,
+    "seen": 1793608313.2161324,
+    "ast_hash": "5fe02fcb66bbaa543b40974a53ee82b1",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/007_higher_combat_reward/manifest.json": {
+    "mtime": 1793606162.7007184,
+    "seen": 1793608313.2161355,
+    "ast_hash": "c91483523fac87fc53eb6f2169e5c138",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/007_higher_combat_reward/state.json": {
+    "mtime": 1793608163.2687309,
+    "seen": 1793608313.2161372,
+    "ast_hash": "feeea6bb4370707fcf4587cdac9f7225",
+    "semantic_hash": ""
+  },
+  "study/ppo_policy_assembly/environment.py": {
+    "mtime": 1793590393.0694854,
+    "seen": 1793608313.2224994,
+    "ast_hash": "52d16df9c0c9169defeee95d994c40ee",
+    "semantic_hash": ""
+  },
+  "study/ppo_policy_assembly/policy.py": {
+    "mtime": 1793590395.5909271,
+    "seen": 1793608313.2225025,
+    "ast_hash": "119b37b954da47ce74df10eef3a8fe67",
+    "semantic_hash": ""
+  },
+  "study/ppo_policy_assembly/train.py": {
+    "mtime": 1793590398.077877,
+    "seen": 1793608313.2225056,
+    "ast_hash": "6d8f724bf32441aa7d9f16a902e8ae88",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_report/experiment_atlas.html": {
+    "mtime": 1793608294.410738,
+    "seen": 1793608313.2364516,
+    "ast_hash": "4409be2316d1a878a1b7d9402e6d7a3d",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_report/space_z_ppo_full_journey_with_hybrid_rotation.html": {
+    "mtime": 1793529017.160872,
+    "seen": 1793608313.236455,
+    "ast_hash": "911b6e7aad9336bcc1f8fa9c7d61a958",
+    "semantic_hash": ""
+  },
+  "study/ppo_policy_assembly/README.md": {
+    "mtime": 1793590403.2741413,
+    "seen": 1793608313.2494204,
+    "ast_hash": "d1003971a4005f8372bd86b1448b05eb",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/004_parallel_continuation/replays/000327680_seed_730001_frame_000002.png": {
+    "mtime": 1793590371.1291604,
+    "seen": 1793608313.2994049,
+    "ast_hash": "f8f329eb8b8e8c3fb81d57310ad25cae",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/004_parallel_continuation/replays/000327680_seed_730001_frame_003600.png": {
+    "mtime": 1793590380.8091526,
+    "seen": 1793608313.299408,
+    "ast_hash": "8c0c522d1c2df3299dadf673f2fd9c00",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/004_parallel_continuation/replays/000327680_seed_730001_frame_004739.png": {
+    "mtime": 1793590384.211257,
+    "seen": 1793608313.29941,
+    "ast_hash": "2dc6eaa1dc07fa4a174dc1eef1f6b77b",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/004_parallel_continuation/replays/000634880_seed_730001_frame_000002.png": {
+    "mtime": 1793592341.970667,
+    "seen": 1793608313.2994132,
+    "ast_hash": "e42c7ca45f852ae4e6bd7e95fcc46e9c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/004_parallel_continuation/replays/000634880_seed_730001_frame_003600.png": {
+    "mtime": 1793592351.6764362,
+    "seen": 1793608313.2994158,
+    "ast_hash": "027124d3c3f192e028ddbf9c3aea27e4",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/004_parallel_continuation/replays/000634880_seed_730001_frame_004021.png": {
+    "mtime": 1793592353.0471234,
+    "seen": 1793608313.2994182,
+    "ast_hash": "39051ae4668029b41fb9b3f9bf53feab",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/005_same_settings_continuation/replays/000573440_seed_730001_frame_000002.png": {
+    "mtime": 1793593198.4320066,
+    "seen": 1793608313.2994206,
+    "ast_hash": "e42c7ca45f852ae4e6bd7e95fcc46e9c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/005_same_settings_continuation/replays/000573440_seed_730001_frame_003600.png": {
+    "mtime": 1793593208.2751532,
+    "seen": 1793608313.2994232,
+    "ast_hash": "5f8626ff13709e429b0d9d48f8f0d2ac",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/005_same_settings_continuation/replays/000573440_seed_730001_frame_004055.png": {
+    "mtime": 1793593209.726772,
+    "seen": 1793608313.2994254,
+    "ast_hash": "b70600e41815c29fa64a533344b7982a",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/006_lower_learning_rate/replays/000573440_seed_730001_frame_000002.png": {
+    "mtime": 1793599941.1177216,
+    "seen": 1793608313.299427,
+    "ast_hash": "e42c7ca45f852ae4e6bd7e95fcc46e9c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/006_lower_learning_rate/replays/000573440_seed_730001_frame_003600.png": {
+    "mtime": 1793599947.0752583,
+    "seen": 1793608313.2994294,
+    "ast_hash": "5f8626ff13709e429b0d9d48f8f0d2ac",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/006_lower_learning_rate/replays/000573440_seed_730001_frame_004055.png": {
+    "mtime": 1793599947.9216194,
+    "seen": 1793608313.299432,
+    "ast_hash": "b70600e41815c29fa64a533344b7982a",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/006_lower_learning_rate/replays/000880640_seed_730001_frame_000002.png": {
+    "mtime": 1793601782.7727218,
+    "seen": 1793608313.299435,
+    "ast_hash": "b60737545866b79b2feefbfcc2c37ca9",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/006_lower_learning_rate/replays/000880640_seed_730001_frame_003600.png": {
+    "mtime": 1793601788.622913,
+    "seen": 1793608313.2994368,
+    "ast_hash": "135e9c331c67fa91a2759819f7af7249",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/006_lower_learning_rate/replays/000880640_seed_730001_frame_007160.png": {
+    "mtime": 1793601794.4933743,
+    "seen": 1793608313.2994392,
+    "ast_hash": "befde3e801014d6104e02a2de8e5b32c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/007_higher_combat_reward/replays/000573440_seed_730001_frame_000002.png": {
+    "mtime": 1793606175.666694,
+    "seen": 1793608313.299441,
+    "ast_hash": "e42c7ca45f852ae4e6bd7e95fcc46e9c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/007_higher_combat_reward/replays/000573440_seed_730001_frame_003600.png": {
+    "mtime": 1793606185.7996638,
+    "seen": 1793608313.2994432,
+    "ast_hash": "5f8626ff13709e429b0d9d48f8f0d2ac",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/007_higher_combat_reward/replays/000573440_seed_730001_frame_004055.png": {
+    "mtime": 1793606187.485644,
+    "seen": 1793608313.2994454,
+    "ast_hash": "b70600e41815c29fa64a533344b7982a",
     "semantic_hash": ""
   }
 }

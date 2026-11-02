@@ -103,7 +103,7 @@ def new_experiment(name, title, kind, goal, config, parent=None):
                     versions=dict(python=sys.version, torch=torch.__version__,
                                   stable_baselines3=stable_baselines3.__version__, gymnasium=gymnasium.__version__),
                     process_policy=('SubprocVecEnv workers' if config.get('parallel') else 'DummyVecEnv in one process')
-                                   + '; evaluation is sequential; maximum 12 owned processes',
+                                   + '; evaluation is sequential; maximum 18 owned processes',
                     distribution_dependency='Only RotationHybridDistribution is reused; no parent policy or aim_features is called')
     write_json(directory / 'manifest.json', manifest)
     write_json(directory / 'state.json', dict(status='prepared', timesteps=0, updated_at=now(), process_id=os.getpid()))
@@ -303,8 +303,8 @@ def main():
     parser.add_argument('--reward-overrides', type=str, nargs='+', default=None,
                         help='score_gain=0.03 enemy_damage=0.015 형태. 지정한 키만 REWARD_COEFFICIENTS 기본값 위에 덮어씀.')
     args = parser.parse_args()
-    if not 1 <= args.num_envs <= 10:
-        parser.error('Use 1–10 environments within the 12-process budget')
+    if not 1 <= args.num_envs <= 16:
+        parser.error('Use 1–16 environments within the 18-process budget')
     try:
         reward_overrides = parse_reward_overrides(args.reward_overrides)
     except ValueError as error:
@@ -324,7 +324,7 @@ def main():
     initial_timesteps = parent['timesteps'] if parent else 0
     target_timesteps = initial_timesteps + args.steps
     config = dict(training_seed=args.seed, requested_steps=args.steps, number_of_environments=args.num_envs,
-                  parallel=args.parallel, rollout_size=rollout_size, maximum_owned_processes=12,
+                  parallel=args.parallel, rollout_size=rollout_size, maximum_owned_processes=18,
                   initial_timesteps=initial_timesteps, target_timesteps=target_timesteps, parent=parent,
                   environment=environment_configuration(reward_overrides), ppo=PPO_OPTIONS,
                   learning_rate_override=args.learning_rate,
@@ -353,7 +353,7 @@ def main():
         process = psutil.Process()
         launcher = process.parent()
         process_count = 1 + len(process.children(recursive=True)) + int(launcher.name().lower().startswith('python'))
-        if process_count > 12:
+        if process_count > 18:
             raise RuntimeError(f'Owned process budget exceeded: {process_count}')
         event(directory, '프로세스 확인', '실측한 자체 Python 프로세스 수를 기록했다.',
               owned_process_count=process_count, worker_pids=[child.pid for child in process.children(recursive=True)])
