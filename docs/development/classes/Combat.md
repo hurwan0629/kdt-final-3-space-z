@@ -10,9 +10,9 @@ tags: [space-z, class]
 
 발사·점사·탄환 이동·명중·피해·회복·몸체 충돌을 처리합니다. 접근 경로는 `game.combat`, 구현은 [combat.py](../../../src/space_z/game/combat.py)입니다. 생성 때 코어 참조를 받고, 새 판에서는 `reset()`으로 전투 목록과 타이머를 비웁니다.
 
-탄환 목록은 이 객체에 있지만 **탄약·발사 대기·예약 점사는 각 `Tank`에** 있습니다. 플레이어와 적 모두 같은 발사 함수를 사용합니다. 적 처치·점수는 `PlayerProgression`에 전달합니다.
+탄환 목록은 이 객체에 있지만 **탄약·발사 대기·예약 점사는 각 `Tank`에** 있습니다. 플레이어와 적 모두 같은 발사 함수를 사용합니다. 확정된 적 처치는 `GameCore.record_player_kill()`에, 천체 파괴 점수는 `GameCore.award_score()`에 전달합니다. 성장과 엘리트 회복·알림 연결은 코어가 조율합니다.
 
-점수를 획득한 위치와 시각은 `GameCore.record_score_award()`로 기록합니다. 팝업 목록·고유 번호·표시 시간은 [[development/classes/Renderer#점수 팝업|Renderer]]가 관리합니다.
+코어의 `award_score()`가 점수를 획득한 위치·시각을 `record_score_award()`에 기록하고 실제 점수를 성장에 반영합니다. 팝업 목록·고유 번호·표시 시간은 [[development/classes/Renderer#점수 팝업|Renderer]]가 관리합니다.
 
 ## 찾아보기
 
@@ -57,6 +57,7 @@ tags: [space-z, class]
 - `_damage_tank(t, dmg, by_player)`는 우주선의 받는 피해 배율을 적용하고, 실제 남은 체력까지만 피해를 기록합니다. 피격 프레임을 갱신합니다. 적이 죽으면 생존 상태·재등장 타이머를 바꾸고 플레이어 처치에 한해 점수·처치 수를 전달합니다.
 - `_damage_shape(s, dmg, by_player)`는 천체 체력을 줄입니다. 플레이어가 입힌 피해와 파괴는 이벤트로 기록하고, 파괴 시 천체 점수를 성장 객체에 전달합니다.
 - `_regen_player()`는 체력이 양수이고 피격 후 회복 대기 시간이 지났을 때 현재 최대 체력에 비례해 회복합니다. 최대 체력을 넘지 않습니다.
+- `base_regeneration(tank)`는 체력 비례 기본 회복량만 조회합니다. 실제 회복과 능력치 표시가 같은 계산을 사용하고, 개체의 추가 회복량을 더합니다. 조회 자체는 상태를 바꾸지 않습니다.
 - `_collide_bodies()`는 겹침을 풀고 접촉 피해를 위 함수들에 전달합니다. 파괴된 천체를 제거하고 코어·지형에 위치 보정을 요청합니다.
 
 **플레이어와 적의 사망 확정 시점이 다릅니다.** 적은 `_damage_tank()` 안에서 사망 상태가 됩니다. 플레이어는 피격 이벤트를 기록한 뒤 반환하며, `GameCore.step()` 끝에서 사망·예약 취소·게임오버를 확정합니다.
@@ -91,7 +92,7 @@ tags: [space-z, class]
 | `_emit_shot(tank, shot, damage, speed, life)` | 발사할 패턴과 기체 위치·각도 | 벽·즉시 명중 검사, 탄환 추가 또는 피해 적용 | `None` |
 | `_move_bullets()` | 탄환 목록·지형·개체 | 이동·수명 감소·첫 명중·벽 피해·소멸·천체 정리 | `None` |
 | `_bullet_hit(b)` | 이전·현재 탄환 위치와 대상 목록 | 가장 먼저 닿는 한 대상에 피해, 관통 상태 변경 | 탄환 소멸 여부 `bool` |
-| `_damage_tank(t, dmg, by_player)`, `_damage_shape(s, dmg, by_player)` | 대상 체력·피해·공격 주체 | 체력·전투 이벤트 변경, 코어에 점수 획득 기록, 성장에 실제 점수 전달 | `None` |
+| `_damage_tank(t, dmg, by_player)`, `_damage_shape(s, dmg, by_player)` | 대상 체력·피해·공격 주체 | 체력·피해 이벤트 변경, 코어에 확정된 처치・점수 전달 | `None` |
 | `_explode(x, y, damage, radius, team)` | 폭발 범위의 개체·벽 | 거리별 피해·벽 피해·폭발 연출 추가 | `None` |
 | `_collide_bodies()`, `_regen_player()` | 현재 개체·접촉·피격 시각 | 위치·체력 변경, 코어·지형 보정 요청 | `None` |
 | `_tick_effects()` | 빔·폭발의 남은 수명 | 수명 감소와 만료 항목 제거 | `None` |

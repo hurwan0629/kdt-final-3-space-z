@@ -1,0 +1,136 @@
+{
+    "goal":  "Keep raw 5139 observations and pure PPO; test continuous rotation for fast, stable scoring in unchanged full game",
+    "research_ppo_step_budget":  2000000,
+    "verification_ppo_steps_separate":  64,
+    "training_method":  "pure_ppo",
+    "imitation_steps":  0,
+    "initialization":  "Reuse existing pure-PPO feature/body/critic/fire weights; initialize continuous rotation output to zero with learned Gaussian exploration",
+    "parent":  "../gpt_training/pure_ppo_model.zip",
+    "parent_sha256":  "657c380fef9b0bb3b3158b9ae6f876e25828fe768eeb70cf949b09ebb38cf08e",
+    "parent_training_timesteps":  1474560,
+    "frame_skip":  2,
+    "max_owned_python_processes":  8,
+    "environment_workers":  4,
+    "initial_plan":  [
+                         {
+                             "name":  "001_aim_adaptation",
+                             "steps":  300000,
+                             "stage":  "aim",
+                             "freeze_body":  true,
+                             "learning_rate":  0.0003,
+                             "reward":  "score_v5"
+                         },
+                         {
+                             "name":  "002_full_adaptation",
+                             "steps":  700000,
+                             "stage":  "full",
+                             "freeze_body":  false,
+                             "learning_rate":  0.0001,
+                             "reward":  "score_v7"
+                         },
+                         {
+                             "name":  "003_full_refinement",
+                             "steps":  500000,
+                             "stage":  "full",
+                             "freeze_body":  false,
+                             "learning_rate":  3E-05,
+                             "reward":  "score_v7"
+                         },
+                         {
+                             "name":  "004_full_stability",
+                             "steps":  500000,
+                             "stage":  "full",
+                             "freeze_body":  false,
+                             "learning_rate":  3E-05,
+                             "reward":  "score_v7"
+                         }
+                     ],
+    "evaluation_interval_steps":  100000,
+    "checkpoint_interval_steps":  50000,
+    "development_seeds":  [
+                              41001,
+                              41506,
+                              42001,
+                              42506
+                          ],
+    "development_seconds":  200,
+    "broader_development_seeds":  [
+                                      43001,
+                                      43506,
+                                      44001,
+                                      44506,
+                                      45001,
+                                      45506,
+                                      46001,
+                                      46506
+                                  ],
+    "heldout_seeds":  [
+                          51001,
+                          51102,
+                          51203,
+                          51304,
+                          51405,
+                          51506,
+                          51607,
+                          51708,
+                          51809,
+                          51910,
+                          52001,
+                          52102,
+                          52203,
+                          52304,
+                          52405,
+                          52506,
+                          52607,
+                          52708,
+                          52809,
+                          52910
+                      ],
+    "heldout_seconds":  400,
+    "selection":  "First rank development checkpoints by 120-second mean plus p25, then full score and survival; screen finalists on eight broader development seeds before selecting exactly one candidate for heldout",
+    "promotion_guard":  "Heldout 120-second mean, 120-second p25, final mean score and mean survival must each meet or exceed the existing default on paired seeds",
+    "comparison_limit":  "This tests a pretrained model with a new action representation and curriculum; it is not a compute-matched causal comparison of action distributions from scratch",
+    "recording":  "TensorBoard, per-episode JSONL, per-checkpoint evaluation JSONL, source archives, hashes, experiment manifests and final report",
+    "plan_amendments":  [
+                            {
+                                "recorded_at":  "2026-11-01T03:25:38.872050+00:00",
+                                "reason":  "Broader development survival regression after first full-game block; preserve aiming while adapting body at a lower learning rate",
+                                "phase_002_planned_actual_steps":  200000,
+                                "remaining_plan":  [
+                                                       {
+                                                           "name":  "003_body_stability",
+                                                           "steps":  500000,
+                                                           "parent":  "001/best",
+                                                           "freeze_aim":  true,
+                                                           "learning_rate":  3E-05,
+                                                           "evaluation_seeds":  [
+                                                                                    43001,
+                                                                                    44001,
+                                                                                    45001,
+                                                                                    46001
+                                                                                ]
+                                                       },
+                                                       {
+                                                           "name":  "004_adaptive",
+                                                           "steps":  500000
+                                                       },
+                                                       {
+                                                           "name":  "005_adaptive",
+                                                           "steps":  500000
+                                                       }
+                                                   ],
+                                "total_research_steps":  2000000
+                            }
+                        ],
+    "replay_mode_amendment":  {
+                                  "recorded_at":  "2026-11-01T03:54:04.3652427Z",
+                                  "development_evidence":  "003 400k sampled: 120s mean 1140, p25 1030, final mean 1455, survival 190.075 seconds on eight broader development seeds",
+                                  "replay_modes_compared":  [
+                                                                "greedy",
+                                                                "sampled"
+                                                            ],
+                                  "future_primary_evaluation":  "sampled, torch.manual_seed(1000003 + game_seed)",
+                                  "heldout_note":  "Candidate weights and replay mode will be selected before running candidate on the untouched heldout cohort",
+                                  "remaining_training":  "Finish 003 for total research 1,000,000 steps; then two 500,000-step blocks, preserving aim first and adapting all actor weights at a lower rate last if development results support it"
+                              }
+}

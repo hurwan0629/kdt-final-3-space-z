@@ -1,0 +1,5 @@
+{"timesteps": 15000, "score": 3345, "kills": 11, "survival_seconds": 200.0, "training_reward": 42.83963886452046, "shots": 258, "shapes_destroyed": 47, "damage_taken": 109.80375000000001}
+{"timesteps": 15000, "score": 3780, "kills": 8, "survival_seconds": 200.0, "training_reward": 48.15885219332202, "shots": 255, "shapes_destroyed": 95, "damage_taken": 37.982}
+{"timesteps": 15000, "score": 3555, "kills": 12, "survival_seconds": 200.0, "training_reward": 43.27354565187999, "shots": 229, "shapes_destroyed": 54, "damage_taken": 210.66441666666665}
+{"timesteps": 15000, "score": 3790, "kills": 12, "survival_seconds": 200.0, "training_reward": 49.27400820258131, "shots": 251, "shapes_destroyed": 56, "damage_taken": 52.1514}
+{"timesteps": 15000, "score": 4720, "kills": 16, "survival_seconds": 200.0, "training_reward": 57.1320825381142, "shots": 264, "shapes_destroyed": 52, "damage_taken": 375.3831666666666}

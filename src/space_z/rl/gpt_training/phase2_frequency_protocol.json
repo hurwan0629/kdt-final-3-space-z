@@ -1,0 +1,28 @@
+{
+    "goal":  "Test whether twice as frequent policy decisions improve early points and lower-tail consistency",
+    "checkpoint":  "experiments/014_full_body_control/checkpoints/best.zip",
+    "checkpoint_sha256":  "6130963d09099d8a3c50c02c11fe0ca4766cc359a1b23aff40c515007489aa12",
+    "weights_changed":  false,
+    "frame_skip":  2,
+    "game_fps":  60,
+    "max_steps":  6000,
+    "max_game_seconds":  200,
+    "baseline_report":  "phase2_development_014.json",
+    "baseline_frame_skip":  4,
+    "baseline_max_steps":  3000,
+    "baseline_max_game_seconds":  200,
+    "seeds":  [
+                  7001,
+                  7102,
+                  7203,
+                  7304,
+                  7405,
+                  7506,
+                  7607,
+                  7708,
+                  7809,
+                  7910
+              ],
+    "independent_test":  false,
+    "started_at_utc":  "2026-10-31T18:57:33.1238368Z"
+}

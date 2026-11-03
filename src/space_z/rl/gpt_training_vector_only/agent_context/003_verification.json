@@ -1,0 +1,69 @@
+{
+  "status": "passed",
+  "initial_timesteps": 65536,
+  "additional_timesteps": 262144,
+  "total_timesteps": 327680,
+  "ppo_epoch_counter": 1278,
+  "evaluation_steps": [
+    65536,
+    131072,
+    196608,
+    262144,
+    327680
+  ],
+  "selected_timesteps": 196608,
+  "training_episode_count": 198,
+  "reward_episodes_checked": 225,
+  "reward_formula_conservation": true,
+  "protected_source_count": 30,
+  "protected_sources_unchanged": true,
+  "parent_checkpoint_unchanged": true,
+  "baseline_evaluation_matches_parent": true,
+  "checkpoint_hashes_match": true,
+  "final_weights_equal_last_evaluated": true,
+  "policy_tensors_checked": 153,
+  "learning_source_matches_snapshot": true,
+  "tensorboard_scalar_values_checked": 5211,
+  "tensorboard_matches_jsonl": true,
+  "screenshots_checked": 5,
+  "predeclared_confirmation_seeds": [
+    720101,
+    720202,
+    720303,
+    720404,
+    720505,
+    720606
+  ],
+  "confirmation_after_selection": true,
+  "confirmation_means": {
+    "parent": {
+      "score": 72.5,
+      "survival_seconds": 61.87222222222221,
+      "episode_reward": -2.8898033429419434
+    },
+    "selected": {
+      "score": 35,
+      "survival_seconds": 41.49444444444444,
+      "episode_reward": -4.105403288240583
+    }
+  },
+  "limitations": [
+    "Single training initialization",
+    "Only six new seeds; evaluations capped at 120 seconds",
+    "No dedicated wall avoidance behavioral test",
+    "No byte-for-byte reproduction of the full training trajectory attempted"
+  ],
+  "gallery_record_count": 3,
+  "report_javascript_and_routes": "passed",
+  "local_artifact_links_checked": 48,
+  "report_sha256": "d037c82ecb69c6a0acab1d59db04e2b55fdbd3a767955e74e4e38f8e85861bea",
+  "report_bytes": 534627,
+  "experiment_process_terminated": true,
+  "browser_review": {
+    "surface": "existing Chrome local preview",
+    "reward_formula_accessibility": "observed actual coefficients and raw quantity definitions",
+    "checkpoint_reward_table_and_score_chart": "visually reviewed",
+    "all_viewports_and_theme": "not checked",
+    "comparison_section_visual_review": "not completed; user interaction detected, no further UI actions"
+  }
+}

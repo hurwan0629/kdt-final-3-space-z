@@ -28,7 +28,7 @@ class MenusReloadTests(unittest.TestCase):
         self.renderer = SimpleNamespace(
             add_score_popups=Mock(),
             reset_score_popups=Mock(),
-            _update_camera=Mock(),
+            update_camera=Mock(),
             screen_to_world=lambda x, y: (2000, 1100),
             set_zoom=Mock(
                 side_effect=lambda zoom: setattr(config, "camera_zoom", zoom)

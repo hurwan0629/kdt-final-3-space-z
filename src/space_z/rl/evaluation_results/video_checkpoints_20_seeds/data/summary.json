@@ -1,0 +1,156 @@
+{
+  "percentile_method": "numpy.percentile(method='linear'); per model across 20 seeds",
+  "survival_censoring": "time-limited episodes are observed at 400 seconds, not eventual death times",
+  "models": [
+    {
+      "number": 1,
+      "experiment": "EXP001",
+      "checkpoint_sha256": "8e9f3bc1aa16e62b23a131050e85e9b8dcdb8457174b7135a7bfb4dcfd8304ca",
+      "total_training_steps": 100352,
+      "episode_count": 20,
+      "survived_to_limit": 2,
+      "score": {
+        "mean": 1.0,
+        "std_population": 3.0,
+        "minimum": 0.0,
+        "p10": 0.0,
+        "p25": 0.0,
+        "p50": 0.0,
+        "p75": 0.0,
+        "p90": 1.0000000000000142,
+        "maximum": 10.0
+      },
+      "survival_seconds": {
+        "mean": 110.5016666666667,
+        "std_population": 131.2012301877455,
+        "minimum": 14.9,
+        "p10": 20.759999999999998,
+        "p25": 23.1,
+        "p50": 35.35,
+        "p75": 157.49166666666667,
+        "p90": 370.9000000000001,
+        "maximum": 400.0
+      }
+    },
+    {
+      "number": 2,
+      "experiment": "EXP023",
+      "checkpoint_sha256": "43da86d2dbe52c0229a3aa4b7adc09961750add7bb81b73ab0a3896fc0df6b5f",
+      "total_training_steps": 396032,
+      "episode_count": 20,
+      "survived_to_limit": 0,
+      "score": {
+        "mean": 12.0,
+        "std_population": 43.31281565541543,
+        "minimum": 0.0,
+        "p10": 0.0,
+        "p25": 0.0,
+        "p50": 0.0,
+        "p75": 2.5,
+        "p90": 10.0,
+        "maximum": 200.0
+      },
+      "survival_seconds": {
+        "mean": 68.83083333333333,
+        "std_population": 58.82844532928871,
+        "minimum": 14.566666666666666,
+        "p10": 15.826666666666666,
+        "p25": 24.4125,
+        "p50": 43.44166666666666,
+        "p75": 89.75833333333333,
+        "p90": 148.75666666666672,
+        "maximum": 220.75
+      }
+    },
+    {
+      "number": 3,
+      "experiment": "EXP018",
+      "checkpoint_sha256": "7e3c8d9ea35fba1ac6d5f2cae30401def16cb0c31c0cebee43236674a8c3c1f8",
+      "total_training_steps": 11063296,
+      "episode_count": 20,
+      "survived_to_limit": 1,
+      "score": {
+        "mean": 6.0,
+        "std_population": 12.30853362509117,
+        "minimum": 0.0,
+        "p10": 0.0,
+        "p25": 0.0,
+        "p50": 0.0,
+        "p75": 2.5,
+        "p90": 25.500000000000007,
+        "maximum": 45.0
+      },
+      "survival_seconds": {
+        "mean": 64.96916666666667,
+        "std_population": 85.24102857241539,
+        "minimum": 17.483333333333334,
+        "p10": 21.173333333333332,
+        "p25": 25.72083333333333,
+        "p50": 29.45,
+        "p75": 64.075,
+        "p90": 133.2566666666667,
+        "maximum": 400.0
+      }
+    },
+    {
+      "number": 4,
+      "experiment": "EXP036",
+      "checkpoint_sha256": "657c380fef9b0bb3b3158b9ae6f876e25828fe768eeb70cf949b09ebb38cf08e",
+      "total_training_steps": 1474560,
+      "episode_count": 20,
+      "survived_to_limit": 2,
+      "score": {
+        "mean": 1417.0,
+        "std_population": 582.8065716856665,
+        "minimum": 485.0,
+        "p10": 788.0,
+        "p25": 1046.25,
+        "p50": 1307.5,
+        "p75": 1780.0,
+        "p90": 2033.5000000000005,
+        "maximum": 2890.0
+      },
+      "survival_seconds": {
+        "mean": 183.85166666666666,
+        "std_population": 106.46078045458806,
+        "minimum": 28.933333333333334,
+        "p10": 43.403333333333336,
+        "p25": 111.2875,
+        "p50": 178.59166666666667,
+        "p75": 235.59583333333336,
+        "p90": 338.6350000000001,
+        "maximum": 400.0
+      }
+    },
+    {
+      "number": 5,
+      "experiment": "EXP045",
+      "checkpoint_sha256": "205b19d907f233f4a89f6770008ce1a30d32f23d2921be3f380286b0163a8bea",
+      "total_training_steps": 2674560,
+      "episode_count": 20,
+      "survived_to_limit": 5,
+      "score": {
+        "mean": 2710.5,
+        "std_population": 1686.9453903431493,
+        "minimum": 640.0,
+        "p10": 779.0,
+        "p25": 1041.25,
+        "p50": 2617.5,
+        "p75": 3793.75,
+        "p90": 4504.500000000001,
+        "maximum": 7120.0
+      },
+      "survival_seconds": {
+        "mean": 244.77249999999998,
+        "std_population": 135.0723299317608,
+        "minimum": 47.1,
+        "p10": 61.29,
+        "p25": 109.25,
+        "p50": 236.75833333333333,
+        "p75": 393.425,
+        "p90": 400.0,
+        "maximum": 400.0
+      }
+    }
+  ]
+}

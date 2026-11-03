@@ -1,0 +1,9 @@
+{
+  "status": "completed",
+  "completed_episodes": 60,
+  "total_episodes": 60,
+  "checkpoint": "experiments/003_training_duration/checkpoints/final.zip",
+  "seed": 731920,
+  "updated_at": "2026-11-02T03:31:08.694271+00:00",
+  "elapsed_seconds": 459.85900000005495
+}

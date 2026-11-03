@@ -1,0 +1,213 @@
+{
+  "protocol": {
+    "seeds": [
+      23001,
+      23102,
+      23203,
+      23304,
+      23405,
+      23506,
+      23607,
+      23708,
+      23809,
+      23910,
+      24001,
+      24102,
+      24203,
+      24304,
+      24405,
+      24506,
+      24607,
+      24708,
+      24809,
+      24910
+    ],
+    "seed_count": 20,
+    "max_game_seconds": 400,
+    "frame_skip": 2,
+    "game_fps": 60,
+    "execution_mode": "greedy",
+    "selected_before_test": true
+  },
+  "candidate_selection": "phase3_candidate_selection.json",
+  "baseline_sha256": "657c380fef9b0bb3b3158b9ae6f876e25828fe768eeb70cf949b09ebb38cf08e",
+  "selected_sha256": "5632d6037d04b238a399366980339dce651b3a993c8cf211fd42d1705cf0361a",
+  "metrics": {
+    "score_at_60_seconds": {
+      "baseline018": {
+        "mean": 708.5,
+        "std": 319.5860603968828,
+        "median": 677.5,
+        "p25": 551.25,
+        "min": 100.0,
+        "max": 1305.0
+      },
+      "candidate020": {
+        "mean": 729.5,
+        "std": 410.0423758588861,
+        "median": 727.5,
+        "p25": 395.0,
+        "min": 180.0,
+        "max": 1530.0
+      },
+      "relative_mean_change": 0.029640084685956136
+    },
+    "score_at_120_seconds": {
+      "baseline018": {
+        "mean": 1010.75,
+        "std": 431.44314515356484,
+        "median": 1100.0,
+        "p25": 736.25,
+        "min": 100.0,
+        "max": 1635.0
+      },
+      "candidate020": {
+        "mean": 1148.75,
+        "std": 589.6966911048424,
+        "median": 1010.0,
+        "p25": 667.5,
+        "min": 290.0,
+        "max": 2275.0
+      },
+      "relative_mean_change": 0.1365322780113778
+    },
+    "score_at_200_seconds": {
+      "baseline018": {
+        "mean": 1364.25,
+        "std": 641.8669546720722,
+        "median": 1380.0,
+        "p25": 1045.0,
+        "min": 100.0,
+        "max": 2545.0
+      },
+      "candidate020": {
+        "mean": 1420.0,
+        "std": 779.642546299264,
+        "median": 1287.5,
+        "p25": 842.5,
+        "min": 290.0,
+        "max": 3045.0
+      },
+      "relative_mean_change": 0.04086494410848451
+    },
+    "score": {
+      "baseline018": {
+        "mean": 1561.25,
+        "std": 719.8851904991517,
+        "median": 1685.0,
+        "p25": 1182.5,
+        "min": 100.0,
+        "max": 2935.0
+      },
+      "candidate020": {
+        "mean": 1764.75,
+        "std": 1266.2784794428119,
+        "median": 1432.5,
+        "p25": 842.5,
+        "min": 290.0,
+        "max": 5015.0
+      },
+      "relative_mean_change": 0.13034427542033633
+    },
+    "survival_seconds": {
+      "baseline018": {
+        "mean": 240.23333333333335,
+        "std": 108.12461766149484,
+        "median": 229.73333333333335,
+        "p25": 182.24166666666667,
+        "min": 44.68333333333333,
+        "max": 400.0
+      },
+      "candidate020": {
+        "mean": 195.09166666666664,
+        "std": 132.5954859819058,
+        "median": 184.14166666666665,
+        "p25": 72.15,
+        "min": 30.3,
+        "max": 400.0
+      },
+      "relative_mean_change": -0.1879075898432081
+    },
+    "kills": {
+      "baseline018": {
+        "mean": 4.4,
+        "std": 2.2226110770892866,
+        "median": 5.0,
+        "p25": 3.0,
+        "min": 0.0,
+        "max": 8.0
+      },
+      "candidate020": {
+        "mean": 5.25,
+        "std": 3.491060010942235,
+        "median": 4.0,
+        "p25": 2.0,
+        "min": 1.0,
+        "max": 12.0
+      },
+      "relative_mean_change": 0.19318181818181812
+    }
+  },
+  "paired": {
+    "score_at_60_seconds": {
+      "wins": 13,
+      "ties": 0,
+      "losses": 7
+    },
+    "score_at_120_seconds": {
+      "wins": 12,
+      "ties": 0,
+      "losses": 8
+    },
+    "score_at_200_seconds": {
+      "wins": 10,
+      "ties": 0,
+      "losses": 10
+    },
+    "score": {
+      "wins": 10,
+      "ties": 0,
+      "losses": 10
+    },
+    "survival_seconds": {
+      "wins": 10,
+      "ties": 0,
+      "losses": 10
+    },
+    "kills": {
+      "wins": 8,
+      "ties": 2,
+      "losses": 10
+    }
+  },
+  "bootstrap_mean_difference_95pct_intervals": {
+    "score_at_120_seconds": [
+      -206.50625,
+      490.53749999999945
+    ],
+    "score": [
+      -456.2625,
+      922.0062499999999
+    ],
+    "survival_seconds": [
+      -125.40677083333333,
+      36.16402083333333
+    ]
+  },
+  "calculated_at_utc": "2026-11-01T00:25:27.346007+00:00",
+  "goal_checks": {
+    "early_mean_at_least_baseline": true,
+    "early_p25_at_least_baseline": false,
+    "final_mean_at_least_baseline": true,
+    "survival_at_least_baseline": false
+  },
+  "promotion_eligible": false,
+  "score_1000_by_120_seconds": {
+    "baseline018": 12,
+    "candidate020": 11
+  },
+  "reached_400_seconds": {
+    "baseline018": 3,
+    "candidate020": 3
+  }
+}

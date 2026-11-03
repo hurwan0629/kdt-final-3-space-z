@@ -1,0 +1,95 @@
+{
+  "baseline": {
+    "score_at_120_seconds": {
+      "mean": 1049.25,
+      "p25": 778.75
+    },
+    "score": {
+      "mean": 1508.0,
+      "p25": 1166.25
+    },
+    "survival_seconds": {
+      "mean": 222.66666666666666,
+      "p25": 106.04166666666666
+    },
+    "kills": {
+      "mean": 4.3,
+      "p25": 3.0
+    }
+  },
+  "candidate": {
+    "score_at_120_seconds": {
+      "mean": 1530.0,
+      "p25": 912.5
+    },
+    "score": {
+      "mean": 2902.0,
+      "p25": 1695.0
+    },
+    "survival_seconds": {
+      "mean": 262.8408333333333,
+      "p25": 166.6875
+    },
+    "kills": {
+      "mean": 8.25,
+      "p25": 4.75
+    }
+  },
+  "paired_changes": {
+    "score_at_120_seconds": {
+      "mean_difference": 480.75,
+      "paired_mean_95pct_interval": [
+        149.5,
+        817.75
+      ],
+      "wins": 13,
+      "ties": 0,
+      "losses": 7
+    },
+    "score": {
+      "mean_difference": 1394.0,
+      "paired_mean_95pct_interval": [
+        593.975,
+        2281.5187499999997
+      ],
+      "wins": 14,
+      "ties": 0,
+      "losses": 6
+    },
+    "survival_seconds": {
+      "mean_difference": 40.17416666666667,
+      "paired_mean_95pct_interval": [
+        -32.1825625,
+        111.79389583333327
+      ],
+      "wins": 11,
+      "ties": 0,
+      "losses": 9
+    },
+    "kills": {
+      "mean_difference": 3.95,
+      "paired_mean_95pct_interval": [
+        1.5,
+        6.7
+      ],
+      "wins": 13,
+      "ties": 2,
+      "losses": 5
+    }
+  },
+  "promotion_guards": {
+    "early_mean": true,
+    "early_p25": true,
+    "final_mean": true,
+    "mean_survival": true
+  },
+  "all_guards_passed": true,
+  "seed_count": 20,
+  "max_seconds": 400,
+  "baseline_sha256": "657c380fef9b0bb3b3158b9ae6f876e25828fe768eeb70cf949b09ebb38cf08e",
+  "candidate_sha256": "205b19d907f233f4a89f6770008ce1a30d32f23d2921be3f380286b0163a8bea",
+  "reached_400_seconds_alive": {
+    "baseline": 2,
+    "candidate": 5
+  }
+}

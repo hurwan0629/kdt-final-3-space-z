@@ -62,13 +62,13 @@ def build_player_stat_summary(game: GameCore) -> tuple[tuple[str, str], ...]:
 
     # 프레임 단위 능력치를 화면에 표시할 초·거리 단위로 환산한다.
     repair_per_second = (
-        config.regen_rate * (player.max_hp / config.player_hp) + player.regen_bonus
+        game.combat.base_regeneration(player) + player.regen_bonus
     ) * config.fps
     fire_interval_seconds = (cooldown_frames + 1) / config.fps
     bullet_speed_per_second = bullet_speed * config.fps
     bullet_range = bullet_speed * bullet_life
     reload_seconds = game.combat.reload_frames_total / config.fps
-    max_speed_per_second = config.max_speed * player.accel_scale * config.fps
+    max_speed_per_second = game.movement_speed(player) * config.fps
 
     # 화면에서 사용하는 고정 순서와 표시 형식으로 능력치 목록을 만든다.
     return (

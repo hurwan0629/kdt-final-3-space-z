@@ -1,0 +1,57 @@
+﻿{
+    "experiment":  "005_same_settings_continuation",
+    "parent":  "experiments/004_parallel_continuation/checkpoints/best.zip",
+    "parent_timesteps":  573440,
+    "additional_timesteps":  307200,
+    "target_timesteps":  880640,
+    "parallel_environment_workers":  10,
+    "maximum_owned_python_processes":  12,
+    "development_seeds":  [
+                              730001,
+                              730102,
+                              730203,
+                              730304,
+                              730405,
+                              730506,
+                              730607,
+                              730708,
+                              730809,
+                              730910,
+                              731011,
+                              731112,
+                              731213,
+                              731314,
+                              731415,
+                              731516,
+                              731617,
+                              731718,
+                              731819,
+                              731920
+                          ],
+    "confirmation_seeds":  [
+                               750101,
+                               750202,
+                               750303,
+                               750404,
+                               750505,
+                               750606
+                           ],
+    "unchanged":  [
+                      "policy architecture",
+                      "reward",
+                      "game",
+                      "PPO hyperparameters",
+                      "parallel environment count"
+                  ],
+    "next_decision":  "If development score improves without a major survival loss and fresh paired seeds agree, continue same settings; otherwise summarize and change only one training setting in a separate branch.",
+    "planned_work":  "Up to two additional 307200-step experiment blocks in this work period; preserve every parent and checkpoint.",
+    "detailed_metrics":  "TensorBoard and JSONL; no new HTML metric fields",
+    "acceptance_rule":  {
+                            "development_mean_score_at_least":  125.675,
+                            "development_survival_at_least_seconds":  63.19875,
+                            "confirmation_selected_mean_score_at_least_parent":  true,
+                            "confirmation_selected_survival_at_least_parent_fraction":  0.9,
+                            "confirmation_score_wins_at_least_losses":  true,
+                            "purpose":  "Practical continuation decision, not a statistical significance claim"
+                        }
+}

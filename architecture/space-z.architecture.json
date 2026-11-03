@@ -1,0 +1,320 @@
+{
+    "schema_version":  1,
+    "diagram_type":  "architecture",
+    "meta":  {
+                 "title":  "Space Z · 게임 구조 (RL 제외)",
+                 "quality_profile":  "showcase",
+                 "viewBox":  [
+                                 1320,
+                                 670
+                             ],
+                 "repository":  {
+                                    "revision":  "cc3d8c06030397e0ddbad9cc7cedd712853377f1",
+                                    "url":  "https://github.com/hurwan0629/kdt-final-3-game-subject.git"
+                                }
+             },
+    "components":  [
+                       {
+                           "id":  "entry",
+                           "type":  "backend",
+                           "label":  "실행 진입점",
+                           "sublabel":  "__main__.py · main.py",
+                           "pos":  [
+                                       40,
+                                       285
+                                   ],
+                           "size":  [
+                                        230,
+                                        76
+                                    ],
+                           "sources":  [
+                                           {
+                                               "path":  "src/space_z/main.py"
+                                           }
+                                       ]
+                       },
+                       {
+                           "id":  "application",
+                           "type":  "frontend",
+                           "label":  "GameApplication",
+                           "sublabel":  "입력 · 메뉴 · 프레임 누적",
+                           "pos":  [
+                                       370,
+                                       285
+                                   ],
+                           "size":  [
+                                        230,
+                                        76
+                                    ],
+                           "sources":  [
+                                           {
+                                               "path":  "src/space_z/app.py"
+                                           }
+                                       ]
+                       },
+                       {
+                           "id":  "core",
+                           "type":  "backend",
+                           "label":  "GameCore",
+                           "sublabel":  "상태 관리 · 게임 규칙 조율",
+                           "pos":  [
+                                       700,
+                                       285
+                                   ],
+                           "size":  [
+                                        230,
+                                        76
+                                    ],
+                           "sources":  [
+                                           {
+                                               "path":  "src/space_z/game/game_core.py"
+                                           }
+                                       ]
+                       },
+                       {
+                           "id":  "combat",
+                           "type":  "backend",
+                           "label":  "Combat",
+                           "sublabel":  "발사 · 탄환 · 충돌 · 피해",
+                           "pos":  [
+                                       1030,
+                                       285
+                                   ],
+                           "size":  [
+                                        250,
+                                        76
+                                    ],
+                           "sources":  [
+                                           {
+                                               "path":  "src/space_z/game/combat.py"
+                                           },
+                                           {
+                                               "path":  "src/space_z/game/entities.py"
+                                           },
+                                           {
+                                               "path":  "src/space_z/game/types.py"
+                                           }
+                                       ]
+                       },
+                       {
+                           "id":  "renderer",
+                           "type":  "frontend",
+                           "label":  "Renderer",
+                           "sublabel":  "월드 · HUD · 메뉴 그리기",
+                           "pos":  [
+                                       370,
+                                       65
+                                   ],
+                           "size":  [
+                                        230,
+                                        76
+                                    ],
+                           "sources":  [
+                                           {
+                                               "path":  "src/space_z/rendering/renderer.py"
+                                           },
+                                           {
+                                               "path":  "src/space_z/rendering/menu_layout.py"
+                                           },
+                                           {
+                                               "path":  "src/space_z/rendering/progression_panel.py"
+                                           }
+                                       ]
+                       },
+                       {
+                           "id":  "assets",
+                           "type":  "external",
+                           "label":  "SpriteAssets · 리소스",
+                           "sublabel":  "assets/ · resource_path()",
+                           "pos":  [
+                                       40,
+                                       65
+                                   ],
+                           "size":  [
+                                        230,
+                                        76
+                                    ],
+                           "sources":  [
+                                           {
+                                               "path":  "src/space_z/rendering/sprite_assets.py"
+                                           },
+                                           {
+                                               "path":  "src/space_z/resource_paths.py"
+                                           }
+                                       ]
+                       },
+                       {
+                           "id":  "enemies",
+                           "type":  "backend",
+                           "label":  "EnemyController",
+                           "sublabel":  "적 감지 · 이동 · 공격 판단",
+                           "pos":  [
+                                       1030,
+                                       65
+                                   ],
+                           "size":  [
+                                        250,
+                                        76
+                                    ],
+                           "sources":  [
+                                           {
+                                               "path":  "src/space_z/game/enemy_controller.py"
+                                           }
+                                       ]
+                       },
+                       {
+                           "id":  "progression",
+                           "type":  "backend",
+                           "label":  "PlayerProgression",
+                           "sublabel":  "점수 · 레벨 · 강화 · 진화",
+                           "pos":  [
+                                       1030,
+                                       505
+                                   ],
+                           "size":  [
+                                        250,
+                                        76
+                                    ],
+                           "sources":  [
+                                           {
+                                               "path":  "src/space_z/game/player_progression.py"
+                                           },
+                                           {
+                                               "path":  "src/space_z/config/progression_definitions.py"
+                                           }
+                                       ]
+                       },
+                       {
+                           "id":  "terrain",
+                           "type":  "backend",
+                           "label":  "TileMap · 지형",
+                           "sublabel":  "maps/ · 생성 · 충돌 · A*",
+                           "pos":  [
+                                       700,
+                                       505
+                                   ],
+                           "size":  [
+                                        230,
+                                        76
+                                    ],
+                           "sources":  [
+                                           {
+                                               "path":  "src/space_z/game/terrain.py"
+                                           },
+                                           {
+                                               "path":  "src/space_z/config/terrain.py"
+                                           }
+                                       ]
+                       },
+                       {
+                           "id":  "configuration",
+                           "type":  "backend",
+                           "label":  "게임 설정",
+                           "sublabel":  "GameConfig · EnemyAIConfig",
+                           "pos":  [
+                                       40,
+                                       505
+                                   ],
+                           "size":  [
+                                        230,
+                                        76
+                                    ],
+                           "sources":  [
+                                           {
+                                               "path":  "src/space_z/config/game.py"
+                                           },
+                                           {
+                                               "path":  "src/space_z/config/enemy_ai.py"
+                                           }
+                                       ]
+                       }
+                   ],
+    "connections":  [
+                        {
+                            "id":  "start-app",
+                            "from":  "entry",
+                            "to":  "application",
+                            "label":  "생성 · 루프",
+                            "variant":  "emphasis"
+                        },
+                        {
+                            "id":  "advance-core",
+                            "from":  "application",
+                            "to":  "core",
+                            "label":  "step()",
+                            "variant":  "emphasis"
+                        },
+                        {
+                            "id":  "resolve-combat",
+                            "from":  "core",
+                            "to":  "combat",
+                            "label":  "전투 갱신",
+                            "variant":  "emphasis",
+                            "labelDy":  10
+                        },
+                        {
+                            "id":  "draw-frame",
+                            "from":  "application",
+                            "to":  "renderer",
+                            "label":  "draw()"
+                        },
+                        {
+                            "id":  "load-sprites",
+                            "from":  "renderer",
+                            "to":  "assets",
+                            "label":  "이미지 로드"
+                        },
+                        {
+                            "id":  "update-enemies",
+                            "from":  "core",
+                            "to":  "enemies",
+                            "label":  "적 행동 갱신"
+                        },
+                        {
+                            "id":  "grow-player",
+                            "from":  "core",
+                            "to":  "progression",
+                            "label":  "성장 관리"
+                        },
+                        {
+                            "id":  "manage-terrain",
+                            "from":  "core",
+                            "to":  "terrain",
+                            "label":  "월드 생성·이동",
+                            "labelDy":  65
+                        },
+                        {
+                            "id":  "configure-game",
+                            "from":  "entry",
+                            "to":  "configuration",
+                            "label":  "설정 생성",
+                            "labelDy":  65
+                        }
+                    ],
+    "cards":  [
+                  {
+                      "dot":  "cyan",
+                      "title":  "한 프레임의 흐름",
+                      "items":  [
+                                    "Pygame 이벤트 → GameApplication → GameCore.step()",
+                                    "GameApplication.draw() → Renderer → 화면 갱신"
+                                ]
+                  },
+                  {
+                      "dot":  "emerald",
+                      "title":  "공유 게임 상태",
+                      "items":  [
+                                    "GameCore가 Tank·Shape·Bullet 등 엔티티를 보유",
+                                    "전투·적 AI·성장은 같은 코어 상태를 사용"
+                                ]
+                  },
+                  {
+                      "dot":  "slate",
+                      "title":  "표현 범위",
+                      "items":  [
+                                    "게임 실행·규칙·화면·설정·로컬 리소스 중심",
+                                    "RL 모듈·학습 설정·디버그 관찰 경로 제외"
+                                ]
+                  }
+              ]
+}

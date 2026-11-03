@@ -1,0 +1,122 @@
+{
+  "status": "passed",
+  "initial_timesteps": 327680,
+  "additional_timesteps": 307200,
+  "total_timesteps": 634880,
+  "ppo_epoch_counter": 1758,
+  "selected_timesteps": 573440,
+  "evaluation_steps": [
+    327680,
+    389120,
+    450560,
+    512000,
+    573440,
+    634880
+  ],
+  "development_seed_count": 20,
+  "confirmation_seed_count": 6,
+  "training_episodes": 172,
+  "reward_episodes_checked": 304,
+  "reward_formula_conservation": true,
+  "protected_source_count": 30,
+  "protected_sources_unchanged": true,
+  "parent_checkpoint_unchanged": true,
+  "baseline_matches_pretraining_comparison": true,
+  "checkpoint_hashes_match": true,
+  "final_weights_equal_last_evaluated": true,
+  "policy_tensors_checked": 153,
+  "policy_architecture_unchanged": true,
+  "reward_game_ppo_settings_unchanged": true,
+  "learning_source_matches_snapshot": true,
+  "owned_python_process_count": 12,
+  "parallel_environment_workers": 10,
+  "rollout_size_changed_from": 1024,
+  "rollout_size_changed_to": 2560,
+  "tensorboard_main_scalar_values_checked": 6450,
+  "tensorboard_episode_scalar_values_checked": 15824,
+  "detailed_episode_metric_count": 46,
+  "tensorboard_matches_jsonl": true,
+  "screenshots_checked": 6,
+  "predeclared_confirmation_seeds": [
+    740101,
+    740202,
+    740303,
+    740404,
+    740505,
+    740606
+  ],
+  "confirmation_after_selection": true,
+  "development_means": [
+    {
+      "step": 327680,
+      "score": 13.25,
+      "survival": 56.96083333333333,
+      "reward": -3.699184704384339
+    },
+    {
+      "step": 389120,
+      "score": 55,
+      "survival": 67.15583333333333,
+      "reward": -2.3040195850561447
+    },
+    {
+      "step": 450560,
+      "score": 65.75,
+      "survival": 65.97833333333332,
+      "reward": -2.1820389726237583
+    },
+    {
+      "step": 512000,
+      "score": 35,
+      "survival": 56.564166666666665,
+      "reward": -3.383608003863307
+    },
+    {
+      "step": 573440,
+      "score": 114.25,
+      "survival": 70.22083333333333,
+      "reward": -1.3626459463912148
+    },
+    {
+      "step": 634880,
+      "score": 87.5,
+      "survival": 78.79333333333334,
+      "reward": -1.1019722416826
+    }
+  ],
+  "confirmation_means": {
+    "parent": {
+      "score": 5,
+      "survival_seconds": 48.72222222222223,
+      "episode_reward": -3.9713333333333316
+    },
+    "selected": {
+      "score": 103.33333333333333,
+      "survival_seconds": 55.03333333333333,
+      "episode_reward": -2.5167151299617125
+    }
+  },
+  "launcher_exit_code": 1,
+  "launcher_exit_explanation": "PowerShell converts stderr PNG profile warnings to NativeCommandError; reproduced exit=1 with a diagnostic Python script explicitly exiting 0. Training state completed, all checkpoints and evaluations valid, no Python traceback.",
+  "limitations": [
+    "One training initialization; process/rollout size changed alongside additional training",
+    "Evaluation limited to 120 game seconds",
+    "Six fresh confirmation seeds",
+    "Damage-positive steps are not exact hit counts; shape damage is score-weighted",
+    "Full training trajectory was not reproduced"
+  ],
+  "gallery_record_count": 4,
+  "report_javascript_and_routes": "passed",
+  "html_excludes_new_detailed_telemetry": true,
+  "local_artifact_links_checked": 72,
+  "report_sha256": "34cf6e6f79a3ff80059e947e73759e08c3af162e514d548970a6cbd8937d292b",
+  "report_bytes": 448282,
+  "browser_review": "Not performed; numerical TensorBoard records verified directly",
+  "experiment_and_worker_processes_terminated": true,
+  "confirmation_score_pairs": {
+    "wins": 3,
+    "losses": 1,
+    "ties": 2,
+    "selected_zero_score_episodes": 2
+  }
+}

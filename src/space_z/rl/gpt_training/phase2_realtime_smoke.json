@@ -1,0 +1,9 @@
+{
+  "game_fps": 60,
+  "render_fps": 30,
+  "decision_frame_skip": 2,
+  "measured_game_seconds": 2.0,
+  "elapsed_wall_seconds": 2.130835500021931,
+  "game_seconds_per_wall_second": 0.9385989673906858,
+  "display": "SDL dummy; real rendering code after one-second warmup"
+}

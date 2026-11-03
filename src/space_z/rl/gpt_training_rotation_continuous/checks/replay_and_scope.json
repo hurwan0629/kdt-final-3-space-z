@@ -1,0 +1,11 @@
+{
+  "stochastic_episode_repeated_identically": true,
+  "torch_training_rng_preserved": true,
+  "no_optimizer_updates": true,
+  "verification_environment_transitions": 120,
+  "protected_sources_unchanged": 40,
+  "shared_source_archive_verified": true,
+  "maximum_observed_python_after_guard": 8,
+  "whole_study_maximum_observed_python": 10,
+  "failure_capture_matches_evaluation": true
+}

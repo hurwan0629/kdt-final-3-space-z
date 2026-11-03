@@ -1,0 +1,332 @@
+{
+  "purpose": "Development only. Both earlier independent test sets are now development data.",
+  "baseline_sha256": "657c380fef9b0bb3b3158b9ae6f876e25828fe768eeb70cf949b09ebb38cf08e",
+  "max_game_seconds": 200,
+  "derived_from": [
+    "phase2_heldout_400_seconds.json",
+    "phase3_heldout_400_seconds.json"
+  ],
+  "censoring": "Use observed milestone scores; clip survival to 200. Kills and reward are omitted because their 200-second prefixes were not recorded.",
+  "episodes": [
+    {
+      "seed": 17001,
+      "score_at_60_seconds": 665,
+      "score_at_120_seconds": 1015,
+      "score_at_200_seconds": 1105,
+      "score": 1105,
+      "survival_seconds": 200
+    },
+    {
+      "seed": 17102,
+      "score_at_60_seconds": 445,
+      "score_at_120_seconds": 1135,
+      "score_at_200_seconds": 1670,
+      "score": 1670,
+      "survival_seconds": 200
+    },
+    {
+      "seed": 17203,
+      "score_at_60_seconds": 700,
+      "score_at_120_seconds": 1145,
+      "score_at_200_seconds": 1490,
+      "score": 1490,
+      "survival_seconds": 200
+    },
+    {
+      "seed": 17304,
+      "score_at_60_seconds": 595,
+      "score_at_120_seconds": 1025,
+      "score_at_200_seconds": 1545,
+      "score": 1545,
+      "survival_seconds": 200
+    },
+    {
+      "seed": 17405,
+      "score_at_60_seconds": 170,
+      "score_at_120_seconds": 190,
+      "score_at_200_seconds": 355,
+      "score": 355,
+      "survival_seconds": 200
+    },
+    {
+      "seed": 17506,
+      "score_at_60_seconds": 1105,
+      "score_at_120_seconds": 1585,
+      "score_at_200_seconds": 1895,
+      "score": 1895,
+      "survival_seconds": 181.05
+    },
+    {
+      "seed": 17607,
+      "score_at_60_seconds": 600,
+      "score_at_120_seconds": 1510,
+      "score_at_200_seconds": 1590,
+      "score": 1590,
+      "survival_seconds": 168.6
+    },
+    {
+      "seed": 17708,
+      "score_at_60_seconds": 865,
+      "score_at_120_seconds": 1075,
+      "score_at_200_seconds": 1320,
+      "score": 1320,
+      "survival_seconds": 146.48333333333332
+    },
+    {
+      "seed": 17809,
+      "score_at_60_seconds": 120,
+      "score_at_120_seconds": 405,
+      "score_at_200_seconds": 965,
+      "score": 965,
+      "survival_seconds": 200
+    },
+    {
+      "seed": 17910,
+      "score_at_60_seconds": 1180,
+      "score_at_120_seconds": 1890,
+      "score_at_200_seconds": 2560,
+      "score": 2560,
+      "survival_seconds": 200
+    },
+    {
+      "seed": 18001,
+      "score_at_60_seconds": 790,
+      "score_at_120_seconds": 790,
+      "score_at_200_seconds": 790,
+      "score": 790,
+      "survival_seconds": 48.11666666666667
+    },
+    {
+      "seed": 18102,
+      "score_at_60_seconds": 920,
+      "score_at_120_seconds": 920,
+      "score_at_200_seconds": 920,
+      "score": 920,
+      "survival_seconds": 28.016666666666666
+    },
+    {
+      "seed": 18203,
+      "score_at_60_seconds": 560,
+      "score_at_120_seconds": 1310,
+      "score_at_200_seconds": 1875,
+      "score": 1875,
+      "survival_seconds": 200
+    },
+    {
+      "seed": 18304,
+      "score_at_60_seconds": 355,
+      "score_at_120_seconds": 430,
+      "score_at_200_seconds": 440,
+      "score": 440,
+      "survival_seconds": 200
+    },
+    {
+      "seed": 18405,
+      "score_at_60_seconds": 805,
+      "score_at_120_seconds": 805,
+      "score_at_200_seconds": 805,
+      "score": 805,
+      "survival_seconds": 56.13333333333333
+    },
+    {
+      "seed": 18506,
+      "score_at_60_seconds": 620,
+      "score_at_120_seconds": 1080,
+      "score_at_200_seconds": 1080,
+      "score": 1080,
+      "survival_seconds": 99.85
+    },
+    {
+      "seed": 18607,
+      "score_at_60_seconds": 775,
+      "score_at_120_seconds": 785,
+      "score_at_200_seconds": 785,
+      "score": 785,
+      "survival_seconds": 74.65
+    },
+    {
+      "seed": 18708,
+      "score_at_60_seconds": 740,
+      "score_at_120_seconds": 970,
+      "score_at_200_seconds": 970,
+      "score": 970,
+      "survival_seconds": 112.75
+    },
+    {
+      "seed": 18809,
+      "score_at_60_seconds": 435,
+      "score_at_120_seconds": 435,
+      "score_at_200_seconds": 435,
+      "score": 435,
+      "survival_seconds": 25.5
+    },
+    {
+      "seed": 18910,
+      "score_at_60_seconds": 1300,
+      "score_at_120_seconds": 1575,
+      "score_at_200_seconds": 1745,
+      "score": 1745,
+      "survival_seconds": 200
+    },
+    {
+      "seed": 23001,
+      "score_at_60_seconds": 660,
+      "score_at_120_seconds": 1175,
+      "score_at_200_seconds": 1765,
+      "score": 1765,
+      "survival_seconds": 193.95
+    },
+    {
+      "seed": 23102,
+      "score_at_60_seconds": 610,
+      "score_at_120_seconds": 1545,
+      "score_at_200_seconds": 1955,
+      "score": 1955,
+      "survival_seconds": 200
+    },
+    {
+      "seed": 23203,
+      "score_at_60_seconds": 790,
+      "score_at_120_seconds": 1025,
+      "score_at_200_seconds": 1330,
+      "score": 1330,
+      "survival_seconds": 200
+    },
+    {
+      "seed": 23304,
+      "score_at_60_seconds": 665,
+      "score_at_120_seconds": 995,
+      "score_at_200_seconds": 1140,
+      "score": 1140,
+      "survival_seconds": 200
+    },
+    {
+      "seed": 23405,
+      "score_at_60_seconds": 115,
+      "score_at_120_seconds": 115,
+      "score_at_200_seconds": 115,
+      "score": 115,
+      "survival_seconds": 59.25
+    },
+    {
+      "seed": 23506,
+      "score_at_60_seconds": 1035,
+      "score_at_120_seconds": 1250,
+      "score_at_200_seconds": 1715,
+      "score": 1715,
+      "survival_seconds": 200
+    },
+    {
+      "seed": 23607,
+      "score_at_60_seconds": 1305,
+      "score_at_120_seconds": 1445,
+      "score_at_200_seconds": 1790,
+      "score": 1790,
+      "survival_seconds": 165.21666666666667
+    },
+    {
+      "seed": 23708,
+      "score_at_60_seconds": 260,
+      "score_at_120_seconds": 460,
+      "score_at_200_seconds": 940,
+      "score": 940,
+      "survival_seconds": 200
+    },
+    {
+      "seed": 23809,
+      "score_at_60_seconds": 1000,
+      "score_at_120_seconds": 1240,
+      "score_at_200_seconds": 1240,
+      "score": 1240,
+      "survival_seconds": 128.91666666666666
+    },
+    {
+      "seed": 23910,
+      "score_at_60_seconds": 890,
+      "score_at_120_seconds": 980,
+      "score_at_200_seconds": 1080,
+      "score": 1080,
+      "survival_seconds": 200
+    },
+    {
+      "seed": 24001,
+      "score_at_60_seconds": 560,
+      "score_at_120_seconds": 570,
+      "score_at_200_seconds": 645,
+      "score": 645,
+      "survival_seconds": 200
+    },
+    {
+      "seed": 24102,
+      "score_at_60_seconds": 525,
+      "score_at_120_seconds": 1280,
+      "score_at_200_seconds": 1745,
+      "score": 1745,
+      "survival_seconds": 200
+    },
+    {
+      "seed": 24203,
+      "score_at_60_seconds": 690,
+      "score_at_120_seconds": 1240,
+      "score_at_200_seconds": 1690,
+      "score": 1690,
+      "survival_seconds": 200
+    },
+    {
+      "seed": 24304,
+      "score_at_60_seconds": 965,
+      "score_at_120_seconds": 1025,
+      "score_at_200_seconds": 1170,
+      "score": 1170,
+      "survival_seconds": 200
+    },
+    {
+      "seed": 24405,
+      "score_at_60_seconds": 1180,
+      "score_at_120_seconds": 1635,
+      "score_at_200_seconds": 2545,
+      "score": 2545,
+      "survival_seconds": 200
+    },
+    {
+      "seed": 24506,
+      "score_at_60_seconds": 930,
+      "score_at_120_seconds": 1455,
+      "score_at_200_seconds": 2265,
+      "score": 2265,
+      "survival_seconds": 195.73333333333332
+    },
+    {
+      "seed": 24607,
+      "score_at_60_seconds": 870,
+      "score_at_120_seconds": 1275,
+      "score_at_200_seconds": 1990,
+      "score": 1990,
+      "survival_seconds": 187.91666666666666
+    },
+    {
+      "seed": 24708,
+      "score_at_60_seconds": 410,
+      "score_at_120_seconds": 635,
+      "score_at_200_seconds": 635,
+      "score": 635,
+      "survival_seconds": 112.05
+    },
+    {
+      "seed": 24809,
+      "score_at_60_seconds": 100,
+      "score_at_120_seconds": 100,
+      "score_at_200_seconds": 100,
+      "score": 100,
+      "survival_seconds": 44.68333333333333
+    },
+    {
+      "seed": 24910,
+      "score_at_60_seconds": 610,
+      "score_at_120_seconds": 770,
+      "score_at_200_seconds": 1430,
+      "score": 1430,
+      "survival_seconds": 200
+    }
+  ]
+}

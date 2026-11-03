@@ -1,0 +1,23 @@
+{
+  "note": "Concurrent training remained running; no optimizer update or additional RL transitions; rough relative timing only",
+  "results": [
+    {
+      "threads": 1,
+      "inference_4_batch_ms": 4.165085999993607,
+      "forward_backward_250_batch_ms": 45.16265833323511,
+      "estimated_neural_seconds_per_rollout": 3.527748066660327
+    },
+    {
+      "threads": 2,
+      "inference_4_batch_ms": 6.455301999812946,
+      "forward_backward_250_batch_ms": 57.298308335399874,
+      "estimated_neural_seconds_per_rollout": 5.061196866639269
+    },
+    {
+      "threads": 4,
+      "inference_4_batch_ms": 5.841575000085868,
+      "forward_backward_250_batch_ms": 36.27418333295888,
+      "estimated_neural_seconds_per_rollout": 4.081561366697618
+    }
+  ]
+}

@@ -1,0 +1,222 @@
+[
+  {
+    "checkpoint": "C:\\LANG_CHAIN_2026\\final-project\\2026-10-12_game\\src\\space_z\\rl\\gpt_training_rotation_continuous\\experiments\\003_body_stability\\checkpoints\\evaluated_000400000.zip",
+    "checkpoint_sha256": "530f240c1845636d02f4c036419616768a344a77f6ac99450a302fb1bd216e3e",
+    "timesteps": 400000,
+    "max_seconds": 200,
+    "frame_skip": 2,
+    "stage": "full",
+    "episodes": [
+      {
+        "seed": 43001,
+        "score": 945,
+        "kills": 4,
+        "survival_seconds": 41.81666666666667,
+        "terminated": true,
+        "truncated": false,
+        "ship_class": "rookie",
+        "stat_levels": {
+          "health": 1,
+          "damage": 0,
+          "range": 4,
+          "rapid": 0,
+          "speed": 0
+        },
+        "training_reward": 6.998294908818914,
+        "shots": 87,
+        "shapes_destroyed": 4,
+        "damage_taken": 144.51249999999953,
+        "score_at_60_seconds": 945,
+        "score_at_120_seconds": 945,
+        "score_at_200_seconds": 945,
+        "mean_absolute_rotation": 0.1345203186831979
+      },
+      {
+        "seed": 43506,
+        "score": 620,
+        "kills": 3,
+        "survival_seconds": 52.15,
+        "terminated": true,
+        "truncated": false,
+        "ship_class": "rookie",
+        "stat_levels": {
+          "health": 2,
+          "damage": 0,
+          "range": 2,
+          "rapid": 0,
+          "speed": 0
+        },
+        "training_reward": 4.0832948507613365,
+        "shots": 108,
+        "shapes_destroyed": 2,
+        "damage_taken": 177.94183333333405,
+        "score_at_60_seconds": 620,
+        "score_at_120_seconds": 620,
+        "score_at_200_seconds": 620,
+        "mean_absolute_rotation": 0.11161352686484317
+      },
+      {
+        "seed": 44001,
+        "score": 1055,
+        "kills": 3,
+        "survival_seconds": 200.0,
+        "terminated": false,
+        "truncated": true,
+        "ship_class": "rookie",
+        "stat_levels": {
+          "health": 0,
+          "damage": 0,
+          "range": 6,
+          "rapid": 0,
+          "speed": 0
+        },
+        "training_reward": 17.565991559504226,
+        "shots": 414,
+        "shapes_destroyed": 29,
+        "damage_taken": 41.32875000000002,
+        "score_at_60_seconds": 755,
+        "score_at_120_seconds": 830,
+        "score_at_200_seconds": 1055,
+        "mean_absolute_rotation": 0.08500708983022681
+      },
+      {
+        "seed": 44506,
+        "score": 1080,
+        "kills": 4,
+        "survival_seconds": 40.46666666666667,
+        "terminated": true,
+        "truncated": false,
+        "ship_class": "rookie",
+        "stat_levels": {
+          "health": 1,
+          "damage": 0,
+          "range": 5,
+          "rapid": 0,
+          "speed": 0
+        },
+        "training_reward": 7.754076418102658,
+        "shots": 84,
+        "shapes_destroyed": 7,
+        "damage_taken": 177.68750000000003,
+        "score_at_60_seconds": 1080,
+        "score_at_120_seconds": 1080,
+        "score_at_200_seconds": 1080,
+        "mean_absolute_rotation": 0.1821545723134681
+      },
+      {
+        "seed": 45001,
+        "score": 765,
+        "kills": 1,
+        "survival_seconds": 145.1,
+        "terminated": true,
+        "truncated": false,
+        "ship_class": "rookie",
+        "stat_levels": {
+          "health": 0,
+          "damage": 0,
+          "range": 5,
+          "rapid": 0,
+          "speed": 0
+        },
+        "training_reward": 6.859247526131306,
+        "shots": 301,
+        "shapes_destroyed": 22,
+        "damage_taken": 209.1513333333332,
+        "score_at_60_seconds": 520,
+        "score_at_120_seconds": 700,
+        "score_at_200_seconds": 765,
+        "mean_absolute_rotation": 0.11173649066702933
+      },
+      {
+        "seed": 45506,
+        "score": 400,
+        "kills": 1,
+        "survival_seconds": 39.25,
+        "terminated": true,
+        "truncated": false,
+        "ship_class": "rookie",
+        "stat_levels": {
+          "health": 0,
+          "damage": 0,
+          "range": 3,
+          "rapid": 0,
+          "speed": 0
+        },
+        "training_reward": 0.8828950019675914,
+        "shots": 82,
+        "shapes_destroyed": 8,
+        "damage_taken": 125.129,
+        "score_at_60_seconds": 400,
+        "score_at_120_seconds": 400,
+        "score_at_200_seconds": 400,
+        "mean_absolute_rotation": 0.1891975975507955
+      },
+      {
+        "seed": 46001,
+        "score": 1700,
+        "kills": 5,
+        "survival_seconds": 200.0,
+        "terminated": false,
+        "truncated": true,
+        "ship_class": "rookie",
+        "stat_levels": {
+          "health": 1,
+          "damage": 0,
+          "range": 7,
+          "rapid": 0,
+          "speed": 0
+        },
+        "training_reward": 22.058533222734177,
+        "shots": 414,
+        "shapes_destroyed": 34,
+        "damage_taken": 211.86499999999975,
+        "score_at_60_seconds": 1070,
+        "score_at_120_seconds": 1220,
+        "score_at_200_seconds": 1700,
+        "mean_absolute_rotation": 0.10749973553106247
+      },
+      {
+        "seed": 46506,
+        "score": 645,
+        "kills": 2,
+        "survival_seconds": 40.483333333333334,
+        "terminated": true,
+        "truncated": false,
+        "ship_class": "rookie",
+        "stat_levels": {
+          "health": 0,
+          "damage": 0,
+          "range": 4,
+          "rapid": 0,
+          "speed": 0
+        },
+        "training_reward": 3.888463172109955,
+        "shots": 84,
+        "shapes_destroyed": 5,
+        "damage_taken": 100.00000000000017,
+        "score_at_60_seconds": 645,
+        "score_at_120_seconds": 645,
+        "score_at_200_seconds": 645,
+        "mean_absolute_rotation": 0.09823350466863509
+      }
+    ],
+    "summary": {
+      "score_at_120_seconds": {
+        "mean": 805.0,
+        "p25": 638.75
+      },
+      "score": {
+        "mean": 901.25,
+        "p25": 638.75
+      },
+      "survival_seconds": {
+        "mean": 94.90833333333333,
+        "p25": 40.47916666666667
+      },
+      "kills": {
+        "mean": 2.875,
+        "p25": 1.75
+      }
+    }
+  }
+]

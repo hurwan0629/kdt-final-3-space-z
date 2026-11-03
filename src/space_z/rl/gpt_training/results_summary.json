@@ -1,0 +1,90 @@
+{
+  "protocol": "10 untouched seeds; unchanged default GameConfig; greedy; 6000 env steps = 400 seconds",
+  "seeds": [
+    7001,
+    7102,
+    7203,
+    7304,
+    7405,
+    7506,
+    7607,
+    7708,
+    7809,
+    7910
+  ],
+  "baseline_sha256": "60acbd6a0d02f04c25a0529b8fdc9211459e99b96889cefc034145571977773b",
+  "selected_sha256": "6130963d09099d8a3c50c02c11fe0ca4766cc359a1b23aff40c515007489aa12",
+  "baseline": {
+    "score": {
+      "mean": 11.5,
+      "std": 14.326548781894402
+    },
+    "kills": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "survival_seconds": {
+      "mean": 67.74333333333334,
+      "std": 82.21802458504257
+    },
+    "shots": {
+      "mean": 106.1,
+      "std": 102.08863795741425
+    },
+    "shapes_destroyed": {
+      "mean": 0.7,
+      "std": 1.004987562112089
+    },
+    "damage_taken": {
+      "mean": 102.23999999999987,
+      "std": 6.719999999999636
+    },
+    "score_at_200_seconds": {
+      "mean": 9.5,
+      "std": 12.932517156377562
+    },
+    "score_median": 0.0,
+    "score_min": 0,
+    "score_max": 35,
+    "time_limit_reached": 0
+  },
+  "selected": {
+    "score": {
+      "mean": 1389.0,
+      "std": 679.9588222826438
+    },
+    "kills": {
+      "mean": 3.7,
+      "std": 1.7916472867168918
+    },
+    "survival_seconds": {
+      "mean": 197.66,
+      "std": 133.20108946000906
+    },
+    "shots": {
+      "mean": 391.4,
+      "std": 256.5596227000656
+    },
+    "shapes_destroyed": {
+      "mean": 27.1,
+      "std": 20.36884876471913
+    },
+    "damage_taken": {
+      "mean": 292.9286166666662,
+      "std": 133.04108426858676
+    },
+    "score_at_200_seconds": {
+      "mean": 1185.0,
+      "std": 438.99316623382646
+    },
+    "score_median": 1187.5,
+    "score_min": 420,
+    "score_max": 2545,
+    "time_limit_reached": 2
+  },
+  "paired_score_wins": 10,
+  "paired_score_ties": 0,
+  "paired_survival_wins": 9,
+  "raw_report": "heldout_400_seconds.json",
+  "candidate_selection": "candidate_selection.json"
+}

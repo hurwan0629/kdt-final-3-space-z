@@ -1,0 +1,87 @@
+{
+  "baseline": {
+    "score_at_120_seconds": {
+      "mean": 1026.875,
+      "p25": 913.75
+    },
+    "score": {
+      "mean": 1285.0,
+      "p25": 913.75
+    },
+    "survival_seconds": {
+      "mean": 130.78333333333333,
+      "p25": 90.05
+    },
+    "kills": {
+      "mean": 4.0,
+      "p25": 3.5
+    }
+  },
+  "candidate": {
+    "score_at_120_seconds": {
+      "mean": 1713.125,
+      "p25": 1438.75
+    },
+    "score": {
+      "mean": 2356.25,
+      "p25": 1802.5
+    },
+    "survival_seconds": {
+      "mean": 167.7625,
+      "p25": 149.74583333333334
+    },
+    "kills": {
+      "mean": 7.0,
+      "p25": 5.75
+    }
+  },
+  "paired_changes": {
+    "score_at_120_seconds": {
+      "mean_difference": 686.25,
+      "paired_mean_95pct_interval": [
+        161.25,
+        1194.437499999999
+      ],
+      "wins": 7,
+      "ties": 0,
+      "losses": 1
+    },
+    "score": {
+      "mean_difference": 1071.25,
+      "paired_mean_95pct_interval": [
+        474.984375,
+        1727.5
+      ],
+      "wins": 7,
+      "ties": 0,
+      "losses": 1
+    },
+    "survival_seconds": {
+      "mean_difference": 36.97916666666667,
+      "paired_mean_95pct_interval": [
+        -17.615156249999988,
+        85.12916666666666
+      ],
+      "wins": 5,
+      "ties": 2,
+      "losses": 1
+    },
+    "kills": {
+      "mean_difference": 3.0,
+      "paired_mean_95pct_interval": [
+        0.75,
+        5.0
+      ],
+      "wins": 7,
+      "ties": 0,
+      "losses": 1
+    }
+  },
+  "promotion_guards": {
+    "early_mean": true,
+    "early_p25": true,
+    "final_mean": true,
+    "mean_survival": true
+  },
+  "all_guards_passed": true
+}

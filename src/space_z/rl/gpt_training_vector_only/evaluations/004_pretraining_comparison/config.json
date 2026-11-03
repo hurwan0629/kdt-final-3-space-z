@@ -1,0 +1,54 @@
+{
+  "checkpoints": [
+    {
+      "checkpoint": "experiments/002_full_game_pilot/checkpoints/final.zip",
+      "sha256": "e71c474243b60c99e6d3d3eb64f0e77de51b7e7e569802d35bdaf46b3a2e2d30",
+      "timesteps": 65536,
+      "experiment_id": "002_full_game_pilot",
+      "optimizer_preserved": true,
+      "environment_reset_on_resume": true
+    },
+    {
+      "checkpoint": "experiments/003_training_duration/checkpoints/step_000196608.zip",
+      "sha256": "4c6a1ec983bb065a325caed232e9dc5e7c9e0ebb93c189c56605999611cd1bb2",
+      "timesteps": 196608,
+      "experiment_id": "003_training_duration",
+      "optimizer_preserved": true,
+      "environment_reset_on_resume": true
+    },
+    {
+      "checkpoint": "experiments/003_training_duration/checkpoints/final.zip",
+      "sha256": "967ba3ac27e427cb5ca7cdc166e48f6f451acf7e6c98da375a59e58d3874e5a1",
+      "timesteps": 327680,
+      "experiment_id": "003_training_duration",
+      "optimizer_preserved": true,
+      "environment_reset_on_resume": true
+    }
+  ],
+  "seeds": [
+    730001,
+    730102,
+    730203,
+    730304,
+    730405,
+    730506,
+    730607,
+    730708,
+    730809,
+    730910,
+    731011,
+    731112,
+    731213,
+    731314,
+    731415,
+    731516,
+    731617,
+    731718,
+    731819,
+    731920
+  ],
+  "max_seconds": 120,
+  "deterministic": true,
+  "created_at": "2026-11-02T03:23:28.816092+00:00",
+  "role": "diagnostic_comparison_no_training"
+}

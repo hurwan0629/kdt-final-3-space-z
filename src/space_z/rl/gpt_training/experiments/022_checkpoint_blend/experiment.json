@@ -1,0 +1,43 @@
+{
+  "name": "022_checkpoint_blend",
+  "status": "evaluated_not_promoted",
+  "created_at_utc": "2026-11-01T00:28:58.112560+00:00",
+  "goal": "Preserve earlier policy stability while testing PPO weight averaging",
+  "experiment_kind": "checkpoint_weight_averaging",
+  "additional_ppo_steps": 0,
+  "parent_training_timesteps": 1808384,
+  "demonstration_steps": 0,
+  "recipe": "torch.lerp(baseline_tensor, trained_tensor, trained_weight); copy identical tensors exactly",
+  "optimizer_moments_cleared": true,
+  "protocol": "phase3_blend_protocol.json",
+  "candidates": [
+    {
+      "checkpoint": "experiments\\022_checkpoint_blend\\checkpoints\\blend_025.zip",
+      "trained_weight": 0.25,
+      "sha256": "40fac357148e8cf189d999aacf5d258eda6ae35a02fe443d3598c3f024fc6595"
+    },
+    {
+      "checkpoint": "experiments\\022_checkpoint_blend\\checkpoints\\blend_050.zip",
+      "trained_weight": 0.5,
+      "sha256": "71665f9ad32efb8467d150f29213944691f74dde143af2b96107c6a2f6f32cef"
+    },
+    {
+      "checkpoint": "experiments\\022_checkpoint_blend\\checkpoints\\blend_075.zip",
+      "trained_weight": 0.75,
+      "sha256": "0857a06881a84d96576a6714ad415785deed615f38b5f64dcb2e29293c43aa11"
+    }
+  ],
+  "source_sha256": "2455a1822f24c9ad067559c94ec124538a2385d8cf8fc5c1571617b91504b7c1",
+  "finished_at_utc": "2026-11-01T00:48:03.697204+00:00",
+  "selected_candidate": "checkpoints/blend_050.zip",
+  "selection_record": "phase3_blend_candidate_selection.json",
+  "heldout_report": "phase3_blend_heldout_400_seconds.json",
+  "heldout_summary": "phase3_blend_results_summary.json",
+  "goal_checks": {
+    "early_mean_at_least_baseline": true,
+    "early_p25_at_least_baseline": false,
+    "final_mean_at_least_baseline": true,
+    "survival_at_least_baseline": true
+  },
+  "decision": "Preserve default 018: early lower-quartile scoring regressed."
+}

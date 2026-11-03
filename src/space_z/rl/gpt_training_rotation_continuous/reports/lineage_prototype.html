@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="ko" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="001~005 실험의 변수 변경과 결과를 하나의 흐름으로 잇는 프로토타입 뷰 (회전 연속 하이브리드).">
+<meta name="robots" content="noindex,nofollow">
+<title>Space Z · 회전 연속 하이브리드 · 실험 계보 프로토타입</title>
+<style>
+:root{color-scheme:light;--bg:#f5f6f8;--surface:#fff;--subtle:#eef1f5;--ink:#17202c;--muted:#526174;--line:#d7dfe8;--accent:#175d9c;--good:#1c7a5e;--bad:#b24753;--warn:#a9792c;--focus:#126da7}
+[data-theme=dark]{color-scheme:dark;--bg:#181818;--surface:#1f1f1f;--subtle:#272727;--ink:#f0f2f5;--muted:#b1bbc8;--line:#41464f;--accent:#96caff;--good:#8fd9bc;--bad:#ffa2ad;--warn:#e7bd73;--focus:#90c9f1}
+*{box-sizing:border-box}html{scroll-behavior:auto}body{margin:0;background:var(--bg);color:var(--ink);font:16px/24px Geist,"Malgun Gothic",sans-serif}
+h1,h2,h3,h4,p{margin:0}a{color:var(--accent);text-underline-offset:4px}
+code,.mono{font-family:"Geist Mono",Consolas,monospace}
+.muted{color:var(--muted)}.small{font-size:14px;line-height:20px}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.topbar{position:sticky;top:0;z-index:30;border-bottom:1px solid var(--line);background:var(--surface)}
+.topbar-inner{max-width:1200px;margin:auto;padding:12px 32px;display:flex;gap:24px;align-items:center;justify-content:space-between}
+.topbar-links{display:flex;gap:16px;font-size:14px}
+.brand{font-weight:700}.brand span{color:var(--muted);font-weight:400}
+.layout{max-width:1200px;margin:auto;padding:0 32px 80px}
+.hero{padding:32px 0 8px}
+.hero h1{font-size:32px;line-height:1.2;font-weight:700;margin:12px 0 16px}
+.hero p{max-width:760px;color:var(--muted);font-size:16px;line-height:26px}
+.badge{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border:1px solid var(--line);border-radius:999px;font-size:12px;line-height:18px;font-weight:700}
+.badge.proto{color:var(--warn)}
+h2{font-size:22px;line-height:30px;font-weight:700}
+.treenav{background:var(--bg);padding:12px 0 8px}
+.treenav-head{display:flex;align-items:flex-end;gap:12px;flex-wrap:wrap}
+.treenav-head h2{font-size:19px;line-height:26px;margin-top:2px}
+.diagram-frame{border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:14px;margin-top:8px;overflow-x:auto}
+.diagram-frame svg{width:1120px;max-width:none;height:auto;display:block}
+.svg-node{stroke-width:1.5;transition:stroke-width .15s}
+.svg-node.base{fill:var(--surface);stroke:var(--accent)}
+.svg-node.good{fill:var(--surface);stroke:var(--good)}
+.svg-node.bad{fill:var(--surface);stroke:var(--bad);stroke-dasharray:4 3}
+.svg-node.warn{fill:var(--surface);stroke:var(--warn)}
+.svg-text{fill:var(--ink);font:700 16px Geist,"Malgun Gothic",sans-serif}
+.svg-sub{fill:var(--muted);font:13px "Geist Mono",Consolas,monospace}
+.svg-tag{font:700 12px Geist,"Malgun Gothic",sans-serif}
+.svg-edge{fill:none;stroke:var(--muted);stroke-width:1.5;marker-end:url(#arrow)}
+.hl{opacity:0;transition:opacity .15s}
+a.tree-node{cursor:pointer}
+a.tree-node:hover .svg-node{stroke-width:2.5}
+a.tree-node .cur-badge{display:none}
+a.tree-node.current .hl{opacity:1}
+a.tree-node.current .svg-node{stroke-width:3}
+a.tree-node.current .cur-badge{display:block}
+.page{display:none}
+.page.active{display:block}
+.card{border:1px solid var(--line);border-radius:12px;background:var(--surface);overflow:hidden;margin:20px 0}
+.card-head{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:20px 24px;border-bottom:1px solid var(--line)}
+.card-head h3{font-size:19px;line-height:26px;font-weight:700}
+.card-head .id{color:var(--muted);font:13px "Geist Mono",Consolas,monospace}
+.status{margin-left:auto;padding:4px 10px;border-radius:999px;font-size:12px;font-weight:700;white-space:nowrap}
+.status.good{background:color-mix(in srgb, var(--good) 16%, transparent);color:var(--good)}
+.status.bad{background:color-mix(in srgb, var(--bad) 16%, transparent);color:var(--bad)}
+.status.warn{background:color-mix(in srgb, var(--warn) 16%, transparent);color:var(--warn)}
+.card-body{padding:20px 24px;display:grid;gap:20px}
+.siblings{font-size:13px;color:var(--muted);padding:10px 14px;background:var(--subtle);border-radius:8px}
+.siblings strong{color:var(--ink)}
+.variable{background:var(--subtle);border-radius:8px;padding:14px 16px;font-size:14px;line-height:22px}
+.variable b{color:var(--ink)}
+.two-col{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,0.9fr);gap:20px}
+@media(max-width:760px){.two-col{grid-template-columns:1fr}}
+table{width:100%;border-collapse:collapse;font-size:13px;line-height:20px}
+th,td{padding:6px 8px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+th{color:var(--muted);font-weight:600}
+tr.peak td{font-weight:700;color:var(--accent)}
+tr.crash td{color:var(--bad)}
+.confirm{display:flex;align-items:center;gap:10px;font-size:15px;flex-wrap:wrap}
+.confirm .arrow{color:var(--muted)}
+.confirm b{font-size:18px}
+.confirm b.up{color:var(--good)}
+.confirm b.down{color:var(--bad)}
+.shots{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.shots figure{margin:0}
+.shots img{width:100%;display:block;border:1px solid var(--line);border-radius:8px;background:var(--subtle)}
+.shots figcaption{margin-top:6px;font-size:12px;color:var(--muted);text-align:center}
+.note{border:1px solid var(--line);border-radius:8px;padding:12px 14px;background:var(--subtle);color:var(--muted);font-size:13px;line-height:20px}
+.note strong{color:var(--ink)}
+.note.alert{border-color:color-mix(in srgb, var(--warn) 50%, var(--line));background:color-mix(in srgb, var(--warn) 10%, var(--subtle))}
+.root-row{border:1px dashed var(--line);border-radius:12px;padding:16px 20px;color:var(--muted);font-size:14px;line-height:22px;margin-top:16px}
+.cfgdiff table{font-size:13px}
+.cfgdiff td.was{color:var(--muted)}
+.cfgdiff td.now{color:var(--ink);font-weight:600}
+.pbar-legend{font-size:12px;color:var(--muted);display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:6px;padding-bottom:6px;border-bottom:1px dashed var(--line)}
+.pbar-legend .sw{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px;vertical-align:middle}
+.pbar-section{display:grid;gap:4px}
+.pbar-section h4{font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.pbar-row{display:flex;align-items:flex-start;gap:10px;font-size:12px;flex-wrap:wrap}
+.pbar-label{width:140px;flex:0 0 auto;color:var(--muted);font-family:"Geist Mono",Consolas,monospace;margin-top:26px}
+.pbar{flex:1 1 260px;min-width:200px;position:relative;height:16px;background:var(--subtle);border-radius:4px;margin:28px 0 30px}
+.pbar-box{position:absolute;top:0;bottom:0;background:color-mix(in srgb, var(--accent) 30%, transparent);border-radius:3px}
+.pbar-tick{position:absolute;top:-2px;bottom:-2px;width:2px;border-radius:1px}
+.pbar-tick.med{background:var(--ink)}
+.pbar-tick.mean{background:var(--bad)}
+.pbar-tick.max{background:var(--good);width:3px}
+.pbar-tag{position:absolute;font-family:"Geist Mono",Consolas,monospace;font-size:10px;line-height:12px;white-space:nowrap;font-weight:700;pointer-events:none}
+.pbar-tag.p25{top:-13px;color:var(--muted);font-weight:400}
+.pbar-tag.p75{top:-13px;color:var(--muted);font-weight:400;transform:translateX(-100%)}
+.pbar-tag.max{top:-25px;color:var(--good);transform:translateX(-100%)}
+.pbar-tag.med{top:calc(100% + 3px);color:var(--ink);transform:translateX(-50%)}
+.pbar-tag.mean{top:calc(100% + 15px);color:var(--bad);transform:translateX(-50%)}
+.seedtable th,.seedtable td{text-align:right;font-family:"Geist Mono",Consolas,monospace;font-size:12px}
+.seedtable th:first-child,.seedtable td:first-child{text-align:left;font-family:Geist,"Malgun Gothic",sans-serif}
+.table-scroll{overflow-x:auto}
+.pagenav{display:flex;justify-content:space-between;gap:12px;margin-top:4px;padding-top:16px;border-top:1px solid var(--line);font-size:14px}
+.pagenav a{font-weight:600}
+.pagenav span{color:var(--muted)}
+footer{color:var(--muted);font-size:12px;line-height:20px;padding:24px 0;border-top:1px solid var(--line)}
+
+/* ===== design v2 polish (shared across index + 4 pipeline pages) ===== */
+:root{--radius-sm:8px;--radius-md:12px;--radius-lg:16px;--shadow-sm:0 1px 2px rgba(0,0,0,.05),0 1px 1px rgba(0,0,0,.03);--shadow-md:0 6px 16px rgba(0,0,0,.07),0 1px 2px rgba(0,0,0,.04);--shadow-lg:0 16px 40px rgba(0,0,0,.12),0 2px 6px rgba(0,0,0,.06);--ease:cubic-bezier(.2,.8,.2,1)}
+[data-theme=dark]{--shadow-sm:0 1px 2px rgba(0,0,0,.4);--shadow-md:0 6px 16px rgba(0,0,0,.45);--shadow-lg:0 16px 40px rgba(0,0,0,.55)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--shadow-sm:0 1px 2px rgba(0,0,0,.4);--shadow-md:0 6px 16px rgba(0,0,0,.45);--shadow-lg:0 16px 40px rgba(0,0,0,.55)}}
+a,.tile,.arch,table,.badge,.status,.svg-node,a.tree-node,.pagenav a{transition:background-color .18s var(--ease),border-color .18s var(--ease),box-shadow .18s var(--ease),transform .18s var(--ease),color .18s var(--ease)}
+.topbar{box-shadow:var(--shadow-sm)}
+table{border-collapse:separate;border-spacing:0}
+table thead th{background:var(--subtle);font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);font-weight:700;padding:8px 10px}
+table tbody tr:nth-child(even) td{background:color-mix(in srgb, var(--subtle) 55%, transparent)}
+table td,table th{padding:8px 10px}
+.badge,.status{font-weight:700;letter-spacing:.01em}
+.svg-node{filter:drop-shadow(0 1px 2px rgba(0,0,0,.08))}
+a.tree-node:hover{transform:translateY(-2px)}
+.diagram-frame{position:relative}
+.diagram-frame::after{content:"";position:absolute;top:14px;bottom:14px;right:14px;width:36px;background:linear-gradient(to right, transparent, var(--surface));pointer-events:none}
+.diagram-frame::-webkit-scrollbar{height:8px}
+.diagram-frame::-webkit-scrollbar-thumb{background:var(--line);border-radius:4px}
+.diagram-frame::-webkit-scrollbar-track{background:transparent}
+.pagenav a{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;border:1px solid var(--line)}
+.pagenav a:hover{background:var(--subtle);border-color:var(--accent)}
+.arch{box-shadow:var(--shadow-sm)}
+.card{box-shadow:var(--shadow-sm)}
+.card:hover{box-shadow:var(--shadow-md)}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner"><div class="brand">SPACE Z <span>/ 회전 연속 하이브리드</span></div><div class="topbar-links"><a href="#overview">개요</a><a href="../../reports/index.html">학습 계보 허브로</a></div></div></header>
+<div class="layout">
+
+<nav class="treenav" id="treenav" aria-label="실험 분기 탐색 — 클릭해서 해당 실험으로 이동">
+<div class="treenav-head">
+<div><span class="eyebrow">분기 구조 · 노드를 클릭하면 이동</span><h2 id="loc-title">개요</h2></div>
+</div>
+<figure class="diagram-frame">
+<svg viewBox="0 0 1120 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="001에서 002, 003으로 분기하고 003에서 다시 004, 005로 분기하는 구조. 002와 004는 개선 없이 폐기, 003과 005만 다음 단계의 부모가 됨. 왼쪽에서 오른쪽으로 시간이 흐르며, 가로로 스크롤해서 전체를 볼 수 있습니다. 각 상자를 클릭하면 해당 실험 페이지로 이동합니다.">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="var(--muted)"/></marker></defs>
+<path class="svg-edge" d="M340 120H370M370 62V178M370 62H400M370 178H400"/>
+<path class="svg-edge" d="M720 178H750M750 120V236M750 120H780M750 236H780"/>
+
+<a class="tree-node" href="#001_aim_adaptation" data-node="001_aim_adaptation">
+<rect class="hl" x="16" y="78" width="328" height="84" rx="14" style="fill:color-mix(in srgb, var(--accent) 20%, transparent)"/>
+<rect class="svg-node base" x="20" y="82" width="320" height="76" rx="10"/>
+<text class="svg-text" x="180" y="112" text-anchor="middle">001_aim_adaptation</text>
+<text class="svg-sub" x="180" y="134" text-anchor="middle">기존 018 모델 → 조준만 새로 학습 · 300k</text>
+<text class="svg-tag cur-badge" x="328" y="100" text-anchor="end" style="fill:var(--accent)">● 현재</text>
+</a>
+
+<a class="tree-node" href="#002_full_adaptation" data-node="002_full_adaptation">
+<rect class="hl" x="396" y="12" width="328" height="100" rx="14" style="fill:color-mix(in srgb, var(--bad) 20%, transparent)"/>
+<rect class="svg-node bad" x="400" y="16" width="320" height="92" rx="10"/>
+<text class="svg-text" x="560" y="46" text-anchor="middle" style="fill:var(--bad)">002_full_adaptation</text>
+<text class="svg-sub" x="560" y="68" text-anchor="middle">몸체까지 전체 동결 해제 · +200k</text>
+<text class="svg-tag" x="560" y="92" text-anchor="middle" style="fill:var(--bad)">생존 저하 · 조기 중단 · 폐기</text>
+<text class="svg-tag cur-badge" x="708" y="34" text-anchor="end" style="fill:var(--bad)">● 현재</text>
+</a>
+
+<a class="tree-node" href="#003_body_stability" data-node="003_body_stability">
+<rect class="hl" x="396" y="128" width="328" height="100" rx="14" style="fill:color-mix(in srgb, var(--good) 20%, transparent)"/>
+<rect class="svg-node good" x="400" y="132" width="320" height="92" rx="10"/>
+<text class="svg-text" x="560" y="162" text-anchor="middle" style="fill:var(--good)">003_body_stability</text>
+<text class="svg-sub" x="560" y="184" text-anchor="middle">조준 동결 · 몸체만 저속 적응 · +500k</text>
+<text class="svg-tag" x="560" y="208" text-anchor="middle" style="fill:var(--good)">네 조건 충족 · 다음 두 분기의 부모</text>
+<text class="svg-tag cur-badge" x="708" y="150" text-anchor="end" style="fill:var(--good)">● 현재</text>
+</a>
+
+<a class="tree-node" href="#004_body_continuation" data-node="004_body_continuation">
+<rect class="hl" x="776" y="70" width="328" height="100" rx="14" style="fill:color-mix(in srgb, var(--warn) 20%, transparent)"/>
+<rect class="svg-node warn" x="780" y="74" width="320" height="92" rx="10"/>
+<text class="svg-text" x="940" y="104" text-anchor="middle" style="fill:var(--warn)">004_body_continuation</text>
+<text class="svg-sub" x="940" y="126" text-anchor="middle">같은 설정으로 몸체 추가 학습 · +500k</text>
+<text class="svg-tag" x="940" y="150" text-anchor="middle" style="fill:var(--warn)">부모(800k) 순위를 못 넘김</text>
+<text class="svg-tag cur-badge" x="1088" y="92" text-anchor="end" style="fill:var(--warn)">● 현재</text>
+</a>
+
+<a class="tree-node" href="#005_aim_precision" data-node="005_aim_precision">
+<rect class="hl" x="776" y="186" width="328" height="100" rx="14" style="fill:color-mix(in srgb, var(--good) 20%, transparent)"/>
+<rect class="svg-node good" x="780" y="190" width="320" height="92" rx="10"/>
+<text class="svg-text" x="940" y="220" text-anchor="middle" style="fill:var(--good)">005_aim_precision</text>
+<text class="svg-sub" x="940" y="242" text-anchor="middle">몸체 동결 · 조준만 정밀화 · +500k</text>
+<text class="svg-tag" x="940" y="266" text-anchor="middle" style="fill:var(--good)">최종 선택 · held-out +92.4%</text>
+<text class="svg-tag cur-badge" x="1088" y="208" text-anchor="end" style="fill:var(--good)">● 현재</text>
+</a>
+</svg>
+</figure>
+</nav>
+
+<main id="pages">
+
+<section class="page" id="overview" data-page="overview">
+<div class="hero">
+<span class="badge proto">프로토타입 · 수치 하드코딩</span>
+<h1>회전만 연속화했을 때,<br>무엇을 바꿔서 어떤 결론이 났는가</h1>
+<p>기존 기본 모델(이산 행동 계열, 1,474,560 step 순수 PPO)에서 회전 출력만 tanh-Gaussian 연속 분포로 바꾸고, 나머지(이동 9종·발사·강화 6종·진화 5종)는 그대로 이산 선택으로 둔 채 추가 PPO 학습 2,000,000 step을 5개 구간(001~005)으로 나눠 진행했습니다. 이동·조준(회전·발사) 중 어느 부분을 동결하고 어느 부분을 계속 학습시킬지가 매 분기의 변수입니다. 위 분기도의 상자를 클릭하면 해당 실험 페이지로 이동합니다.</p>
+<div class="note alert" style="margin-top:16px"><strong>⚠ 진화 버그 — 001~005의 모든 "진행 평가" 수치는 수정 전(진화 미적용) 상태로 측정됨</strong> — 디코더가 진화 선택 인덱스를 <code>numpy.int64</code>로 넘겨 공용 게임 코어가 무시했고, 2,000,000 step 내내 기체가 계속 "rookie" 등급에 머물렀습니다. 화면 재생에서 발견한 뒤 디코더만 고치고 가중치는 그대로 유지했습니다. 이 페이지의 001~005 진행 표·분포 막대는 모두 <strong>버그가 있는 상태</strong>에서 측정한 값이며, <a href="#005_aim_precision">005 페이지 하단</a>의 "수정 후 최종 비교"만 진화가 실제로 적용된 결과입니다.</div>
+<div class="note" style="margin-top:10px"><strong>안정성 확인이 왜 필요한가</strong> — mean만 보면 꾸준히 좋아진 것처럼 보이지만 소수의 고득점 시드에 쉽게 끌려갑니다. 그래서 각 실험 페이지에 점수·생존시간 분포 막대(p25~p75 구간 · median · mean · max)를 넣었습니다.</div>
+</div>
+<div class="root-row"><strong style="color:var(--ink)">부모 모델 (이 분기 밖)</strong> · <code>gpt_training</code> 계열의 순수 PPO 기본 모델(018, 1,474,560 step, 이산 MultiDiscrete 행동) — 원본 벡터 관찰 5,139차원과 기존 CNN·개체 특징 추출기를 그대로 재사용하고, 회전 헤드만 새로 얹어 0에서 학습을 시작합니다. 학습 예산 2,000,000 step = 001(300k) + 002(200k, 폐기) + 003(500k) + 004(500k, 폐기) + 005(500k, 최종).</div>
+<div class="pagenav" style="border-top:none;padding-top:20px"><span></span><a href="#001_aim_adaptation">001_aim_adaptation ▶</a></div>
+</section>
+
+<section class="page" id="001_aim_adaptation" data-page="001_aim_adaptation">
+<div class="card">
+<div class="card-head"><h3>001_aim_adaptation</h3><span class="id">0 → 300,000 step (벽·적 없는 천체 전용 환경)</span><span class="status good">기준 체크포인트 확립</span></div>
+<div class="card-body">
+<div class="variable"><b>변경한 것</b>: 기존 이산 PPO 몸체(이동·CNN·성장·가치함수)는 동결(<code>freeze_body</code>)하고, 회전만 새 tanh-Gaussian 헤드로 교체해 적도 벽도 없는 쉬운 천체 환경에서 처음 학습(lr 0.0003, entropy 0.003, score_v5)</div>
+<div class="table-wrap"><table>
+<thead><tr><th>label</th><th>step</th><th>평가 조건</th><th>score(120s)</th><th>score(최종)</th><th>survival</th></tr></thead>
+<tbody>
+<tr><td>baseline(기존 018)</td><td>—</td><td>4seed·200s cap</td><td>803.75</td><td>1,057.5</td><td>155.08s</td></tr>
+<tr><td>001</td><td>100,000</td><td>4seed·200s cap</td><td>695.0</td><td>1,136.25</td><td>166.27s</td></tr>
+<tr><td>001</td><td>200,000</td><td>4seed·200s cap</td><td>1,188.75</td><td>1,402.5</td><td>162.40s</td></tr>
+<tr class="peak"><td>001 (선발 기준)</td><td>300,000</td><td>4seed·200s cap</td><td>1,243.75</td><td>1,696.25</td><td>160.30s</td></tr>
+<tr><td>baseline(기존 018)</td><td>—</td><td>8seed·200s cap</td><td>1,026.875</td><td>1,285.0</td><td>130.78s</td></tr>
+<tr class="crash"><td>001 (넓은 재확인)</td><td>300,000</td><td>8seed·200s cap</td><td>940.0</td><td>1,161.25</td><td>124.90s</td></tr>
+</tbody></table></div>
+<div class="shots">
+<figure><img src="../visual_001_seed505/step_003000.png" alt="001 학습 중 조준 적응 장면 1" loading="lazy"><figcaption>seed 505 재생 · 100s 지점(1,605점·6킬)</figcaption></figure>
+<figure><img src="../visual_001_seed505/step_006000.png" alt="001 학습 중 조준 적응 장면 2" loading="lazy"><figcaption>seed 505 재생 · 200s 지점(2,375점·8킬·HP 200)</figcaption></figure>
+</div>
+<div class="pbar-section">
+<div class="pbar-legend"><span><span class="sw" style="background:color-mix(in srgb, var(--accent) 30%, transparent)"></span>p25~p75 구간</span><span><span class="sw" style="background:var(--ink)"></span>median</span><span><span class="sw" style="background:var(--bad)"></span>mean</span><span><span class="sw" style="background:var(--good);width:3px"></span>max(단일 시드 최고값)</span></div>
+<h4>점수 분포 · 300,000 step · 8개 dev 시드 · 200초 cap · 척도 0~6,000</h4>
+<div class="pbar-row"><span class="pbar-label">001@300,000</span><div class="pbar"><div class="pbar-box" style="left:14.4%;width:6.3%"></div><span class="pbar-tag p25" style="left:14.4%">p25 865</span><span class="pbar-tag p75" style="left:20.7%">p75 1241</span><span class="pbar-tick med" style="left:19.9%"></span><span class="pbar-tag med" style="left:19.9%">med 1192</span><span class="pbar-tick mean" style="left:19.4%"></span><span class="pbar-tag mean" style="left:19.4%">mean 1161</span><span class="pbar-tick max" style="left:36.1%"></span><span class="pbar-tag max" style="left:36.1%">max 2165</span></div></div>
+<h4 style="margin-top:12px">생존시간 분포 · 300,000 step · 8개 dev 시드 · 200초 cap</h4>
+<div class="pbar-row"><span class="pbar-label">001@300,000</span><div class="pbar"><div class="pbar-box" style="left:30.0%;width:70.0%"></div><span class="pbar-tag p25" style="left:30.0%">p25 60s</span><span class="pbar-tag p75" style="left:100%">p75 200s</span><span class="pbar-tick med" style="left:66.0%"></span><span class="pbar-tag med" style="left:66.0%">med 132s</span><span class="pbar-tick mean" style="left:62.5%"></span><span class="pbar-tag mean" style="left:62.5%">mean 125s</span><span class="pbar-tick max" style="left:100%"></span><span class="pbar-tag max" style="left:100%">max 200s</span></div></div>
+</div>
+<div class="note"><strong>4시드로는 이겼지만 8시드로는 졌다</strong> — 선발에 쓴 4개 검증 시드에서는 baseline을 넘었지만(1,696 vs 1,285), 더 넓은 추가 8개 시드로 재확인하자 baseline(1,285)보다 낮은 1,161.25로 나왔다. 표본이 작을 때 순위를 과신하면 안 된다는 걸 보여주는 사례 — 그래도 "연속 회전 학습 자체가 작동한다"는 건 확인됐으므로 이 체크포인트를 002/003 두 분기의 공통 부모로 사용.</div>
+</div>
+</div>
+<div class="pagenav"><a href="#overview">◀ 개요</a><a href="#002_full_adaptation">002_full_adaptation ▶</a></div>
+</section>
+
+<section class="page" id="002_full_adaptation" data-page="002_full_adaptation">
+<div class="siblings">001(300k)에서 2갈래로 분기 — 같은 부모: <strong>002(현재)</strong> · <a href="#003_body_stability">003</a>. 부모 페이지: <a href="#001_aim_adaptation">001_aim_adaptation</a></div>
+<div class="card">
+<div class="card-head"><h3>002_full_adaptation</h3><span class="id">300,000 → (500,000에서 중단)</span><span class="status bad">생존 저하 · 조기 중단 · 폐기</span></div>
+<div class="card-body">
+<div class="variable"><b>변경한 것</b>: <code>freeze_body</code>를 꺼서 몸체(이동·CNN·성장·가치함수)까지 전부 동결 해제 + lr 0.0003→0.0001, entropy 0.003→0.002, reward_profile score_v5→score_v7 (실제 기본 게임에서 전체 정책을 한 번에 적응시키려는 시도)</div>
+<div class="cfgdiff"><table><thead><tr><th>바뀐 설정</th><th>부모(001)</th><th>002</th></tr></thead><tbody>
+<tr><td>freeze_body</td><td class="was">true</td><td class="now">false</td></tr>
+<tr><td>learning_rate</td><td class="was">0.0003</td><td class="now">0.0001</td></tr>
+<tr><td>entropy</td><td class="was">0.003</td><td class="now">0.002</td></tr>
+<tr><td>reward_profile</td><td class="was">score_v5 (천체 전용)</td><td class="now">score_v7 (실제 기본 게임)</td></tr>
+</tbody></table></div>
+<div class="table-wrap"><table>
+<thead><tr><th>label</th><th>step</th><th>평가 조건</th><th>score(최종)</th><th>survival</th></tr></thead>
+<tbody>
+<tr><td>before(001)</td><td>300,000</td><td>8seed·200s cap</td><td>1,161.25</td><td>124.90s</td></tr>
+<tr><td>002</td><td>400,000</td><td>8seed·200s cap</td><td>956.25</td><td>91.39s</td></tr>
+<tr class="crash"><td>002 (중단 시점)</td><td>500,000</td><td>8seed·200s cap</td><td>1,446.875</td><td>123.18s</td></tr>
+</tbody></table></div>
+<div class="pbar-section">
+<div class="pbar-legend"><span><span class="sw" style="background:color-mix(in srgb, var(--accent) 30%, transparent)"></span>p25~p75 구간</span><span><span class="sw" style="background:var(--ink)"></span>median</span><span><span class="sw" style="background:var(--bad)"></span>mean</span><span><span class="sw" style="background:var(--good);width:3px"></span>max(단일 시드 최고값)</span></div>
+<h4>점수 분포 · 8개 dev 시드 · 200초 cap · 척도 0~6,000</h4>
+<div class="pbar-row"><span class="pbar-label">002@400,000</span><div class="pbar"><div class="pbar-box" style="left:12.8%;width:6.3%"></div><span class="pbar-tag p25" style="left:12.8%">p25 765</span><span class="pbar-tag p75" style="left:19.1%">p75 1146</span><span class="pbar-tick med" style="left:15.5%"></span><span class="pbar-tag med" style="left:15.5%">med 932</span><span class="pbar-tick mean" style="left:15.9%"></span><span class="pbar-tag mean" style="left:15.9%">mean 956</span><span class="pbar-tick max" style="left:21.8%"></span><span class="pbar-tag max" style="left:21.8%">max 1310</span></div></div>
+<div class="pbar-row"><span class="pbar-label">002@500,000</span><div class="pbar"><div class="pbar-box" style="left:12.4%;width:19.0%"></div><span class="pbar-tag p25" style="left:12.4%">p25 746</span><span class="pbar-tag p75" style="left:31.4%">p75 1885</span><span class="pbar-tick med" style="left:28.6%"></span><span class="pbar-tag med" style="left:28.6%">med 1715</span><span class="pbar-tick mean" style="left:24.1%"></span><span class="pbar-tag mean" style="left:24.1%">mean 1447</span><span class="pbar-tick max" style="left:36.8%"></span><span class="pbar-tag max" style="left:36.8%">max 2210</span></div></div>
+<h4 style="margin-top:12px">생존시간 분포 · 8개 dev 시드 · 200초 cap</h4>
+<div class="pbar-row"><span class="pbar-label">002@400,000</span><div class="pbar"><div class="pbar-box" style="left:23.5%;width:46.5%"></div><span class="pbar-tag p25" style="left:23.5%">p25 47s</span><span class="pbar-tag p75" style="left:70.0%">p75 140s</span><span class="pbar-tick med" style="left:31.0%"></span><span class="pbar-tag med" style="left:31.0%">med 62s</span><span class="pbar-tick mean" style="left:45.5%"></span><span class="pbar-tag mean" style="left:45.5%">mean 91s</span><span class="pbar-tick max" style="left:100%"></span><span class="pbar-tag max" style="left:100%">max 200s</span></div></div>
+<div class="pbar-row"><span class="pbar-label">002@500,000</span><div class="pbar"><div class="pbar-box" style="left:42.0%;width:39.5%"></div><span class="pbar-tag p25" style="left:42.0%">p25 84s</span><span class="pbar-tag p75" style="left:81.5%">p75 163s</span><span class="pbar-tick med" style="left:57.0%"></span><span class="pbar-tag med" style="left:57.0%">med 114s</span><span class="pbar-tick mean" style="left:61.5%"></span><span class="pbar-tag mean" style="left:61.5%">mean 123s</span><span class="pbar-tick max" style="left:100%"></span><span class="pbar-tag max" style="left:100%">max 200s</span></div></div>
+</div>
+<div class="note"><strong>몸체까지 한꺼번에 풀었더니 생존부터 무너짐</strong> — 400,000 step 생존 평균이 91.39초로, 같은 시드의 baseline(130.78초)보다도 낮게 떨어짐. 500,000 step에서 점수는 회복됐지만(1,446.875) 여전히 baseline 수준을 넘지 못해 계획했던 700,000 step을 다 채우지 못하고 조기 중단. 조준과 몸체를 동시에 풀어서 적응시키는 접근은 폐기하고, 001의 300,000 체크포인트에서 다시 분기해 "조준은 고정, 몸체만 천천히"로 바꾼 것이 003.</div>
+</div>
+</div>
+<div class="pagenav"><a href="#001_aim_adaptation">◀ 001_aim_adaptation</a><a href="#003_body_stability">003_body_stability ▶</a></div>
+</section>
+
+<section class="page" id="003_body_stability" data-page="003_body_stability">
+<div class="siblings">001(300k)에서 2갈래로 분기 — 같은 부모: <a href="#002_full_adaptation">002</a> · <strong>003(현재)</strong>. 부모 페이지: <a href="#001_aim_adaptation">001_aim_adaptation</a></div>
+<div class="card">
+<div class="card-head"><h3>003_body_stability</h3><span class="id">300,000 → 800,000 step</span><span class="status good">네 조건 충족 · 다음 분기의 부모</span></div>
+<div class="card-body">
+<div class="variable"><b>변경한 것</b>: 002와 반대로 <code>freeze_aim</code>을 켜 조준망(회전 헤드)은 완전히 고정하고, 몸체(이동·성장·가치함수)만 아주 낮은 lr 0.00003으로 천천히 적응 (002의 lr 0.0001보다 3배 이상 낮음)</div>
+<div class="cfgdiff"><table><thead><tr><th>바뀐 설정</th><th>부모(001)</th><th>003</th></tr></thead><tbody>
+<tr><td>freeze_body</td><td class="was">true</td><td class="now">false</td></tr>
+<tr><td>freeze_aim</td><td class="was">— (조준 자체가 신규 학습 대상)</td><td class="now">true (새로 추가)</td></tr>
+<tr><td>learning_rate</td><td class="was">0.0003</td><td class="now">0.00003</td></tr>
+<tr><td>reward_profile</td><td class="was">score_v5 (천체 전용)</td><td class="now">score_v7 (실제 기본 게임)</td></tr>
+</tbody></table><p class="small muted" style="margin-top:6px">002와 동일한 부모(001@300,000)에서 분기 — 002의 실패 이후 시작한 게 아니라 독립적으로 같은 지점에서 다시 분기한 형제 실험.</p></div>
+<div class="table-wrap"><table>
+<thead><tr><th>label</th><th>step</th><th>평가 조건</th><th>score(최종)</th><th>survival</th></tr></thead>
+<tbody>
+<tr><td>before(001)</td><td>300,000</td><td>8seed·200s cap</td><td>1,161.25</td><td>124.90s</td></tr>
+<tr><td>003</td><td>600,000</td><td>8seed·200s cap</td><td>1,892.5</td><td>161.88s</td></tr>
+<tr><td>003</td><td>700,000</td><td>8seed·200s cap</td><td>2,139</td><td>176s</td></tr>
+<tr class="peak"><td>003 (선발 · 네 조건 충족)</td><td>800,000</td><td>8seed·200s cap</td><td>2,823.75</td><td>195.6s</td></tr>
+</tbody></table></div>
+<div class="shots">
+<figure><img src="../visual_003_500k_seed45506/step_001183.png" alt="003 500,000 step seed45506 사망 장면" loading="lazy"><figcaption>seed 45506 greedy 재생 · 39.43s · 555점 · 2킬 (GAME OVER, 실패 사례 그대로)</figcaption></figure>
+</div>
+<div class="pbar-section">
+<div class="pbar-legend"><span><span class="sw" style="background:color-mix(in srgb, var(--accent) 30%, transparent)"></span>p25~p75 구간</span><span><span class="sw" style="background:var(--ink)"></span>median</span><span><span class="sw" style="background:var(--bad)"></span>mean</span><span><span class="sw" style="background:var(--good);width:3px"></span>max(단일 시드 최고값)</span></div>
+<h4>점수 분포 · 8개 dev 시드 · 200초 cap · 척도 0~6,000</h4>
+<div class="pbar-row"><span class="pbar-label">003@600,000</span><div class="pbar"><div class="pbar-box" style="left:25.6%;width:14.6%"></div><span class="pbar-tag p25" style="left:25.6%">p25 1538</span><span class="pbar-tag p75" style="left:40.2%">p75 2414</span><span class="pbar-tick med" style="left:34.6%"></span><span class="pbar-tag med" style="left:34.6%">med 2078</span><span class="pbar-tick mean" style="left:31.5%"></span><span class="pbar-tag mean" style="left:31.5%">mean 1892</span><span class="pbar-tick max" style="left:42.8%"></span><span class="pbar-tag max" style="left:42.8%">max 2570</span></div></div>
+<div class="pbar-row"><span class="pbar-label">003@800,000</span><div class="pbar"><div class="pbar-box" style="left:40.3%;width:11.3%"></div><span class="pbar-tag p25" style="left:40.3%">p25 2418</span><span class="pbar-tag p75" style="left:51.6%">p75 3098</span><span class="pbar-tick med" style="left:48.1%"></span><span class="pbar-tag med" style="left:48.1%">med 2885</span><span class="pbar-tick mean" style="left:47.1%"></span><span class="pbar-tag mean" style="left:47.1%">mean 2824</span><span class="pbar-tick max" style="left:61.8%"></span><span class="pbar-tag max" style="left:61.8%">max 3710</span></div></div>
+<h4 style="margin-top:12px">생존시간 분포 · 8개 dev 시드 · 200초 cap</h4>
+<div class="pbar-row"><span class="pbar-label">003@600,000</span><div class="pbar"><div class="pbar-box" style="left:74.0%;width:26.0%"></div><span class="pbar-tag p25" style="left:74.0%">p25 148s</span><span class="pbar-tag p75" style="left:100%">p75 200s</span><span class="pbar-tick med" style="left:95.5%"></span><span class="pbar-tag med" style="left:95.5%">med 191s</span><span class="pbar-tick mean" style="left:81.0%"></span><span class="pbar-tag mean" style="left:81.0%">mean 162s</span><span class="pbar-tick max" style="left:100%"></span><span class="pbar-tag max" style="left:100%">max 200s</span></div></div>
+<div class="pbar-row"><span class="pbar-label">003@800,000</span><div class="pbar"><div class="pbar-box" style="left:98.0%;width:2.0%"></div><span class="pbar-tag p25" style="left:98.0%">p25 196s</span><span class="pbar-tag p75" style="left:100%">p75 200s</span><span class="pbar-tick med" style="left:100%"></span><span class="pbar-tag med" style="left:100%">med 200s</span><span class="pbar-tick mean" style="left:98.0%"></span><span class="pbar-tag mean" style="left:98.0%">mean 196s</span><span class="pbar-tick max" style="left:100%"></span><span class="pbar-tag max" style="left:100%">max 200s</span></div></div>
+</div>
+<div class="note"><strong>002와 정반대 전략이 성공</strong> — "조준은 건드리지 말고 몸체만 아주 천천히"가 효과적이었다. 800,000 step에서 8개 시드 중 거의 전부가 200초(cap)까지 생존(p25조차 196초)하고 점수도 꾸준히 올라 네 승격 조건을 모두 충족. 이 체크포인트(<code>evaluated_000800000.zip</code>)가 004·005 두 분기의 공통 부모가 됨. <strong>안정성</strong>: 이 시점 기준으로는 p25/median/mean이 서로 가까워 vector_only 계열에서 보였던 "p25=0" 같은 불안정은 없음 — 다만 8시드뿐이라 표본은 여전히 작음.</div>
+</div>
+</div>
+<div class="pagenav"><a href="#002_full_adaptation">◀ 002_full_adaptation</a><a href="#004_body_continuation">004_body_continuation ▶</a></div>
+</section>
+
+<section class="page" id="004_body_continuation" data-page="004_body_continuation">
+<div class="siblings">003(800k)에서 2갈래로 분기 — 같은 부모: <strong>004(현재)</strong> · <a href="#005_aim_precision">005</a>. 부모 페이지: <a href="#003_body_stability">003_body_stability</a></div>
+<div class="card">
+<div class="card-head"><h3>004_body_continuation</h3><span class="id">800,000 → 1,300,000 step</span><span class="status warn">부모(800k) 순위를 못 넘김</span></div>
+<div class="card-body">
+<div class="variable"><b>변경한 것</b>: 없음 — 003과 완전히 같은 설정(<code>freeze_aim</code>, lr 0.00003, entropy 0.002, score_v7, 같은 eval seed 4개)으로 그냥 500,000 step 더 돌림</div>
+<div class="small muted">설정 diff: 없음 — 003의 마지막 체크포인트에서 동일 하이퍼파라미터로 이어학습("일단 더 돌려본" run).</div>
+<div class="table-wrap"><table>
+<thead><tr><th>label</th><th>step</th><th>평가 조건</th><th>score(최종)</th><th>survival</th></tr></thead>
+<tbody>
+<tr><td>before(003)</td><td>800,000</td><td>8seed·200s cap</td><td>2,823.75</td><td>195.6s</td></tr>
+<tr><td>004</td><td>900,000</td><td>8seed·200s cap</td><td>2,287</td><td>155s</td></tr>
+<tr><td>004</td><td>1,100,000</td><td>8seed·200s cap</td><td>2,487</td><td>180s</td></tr>
+<tr class="crash"><td>004 (종료)</td><td>1,300,000</td><td>8seed·200s cap</td><td>2,013</td><td>160s</td></tr>
+</tbody></table></div>
+<div class="pbar-section">
+<div class="pbar-legend"><span><span class="sw" style="background:color-mix(in srgb, var(--accent) 30%, transparent)"></span>p25~p75 구간</span><span><span class="sw" style="background:var(--ink)"></span>median</span><span><span class="sw" style="background:var(--bad)"></span>mean</span><span><span class="sw" style="background:var(--good);width:3px"></span>max(단일 시드 최고값)</span></div>
+<h4>점수 분포 · 8개 dev 시드 · 200초 cap · 척도 0~6,000</h4>
+<div class="pbar-row"><span class="pbar-label">004@900,000</span><div class="pbar"><div class="pbar-box" style="left:27.3%;width:20.2%"></div><span class="pbar-tag p25" style="left:27.3%">p25 1635</span><span class="pbar-tag p75" style="left:47.4%">p75 2844</span><span class="pbar-tick med" style="left:36.8%"></span><span class="pbar-tag med" style="left:36.8%">med 2208</span><span class="pbar-tick mean" style="left:38.1%"></span><span class="pbar-tag mean" style="left:38.1%">mean 2287</span><span class="pbar-tick max" style="left:67.2%"></span><span class="pbar-tag max" style="left:67.2%">max 4030</span></div></div>
+<div class="pbar-row"><span class="pbar-label">004@1,300,000</span><div class="pbar"><div class="pbar-box" style="left:26.3%;width:15.2%"></div><span class="pbar-tag p25" style="left:26.3%">p25 1580</span><span class="pbar-tag p75" style="left:41.6%">p75 2494</span><span class="pbar-tick med" style="left:32.5%"></span><span class="pbar-tag med" style="left:32.5%">med 1952</span><span class="pbar-tick mean" style="left:33.6%"></span><span class="pbar-tag mean" style="left:33.6%">mean 2013</span><span class="pbar-tick max" style="left:73.2%"></span><span class="pbar-tag max" style="left:73.2%">max 4390</span></div></div>
+<h4 style="margin-top:12px">생존시간 분포 · 8개 dev 시드 · 200초 cap</h4>
+<div class="pbar-row"><span class="pbar-label">004@900,000</span><div class="pbar"><div class="pbar-box" style="left:57.0%;width:43.0%"></div><span class="pbar-tag p25" style="left:57.0%">p25 114s</span><span class="pbar-tag p75" style="left:100%">p75 200s</span><span class="pbar-tick med" style="left:100%"></span><span class="pbar-tag med" style="left:100%">med 200s</span><span class="pbar-tick mean" style="left:77.5%"></span><span class="pbar-tag mean" style="left:77.5%">mean 155s</span><span class="pbar-tick max" style="left:100%"></span><span class="pbar-tag max" style="left:100%">max 200s</span></div></div>
+<div class="pbar-row"><span class="pbar-label">004@1,300,000</span><div class="pbar"><div class="pbar-box" style="left:81.0%;width:19.0%"></div><span class="pbar-tag p25" style="left:81.0%">p25 162s</span><span class="pbar-tag p75" style="left:100%">p75 200s</span><span class="pbar-tick med" style="left:100%"></span><span class="pbar-tag med" style="left:100%">med 200s</span><span class="pbar-tick mean" style="left:80.0%"></span><span class="pbar-tag mean" style="left:80.0%">mean 160s</span><span class="pbar-tick max" style="left:100%"></span><span class="pbar-tag max" style="left:100%">max 200s</span></div></div>
+</div>
+<div class="note"><strong>800,000을 끝까지 한 번도 못 넘김</strong> — 003의 005와 마찬가지로 "그대로 더 돌리기"는 추가 개선을 만들지 못했다(mean 2,823.75 → 2,013). <code>best_timesteps</code>가 전체 run 동안 부모의 800,000에 그대로 고정된 것으로 이 사실이 기록에 남아 있음. 004는 재사용하지 않고 003의 800,000에서 다시 분기 — 이번엔 "몸체 대신 조준을 더 학습"하는 005로.</div>
+</div>
+</div>
+<div class="pagenav"><a href="#003_body_stability">◀ 003_body_stability</a><a href="#005_aim_precision">005_aim_precision ▶</a></div>
+</section>
+
+<section class="page" id="005_aim_precision" data-page="005_aim_precision">
+<div class="siblings">003(800k)에서 2갈래로 분기 — 같은 부모: <a href="#004_body_continuation">004</a> · <strong>005(현재)</strong>. 부모 페이지: <a href="#003_body_stability">003_body_stability</a></div>
+<div class="card">
+<div class="card-head"><h3>005_aim_precision</h3><span class="id">800,000 → 1,300,000 step (계보상 1,200,000 채택)</span><span class="status good">최종 선택 모델</span></div>
+<div class="card-body">
+<div class="variable"><b>변경한 것</b>: 004와 반대로 이번엔 <code>freeze_body</code>를 켜 몸체(이동·성장·CNN)는 고정하고 <code>freeze_aim</code>은 꺼서 조준(회전·발사)만 다시 학습 재개. lr 0.00003→0.00002, entropy 0.002→0.001로 더 보수적으로</div>
+<div class="cfgdiff"><table><thead><tr><th>바뀐 설정</th><th>부모(003)</th><th>005</th></tr></thead><tbody>
+<tr><td>freeze_body</td><td class="was">false</td><td class="now">true (새로 추가)</td></tr>
+<tr><td>freeze_aim</td><td class="was">true</td><td class="now">false</td></tr>
+<tr><td>learning_rate</td><td class="was">0.00003</td><td class="now">0.00002</td></tr>
+<tr><td>entropy</td><td class="was">0.002</td><td class="now">0.001</td></tr>
+</tbody></table><p class="small muted" style="margin-top:6px">004와 동일한 부모(003@800,000)에서 분기 — 004의 실패를 본 뒤가 아니라 "동결 대상을 반대로 바꿔본다"는 독립적 가설.</p></div>
+<div class="table-wrap"><table>
+<thead><tr><th>label</th><th>step</th><th>평가 조건</th><th>score(최종)</th><th>survival</th></tr></thead>
+<tbody>
+<tr><td>before(003)</td><td>800,000</td><td>8seed·200s cap</td><td>2,823.75</td><td>195.6s</td></tr>
+<tr class="peak"><td>005 (dev 채택, 버그 상태)</td><td>1,200,000</td><td>8seed·200s cap</td><td>3,037.5</td><td>179.88s</td></tr>
+<tr><td>005 (run 종료)</td><td>1,300,000</td><td>8seed·200s cap</td><td>2,615</td><td>189s</td></tr>
+</tbody></table></div>
+<div class="pbar-section">
+<div class="pbar-legend"><span><span class="sw" style="background:color-mix(in srgb, var(--accent) 30%, transparent)"></span>p25~p75 구간</span><span><span class="sw" style="background:var(--ink)"></span>median</span><span><span class="sw" style="background:var(--bad)"></span>mean</span><span><span class="sw" style="background:var(--good);width:3px"></span>max(단일 시드 최고값)</span></div>
+<h4>점수 분포(버그 상태 · 참고용) · 8개 dev 시드 · 200초 cap · 척도 0~6,000</h4>
+<div class="pbar-row"><span class="pbar-label">003@800,000</span><div class="pbar"><div class="pbar-box" style="left:40.3%;width:11.3%"></div><span class="pbar-tag p25" style="left:40.3%">p25 2418</span><span class="pbar-tag p75" style="left:51.6%">p75 3098</span><span class="pbar-tick med" style="left:48.1%"></span><span class="pbar-tag med" style="left:48.1%">med 2885</span><span class="pbar-tick mean" style="left:47.1%"></span><span class="pbar-tag mean" style="left:47.1%">mean 2824</span><span class="pbar-tick max" style="left:61.8%"></span><span class="pbar-tag max" style="left:61.8%">max 3710</span></div></div>
+<div class="pbar-row"><span class="pbar-label">005@1,300,000</span><div class="pbar"><div class="pbar-box" style="left:32.4%;width:19.9%"></div><span class="pbar-tag p25" style="left:32.4%">p25 1944</span><span class="pbar-tag p75" style="left:52.2%">p75 3135</span><span class="pbar-tick med" style="left:39.9%"></span><span class="pbar-tag med" style="left:39.9%">med 2395</span><span class="pbar-tick mean" style="left:43.6%"></span><span class="pbar-tag mean" style="left:43.6%">mean 2615</span><span class="pbar-tick max" style="left:69.5%"></span><span class="pbar-tag max" style="left:69.5%">max 4170</span></div></div>
+</div>
+<div class="note alert"><strong>진화 버그 발견 — 디코더만 고치고 가중치는 그대로 재검증</strong> — 2,000,000 step 전체를 끝내고 005의 1,200,000 체크포인트를 선택한 뒤, 실제 화면 재생에서 기체가 계속 "rookie" 등급에 머무는 것을 보고 추적한 결과, 디코더가 진화 선택 인덱스를 Python <code>int</code>가 아닌 <code>numpy.int64</code>로 넘겨 공용 게임 코어가 <code>isinstance(index, int)</code> 검사에서 무시하고 있었습니다. 공용 게임 코드는 건드리지 않고 디코더 한 곳만 <code>map(int, choices)</code>로 고쳤습니다 — 가중치(SHA256 <code>205b19d9…</code>)는 그대로입니다. 위 표·막대의 "dev 채택" 수치는 모두 <strong>버그가 있던 상태</strong>의 측정값입니다.</div>
+<div class="shots">
+<figure><img src="../visual_selected_seed51001/step_012000.png" alt="수정 전 — 계속 rookie 등급" loading="lazy"><figcaption>수정 전(동일 가중치) · seed 51001 · 진화 요청 무시 → 계속 rookie</figcaption></figure>
+<figure><img src="../visual_corrected_seed61001/step_007587.png" alt="수정 후 — flank로 진화" loading="lazy"><figcaption>수정 후(동일 가중치) · seed 61001 · 252.9s · 2,855점 · 9킬 · flank로 진화</figcaption></figure>
+</div>
+<div class="confirm">수정 후 최종 비교(새 20시드, 400s cap, greedy) 기존 기본모델 대비: <b>1,508.0</b><span class="arrow">→</span><b class="up">2,902.0</b> <span class="small muted">(최종 평균 +92.4%, 120s 평균 1,049.25→1,530.0 +45.8%, 생존 222.67s→262.84s, 처치 4.30→8.25, 400s 생존 2/20→5/20)</span></div>
+<div class="pbar-section">
+<div class="pbar-legend"><span><span class="sw" style="background:color-mix(in srgb, var(--accent) 30%, transparent)"></span>p25~p75 구간</span><span><span class="sw" style="background:var(--ink)"></span>median</span><span><span class="sw" style="background:var(--bad)"></span>mean</span><span><span class="sw" style="background:var(--good);width:3px"></span>max(단일 시드 최고값)</span></div>
+<h4>점수 분포 — 수정 후 최종 비교 · 새 20개 시드 · 400초 cap · 척도 0~8,000</h4>
+<div class="pbar-row"><span class="pbar-label">기존 기본모델</span><div class="pbar"><div class="pbar-box" style="left:14.6%;width:6.8%"></div><span class="pbar-tag p25" style="left:14.6%">p25 1166</span><span class="pbar-tag p75" style="left:21.4%">p75 1713</span><span class="pbar-tick med" style="left:18.7%"></span><span class="pbar-tag med" style="left:18.7%">med 1495</span><span class="pbar-tick mean" style="left:18.9%"></span><span class="pbar-tag mean" style="left:18.9%">mean 1508</span><span class="pbar-tick max" style="left:30.1%"></span><span class="pbar-tag max" style="left:30.1%">max 2405</span></div></div>
+<div class="pbar-row"><span class="pbar-label">005 (수정 후)</span><div class="pbar"><div class="pbar-box" style="left:21.2%;width:21.5%"></div><span class="pbar-tag p25" style="left:21.2%">p25 1695</span><span class="pbar-tag p75" style="left:42.7%">p75 3414</span><span class="pbar-tick med" style="left:33.6%"></span><span class="pbar-tag med" style="left:33.6%">med 2685</span><span class="pbar-tick mean" style="left:36.3%"></span><span class="pbar-tag mean" style="left:36.3%">mean 2902</span><span class="pbar-tick max" style="left:89.9%"></span><span class="pbar-tag max" style="left:89.9%">max 7195</span></div></div>
+<h4 style="margin-top:12px">생존시간 분포 — 수정 후 최종 비교 · 새 20개 시드 · 400초 cap</h4>
+<div class="pbar-row"><span class="pbar-label">기존 기본모델</span><div class="pbar"><div class="pbar-box" style="left:26.5%;width:50.5%"></div><span class="pbar-tag p25" style="left:26.5%">p25 106s</span><span class="pbar-tag p75" style="left:77.0%">p75 308s</span><span class="pbar-tick med" style="left:55.3%"></span><span class="pbar-tag med" style="left:55.3%">med 221s</span><span class="pbar-tick mean" style="left:55.7%"></span><span class="pbar-tag mean" style="left:55.7%">mean 223s</span><span class="pbar-tick max" style="left:100%"></span><span class="pbar-tag max" style="left:100%">max 400s</span></div></div>
+<div class="pbar-row"><span class="pbar-label">005 (수정 후)</span><div class="pbar"><div class="pbar-box" style="left:41.7%;width:52.9%"></div><span class="pbar-tag p25" style="left:41.7%">p25 167s</span><span class="pbar-tag p75" style="left:94.6%">p75 378s</span><span class="pbar-tick med" style="left:70.6%"></span><span class="pbar-tag med" style="left:70.6%">med 282s</span><span class="pbar-tick mean" style="left:65.7%"></span><span class="pbar-tag mean" style="left:65.7%">mean 263s</span><span class="pbar-tick max" style="left:100%"></span><span class="pbar-tag max" style="left:100%">max 400s</span></div></div>
+</div>
+<div class="table-scroll"><h4 class="small muted" style="font-weight:700;text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px">held-out 개별 시드 점수 — 새 20개 시드 (61001~62910, 수정 후 1회만 평가)</h4><table class="seedtable">
+<thead><tr><th></th><th>61001</th><th>61102</th><th>61203</th><th>61304</th><th>61405</th><th>61506</th><th>61607</th><th>61708</th><th>61809</th><th>61910</th><th>62001</th><th>62102</th><th>62203</th><th>62304</th><th>62405</th><th>62506</th><th>62607</th><th>62708</th><th>62809</th><th>62910</th></tr></thead>
+<tbody>
+<tr><td>baseline(기존 018)</td><td>1675</td><td>1595</td><td>1515</td><td>1450</td><td>1235</td><td>1475</td><td>1645</td><td>610</td><td>960</td><td>2355</td><td>775</td><td>1095</td><td>940</td><td>1435</td><td>1670</td><td>2375</td><td>2405</td><td>1935</td><td>1190</td><td>1825</td></tr>
+<tr><td>candidate(005, 수정 후)</td><td>2855</td><td>835</td><td>2020</td><td>7195</td><td>550</td><td>3085</td><td>1110</td><td>5980</td><td>1790</td><td>1410</td><td>2600</td><td>3035</td><td>4215</td><td>6055</td><td>3305</td><td>3740</td><td>1815</td><td>2750</td><td>1075</td><td>2620</td></tr>
+</tbody></table></div>
+<div class="note"><strong>14승 6패, 꾸준한 개선이라기보다 상한이 크게 열린 쪽</strong> — 같은 시드 20개 중 candidate가 14개에서 이기지만, 6개는 오히려 baseline보다 낮다(예: 61102 835&lt;1595, 61405 550&lt;1235, 61809 1790&lt;960은 이겼지만 61910 1410&lt;2355는 짐). mean 차이의 bootstrap 95% 구간은 +594~+2,282로 0을 포함하지 않아 개선 자체는 통계적으로 유의하지만, 생존시간 차이 구간(-32.18~+111.79초)은 0을 포함해 생존 개선은 아직 불확실. <strong>최종 채택 모델은 <code>selected_model.zip</code>(SHA256 <code>205b19d9…</code>), 005 계보 1,200,000 step.</strong> 이 결과는 "회전만 연속화"의 순수 효과가 아니라 추가 PPO 2,000,000 step + 동결 전략 선택 + score_v7 보상이 함께 작용한 결과다.</div>
+</div>
+</div>
+<div class="pagenav"><a href="#004_body_continuation">◀ 004_body_continuation</a><a href="#overview">개요로 ▶</a></div>
+</section>
+
+</main>
+
+<div class="note" style="margin-top:8px"><strong>이 페이지의 범위</strong> — <code>report.py</code>/<code>RESULTS.md</code>/<code>RESEARCH.md</code>와 무관한 독립 프로토타입입니다. 수치는 각 실험의 <code>experiment.json</code> / 단계별 <code>*_broader_development.json</code> / <code>corrected_heldout_baseline.json</code>·<code>corrected_heldout_candidate.json</code>·<code>corrected_heldout_comparison.json</code>을 2026-11-03 기준으로 직접 옮겨 적었고, 새 실험이 추가돼도 자동으로 갱신되지 않습니다.</div>
+
+<footer>Space Z / 회전 연속 하이브리드 / reports/lineage_prototype.html<br>단일 HTML · 외부 라이브러리 없음 · 프로토타입 · 2026-11-03</footer>
+</div>
+<script>
+'use strict';
+var ORDER = ['overview','001_aim_adaptation','002_full_adaptation','003_body_stability','004_body_continuation','005_aim_precision'];
+var TITLES = {
+  overview: '개요',
+  '001_aim_adaptation': '001_aim_adaptation · 기준 체크포인트 확립',
+  '002_full_adaptation': '002_full_adaptation · 생존 저하 · 폐기',
+  '003_body_stability': '003_body_stability · 네 조건 충족',
+  '004_body_continuation': '004_body_continuation · 부모 순위를 못 넘김',
+  '005_aim_precision': '005_aim_precision · 최종 선택 모델'
+};
+function showPage(id) {
+  if (ORDER.indexOf(id) === -1) id = 'overview';
+  var pages = document.querySelectorAll('.page');
+  for (var i = 0; i < pages.length; i++) pages[i].classList.toggle('active', pages[i].id === id);
+  var nodes = document.querySelectorAll('.tree-node');
+  for (var j = 0; j < nodes.length; j++) nodes[j].classList.toggle('current', nodes[j].dataset.node === id);
+  var titleEl = document.getElementById('loc-title');
+  if (titleEl) titleEl.textContent = TITLES[id] || id;
+}
+window.addEventListener('hashchange', function () { showPage(location.hash.slice(1)); window.scrollTo(0, 0); });
+showPage(location.hash.slice(1) || 'overview');
+</script>
+</body>
+</html>

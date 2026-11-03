@@ -1,0 +1,229 @@
+{
+    "recorded_at":  "2026-11-01T04:47:44.3120982Z",
+    "purpose":  "Initialization of final aim-only block; deployment candidate will be chosen after the full research budget",
+    "research_steps_used_before_phase005":  1500000,
+    "parent":  {
+                   "report":  "C:\\LANG_CHAIN_2026\\final-project\\2026-10-12_game\\src\\space_z\\rl\\gpt_training_rotation_continuous\\003_800k_broader_development.json",
+                   "checkpoint":  "C:\\LANG_CHAIN_2026\\final-project\\2026-10-12_game\\src\\space_z\\rl\\gpt_training_rotation_continuous\\experiments\\003_body_stability\\checkpoints\\evaluated_000800000.zip",
+                   "checkpoint_sha256":  "48bf691420e92593fbe2bca815b9ad86d121d0ea7ed206ab1a336cf3415b288a",
+                   "new_action_lineage_steps":  800000,
+                   "ranking":  3595.0,
+                   "final_score":  2823.75,
+                   "survival":  195.6,
+                   "development_summary":  {
+                                               "score_at_120_seconds":  {
+                                                                            "mean":  1927.5,
+                                                                            "p25":  1667.5
+                                                                        },
+                                               "score":  {
+                                                             "mean":  2823.75,
+                                                             "p25":  2417.5
+                                                         },
+                                               "survival_seconds":  {
+                                                                        "mean":  195.6,
+                                                                        "p25":  195.97916666666666
+                                                                    },
+                                               "kills":  {
+                                                             "mean":  9.25,
+                                                             "p25":  7.75
+                                                         }
+                                           }
+               },
+    "all_eligible_candidates":  [
+                                    {
+                                        "report":  "C:\\LANG_CHAIN_2026\\final-project\\2026-10-12_game\\src\\space_z\\rl\\gpt_training_rotation_continuous\\003_800k_broader_development.json",
+                                        "checkpoint":  "C:\\LANG_CHAIN_2026\\final-project\\2026-10-12_game\\src\\space_z\\rl\\gpt_training_rotation_continuous\\experiments\\003_body_stability\\checkpoints\\evaluated_000800000.zip",
+                                        "checkpoint_sha256":  "48bf691420e92593fbe2bca815b9ad86d121d0ea7ed206ab1a336cf3415b288a",
+                                        "new_action_lineage_steps":  800000,
+                                        "ranking":  3595.0,
+                                        "final_score":  2823.75,
+                                        "survival":  195.6,
+                                        "development_summary":  {
+                                                                    "score_at_120_seconds":  {
+                                                                                                 "mean":  1927.5,
+                                                                                                 "p25":  1667.5
+                                                                                             },
+                                                                    "score":  {
+                                                                                  "mean":  2823.75,
+                                                                                  "p25":  2417.5
+                                                                              },
+                                                                    "survival_seconds":  {
+                                                                                             "mean":  195.6,
+                                                                                             "p25":  195.97916666666666
+                                                                                         },
+                                                                    "kills":  {
+                                                                                  "mean":  9.25,
+                                                                                  "p25":  7.75
+                                                                              }
+                                                                }
+                                    },
+                                    {
+                                        "report":  "C:\\LANG_CHAIN_2026\\final-project\\2026-10-12_game\\src\\space_z\\rl\\gpt_training_rotation_continuous\\003_700k_broader_development.json",
+                                        "checkpoint":  "C:\\LANG_CHAIN_2026\\final-project\\2026-10-12_game\\src\\space_z\\rl\\gpt_training_rotation_continuous\\experiments\\003_body_stability\\checkpoints\\evaluated_000700000.zip",
+                                        "checkpoint_sha256":  "7777b4179f8108357c318a8d310da727df0e94264a60aa224103424f2ed1d3d4",
+                                        "new_action_lineage_steps":  700000,
+                                        "ranking":  2400.625,
+                                        "final_score":  2138.75,
+                                        "survival":  176.20208333333335,
+                                        "development_summary":  {
+                                                                    "score_at_120_seconds":  {
+                                                                                                 "mean":  1439.375,
+                                                                                                 "p25":  961.25
+                                                                                             },
+                                                                    "score":  {
+                                                                                  "mean":  2138.75,
+                                                                                  "p25":  1726.25
+                                                                              },
+                                                                    "survival_seconds":  {
+                                                                                             "mean":  176.20208333333335,
+                                                                                             "p25":  190.72083333333333
+                                                                                         },
+                                                                    "kills":  {
+                                                                                  "mean":  7.25,
+                                                                                  "p25":  6.0
+                                                                              }
+                                                                }
+                                    },
+                                    {
+                                        "report":  "C:\\LANG_CHAIN_2026\\final-project\\2026-10-12_game\\src\\space_z\\rl\\gpt_training_rotation_continuous\\004_1200k_broader_development.json",
+                                        "checkpoint":  "C:\\LANG_CHAIN_2026\\final-project\\2026-10-12_game\\src\\space_z\\rl\\gpt_training_rotation_continuous\\experiments\\004_body_continuation\\checkpoints\\evaluated_001200000.zip",
+                                        "checkpoint_sha256":  "6bddbb5187ea86e7de1412a144935e60cebd2f1bbaee1c1fa91e707b1947ba3e",
+                                        "new_action_lineage_steps":  1200000,
+                                        "ranking":  3151.875,
+                                        "final_score":  2356.25,
+                                        "survival":  167.7625,
+                                        "development_summary":  {
+                                                                    "score_at_120_seconds":  {
+                                                                                                 "mean":  1713.125,
+                                                                                                 "p25":  1438.75
+                                                                                             },
+                                                                    "score":  {
+                                                                                  "mean":  2356.25,
+                                                                                  "p25":  1802.5
+                                                                              },
+                                                                    "survival_seconds":  {
+                                                                                             "mean":  167.7625,
+                                                                                             "p25":  149.74583333333334
+                                                                                         },
+                                                                    "kills":  {
+                                                                                  "mean":  7.0,
+                                                                                  "p25":  5.75
+                                                                              }
+                                                                }
+                                    },
+                                    {
+                                        "report":  "C:\\LANG_CHAIN_2026\\final-project\\2026-10-12_game\\src\\space_z\\rl\\gpt_training_rotation_continuous\\003_600k_broader_development.json",
+                                        "checkpoint":  "C:\\LANG_CHAIN_2026\\final-project\\2026-10-12_game\\src\\space_z\\rl\\gpt_training_rotation_continuous\\experiments\\003_body_stability\\checkpoints\\evaluated_000600000.zip",
+                                        "checkpoint_sha256":  "022d78051d8b262eb03d00669b3bf87bd7018e7b260373e31671bfce64563a8c",
+                                        "new_action_lineage_steps":  600000,
+                                        "ranking":  2643.75,
+                                        "final_score":  1892.5,
+                                        "survival":  161.87708333333333,
+                                        "development_summary":  {
+                                                                    "score_at_120_seconds":  {
+                                                                                                 "mean":  1485.0,
+                                                                                                 "p25":  1158.75
+                                                                                             },
+                                                                    "score":  {
+                                                                                  "mean":  1892.5,
+                                                                                  "p25":  1537.5
+                                                                              },
+                                                                    "survival_seconds":  {
+                                                                                             "mean":  161.87708333333333,
+                                                                                             "p25":  148.125
+                                                                                         },
+                                                                    "kills":  {
+                                                                                  "mean":  6.625,
+                                                                                  "p25":  4.75
+                                                                              }
+                                                                }
+                                    },
+                                    {
+                                        "report":  "C:\\LANG_CHAIN_2026\\final-project\\2026-10-12_game\\src\\space_z\\rl\\gpt_training_rotation_continuous\\004_1100k_broader_development.json",
+                                        "checkpoint":  "C:\\LANG_CHAIN_2026\\final-project\\2026-10-12_game\\src\\space_z\\rl\\gpt_training_rotation_continuous\\experiments\\004_body_continuation\\checkpoints\\evaluated_001100000.zip",
+                                        "checkpoint_sha256":  "bbd6f534d496a17d2127992a30f7be584a640f990d3cafe63b764c29bef00458",
+                                        "new_action_lineage_steps":  1100000,
+                                        "ranking":  2979.375,
+                                        "final_score":  2486.875,
+                                        "survival":  179.75625,
+                                        "development_summary":  {
+                                                                    "score_at_120_seconds":  {
+                                                                                                 "mean":  1613.125,
+                                                                                                 "p25":  1366.25
+                                                                                             },
+                                                                    "score":  {
+                                                                                  "mean":  2486.875,
+                                                                                  "p25":  2285.0
+                                                                              },
+                                                                    "survival_seconds":  {
+                                                                                             "mean":  179.75625,
+                                                                                             "p25":  179.84583333333333
+                                                                                         },
+                                                                    "kills":  {
+                                                                                  "mean":  9.0,
+                                                                                  "p25":  7.75
+                                                                              }
+                                                                }
+                                    },
+                                    {
+                                        "report":  "C:\\LANG_CHAIN_2026\\final-project\\2026-10-12_game\\src\\space_z\\rl\\gpt_training_rotation_continuous\\004_1000k_broader_development.json",
+                                        "checkpoint":  "C:\\LANG_CHAIN_2026\\final-project\\2026-10-12_game\\src\\space_z\\rl\\gpt_training_rotation_continuous\\experiments\\004_body_continuation\\checkpoints\\evaluated_001000000.zip",
+                                        "checkpoint_sha256":  "e3c4f8448c0526493611445a9baf0baa8628f4696769533d17aeb810a66b9de1",
+                                        "new_action_lineage_steps":  1000000,
+                                        "ranking":  3179.375,
+                                        "final_score":  2440.625,
+                                        "survival":  163.10000000000002,
+                                        "development_summary":  {
+                                                                    "score_at_120_seconds":  {
+                                                                                                 "mean":  1928.125,
+                                                                                                 "p25":  1251.25
+                                                                                             },
+                                                                    "score":  {
+                                                                                  "mean":  2440.625,
+                                                                                  "p25":  1835.0
+                                                                              },
+                                                                    "survival_seconds":  {
+                                                                                             "mean":  163.10000000000002,
+                                                                                             "p25":  157.45000000000002
+                                                                                         },
+                                                                    "kills":  {
+                                                                                  "mean":  8.5,
+                                                                                  "p25":  5.0
+                                                                              }
+                                                                }
+                                    },
+                                    {
+                                        "report":  "C:\\LANG_CHAIN_2026\\final-project\\2026-10-12_game\\src\\space_z\\rl\\gpt_training_rotation_continuous\\004_900k_broader_development.json",
+                                        "checkpoint":  "C:\\LANG_CHAIN_2026\\final-project\\2026-10-12_game\\src\\space_z\\rl\\gpt_training_rotation_continuous\\experiments\\004_body_continuation\\checkpoints\\evaluated_000900000.zip",
+                                        "checkpoint_sha256":  "3d001e8d70067281ea32c5980259b8bb9dd36a8bd650d27d05a8648ba8ef175a",
+                                        "new_action_lineage_steps":  900000,
+                                        "ranking":  2947.50,
+                                        "final_score":  2286.875,
+                                        "survival":  154.67916666666667,
+                                        "development_summary":  {
+                                                                    "score_at_120_seconds":  {
+                                                                                                 "mean":  1691.25,
+                                                                                                 "p25":  1256.25
+                                                                                             },
+                                                                    "score":  {
+                                                                                  "mean":  2286.875,
+                                                                                  "p25":  1635.0
+                                                                              },
+                                                                    "survival_seconds":  {
+                                                                                             "mean":  154.67916666666667,
+                                                                                             "p25":  114.17083333333333
+                                                                                         },
+                                                                    "kills":  {
+                                                                                  "mean":  7.75,
+                                                                                  "p25":  4.0
+                                                                              }
+                                                                }
+                                    }
+                                ],
+    "steps":  500000,
+    "learning_rate":  2E-05,
+    "entropy":  0.001,
+    "freeze_body":  true,
+    "seed":  8105,
+    "replay_mode":  "greedy"
+}

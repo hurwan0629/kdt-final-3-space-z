@@ -1,0 +1,163 @@
+{
+  "score_at_60_seconds": {
+    "baseline": {
+      "mean": 636.75,
+      "std": 314.8899609387381,
+      "median": 712.5,
+      "p25": 412.5,
+      "min": 70.0,
+      "max": 1180.0
+    },
+    "selected": {
+      "mean": 687.25,
+      "std": 297.73929451787177,
+      "median": 682.5,
+      "p25": 531.25,
+      "min": 120.0,
+      "max": 1300.0
+    }
+  },
+  "score_at_120_seconds": {
+    "baseline": {
+      "mean": 835.25,
+      "std": 373.0632486589908,
+      "median": 825.0,
+      "p25": 618.75,
+      "min": 105.0,
+      "max": 1755.0
+    },
+    "selected": {
+      "mean": 1003.75,
+      "std": 427.95407171798234,
+      "median": 1020.0,
+      "p25": 788.75,
+      "min": 190.0,
+      "max": 1890.0
+    }
+  },
+  "score_at_200_seconds": {
+    "baseline": {
+      "mean": 1040.75,
+      "std": 527.7292748180643,
+      "median": 980.0,
+      "p25": 701.25,
+      "min": 105.0,
+      "max": 2500.0
+    },
+    "selected": {
+      "mean": 1217.0,
+      "std": 559.1587431132593,
+      "median": 1092.5,
+      "p25": 801.25,
+      "min": 355.0,
+      "max": 2560.0
+    }
+  },
+  "score": {
+    "baseline": {
+      "mean": 1167.0,
+      "std": 643.3280656088307,
+      "median": 1012.5,
+      "p25": 701.25,
+      "min": 105.0,
+      "max": 2565.0
+    },
+    "selected": {
+      "mean": 1434.5,
+      "std": 650.9875190815873,
+      "median": 1432.5,
+      "p25": 861.25,
+      "min": 435.0,
+      "max": 2750.0
+    }
+  },
+  "survival_seconds": {
+    "baseline": {
+      "mean": 160.69,
+      "std": 107.79487302279269,
+      "median": 126.43333333333334,
+      "p25": 77.27499999999999,
+      "min": 35.983333333333334,
+      "max": 400.0
+    },
+    "selected": {
+      "mean": 197.18166666666667,
+      "std": 124.71482257311857,
+      "median": 194.35833333333335,
+      "p25": 93.55,
+      "min": 25.5,
+      "max": 400.0
+    }
+  },
+  "kills": {
+    "baseline": {
+      "mean": 3.55,
+      "std": 1.883480820183736,
+      "median": 3.0,
+      "p25": 2.0,
+      "min": 0.0,
+      "max": 8.0
+    },
+    "selected": {
+      "mean": 4.7,
+      "std": 2.0273134932713295,
+      "median": 4.0,
+      "p25": 3.0,
+      "min": 1.0,
+      "max": 8.0
+    }
+  },
+  "score120_wins": 11,
+  "final_score_wins": 10,
+  "survival_wins": 9,
+  "baseline_1000_by_120": 7,
+  "selected_1000_by_120": 11,
+  "baseline_reached_400": 1,
+  "selected_reached_400": 4,
+  "goal_checks": {
+    "early_mean_plus_15pct": true,
+    "early_p25_plus_15pct": true,
+    "final_score_improved": true,
+    "survival_at_least_90pct": true
+  },
+  "protocol": {
+    "heldout_seeds": [
+      17001,
+      17102,
+      17203,
+      17304,
+      17405,
+      17506,
+      17607,
+      17708,
+      17809,
+      17910,
+      18001,
+      18102,
+      18203,
+      18304,
+      18405,
+      18506,
+      18607,
+      18708,
+      18809,
+      18910
+    ],
+    "max_game_seconds": 400,
+    "game_fps": 60,
+    "baseline_frame_skip": 4,
+    "selected_frame_skip": 2,
+    "execution_mode": "greedy"
+  },
+  "candidate_selection": "phase2_candidate_selection.json",
+  "selected_sha256": "657c380fef9b0bb3b3158b9ae6f876e25828fe768eeb70cf949b09ebb38cf08e",
+  "baseline_sha256": "6130963d09099d8a3c50c02c11fe0ca4766cc359a1b23aff40c515007489aa12",
+  "final_score_ties": 0,
+  "final_score_losses": 10,
+  "relative_changes": {
+    "mean_score120": 0.20173600718347795,
+    "p25_score120": 0.27474747474747474,
+    "mean_final_score": 0.22922022279348764,
+    "mean_survival": 0.22709357562179777
+  }
+}

@@ -1,0 +1,2196 @@
+{
+  "selected_at": "2026-11-01T05:16:10.311237+00:00",
+  "heldout_used_for_selection": false,
+  "research_ppo_steps": 2000000,
+  "verification_ppo_steps": 64,
+  "selection_rule": "Pass all four development guards, then maximize 120s mean+p25, final mean score, mean survival",
+  "selected": {
+    "report": "005_1200k_broader_development.json",
+    "checkpoint": "C:\\LANG_CHAIN_2026\\final-project\\2026-10-12_game\\src\\space_z\\rl\\gpt_training_rotation_continuous\\experiments\\005_aim_precision\\checkpoints\\evaluated_001200000.zip",
+    "checkpoint_sha256": "205b19d907f233f4a89f6770008ce1a30d32f23d2921be3f380286b0163a8bea",
+    "replay_mode": "greedy",
+    "development_comparison": {
+      "baseline": {
+        "score_at_120_seconds": {
+          "mean": 1026.875,
+          "p25": 913.75
+        },
+        "score": {
+          "mean": 1285.0,
+          "p25": 913.75
+        },
+        "survival_seconds": {
+          "mean": 130.78333333333333,
+          "p25": 90.05
+        },
+        "kills": {
+          "mean": 4.0,
+          "p25": 3.5
+        }
+      },
+      "candidate": {
+        "score_at_120_seconds": {
+          "mean": 2122.5,
+          "p25": 1832.5
+        },
+        "score": {
+          "mean": 2535.625,
+          "p25": 1952.5
+        },
+        "survival_seconds": {
+          "mean": 178.75208333333333,
+          "p25": 185.225
+        },
+        "kills": {
+          "mean": 8.75,
+          "p25": 6.75
+        }
+      },
+      "paired_changes": {
+        "score_at_120_seconds": {
+          "mean_difference": 1095.625,
+          "paired_mean_95pct_interval": [
+            815.0,
+            1358.7656249999998
+          ],
+          "wins": 8,
+          "ties": 0,
+          "losses": 0
+        },
+        "score": {
+          "mean_difference": 1250.625,
+          "paired_mean_95pct_interval": [
+            827.5,
+            1628.1406249999998
+          ],
+          "wins": 7,
+          "ties": 0,
+          "losses": 1
+        },
+        "survival_seconds": {
+          "mean_difference": 47.96875,
+          "paired_mean_95pct_interval": [
+            1.9708333333333332,
+            96.73333333333333
+          ],
+          "wins": 4,
+          "ties": 3,
+          "losses": 1
+        },
+        "kills": {
+          "mean_difference": 4.75,
+          "paired_mean_95pct_interval": [
+            3.375,
+            6.125
+          ],
+          "wins": 8,
+          "ties": 0,
+          "losses": 0
+        }
+      },
+      "promotion_guards": {
+        "early_mean": true,
+        "early_p25": true,
+        "final_mean": true,
+        "mean_survival": true
+      },
+      "all_guards_passed": true
+    },
+    "ranking": [
+      3955.0,
+      2535.625,
+      178.75208333333333
+    ]
+  },
+  "shipped_checkpoint": "selected_model.zip",
+  "shipped_sha256": "205b19d907f233f4a89f6770008ce1a30d32f23d2921be3f380286b0163a8bea",
+  "new_action_lineage_steps": 1200000,
+  "initial_parent_training_steps": 1474560,
+  "all_candidates": [
+    {
+      "report": "005_1200k_broader_development.json",
+      "checkpoint": "C:\\LANG_CHAIN_2026\\final-project\\2026-10-12_game\\src\\space_z\\rl\\gpt_training_rotation_continuous\\experiments\\005_aim_precision\\checkpoints\\evaluated_001200000.zip",
+      "checkpoint_sha256": "205b19d907f233f4a89f6770008ce1a30d32f23d2921be3f380286b0163a8bea",
+      "replay_mode": "greedy",
+      "development_comparison": {
+        "baseline": {
+          "score_at_120_seconds": {
+            "mean": 1026.875,
+            "p25": 913.75
+          },
+          "score": {
+            "mean": 1285.0,
+            "p25": 913.75
+          },
+          "survival_seconds": {
+            "mean": 130.78333333333333,
+            "p25": 90.05
+          },
+          "kills": {
+            "mean": 4.0,
+            "p25": 3.5
+          }
+        },
+        "candidate": {
+          "score_at_120_seconds": {
+            "mean": 2122.5,
+            "p25": 1832.5
+          },
+          "score": {
+            "mean": 2535.625,
+            "p25": 1952.5
+          },
+          "survival_seconds": {
+            "mean": 178.75208333333333,
+            "p25": 185.225
+          },
+          "kills": {
+            "mean": 8.75,
+            "p25": 6.75
+          }
+        },
+        "paired_changes": {
+          "score_at_120_seconds": {
+            "mean_difference": 1095.625,
+            "paired_mean_95pct_interval": [
+              815.0,
+              1358.7656249999998
+            ],
+            "wins": 8,
+            "ties": 0,
+            "losses": 0
+          },
+          "score": {
+            "mean_difference": 1250.625,
+            "paired_mean_95pct_interval": [
+              827.5,
+              1628.1406249999998
+            ],
+            "wins": 7,
+            "ties": 0,
+            "losses": 1
+          },
+          "survival_seconds": {
+            "mean_difference": 47.96875,
+            "paired_mean_95pct_interval": [
+              1.9708333333333332,
+              96.73333333333333
+            ],
+            "wins": 4,
+            "ties": 3,
+            "losses": 1
+          },
+          "kills": {
+            "mean_difference": 4.75,
+            "paired_mean_95pct_interval": [
+              3.375,
+              6.125
+            ],
+            "wins": 8,
+            "ties": 0,
+            "losses": 0
+          }
+        },
+        "promotion_guards": {
+          "early_mean": true,
+          "early_p25": true,
+          "final_mean": true,
+          "mean_survival": true
+        },
+        "all_guards_passed": true
+      },
+      "ranking": [
+        3955.0,
+        2535.625,
+        178.75208333333333
+      ]
+    },
+    {
+      "report": "003_800k_broader_development.json",
+      "checkpoint": "C:\\LANG_CHAIN_2026\\final-project\\2026-10-12_game\\src\\space_z\\rl\\gpt_training_rotation_continuous\\experiments\\003_body_stability\\checkpoints\\evaluated_000800000.zip",
+      "checkpoint_sha256": "48bf691420e92593fbe2bca815b9ad86d121d0ea7ed206ab1a336cf3415b288a",
+      "replay_mode": "greedy",
+      "development_comparison": {
+        "baseline": {
+          "score_at_120_seconds": {
+            "mean": 1026.875,
+            "p25": 913.75
+          },
+          "score": {
+            "mean": 1285.0,
+            "p25": 913.75
+          },
+          "survival_seconds": {
+            "mean": 130.78333333333333,
+            "p25": 90.05
+          },
+          "kills": {
+            "mean": 4.0,
+            "p25": 3.5
+          }
+        },
+        "candidate": {
+          "score_at_120_seconds": {
+            "mean": 1927.5,
+            "p25": 1667.5
+          },
+          "score": {
+            "mean": 2823.75,
+            "p25": 2417.5
+          },
+          "survival_seconds": {
+            "mean": 195.6,
+            "p25": 195.97916666666666
+          },
+          "kills": {
+            "mean": 9.25,
+            "p25": 7.75
+          }
+        },
+        "paired_changes": {
+          "score_at_120_seconds": {
+            "mean_difference": 900.625,
+            "paired_mean_95pct_interval": [
+              609.375,
+              1191.875
+            ],
+            "wins": 8,
+            "ties": 0,
+            "losses": 0
+          },
+          "score": {
+            "mean_difference": 1538.75,
+            "paired_mean_95pct_interval": [
+              1002.5,
+              2061.921874999999
+            ],
+            "wins": 8,
+            "ties": 0,
+            "losses": 0
+          },
+          "survival_seconds": {
+            "mean_difference": 64.81666666666666,
+            "paired_mean_95pct_interval": [
+              24.27083333333333,
+              105.5763541666666
+            ],
+            "wins": 5,
+            "ties": 2,
+            "losses": 1
+          },
+          "kills": {
+            "mean_difference": 5.25,
+            "paired_mean_95pct_interval": [
+              3.125,
+              7.25
+            ],
+            "wins": 8,
+            "ties": 0,
+            "losses": 0
+          }
+        },
+        "promotion_guards": {
+          "early_mean": true,
+          "early_p25": true,
+          "final_mean": true,
+          "mean_survival": true
+        },
+        "all_guards_passed": true
+      },
+      "ranking": [
+        3595.0,
+        2823.75,
+        195.6
+      ]
+    },
+    {
+      "report": "005_1300k_broader_development.json",
+      "checkpoint": "C:\\LANG_CHAIN_2026\\final-project\\2026-10-12_game\\src\\space_z\\rl\\gpt_training_rotation_continuous\\experiments\\005_aim_precision\\checkpoints\\evaluated_001300000.zip",
+      "checkpoint_sha256": "235dbf0bab299c6b186147092bdeb63268508fd8488c983eaef17657c7a1f36e",
+      "replay_mode": "greedy",
+      "development_comparison": {
+        "baseline": {
+          "score_at_120_seconds": {
+            "mean": 1026.875,
+            "p25": 913.75
+          },
+          "score": {
+            "mean": 1285.0,
+            "p25": 913.75
+          },
+          "survival_seconds": {
+            "mean": 130.78333333333333,
+            "p25": 90.05
+          },
+          "kills": {
+            "mean": 4.0,
+            "p25": 3.5
+          }
+        },
+        "candidate": {
+          "score_at_120_seconds": {
+            "mean": 1931.25,
+            "p25": 1518.75
+          },
+          "score": {
+            "mean": 2615.0,
+            "p25": 1943.75
+          },
+          "survival_seconds": {
+            "mean": 189.3,
+            "p25": 187.12916666666666
+          },
+          "kills": {
+            "mean": 9.0,
+            "p25": 7.0
+          }
+        },
+        "paired_changes": {
+          "score_at_120_seconds": {
+            "mean_difference": 904.375,
+            "paired_mean_95pct_interval": [
+              466.25,
+              1343.7968749999993
+            ],
+            "wins": 8,
+            "ties": 0,
+            "losses": 0
+          },
+          "score": {
+            "mean_difference": 1330.0,
+            "paired_mean_95pct_interval": [
+              695.625,
+              1973.2499999999982
+            ],
+            "wins": 7,
+            "ties": 0,
+            "losses": 1
+          },
+          "survival_seconds": {
+            "mean_difference": 58.516666666666666,
+            "paired_mean_95pct_interval": [
+              22.365468750000005,
+              92.67921875
+            ],
+            "wins": 5,
+            "ties": 2,
+            "losses": 1
+          },
+          "kills": {
+            "mean_difference": 5.0,
+            "paired_mean_95pct_interval": [
+              2.875,
+              7.125
+            ],
+            "wins": 7,
+            "ties": 1,
+            "losses": 0
+          }
+        },
+        "promotion_guards": {
+          "early_mean": true,
+          "early_p25": true,
+          "final_mean": true,
+          "mean_survival": true
+        },
+        "all_guards_passed": true
+      },
+      "ranking": [
+        3450.0,
+        2615.0,
+        189.3
+      ]
+    },
+    {
+      "report": "004_1000k_broader_development.json",
+      "checkpoint": "C:\\LANG_CHAIN_2026\\final-project\\2026-10-12_game\\src\\space_z\\rl\\gpt_training_rotation_continuous\\experiments\\004_body_continuation\\checkpoints\\evaluated_001000000.zip",
+      "checkpoint_sha256": "e3c4f8448c0526493611445a9baf0baa8628f4696769533d17aeb810a66b9de1",
+      "replay_mode": "greedy",
+      "development_comparison": {
+        "baseline": {
+          "score_at_120_seconds": {
+            "mean": 1026.875,
+            "p25": 913.75
+          },
+          "score": {
+            "mean": 1285.0,
+            "p25": 913.75
+          },
+          "survival_seconds": {
+            "mean": 130.78333333333333,
+            "p25": 90.05
+          },
+          "kills": {
+            "mean": 4.0,
+            "p25": 3.5
+          }
+        },
+        "candidate": {
+          "score_at_120_seconds": {
+            "mean": 1928.125,
+            "p25": 1251.25
+          },
+          "score": {
+            "mean": 2440.625,
+            "p25": 1835.0
+          },
+          "survival_seconds": {
+            "mean": 163.10000000000002,
+            "p25": 157.45000000000002
+          },
+          "kills": {
+            "mean": 8.5,
+            "p25": 5.0
+          }
+        },
+        "paired_changes": {
+          "score_at_120_seconds": {
+            "mean_difference": 901.25,
+            "paired_mean_95pct_interval": [
+              363.125,
+              1472.5
+            ],
+            "wins": 7,
+            "ties": 0,
+            "losses": 1
+          },
+          "score": {
+            "mean_difference": 1155.625,
+            "paired_mean_95pct_interval": [
+              441.25,
+              1930.0
+            ],
+            "wins": 6,
+            "ties": 0,
+            "losses": 2
+          },
+          "survival_seconds": {
+            "mean_difference": 32.31666666666666,
+            "paired_mean_95pct_interval": [
+              -32.59375,
+              90.56322916666666
+            ],
+            "wins": 4,
+            "ties": 2,
+            "losses": 2
+          },
+          "kills": {
+            "mean_difference": 4.5,
+            "paired_mean_95pct_interval": [
+              2.0,
+              7.125
+            ],
+            "wins": 7,
+            "ties": 0,
+            "losses": 1
+          }
+        },
+        "promotion_guards": {
+          "early_mean": true,
+          "early_p25": true,
+          "final_mean": true,
+          "mean_survival": true
+        },
+        "all_guards_passed": true
+      },
+      "ranking": [
+        3179.375,
+        2440.625,
+        163.10000000000002
+      ]
+    },
+    {
+      "report": "004_1200k_broader_development.json",
+      "checkpoint": "C:\\LANG_CHAIN_2026\\final-project\\2026-10-12_game\\src\\space_z\\rl\\gpt_training_rotation_continuous\\experiments\\004_body_continuation\\checkpoints\\evaluated_001200000.zip",
+      "checkpoint_sha256": "6bddbb5187ea86e7de1412a144935e60cebd2f1bbaee1c1fa91e707b1947ba3e",
+      "replay_mode": "greedy",
+      "development_comparison": {
+        "baseline": {
+          "score_at_120_seconds": {
+            "mean": 1026.875,
+            "p25": 913.75
+          },
+          "score": {
+            "mean": 1285.0,
+            "p25": 913.75
+          },
+          "survival_seconds": {
+            "mean": 130.78333333333333,
+            "p25": 90.05
+          },
+          "kills": {
+            "mean": 4.0,
+            "p25": 3.5
+          }
+        },
+        "candidate": {
+          "score_at_120_seconds": {
+            "mean": 1713.125,
+            "p25": 1438.75
+          },
+          "score": {
+            "mean": 2356.25,
+            "p25": 1802.5
+          },
+          "survival_seconds": {
+            "mean": 167.7625,
+            "p25": 149.74583333333334
+          },
+          "kills": {
+            "mean": 7.0,
+            "p25": 5.75
+          }
+        },
+        "paired_changes": {
+          "score_at_120_seconds": {
+            "mean_difference": 686.25,
+            "paired_mean_95pct_interval": [
+              161.25,
+              1194.437499999999
+            ],
+            "wins": 7,
+            "ties": 0,
+            "losses": 1
+          },
+          "score": {
+            "mean_difference": 1071.25,
+            "paired_mean_95pct_interval": [
+              474.984375,
+              1727.5
+            ],
+            "wins": 7,
+            "ties": 0,
+            "losses": 1
+          },
+          "survival_seconds": {
+            "mean_difference": 36.97916666666667,
+            "paired_mean_95pct_interval": [
+              -17.615156249999988,
+              85.12916666666666
+            ],
+            "wins": 5,
+            "ties": 2,
+            "losses": 1
+          },
+          "kills": {
+            "mean_difference": 3.0,
+            "paired_mean_95pct_interval": [
+              0.75,
+              5.0
+            ],
+            "wins": 7,
+            "ties": 0,
+            "losses": 1
+          }
+        },
+        "promotion_guards": {
+          "early_mean": true,
+          "early_p25": true,
+          "final_mean": true,
+          "mean_survival": true
+        },
+        "all_guards_passed": true
+      },
+      "ranking": [
+        3151.875,
+        2356.25,
+        167.7625
+      ]
+    },
+    {
+      "report": "004_1100k_broader_development.json",
+      "checkpoint": "C:\\LANG_CHAIN_2026\\final-project\\2026-10-12_game\\src\\space_z\\rl\\gpt_training_rotation_continuous\\experiments\\004_body_continuation\\checkpoints\\evaluated_001100000.zip",
+      "checkpoint_sha256": "bbd6f534d496a17d2127992a30f7be584a640f990d3cafe63b764c29bef00458",
+      "replay_mode": "greedy",
+      "development_comparison": {
+        "baseline": {
+          "score_at_120_seconds": {
+            "mean": 1026.875,
+            "p25": 913.75
+          },
+          "score": {
+            "mean": 1285.0,
+            "p25": 913.75
+          },
+          "survival_seconds": {
+            "mean": 130.78333333333333,
+            "p25": 90.05
+          },
+          "kills": {
+            "mean": 4.0,
+            "p25": 3.5
+          }
+        },
+        "candidate": {
+          "score_at_120_seconds": {
+            "mean": 1613.125,
+            "p25": 1366.25
+          },
+          "score": {
+            "mean": 2486.875,
+            "p25": 2285.0
+          },
+          "survival_seconds": {
+            "mean": 179.75625,
+            "p25": 179.84583333333333
+          },
+          "kills": {
+            "mean": 9.0,
+            "p25": 7.75
+          }
+        },
+        "paired_changes": {
+          "score_at_120_seconds": {
+            "mean_difference": 586.25,
+            "paired_mean_95pct_interval": [
+              193.75,
+              981.3124999999991
+            ],
+            "wins": 7,
+            "ties": 0,
+            "losses": 1
+          },
+          "score": {
+            "mean_difference": 1201.875,
+            "paired_mean_95pct_interval": [
+              779.34375,
+              1591.875
+            ],
+            "wins": 8,
+            "ties": 0,
+            "losses": 0
+          },
+          "survival_seconds": {
+            "mean_difference": 48.97291666666667,
+            "paired_mean_95pct_interval": [
+              8.139583333333336,
+              96.05000000000001
+            ],
+            "wins": 4,
+            "ties": 3,
+            "losses": 1
+          },
+          "kills": {
+            "mean_difference": 5.0,
+            "paired_mean_95pct_interval": [
+              3.625,
+              6.5
+            ],
+            "wins": 8,
+            "ties": 0,
+            "losses": 0
+          }
+        },
+        "promotion_guards": {
+          "early_mean": true,
+          "early_p25": true,
+          "final_mean": true,
+          "mean_survival": true
+        },
+        "all_guards_passed": true
+      },
+      "ranking": [
+        2979.375,
+        2486.875,
+        179.75625
+      ]
+    },
+    {
+      "report": "004_900k_broader_development.json",
+      "checkpoint": "C:\\LANG_CHAIN_2026\\final-project\\2026-10-12_game\\src\\space_z\\rl\\gpt_training_rotation_continuous\\experiments\\004_body_continuation\\checkpoints\\evaluated_000900000.zip",
+      "checkpoint_sha256": "3d001e8d70067281ea32c5980259b8bb9dd36a8bd650d27d05a8648ba8ef175a",
+      "replay_mode": "greedy",
+      "development_comparison": {
+        "baseline": {
+          "score_at_120_seconds": {
+            "mean": 1026.875,
+            "p25": 913.75
+          },
+          "score": {
+            "mean": 1285.0,
+            "p25": 913.75
+          },
+          "survival_seconds": {
+            "mean": 130.78333333333333,
+            "p25": 90.05
+          },
+          "kills": {
+            "mean": 4.0,
+            "p25": 3.5
+          }
+        },
+        "candidate": {
+          "score_at_120_seconds": {
+            "mean": 1691.25,
+            "p25": 1256.25
+          },
+          "score": {
+            "mean": 2286.875,
+            "p25": 1635.0
+          },
+          "survival_seconds": {
+            "mean": 154.67916666666667,
+            "p25": 114.17083333333333
+          },
+          "kills": {
+            "mean": 7.75,
+            "p25": 4.0
+          }
+        },
+        "paired_changes": {
+          "score_at_120_seconds": {
+            "mean_difference": 664.375,
+            "paired_mean_95pct_interval": [
+              250.0,
+              1140.0
+            ],
+            "wins": 7,
+            "ties": 0,
+            "losses": 1
+          },
+          "score": {
+            "mean_difference": 1001.875,
+            "paired_mean_95pct_interval": [
+              189.375,
+              1866.9062499999995
+            ],
+            "wins": 7,
+            "ties": 0,
+            "losses": 1
+          },
+          "survival_seconds": {
+            "mean_difference": 23.895833333333332,
+            "paired_mean_95pct_interval": [
+              -41.50416666666666,
+              85.46911458333324
+            ],
+            "wins": 4,
+            "ties": 2,
+            "losses": 2
+          },
+          "kills": {
+            "mean_difference": 3.75,
+            "paired_mean_95pct_interval": [
+              0.625,
+              7.375
+            ],
+            "wins": 5,
+            "ties": 2,
+            "losses": 1
+          }
+        },
+        "promotion_guards": {
+          "early_mean": true,
+          "early_p25": true,
+          "final_mean": true,
+          "mean_survival": true
+        },
+        "all_guards_passed": true
+      },
+      "ranking": [
+        2947.5,
+        2286.875,
+        154.67916666666667
+      ]
+    },
+    {
+      "report": "005_900k_broader_development.json",
+      "checkpoint": "C:\\LANG_CHAIN_2026\\final-project\\2026-10-12_game\\src\\space_z\\rl\\gpt_training_rotation_continuous\\experiments\\005_aim_precision\\checkpoints\\evaluated_000900000.zip",
+      "checkpoint_sha256": "dfc14feb9b19e5e05a0daea4f63652e0f50987ad440b31d5c01aec22fb484a8d",
+      "replay_mode": "greedy",
+      "development_comparison": {
+        "baseline": {
+          "score_at_120_seconds": {
+            "mean": 1026.875,
+            "p25": 913.75
+          },
+          "score": {
+            "mean": 1285.0,
+            "p25": 913.75
+          },
+          "survival_seconds": {
+            "mean": 130.78333333333333,
+            "p25": 90.05
+          },
+          "kills": {
+            "mean": 4.0,
+            "p25": 3.5
+          }
+        },
+        "candidate": {
+          "score_at_120_seconds": {
+            "mean": 1648.125,
+            "p25": 1145.0
+          },
+          "score": {
+            "mean": 2214.375,
+            "p25": 1537.5
+          },
+          "survival_seconds": {
+            "mean": 161.83958333333334,
+            "p25": 148.46666666666667
+          },
+          "kills": {
+            "mean": 6.75,
+            "p25": 3.75
+          }
+        },
+        "paired_changes": {
+          "score_at_120_seconds": {
+            "mean_difference": 621.25,
+            "paired_mean_95pct_interval": [
+              178.09375000000003,
+              1066.25
+            ],
+            "wins": 6,
+            "ties": 0,
+            "losses": 2
+          },
+          "score": {
+            "mean_difference": 929.375,
+            "paired_mean_95pct_interval": [
+              164.96875000000003,
+              1732.5468749999993
+            ],
+            "wins": 7,
+            "ties": 0,
+            "losses": 1
+          },
+          "survival_seconds": {
+            "mean_difference": 31.056250000000002,
+            "paired_mean_95pct_interval": [
+              -26.34083333333333,
+              78.46041666666667
+            ],
+            "wins": 5,
+            "ties": 2,
+            "losses": 1
+          },
+          "kills": {
+            "mean_difference": 2.75,
+            "paired_mean_95pct_interval": [
+              0.5,
+              5.375
+            ],
+            "wins": 6,
+            "ties": 0,
+            "losses": 2
+          }
+        },
+        "promotion_guards": {
+          "early_mean": true,
+          "early_p25": true,
+          "final_mean": true,
+          "mean_survival": true
+        },
+        "all_guards_passed": true
+      },
+      "ranking": [
+        2793.125,
+        2214.375,
+        161.83958333333334
+      ]
+    },
+    {
+      "report": "003_600k_broader_development.json",
+      "checkpoint": "C:\\LANG_CHAIN_2026\\final-project\\2026-10-12_game\\src\\space_z\\rl\\gpt_training_rotation_continuous\\experiments\\003_body_stability\\checkpoints\\evaluated_000600000.zip",
+      "checkpoint_sha256": "022d78051d8b262eb03d00669b3bf87bd7018e7b260373e31671bfce64563a8c",
+      "replay_mode": "greedy",
+      "development_comparison": {
+        "baseline": {
+          "score_at_120_seconds": {
+            "mean": 1026.875,
+            "p25": 913.75
+          },
+          "score": {
+            "mean": 1285.0,
+            "p25": 913.75
+          },
+          "survival_seconds": {
+            "mean": 130.78333333333333,
+            "p25": 90.05
+          },
+          "kills": {
+            "mean": 4.0,
+            "p25": 3.5
+          }
+        },
+        "candidate": {
+          "score_at_120_seconds": {
+            "mean": 1485.0,
+            "p25": 1158.75
+          },
+          "score": {
+            "mean": 1892.5,
+            "p25": 1537.5
+          },
+          "survival_seconds": {
+            "mean": 161.87708333333333,
+            "p25": 148.125
+          },
+          "kills": {
+            "mean": 6.625,
+            "p25": 4.75
+          }
+        },
+        "paired_changes": {
+          "score_at_120_seconds": {
+            "mean_difference": 458.125,
+            "paired_mean_95pct_interval": [
+              51.875,
+              835.0
+            ],
+            "wins": 6,
+            "ties": 0,
+            "losses": 2
+          },
+          "score": {
+            "mean_difference": 607.5,
+            "paired_mean_95pct_interval": [
+              -12.546874999999957,
+              1200.0
+            ],
+            "wins": 6,
+            "ties": 0,
+            "losses": 2
+          },
+          "survival_seconds": {
+            "mean_difference": 31.09375,
+            "paired_mean_95pct_interval": [
+              -38.45989583333332,
+              87.65833333333333
+            ],
+            "wins": 5,
+            "ties": 2,
+            "losses": 1
+          },
+          "kills": {
+            "mean_difference": 2.625,
+            "paired_mean_95pct_interval": [
+              0.875,
+              4.5
+            ],
+            "wins": 7,
+            "ties": 0,
+            "losses": 1
+          }
+        },
+        "promotion_guards": {
+          "early_mean": true,
+          "early_p25": true,
+          "final_mean": true,
+          "mean_survival": true
+        },
+        "all_guards_passed": true
+      },
+      "ranking": [
+        2643.75,
+        1892.5,
+        161.87708333333333
+      ]
+    },
+    {
+      "report": "005_1100k_broader_development.json",
+      "checkpoint": "C:\\LANG_CHAIN_2026\\final-project\\2026-10-12_game\\src\\space_z\\rl\\gpt_training_rotation_continuous\\experiments\\005_aim_precision\\checkpoints\\evaluated_001100000.zip",
+      "checkpoint_sha256": "2447c9e62a926717b122f8e90a9a2692d0c3c298d1ae068527ddf51b28ad7e7b",
+      "replay_mode": "greedy",
+      "development_comparison": {
+        "baseline": {
+          "score_at_120_seconds": {
+            "mean": 1026.875,
+            "p25": 913.75
+          },
+          "score": {
+            "mean": 1285.0,
+            "p25": 913.75
+          },
+          "survival_seconds": {
+            "mean": 130.78333333333333,
+            "p25": 90.05
+          },
+          "kills": {
+            "mean": 4.0,
+            "p25": 3.5
+          }
+        },
+        "candidate": {
+          "score_at_120_seconds": {
+            "mean": 1446.25,
+            "p25": 1178.75
+          },
+          "score": {
+            "mean": 1983.75,
+            "p25": 1513.75
+          },
+          "survival_seconds": {
+            "mean": 159.40833333333336,
+            "p25": 120.075
+          },
+          "kills": {
+            "mean": 6.75,
+            "p25": 4.0
+          }
+        },
+        "paired_changes": {
+          "score_at_120_seconds": {
+            "mean_difference": 419.375,
+            "paired_mean_95pct_interval": [
+              -48.89062499999987,
+              996.25
+            ],
+            "wins": 5,
+            "ties": 0,
+            "losses": 3
+          },
+          "score": {
+            "mean_difference": 698.75,
+            "paired_mean_95pct_interval": [
+              -167.5,
+              1638.75
+            ],
+            "wins": 5,
+            "ties": 0,
+            "losses": 3
+          },
+          "survival_seconds": {
+            "mean_difference": 28.625000000000004,
+            "paired_mean_95pct_interval": [
+              -30.031249999999993,
+              76.96458333333334
+            ],
+            "wins": 5,
+            "ties": 2,
+            "losses": 1
+          },
+          "kills": {
+            "mean_difference": 2.75,
+            "paired_mean_95pct_interval": [
+              0.0,
+              5.875
+            ],
+            "wins": 4,
+            "ties": 1,
+            "losses": 3
+          }
+        },
+        "promotion_guards": {
+          "early_mean": true,
+          "early_p25": true,
+          "final_mean": true,
+          "mean_survival": true
+        },
+        "all_guards_passed": true
+      },
+      "ranking": [
+        2625.0,
+        1983.75,
+        159.40833333333336
+      ]
+    },
+    {
+      "report": "005_1000k_broader_development.json",
+      "checkpoint": "C:\\LANG_CHAIN_2026\\final-project\\2026-10-12_game\\src\\space_z\\rl\\gpt_training_rotation_continuous\\experiments\\005_aim_precision\\checkpoints\\evaluated_001000000.zip",
+      "checkpoint_sha256": "732353d35d52badb3828c7d0effdf2775d19629cefef90a3c33e3afd258c709e",
+      "replay_mode": "greedy",
+      "development_comparison": {
+        "baseline": {
+          "score_at_120_seconds": {
+            "mean": 1026.875,
+            "p25": 913.75
+          },
+          "score": {
+            "mean": 1285.0,
+            "p25": 913.75
+          },
+          "survival_seconds": {
+            "mean": 130.78333333333333,
+            "p25": 90.05
+          },
+          "kills": {
+            "mean": 4.0,
+            "p25": 3.5
+          }
+        },
+        "candidate": {
+          "score_at_120_seconds": {
+            "mean": 1581.875,
+            "p25": 1031.25
+          },
+          "score": {
+            "mean": 2090.625,
+            "p25": 1065.0
+          },
+          "survival_seconds": {
+            "mean": 165.57291666666669,
+            "p25": 165.90833333333333
+          },
+          "kills": {
+            "mean": 6.875,
+            "p25": 3.0
+          }
+        },
+        "paired_changes": {
+          "score_at_120_seconds": {
+            "mean_difference": 555.0,
+            "paired_mean_95pct_interval": [
+              114.375,
+              1014.375
+            ],
+            "wins": 6,
+            "ties": 0,
+            "losses": 2
+          },
+          "score": {
+            "mean_difference": 805.625,
+            "paired_mean_95pct_interval": [
+              31.25,
+              1611.875
+            ],
+            "wins": 6,
+            "ties": 0,
+            "losses": 2
+          },
+          "survival_seconds": {
+            "mean_difference": 34.78958333333334,
+            "paired_mean_95pct_interval": [
+              -23.063437500000003,
+              85.075
+            ],
+            "wins": 5,
+            "ties": 2,
+            "losses": 1
+          },
+          "kills": {
+            "mean_difference": 2.875,
+            "paired_mean_95pct_interval": [
+              0.75,
+              5.125
+            ],
+            "wins": 6,
+            "ties": 0,
+            "losses": 2
+          }
+        },
+        "promotion_guards": {
+          "early_mean": true,
+          "early_p25": true,
+          "final_mean": true,
+          "mean_survival": true
+        },
+        "all_guards_passed": true
+      },
+      "ranking": [
+        2613.125,
+        2090.625,
+        165.57291666666669
+      ]
+    },
+    {
+      "report": "003_700k_broader_development.json",
+      "checkpoint": "C:\\LANG_CHAIN_2026\\final-project\\2026-10-12_game\\src\\space_z\\rl\\gpt_training_rotation_continuous\\experiments\\003_body_stability\\checkpoints\\evaluated_000700000.zip",
+      "checkpoint_sha256": "7777b4179f8108357c318a8d310da727df0e94264a60aa224103424f2ed1d3d4",
+      "replay_mode": "greedy",
+      "development_comparison": {
+        "baseline": {
+          "score_at_120_seconds": {
+            "mean": 1026.875,
+            "p25": 913.75
+          },
+          "score": {
+            "mean": 1285.0,
+            "p25": 913.75
+          },
+          "survival_seconds": {
+            "mean": 130.78333333333333,
+            "p25": 90.05
+          },
+          "kills": {
+            "mean": 4.0,
+            "p25": 3.5
+          }
+        },
+        "candidate": {
+          "score_at_120_seconds": {
+            "mean": 1439.375,
+            "p25": 961.25
+          },
+          "score": {
+            "mean": 2138.75,
+            "p25": 1726.25
+          },
+          "survival_seconds": {
+            "mean": 176.20208333333335,
+            "p25": 190.72083333333333
+          },
+          "kills": {
+            "mean": 7.25,
+            "p25": 6.0
+          }
+        },
+        "paired_changes": {
+          "score_at_120_seconds": {
+            "mean_difference": 412.5,
+            "paired_mean_95pct_interval": [
+              130.625,
+              739.375
+            ],
+            "wins": 6,
+            "ties": 0,
+            "losses": 2
+          },
+          "score": {
+            "mean_difference": 853.75,
+            "paired_mean_95pct_interval": [
+              449.34375,
+              1255.0
+            ],
+            "wins": 7,
+            "ties": 0,
+            "losses": 1
+          },
+          "survival_seconds": {
+            "mean_difference": 45.41875,
+            "paired_mean_95pct_interval": [
+              9.302083333333332,
+              83.18541666666667
+            ],
+            "wins": 4,
+            "ties": 3,
+            "losses": 1
+          },
+          "kills": {
+            "mean_difference": 3.25,
+            "paired_mean_95pct_interval": [
+              1.875,
+              4.5
+            ],
+            "wins": 7,
+            "ties": 1,
+            "losses": 0
+          }
+        },
+        "promotion_guards": {
+          "early_mean": true,
+          "early_p25": true,
+          "final_mean": true,
+          "mean_survival": true
+        },
+        "all_guards_passed": true
+      },
+      "ranking": [
+        2400.625,
+        2138.75,
+        176.20208333333335
+      ]
+    },
+    {
+      "report": "003_600k_sampled_development.json",
+      "checkpoint": "C:\\LANG_CHAIN_2026\\final-project\\2026-10-12_game\\src\\space_z\\rl\\gpt_training_rotation_continuous\\experiments\\003_body_stability\\checkpoints\\evaluated_000600000.zip",
+      "checkpoint_sha256": "022d78051d8b262eb03d00669b3bf87bd7018e7b260373e31671bfce64563a8c",
+      "replay_mode": "sampled",
+      "development_comparison": {
+        "baseline": {
+          "score_at_120_seconds": {
+            "mean": 1026.875,
+            "p25": 913.75
+          },
+          "score": {
+            "mean": 1285.0,
+            "p25": 913.75
+          },
+          "survival_seconds": {
+            "mean": 130.78333333333333,
+            "p25": 90.05
+          },
+          "kills": {
+            "mean": 4.0,
+            "p25": 3.5
+          }
+        },
+        "candidate": {
+          "score_at_120_seconds": {
+            "mean": 1202.5,
+            "p25": 1121.25
+          },
+          "score": {
+            "mean": 1605.0,
+            "p25": 1498.75
+          },
+          "survival_seconds": {
+            "mean": 172.65833333333333,
+            "p25": 169.8375
+          },
+          "kills": {
+            "mean": 5.25,
+            "p25": 4.0
+          }
+        },
+        "paired_changes": {
+          "score_at_120_seconds": {
+            "mean_difference": 175.625,
+            "paired_mean_95pct_interval": [
+              -141.265625,
+              426.875
+            ],
+            "wins": 6,
+            "ties": 1,
+            "losses": 1
+          },
+          "score": {
+            "mean_difference": 320.0,
+            "paired_mean_95pct_interval": [
+              -143.75,
+              798.75
+            ],
+            "wins": 6,
+            "ties": 0,
+            "losses": 2
+          },
+          "survival_seconds": {
+            "mean_difference": 41.87500000000001,
+            "paired_mean_95pct_interval": [
+              0.09932291666666883,
+              89.11875
+            ],
+            "wins": 4,
+            "ties": 2,
+            "losses": 2
+          },
+          "kills": {
+            "mean_difference": 1.25,
+            "paired_mean_95pct_interval": [
+              -0.375,
+              2.875
+            ],
+            "wins": 6,
+            "ties": 1,
+            "losses": 1
+          }
+        },
+        "promotion_guards": {
+          "early_mean": true,
+          "early_p25": true,
+          "final_mean": true,
+          "mean_survival": true
+        },
+        "all_guards_passed": true
+      },
+      "ranking": [
+        2323.75,
+        1605.0,
+        172.65833333333333
+      ]
+    },
+    {
+      "report": "003_400k_sampled_development_retry.json",
+      "checkpoint": "C:\\LANG_CHAIN_2026\\final-project\\2026-10-12_game\\src\\space_z\\rl\\gpt_training_rotation_continuous\\experiments\\003_body_stability\\checkpoints\\evaluated_000400000.zip",
+      "checkpoint_sha256": "530f240c1845636d02f4c036419616768a344a77f6ac99450a302fb1bd216e3e",
+      "replay_mode": "sampled",
+      "development_comparison": {
+        "baseline": {
+          "score_at_120_seconds": {
+            "mean": 1026.875,
+            "p25": 913.75
+          },
+          "score": {
+            "mean": 1285.0,
+            "p25": 913.75
+          },
+          "survival_seconds": {
+            "mean": 130.78333333333333,
+            "p25": 90.05
+          },
+          "kills": {
+            "mean": 4.0,
+            "p25": 3.5
+          }
+        },
+        "candidate": {
+          "score_at_120_seconds": {
+            "mean": 1140.0,
+            "p25": 1030.0
+          },
+          "score": {
+            "mean": 1455.0,
+            "p25": 1151.25
+          },
+          "survival_seconds": {
+            "mean": 190.075,
+            "p25": 199.70416666666665
+          },
+          "kills": {
+            "mean": 4.875,
+            "p25": 4.0
+          }
+        },
+        "paired_changes": {
+          "score_at_120_seconds": {
+            "mean_difference": 113.125,
+            "paired_mean_95pct_interval": [
+              -40.625,
+              271.25
+            ],
+            "wins": 4,
+            "ties": 0,
+            "losses": 4
+          },
+          "score": {
+            "mean_difference": 170.0,
+            "paired_mean_95pct_interval": [
+              -230.0,
+              542.5
+            ],
+            "wins": 5,
+            "ties": 0,
+            "losses": 3
+          },
+          "survival_seconds": {
+            "mean_difference": 59.29166666666667,
+            "paired_mean_95pct_interval": [
+              6.497916666666665,
+              107.25416666666666
+            ],
+            "wins": 5,
+            "ties": 2,
+            "losses": 1
+          },
+          "kills": {
+            "mean_difference": 0.875,
+            "paired_mean_95pct_interval": [
+              -0.625,
+              2.25
+            ],
+            "wins": 5,
+            "ties": 0,
+            "losses": 3
+          }
+        },
+        "promotion_guards": {
+          "early_mean": true,
+          "early_p25": true,
+          "final_mean": true,
+          "mean_survival": true
+        },
+        "all_guards_passed": true
+      },
+      "ranking": [
+        2170.0,
+        1455.0,
+        190.075
+      ]
+    },
+    {
+      "report": "003_500k_broader_development.json",
+      "checkpoint": "C:\\LANG_CHAIN_2026\\final-project\\2026-10-12_game\\src\\space_z\\rl\\gpt_training_rotation_continuous\\experiments\\003_body_stability\\checkpoints\\evaluated_000500000.zip",
+      "checkpoint_sha256": "c95c0b8a8112dfe233b4f2358e0b5eff15815aadf148490f5fa298015243eb8d",
+      "replay_mode": "greedy",
+      "development_comparison": {
+        "baseline": {
+          "score_at_120_seconds": {
+            "mean": 1026.875,
+            "p25": 913.75
+          },
+          "score": {
+            "mean": 1285.0,
+            "p25": 913.75
+          },
+          "survival_seconds": {
+            "mean": 130.78333333333333,
+            "p25": 90.05
+          },
+          "kills": {
+            "mean": 4.0,
+            "p25": 3.5
+          }
+        },
+        "candidate": {
+          "score_at_120_seconds": {
+            "mean": 1258.75,
+            "p25": 892.5
+          },
+          "score": {
+            "mean": 1581.25,
+            "p25": 1045.0
+          },
+          "survival_seconds": {
+            "mean": 132.25625,
+            "p25": 82.62083333333334
+          },
+          "kills": {
+            "mean": 5.25,
+            "p25": 4.0
+          }
+        },
+        "paired_changes": {
+          "score_at_120_seconds": {
+            "mean_difference": 231.875,
+            "paired_mean_95pct_interval": [
+              -97.5,
+              628.125
+            ],
+            "wins": 5,
+            "ties": 0,
+            "losses": 3
+          },
+          "score": {
+            "mean_difference": 296.25,
+            "paired_mean_95pct_interval": [
+              -226.875,
+              916.9062499999995
+            ],
+            "wins": 4,
+            "ties": 0,
+            "losses": 4
+          },
+          "survival_seconds": {
+            "mean_difference": 1.4729166666666682,
+            "paired_mean_95pct_interval": [
+              -52.264895833333334,
+              56.771145833333335
+            ],
+            "wins": 3,
+            "ties": 1,
+            "losses": 4
+          },
+          "kills": {
+            "mean_difference": 1.25,
+            "paired_mean_95pct_interval": [
+              -0.5,
+              3.375
+            ],
+            "wins": 4,
+            "ties": 2,
+            "losses": 2
+          }
+        },
+        "promotion_guards": {
+          "early_mean": true,
+          "early_p25": false,
+          "final_mean": true,
+          "mean_survival": true
+        },
+        "all_guards_passed": false
+      },
+      "ranking": [
+        2151.25,
+        1581.25,
+        132.25625
+      ]
+    },
+    {
+      "report": "004_1300k_broader_development.json",
+      "checkpoint": "C:\\LANG_CHAIN_2026\\final-project\\2026-10-12_game\\src\\space_z\\rl\\gpt_training_rotation_continuous\\experiments\\004_body_continuation\\checkpoints\\evaluated_001300000.zip",
+      "checkpoint_sha256": "4aff34c7e6e5b60eb3159baceb4431c4817cc44498e379d1e94db49fd29cc47f",
+      "replay_mode": "greedy",
+      "development_comparison": {
+        "baseline": {
+          "score_at_120_seconds": {
+            "mean": 1026.875,
+            "p25": 913.75
+          },
+          "score": {
+            "mean": 1285.0,
+            "p25": 913.75
+          },
+          "survival_seconds": {
+            "mean": 130.78333333333333,
+            "p25": 90.05
+          },
+          "kills": {
+            "mean": 4.0,
+            "p25": 3.5
+          }
+        },
+        "candidate": {
+          "score_at_120_seconds": {
+            "mean": 1364.375,
+            "p25": 751.25
+          },
+          "score": {
+            "mean": 2013.125,
+            "p25": 1580.0
+          },
+          "survival_seconds": {
+            "mean": 160.28333333333336,
+            "p25": 162.08333333333334
+          },
+          "kills": {
+            "mean": 6.5,
+            "p25": 4.5
+          }
+        },
+        "paired_changes": {
+          "score_at_120_seconds": {
+            "mean_difference": 337.5,
+            "paired_mean_95pct_interval": [
+              -253.765625,
+              901.25
+            ],
+            "wins": 5,
+            "ties": 0,
+            "losses": 3
+          },
+          "score": {
+            "mean_difference": 728.125,
+            "paired_mean_95pct_interval": [
+              -48.125,
+              1505.0468749999993
+            ],
+            "wins": 6,
+            "ties": 0,
+            "losses": 2
+          },
+          "survival_seconds": {
+            "mean_difference": 29.5,
+            "paired_mean_95pct_interval": [
+              -11.470833333333339,
+              71.16875
+            ],
+            "wins": 4,
+            "ties": 3,
+            "losses": 1
+          },
+          "kills": {
+            "mean_difference": 2.5,
+            "paired_mean_95pct_interval": [
+              -0.125,
+              5.125
+            ],
+            "wins": 5,
+            "ties": 1,
+            "losses": 2
+          }
+        },
+        "promotion_guards": {
+          "early_mean": true,
+          "early_p25": false,
+          "final_mean": true,
+          "mean_survival": true
+        },
+        "all_guards_passed": false
+      },
+      "ranking": [
+        2115.625,
+        2013.125,
+        160.28333333333336
+      ]
+    },
+    {
+      "report": "003_800k_sampled_development.json",
+      "checkpoint": "C:\\LANG_CHAIN_2026\\final-project\\2026-10-12_game\\src\\space_z\\rl\\gpt_training_rotation_continuous\\experiments\\003_body_stability\\checkpoints\\evaluated_000800000.zip",
+      "checkpoint_sha256": "48bf691420e92593fbe2bca815b9ad86d121d0ea7ed206ab1a336cf3415b288a",
+      "replay_mode": "sampled",
+      "development_comparison": {
+        "baseline": {
+          "score_at_120_seconds": {
+            "mean": 1026.875,
+            "p25": 913.75
+          },
+          "score": {
+            "mean": 1285.0,
+            "p25": 913.75
+          },
+          "survival_seconds": {
+            "mean": 130.78333333333333,
+            "p25": 90.05
+          },
+          "kills": {
+            "mean": 4.0,
+            "p25": 3.5
+          }
+        },
+        "candidate": {
+          "score_at_120_seconds": {
+            "mean": 1225.625,
+            "p25": 781.25
+          },
+          "score": {
+            "mean": 1456.25,
+            "p25": 935.0
+          },
+          "survival_seconds": {
+            "mean": 132.28333333333333,
+            "p25": 81.075
+          },
+          "kills": {
+            "mean": 5.25,
+            "p25": 3.0
+          }
+        },
+        "paired_changes": {
+          "score_at_120_seconds": {
+            "mean_difference": 198.75,
+            "paired_mean_95pct_interval": [
+              -289.40625,
+              685.0156249999998
+            ],
+            "wins": 5,
+            "ties": 0,
+            "losses": 3
+          },
+          "score": {
+            "mean_difference": 171.25,
+            "paired_mean_95pct_interval": [
+              -468.125,
+              742.5156249999998
+            ],
+            "wins": 5,
+            "ties": 0,
+            "losses": 3
+          },
+          "survival_seconds": {
+            "mean_difference": 1.5000000000000036,
+            "paired_mean_95pct_interval": [
+              -57.981302083333325,
+              49.5584375
+            ],
+            "wins": 4,
+            "ties": 1,
+            "losses": 3
+          },
+          "kills": {
+            "mean_difference": 1.25,
+            "paired_mean_95pct_interval": [
+              -1.0,
+              3.375
+            ],
+            "wins": 4,
+            "ties": 1,
+            "losses": 3
+          }
+        },
+        "promotion_guards": {
+          "early_mean": true,
+          "early_p25": false,
+          "final_mean": true,
+          "mean_survival": true
+        },
+        "all_guards_passed": false
+      },
+      "ranking": [
+        2006.875,
+        1456.25,
+        132.28333333333333
+      ]
+    },
+    {
+      "report": "002_500k_broader_development.json",
+      "checkpoint": "C:\\LANG_CHAIN_2026\\final-project\\2026-10-12_game\\src\\space_z\\rl\\gpt_training_rotation_continuous\\experiments\\002_full_adaptation\\checkpoints\\evaluated_000500000.zip",
+      "checkpoint_sha256": "9f12be896e272293b729879b3e7d3a2f531bd2c695a9a57dd0c65251afd63226",
+      "replay_mode": "greedy",
+      "development_comparison": {
+        "baseline": {
+          "score_at_120_seconds": {
+            "mean": 1026.875,
+            "p25": 913.75
+          },
+          "score": {
+            "mean": 1285.0,
+            "p25": 913.75
+          },
+          "survival_seconds": {
+            "mean": 130.78333333333333,
+            "p25": 90.05
+          },
+          "kills": {
+            "mean": 4.0,
+            "p25": 3.5
+          }
+        },
+        "candidate": {
+          "score_at_120_seconds": {
+            "mean": 1228.75,
+            "p25": 746.25
+          },
+          "score": {
+            "mean": 1446.875,
+            "p25": 746.25
+          },
+          "survival_seconds": {
+            "mean": 123.18125,
+            "p25": 83.5375
+          },
+          "kills": {
+            "mean": 4.875,
+            "p25": 2.75
+          }
+        },
+        "paired_changes": {
+          "score_at_120_seconds": {
+            "mean_difference": 201.875,
+            "paired_mean_95pct_interval": [
+              -157.53124999999997,
+              556.875
+            ],
+            "wins": 5,
+            "ties": 0,
+            "losses": 3
+          },
+          "score": {
+            "mean_difference": 161.875,
+            "paired_mean_95pct_interval": [
+              -359.5937499999998,
+              711.875
+            ],
+            "wins": 3,
+            "ties": 0,
+            "losses": 5
+          },
+          "survival_seconds": {
+            "mean_difference": -7.602083333333331,
+            "paired_mean_95pct_interval": [
+              -52.35203125,
+              32.83958333333334
+            ],
+            "wins": 4,
+            "ties": 1,
+            "losses": 3
+          },
+          "kills": {
+            "mean_difference": 0.875,
+            "paired_mean_95pct_interval": [
+              -0.75,
+              2.5
+            ],
+            "wins": 4,
+            "ties": 1,
+            "losses": 3
+          }
+        },
+        "promotion_guards": {
+          "early_mean": true,
+          "early_p25": false,
+          "final_mean": true,
+          "mean_survival": false
+        },
+        "all_guards_passed": false
+      },
+      "ranking": [
+        1975.0,
+        1446.875,
+        123.18125
+      ]
+    },
+    {
+      "report": "002_400k_broader_development.json",
+      "checkpoint": "C:\\LANG_CHAIN_2026\\final-project\\2026-10-12_game\\src\\space_z\\rl\\gpt_training_rotation_continuous\\experiments\\002_full_adaptation\\checkpoints\\evaluated_000400000.zip",
+      "checkpoint_sha256": "15cb74b28ddcccbfe0dde69cb1cc78328289e3ac03c9974c2fc5202b29b1ea74",
+      "replay_mode": "greedy",
+      "development_comparison": {
+        "baseline": {
+          "score_at_120_seconds": {
+            "mean": 1026.875,
+            "p25": 913.75
+          },
+          "score": {
+            "mean": 1285.0,
+            "p25": 913.75
+          },
+          "survival_seconds": {
+            "mean": 130.78333333333333,
+            "p25": 90.05
+          },
+          "kills": {
+            "mean": 4.0,
+            "p25": 3.5
+          }
+        },
+        "candidate": {
+          "score_at_120_seconds": {
+            "mean": 941.875,
+            "p25": 757.5
+          },
+          "score": {
+            "mean": 956.25,
+            "p25": 765.0
+          },
+          "survival_seconds": {
+            "mean": 91.38541666666667,
+            "p25": 46.8
+          },
+          "kills": {
+            "mean": 3.125,
+            "p25": 2.75
+          }
+        },
+        "paired_changes": {
+          "score_at_120_seconds": {
+            "mean_difference": -85.0,
+            "paired_mean_95pct_interval": [
+              -314.390625,
+              161.25
+            ],
+            "wins": 3,
+            "ties": 0,
+            "losses": 5
+          },
+          "score": {
+            "mean_difference": -328.75,
+            "paired_mean_95pct_interval": [
+              -698.140625,
+              37.5
+            ],
+            "wins": 2,
+            "ties": 0,
+            "losses": 6
+          },
+          "survival_seconds": {
+            "mean_difference": -39.397916666666674,
+            "paired_mean_95pct_interval": [
+              -80.26458333333333,
+              -9.395156250000008
+            ],
+            "wins": 2,
+            "ties": 1,
+            "losses": 5
+          },
+          "kills": {
+            "mean_difference": -0.875,
+            "paired_mean_95pct_interval": [
+              -2.0,
+              0.25
+            ],
+            "wins": 2,
+            "ties": 2,
+            "losses": 4
+          }
+        },
+        "promotion_guards": {
+          "early_mean": false,
+          "early_p25": false,
+          "final_mean": false,
+          "mean_survival": false
+        },
+        "all_guards_passed": false
+      },
+      "ranking": [
+        1699.375,
+        956.25,
+        91.38541666666667
+      ]
+    },
+    {
+      "report": "001_broader_development.json",
+      "checkpoint": "C:\\LANG_CHAIN_2026\\final-project\\2026-10-12_game\\src\\space_z\\rl\\gpt_training_rotation_continuous\\experiments\\001_aim_adaptation\\checkpoints\\best.zip",
+      "checkpoint_sha256": "42752d28dff425e2f569ecff5f5d50e9a49d8db92a4b6c5e024bf91270a919d6",
+      "replay_mode": "greedy",
+      "development_comparison": {
+        "baseline": {
+          "score_at_120_seconds": {
+            "mean": 1026.875,
+            "p25": 913.75
+          },
+          "score": {
+            "mean": 1285.0,
+            "p25": 913.75
+          },
+          "survival_seconds": {
+            "mean": 130.78333333333333,
+            "p25": 90.05
+          },
+          "kills": {
+            "mean": 4.0,
+            "p25": 3.5
+          }
+        },
+        "candidate": {
+          "score_at_120_seconds": {
+            "mean": 940.0,
+            "p25": 703.75
+          },
+          "score": {
+            "mean": 1161.25,
+            "p25": 865.0
+          },
+          "survival_seconds": {
+            "mean": 124.90416666666667,
+            "p25": 60.12916666666666
+          },
+          "kills": {
+            "mean": 3.5,
+            "p25": 2.0
+          }
+        },
+        "paired_changes": {
+          "score_at_120_seconds": {
+            "mean_difference": -86.875,
+            "paired_mean_95pct_interval": [
+              -331.25,
+              171.89062499999977
+            ],
+            "wins": 2,
+            "ties": 0,
+            "losses": 6
+          },
+          "score": {
+            "mean_difference": -123.75,
+            "paired_mean_95pct_interval": [
+              -531.25,
+              357.53124999999955
+            ],
+            "wins": 2,
+            "ties": 0,
+            "losses": 6
+          },
+          "survival_seconds": {
+            "mean_difference": -5.879166666666668,
+            "paired_mean_95pct_interval": [
+              -71.62578125,
+              62.78046874999998
+            ],
+            "wins": 3,
+            "ties": 1,
+            "losses": 4
+          },
+          "kills": {
+            "mean_difference": -0.5,
+            "paired_mean_95pct_interval": [
+              -1.5,
+              0.75
+            ],
+            "wins": 2,
+            "ties": 1,
+            "losses": 5
+          }
+        },
+        "promotion_guards": {
+          "early_mean": false,
+          "early_p25": false,
+          "final_mean": false,
+          "mean_survival": false
+        },
+        "all_guards_passed": false
+      },
+      "ranking": [
+        1643.75,
+        1161.25,
+        124.90416666666667
+      ]
+    },
+    {
+      "report": "003_400k_broader_development.json",
+      "checkpoint": "C:\\LANG_CHAIN_2026\\final-project\\2026-10-12_game\\src\\space_z\\rl\\gpt_training_rotation_continuous\\experiments\\003_body_stability\\checkpoints\\evaluated_000400000.zip",
+      "checkpoint_sha256": "530f240c1845636d02f4c036419616768a344a77f6ac99450a302fb1bd216e3e",
+      "replay_mode": "greedy",
+      "development_comparison": {
+        "baseline": {
+          "score_at_120_seconds": {
+            "mean": 1026.875,
+            "p25": 913.75
+          },
+          "score": {
+            "mean": 1285.0,
+            "p25": 913.75
+          },
+          "survival_seconds": {
+            "mean": 130.78333333333333,
+            "p25": 90.05
+          },
+          "kills": {
+            "mean": 4.0,
+            "p25": 3.5
+          }
+        },
+        "candidate": {
+          "score_at_120_seconds": {
+            "mean": 805.0,
+            "p25": 638.75
+          },
+          "score": {
+            "mean": 901.25,
+            "p25": 638.75
+          },
+          "survival_seconds": {
+            "mean": 94.90833333333333,
+            "p25": 40.47916666666667
+          },
+          "kills": {
+            "mean": 2.875,
+            "p25": 1.75
+          }
+        },
+        "paired_changes": {
+          "score_at_120_seconds": {
+            "mean_difference": -221.875,
+            "paired_mean_95pct_interval": [
+              -432.5,
+              -32.5
+            ],
+            "wins": 3,
+            "ties": 1,
+            "losses": 4
+          },
+          "score": {
+            "mean_difference": -383.75,
+            "paired_mean_95pct_interval": [
+              -720.625,
+              -64.96875000000045
+            ],
+            "wins": 3,
+            "ties": 1,
+            "losses": 4
+          },
+          "survival_seconds": {
+            "mean_difference": -35.875,
+            "paired_mean_95pct_interval": [
+              -96.78802083333332,
+              28.747916666666665
+            ],
+            "wins": 2,
+            "ties": 1,
+            "losses": 5
+          },
+          "kills": {
+            "mean_difference": -1.125,
+            "paired_mean_95pct_interval": [
+              -2.25,
+              -0.125
+            ],
+            "wins": 1,
+            "ties": 3,
+            "losses": 4
+          }
+        },
+        "promotion_guards": {
+          "early_mean": false,
+          "early_p25": false,
+          "final_mean": false,
+          "mean_survival": false
+        },
+        "all_guards_passed": false
+      },
+      "ranking": [
+        1443.75,
+        901.25,
+        94.90833333333333
+      ]
+    }
+  ],
+  "experiments": [
+    {
+      "name": "001_aim_adaptation",
+      "status": "completed",
+      "additional_steps": 300000
+    },
+    {
+      "name": "002_full_adaptation",
+      "status": "stopped",
+      "additional_steps": 200000
+    },
+    {
+      "name": "003_body_stability",
+      "status": "completed",
+      "additional_steps": 500000
+    },
+    {
+      "name": "004_body_continuation",
+      "status": "completed",
+      "additional_steps": 500000
+    },
+    {
+      "name": "005_aim_precision",
+      "status": "completed",
+      "additional_steps": 500000
+    }
+  ]
+}

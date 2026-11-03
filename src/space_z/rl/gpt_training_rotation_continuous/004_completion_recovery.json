@@ -1,0 +1,9 @@
+{
+    "recorded_at":  "2026-11-01T04:47:42.5350359Z",
+    "training_status":  "completed",
+    "additional_steps":  500000,
+    "python_exit_code":  null,
+    "wrapper_exit_code":  1,
+    "cause":  "Start-Process ExitCode was null without an eagerly opened handle",
+    "recovery":  "Verified completed experiment manifest, final checkpoint and empty Python stderr; retained wrapper failure code and fixed native exit handling before phase005"
+}

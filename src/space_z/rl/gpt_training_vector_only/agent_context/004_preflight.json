@@ -1,0 +1,16 @@
+{
+  "unchanged_observation_reward_termination_steps": 48,
+  "telemetry_sums_match": true,
+  "finite_metric_count": 46,
+  "parallel_probe": {
+    "environments": 10,
+    "observation_shape": [
+      10,
+      5139
+    ],
+    "owned_python_process_count": 12,
+    "closed_normally": true
+  },
+  "protected_sources_unchanged": 30,
+  "comparison_tensorboard_tags": 92
+}

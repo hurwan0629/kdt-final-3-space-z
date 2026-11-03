@@ -1,0 +1,37 @@
+{
+  "selected_sha256": "71665f9ad32efb8467d150f29213944691f74dde143af2b96107c6a2f6f32cef",
+  "experiment_kind": "checkpoint_weight_averaging",
+  "trained_parent_weight": 0.5,
+  "parent_training_timesteps": 1808384,
+  "additional_ppo_steps_in_averaging": 0,
+  "original_observation_count": 5139,
+  "action_counts": [
+    9,
+    9,
+    2,
+    6,
+    5
+  ],
+  "decision_frame_skip": 2,
+  "gamma": 0.9974968671630001,
+  "rollout_buffer_gamma": 0.9974968671630001,
+  "optimizer_moments_empty_after_weight_change": true,
+  "aim_weights_bitwise_identical_to_both_parents": true,
+  "spatial_encoder_differs_from_both_parents": true,
+  "real_native_predict_step_valid": true,
+  "repeated_eight_development_episodes_identical": true,
+  "shared_files_unchanged": 47,
+  "heldout_20_seed_matching_verified": true,
+  "matched_400_game_seconds_verified": true,
+  "candidate_not_published_due_to_early_p25": true,
+  "current_default_hash_unchanged": true,
+  "native_capture_seed505": {
+    "score": 1985,
+    "kills": 9,
+    "survival_seconds": 134.91666666666666,
+    "hp": 0.0,
+    "ship": "flank",
+    "image": "step_004048.png"
+  },
+  "native_capture_terminal_frame_count_verified": true
+}

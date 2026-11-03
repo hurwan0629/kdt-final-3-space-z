@@ -120,7 +120,7 @@ tags: [space-z, class]
 | `add_score_popups(score_award_events)` | 앱·환경에서 꺼낸 점수 획득 기록 | 팝업 번호 발급·목록 추가 | `None` |
 | `reset_score_popups()` | 생성 또는 새 게임 시작 | 점수 팝업과 관련 화면 연출 초기화 | `None` |
 | `resize(size)`, `set_fullscreen(enabled)`, `set_zoom(zoom)` | 창 변경·옵션 선택 | 화면·줌 상태·월드 Surface 갱신; 줌은 공유 설정에도 반영 | `None` |
-| `_update_camera(player)` | 현재 플레이어 위치·월드 그리기 크기 | `camera_x`, `camera_y` 변경 | `None` |
+| `update_camera(player)` | 입력 좌표 변환 전 또는 그리기 시작 시 현재 플레이어 위치·월드 그리기 크기 | `camera_x`, `camera_y` 변경. 기존 `_update_camera()` 호출도 유지 | `None` |
 | `world_to_view(x, y)`, `world_to_screen(x, y)`, `screen_to_world(x, y)` | 카메라·배율 | 변경 없음 | 좌표 쌍 |
 | `_visible(x, y, margin)`, `_spawn_scale(oid, frame)` | 시야·등장 기록 | 변경 없음 | 표시 여부 또는 등장 배율 |
 | `_track(game)` | 현재·이전 개체와 점수 연출 | 화면 연출의 기록·수명 갱신 | `None` |

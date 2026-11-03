@@ -1,0 +1,30 @@
+{
+  "training_steps": 65536,
+  "verification_steps": 128,
+  "ppo_updates": 256,
+  "evaluation_steps": [
+    0,
+    32768,
+    65536
+  ],
+  "evaluation_seed_count": 3,
+  "training_episode_count": 47,
+  "screenshot_count": 6,
+  "protected_source_count": 30,
+  "protected_sources_unchanged": true,
+  "reward_component_sums_match": true,
+  "checkpoint_hashes_match": true,
+  "final_weights_equal_evaluated_weights": true,
+  "tensorboard_matches_jsonl": true,
+  "gallery_record_count": 2,
+  "report_sha256": "6a6048ac5e526c9e3b370575fa0550fa1a35ebde8411e0bcb8679ae2eb9c983e",
+  "report_bytes": 124490,
+  "report_javascript_and_routes": "passed",
+  "local_artifact_links_checked": 33,
+  "browser_review": {
+    "surface": "existing Chrome local preview",
+    "gallery_accessibility": "observed two experiment cards",
+    "experiment_detail_screenshot": "visually reviewed pilot header, lifecycle and results",
+    "theme_and_all_viewports": "not checked"
+  }
+}

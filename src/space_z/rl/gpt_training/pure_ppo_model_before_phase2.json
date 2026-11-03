@@ -1,0 +1,55 @@
+{
+  "training_method": "pure_ppo",
+  "checkpoint": "experiments\\014_full_body_control\\checkpoints\\best.zip",
+  "sha256": "6130963d09099d8a3c50c02c11fe0ca4766cc359a1b23aff40c515007489aa12",
+  "timesteps": 1339392,
+  "study_executed_ppo_steps": 2193408,
+  "study_experiments": [
+    "006_spatial_aim",
+    "007_spatial_duel",
+    "008_full_score_v3",
+    "009_focused_arena",
+    "010_stationary_range",
+    "011_unified_moving_range",
+    "012_independent_static",
+    "013_independent_moving",
+    "014_full_body_control"
+  ],
+  "initialization": "006 random initialization; no imitation weights or demonstrations; 005 is evaluation baseline only",
+  "demonstration_steps": 0,
+  "automatic_growth": false,
+  "observation": "unmodified VectorObservation (5139,); entity encoding and terrain CNN inside policy",
+  "action_branches": [
+    "movement",
+    "rotation",
+    "fire",
+    "stat_upgrade",
+    "evolution"
+  ],
+  "action_counts": [
+    9,
+    9,
+    2,
+    6,
+    5
+  ],
+  "policy": "GrowthMaskedPolicy + SpatialFeaturesExtractor + independently PPO-trained aiming network",
+  "selected_before_heldout": true,
+  "selection_record": "candidate_selection.json",
+  "execution_mode": "greedy",
+  "validation_200_score_mean": 1459.1666666666667,
+  "validation_400_report": "validation_400_seconds.json",
+  "heldout_report": "heldout_400_seconds.json",
+  "heldout_mean_score": 1389,
+  "heldout_mean_survival_seconds": 197.66,
+  "heldout_score_wins": 10,
+  "heldout_limit_reached": "2/10 at 400 seconds",
+  "published_at_utc": "2026-10-31T17:51:55.186143+00:00",
+  "previous_model": "experiments\\005_pure_ppo_full\\checkpoints\\best.zip",
+  "limitations": [
+    "10 unseen seeds only; not proof for all maps or longer play",
+    "8/10 test episodes ended in death before 400 seconds",
+    "one test seed had shorter survival despite a higher score",
+    "use gpt_training.play; original training_hurwan action spaces differ"
+  ]
+}

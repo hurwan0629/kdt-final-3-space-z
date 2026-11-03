@@ -104,6 +104,8 @@ trained_models/
 
 # Local caches, temporary files and runtime logs
 /.cache/
+/.vibe-wise/
+/graphify-out/cache/
 /tmp/
 /temp/
 *.log
@@ -135,7 +137,11 @@ $RECYCLE.BIN/
 
 # Intentionally tracked: maps/*.txt, assets, source notebooks,
 # requirements.txt, dependency lockfiles, training configs and .spec files.
-# No global *.zip / *.pkl / *.npy / *.npz rules: these can be source data.
+# No global *.pkl / *.npy / *.npz rules: these can be source data.
+
+# ZIP archives: retain all archives in the standalone model playback folder.
+*.zip
+!/src/space_z/rl/best_model_execute/**/*.zip
 
 # Local backups created by the reviewed update installer
 /.codex-update-backups/

@@ -1,0 +1,304 @@
+[
+  {
+    "step": 0,
+    "image": "step_000000.png",
+    "score": 0,
+    "kills": 0,
+    "seconds": 0.0,
+    "hp": 100.0,
+    "position": [
+      3432.0,
+      2616.0
+    ],
+    "angle": -0.7361599163407693,
+    "action": null,
+    "ship": "rookie",
+    "stat_levels": {
+      "health": 0,
+      "damage": 0,
+      "range": 0,
+      "rapid": 0,
+      "speed": 0
+    }
+  },
+  {
+    "step": 600,
+    "image": "step_000600.png",
+    "score": 65,
+    "kills": 0,
+    "seconds": 20.0,
+    "hp": 125.0,
+    "position": [
+      1416.1800963865703,
+      2939.3712418731375
+    ],
+    "angle": 1.20702539083881,
+    "action": [
+      5,
+      0,
+      1,
+      0,
+      0
+    ],
+    "ship": "rookie",
+    "stat_levels": {
+      "health": 1,
+      "damage": 0,
+      "range": 0,
+      "rapid": 0,
+      "speed": 0
+    }
+  },
+  {
+    "step": 1200,
+    "image": "step_001200.png",
+    "score": 685,
+    "kills": 3,
+    "seconds": 40.0,
+    "hp": 78.71050000000001,
+    "position": [
+      241.0415263382804,
+      2354.409662182581
+    ],
+    "angle": 3.010210698018396,
+    "action": [
+      7,
+      8,
+      1,
+      0,
+      0
+    ],
+    "ship": "rookie",
+    "stat_levels": {
+      "health": 1,
+      "damage": 2,
+      "range": 1,
+      "rapid": 0,
+      "speed": 0
+    }
+  },
+  {
+    "step": 1800,
+    "image": "step_001800.png",
+    "score": 775,
+    "kills": 3,
+    "seconds": 60.0,
+    "hp": 125.0,
+    "position": [
+      871.7014799673665,
+      2277.8499360964547
+    ],
+    "angle": 0.33339600519796475,
+    "action": [
+      2,
+      8,
+      1,
+      0,
+      0
+    ],
+    "ship": "rookie",
+    "stat_levels": {
+      "health": 1,
+      "damage": 3,
+      "range": 1,
+      "rapid": 0,
+      "speed": 0
+    }
+  },
+  {
+    "step": 2400,
+    "image": "step_002400.png",
+    "score": 985,
+    "kills": 4,
+    "seconds": 80.0,
+    "hp": 125.0,
+    "position": [
+      1072.072322931233,
+      2080.6297698199432
+    ],
+    "angle": -0.8034186876224583,
+    "action": [
+      2,
+      0,
+      1,
+      0,
+      0
+    ],
+    "ship": "rookie",
+    "stat_levels": {
+      "health": 1,
+      "damage": 3,
+      "range": 2,
+      "rapid": 0,
+      "speed": 0
+    }
+  },
+  {
+    "step": 3000,
+    "image": "step_003000.png",
+    "score": 1045,
+    "kills": 4,
+    "seconds": 100.0,
+    "hp": 125.0,
+    "position": [
+      1178.2508976050856,
+      2491.1766916808306
+    ],
+    "angle": 2.119766619557124,
+    "action": [
+      7,
+      0,
+      1,
+      0,
+      0
+    ],
+    "ship": "rookie",
+    "stat_levels": {
+      "health": 1,
+      "damage": 3,
+      "range": 2,
+      "rapid": 0,
+      "speed": 0
+    }
+  },
+  {
+    "step": 3600,
+    "image": "step_003600.png",
+    "score": 1490,
+    "kills": 6,
+    "seconds": 120.0,
+    "hp": 93.69499999999996,
+    "position": [
+      958.239513242035,
+      2532.5087271771863
+    ],
+    "angle": 1.1229519267366967,
+    "action": [
+      4,
+      0,
+      1,
+      0,
+      0
+    ],
+    "ship": "rookie",
+    "stat_levels": {
+      "health": 1,
+      "damage": 4,
+      "range": 2,
+      "rapid": 0,
+      "speed": 0
+    }
+  },
+  {
+    "step": 4200,
+    "image": "step_004200.png",
+    "score": 1640,
+    "kills": 6,
+    "seconds": 140.0,
+    "hp": 125.0,
+    "position": [
+      1782.3965054998469,
+      1619.8495491699903
+    ],
+    "angle": -2.8138627660837265,
+    "action": [
+      7,
+      8,
+      1,
+      0,
+      0
+    ],
+    "ship": "rookie",
+    "stat_levels": {
+      "health": 1,
+      "damage": 5,
+      "range": 2,
+      "rapid": 0,
+      "speed": 0
+    }
+  },
+  {
+    "step": 4800,
+    "image": "step_004800.png",
+    "score": 1775,
+    "kills": 6,
+    "seconds": 160.0,
+    "hp": 125.0,
+    "position": [
+      1125.5959826169726,
+      721.2853266567731
+    ],
+    "angle": -1.1506774589041509,
+    "action": [
+      2,
+      0,
+      1,
+      0,
+      0
+    ],
+    "ship": "rookie",
+    "stat_levels": {
+      "health": 1,
+      "damage": 5,
+      "range": 2,
+      "rapid": 0,
+      "speed": 0
+    }
+  },
+  {
+    "step": 5400,
+    "image": "step_005400.png",
+    "score": 1840,
+    "kills": 6,
+    "seconds": 180.0,
+    "hp": 125.0,
+    "position": [
+      2621.140152743485,
+      110.80817654774151
+    ],
+    "angle": 0.23250784827542637,
+    "action": [
+      2,
+      0,
+      1,
+      0,
+      0
+    ],
+    "ship": "rookie",
+    "stat_levels": {
+      "health": 1,
+      "damage": 5,
+      "range": 2,
+      "rapid": 0,
+      "speed": 0
+    }
+  },
+  {
+    "step": 6000,
+    "image": "step_006000.png",
+    "score": 1885,
+    "kills": 6,
+    "seconds": 200.0,
+    "hp": 125.0,
+    "position": [
+      2335.8418990064033,
+      146.97871578794613
+    ],
+    "angle": 2.718878462634592,
+    "action": [
+      7,
+      8,
+      1,
+      0,
+      0
+    ],
+    "ship": "rookie",
+    "stat_levels": {
+      "health": 1,
+      "damage": 5,
+      "range": 2,
+      "rapid": 0,
+      "speed": 0
+    }
+  }
+]

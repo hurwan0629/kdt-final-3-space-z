@@ -1,0 +1,23 @@
+{
+  "steps_per_run": 300,
+  "runs": [
+    {
+      "previous_seconds": 0.9800439000246115,
+      "lazy_seconds": 0.8873559000203386,
+      "maximum_reward_difference": 0.0
+    },
+    {
+      "previous_seconds": 1.015730299986899,
+      "lazy_seconds": 1.074728200037498,
+      "maximum_reward_difference": 0.0
+    },
+    {
+      "previous_seconds": 1.0118726000073366,
+      "lazy_seconds": 0.8404578999616206,
+      "maximum_reward_difference": 0.0
+    }
+  ],
+  "median_speedup": 1.1044541429229788,
+  "maximum_reward_difference": 0.0,
+  "scope": "same seed/actions, default static full-game terrain; measures one environment, not total PPO throughput"
+}

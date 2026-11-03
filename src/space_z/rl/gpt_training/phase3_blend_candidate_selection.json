@@ -1,0 +1,53 @@
+{
+  "selected_at_utc": "2026-11-01T00:38:32.588586+00:00",
+  "selected_checkpoint": "experiments\\022_checkpoint_blend\\checkpoints\\blend_050.zip",
+  "selected_sha256": "71665f9ad32efb8467d150f29213944691f74dde143af2b96107c6a2f6f32cef",
+  "baseline_checkpoint": "experiments/018_reaction_calibration/checkpoints/candidate.zip",
+  "baseline_sha256": "657c380fef9b0bb3b3158b9ae6f876e25828fe768eeb70cf949b09ebb38cf08e",
+  "experiment_kind": "checkpoint_weight_averaging",
+  "trained_parent_weight": 0.5,
+  "additional_ppo_steps_in_averaging": 0,
+  "parent_training_timesteps": 1808384,
+  "phase3_executed_ppo_steps": 464896,
+  "development_screen": "phase3_blend_screening_summary.json",
+  "broader_development": "phase3_blend_broader_summary.json",
+  "broader_development_checks": {
+    "score_at_120_seconds_mean": true,
+    "score_at_120_seconds_p25": true,
+    "score_mean": true,
+    "survival_seconds_mean": true
+  },
+  "heldout_seeds": [
+    31001,
+    31102,
+    31203,
+    31304,
+    31405,
+    31506,
+    31607,
+    31708,
+    31809,
+    31910,
+    32001,
+    32102,
+    32203,
+    32304,
+    32405,
+    32506,
+    32607,
+    32708,
+    32809,
+    32910
+  ],
+  "max_game_seconds": 400,
+  "frame_skip": 2,
+  "execution_mode": "greedy",
+  "promotion_requirements": [
+    "early_mean_at_least_baseline",
+    "early_p25_at_least_baseline",
+    "final_mean_at_least_baseline",
+    "survival_at_least_baseline"
+  ],
+  "previous_failed_test_retained": "phase3_results_summary.json",
+  "previous_test_seeds_are_now_development_data": true
+}

@@ -1,0 +1,7 @@
+{
+  "rejected": [
+    "Box",
+    "MultiDiscrete"
+  ],
+  "no_optimizer_updates": true
+}

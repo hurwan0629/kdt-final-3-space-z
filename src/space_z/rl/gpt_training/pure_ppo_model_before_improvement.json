@@ -1,0 +1,29 @@
+{
+    "training_method":  "pure_ppo",
+    "checkpoint":  "experiments/005_pure_ppo_full/checkpoints/best.zip",
+    "sha256":  "60acbd6a0d02f04c25a0529b8fdc9211459e99b96889cefc034145571977773b",
+    "timesteps":  132608,
+    "total_executed_ppo_steps":  396032,
+    "selection":  "fixed validation ranking: completion fraction, then score, then survival",
+    "selected_before_heldout":  true,
+    "validation_best_label":  "before",
+    "validation_label_explanation":  "before the 005 continuation; already trained for 132608 pure-PPO steps in 004",
+    "latest_checkpoint":  "experiments/005_pure_ppo_full/checkpoints/final.zip",
+    "latest_timesteps":  396032,
+    "initialization":  "004 random initialization; no imitation weights or demonstrations",
+    "demonstration_steps":  0,
+    "automatic_growth":  false,
+    "observation":  "unmodified VectorObservation",
+    "action_branches":  [
+                            "movement",
+                            "rotation",
+                            "fire",
+                            "stat_upgrade",
+                            "evolution"
+                        ],
+    "heldout_report":  "pure_ppo_heldout.json",
+    "heldout_mean_score":  36.666666666666664,
+    "heldout_mean_survival_seconds":  161.17777777777778,
+    "heldout_limit_reached":  "1/3 at 400 seconds",
+    "limitation":  "Low score and high seed variance; high-score mastery not achieved."
+}

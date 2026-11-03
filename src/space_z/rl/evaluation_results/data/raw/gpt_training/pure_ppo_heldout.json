@@ -1,0 +1,219 @@
+{
+    "value":  [
+                  {
+                      "policy":  "experiments\\004_pure_ppo_harvest\\checkpoints\\best.zip",
+                      "checkpoint_sha256":  "493d96b2b66c2b2b3d8fe7a1b8f979a22a9b046540c19096b1af5e05d73f898c",
+                      "stage":  "full",
+                      "max_steps":  6000,
+                      "pure_rl":  true,
+                      "episodes":  [
+                                       {
+                                           "seed":  1101,
+                                           "score":  0,
+                                           "kills":  0,
+                                           "survival_seconds":  59.43333333333333,
+                                           "terminated":  true,
+                                           "truncated":  false,
+                                           "training_reward":  -4.003,
+                                           "shots":  56,
+                                           "shapes_destroyed":  0,
+                                           "damage_taken":  99.99999999999999
+                                       },
+                                       {
+                                           "seed":  1202,
+                                           "score":  0,
+                                           "kills":  0,
+                                           "survival_seconds":  99.9,
+                                           "terminated":  true,
+                                           "truncated":  false,
+                                           "training_reward":  -3.273500000000042,
+                                           "shots":  172,
+                                           "shapes_destroyed":  0,
+                                           "damage_taken":  100.00000000000001
+                                       },
+                                       {
+                                           "seed":  1303,
+                                           "score":  0,
+                                           "kills":  0,
+                                           "survival_seconds":  35.35,
+                                           "terminated":  true,
+                                           "truncated":  false,
+                                           "training_reward":  -4.469000000000007,
+                                           "shots":  58,
+                                           "shapes_destroyed":  0,
+                                           "damage_taken":  99.99999999999999
+                                       }
+                                   ],
+                      "summary":  {
+                                      "score":  {
+                                                    "mean":  0.0,
+                                                    "std":  0.0
+                                                },
+                                      "kills":  {
+                                                    "mean":  0.0,
+                                                    "std":  0.0
+                                                },
+                                      "survival_seconds":  {
+                                                               "mean":  64.89444444444445,
+                                                               "std":  26.633855972251133
+                                                           },
+                                      "shots":  {
+                                                    "mean":  95.33333333333333,
+                                                    "std":  54.21766829692656
+                                                },
+                                      "shapes_destroyed":  {
+                                                               "mean":  0.0,
+                                                               "std":  0.0
+                                                           },
+                                      "damage_taken":  {
+                                                           "mean":  100.0,
+                                                           "std":  1.4210854715202004E-14
+                                                       }
+                                  }
+                  },
+                  {
+                      "policy":  "experiments\\005_pure_ppo_full\\checkpoints\\best.zip",
+                      "checkpoint_sha256":  "60acbd6a0d02f04c25a0529b8fdc9211459e99b96889cefc034145571977773b",
+                      "stage":  "full",
+                      "max_steps":  6000,
+                      "pure_rl":  true,
+                      "episodes":  [
+                                       {
+                                           "seed":  1101,
+                                           "score":  10,
+                                           "kills":  0,
+                                           "survival_seconds":  48.483333333333334,
+                                           "terminated":  true,
+                                           "truncated":  false,
+                                           "training_reward":  -4.112000000000002,
+                                           "shots":  98,
+                                           "shapes_destroyed":  1,
+                                           "damage_taken":  99.99999999999999
+                                       },
+                                       {
+                                           "seed":  1202,
+                                           "score":  100,
+                                           "kills":  0,
+                                           "survival_seconds":  400.0,
+                                           "terminated":  false,
+                                           "truncated":  true,
+                                           "training_reward":  7.250000000000835,
+                                           "shots":  844,
+                                           "shapes_destroyed":  1,
+                                           "damage_taken":  0.0
+                                       },
+                                       {
+                                           "seed":  1303,
+                                           "score":  0,
+                                           "kills":  0,
+                                           "survival_seconds":  35.05,
+                                           "terminated":  true,
+                                           "truncated":  false,
+                                           "training_reward":  -4.336500000000003,
+                                           "shots":  73,
+                                           "shapes_destroyed":  0,
+                                           "damage_taken":  104.49999999999974
+                                       }
+                                   ],
+                      "summary":  {
+                                      "score":  {
+                                                    "mean":  36.666666666666664,
+                                                    "std":  44.96912521077348
+                                                },
+                                      "kills":  {
+                                                    "mean":  0.0,
+                                                    "std":  0.0
+                                                },
+                                      "survival_seconds":  {
+                                                               "mean":  161.17777777777778,
+                                                               "std":  168.96183786382352
+                                                           },
+                                      "shots":  {
+                                                    "mean":  338.3333333333333,
+                                                    "std":  357.7059624266215
+                                                },
+                                      "shapes_destroyed":  {
+                                                               "mean":  0.6666666666666666,
+                                                               "std":  0.4714045207910317
+                                                           },
+                                      "damage_taken":  {
+                                                           "mean":  68.16666666666657,
+                                                           "std":  48.2361091115589
+                                                       }
+                                  }
+                  },
+                  {
+                      "policy":  "experiments/005_pure_ppo_full/checkpoints/final.zip",
+                      "checkpoint_sha256":  "43da86d2dbe52c0229a3aa4b7adc09961750add7bb81b73ab0a3896fc0df6b5f",
+                      "stage":  "full",
+                      "max_steps":  6000,
+                      "pure_rl":  true,
+                      "episodes":  [
+                                       {
+                                           "seed":  1101,
+                                           "score":  0,
+                                           "kills":  0,
+                                           "survival_seconds":  108.0,
+                                           "terminated":  true,
+                                           "truncated":  false,
+                                           "training_reward":  -3.3275000000000636,
+                                           "shots":  22,
+                                           "shapes_destroyed":  0,
+                                           "damage_taken":  100.00000000000001
+                                       },
+                                       {
+                                           "seed":  1202,
+                                           "score":  0,
+                                           "kills":  0,
+                                           "survival_seconds":  43.78333333333333,
+                                           "terminated":  true,
+                                           "truncated":  false,
+                                           "training_reward":  -4.325500000000003,
+                                           "shots":  1,
+                                           "shapes_destroyed":  0,
+                                           "damage_taken":  100.0
+                                       },
+                                       {
+                                           "seed":  1303,
+                                           "score":  0,
+                                           "kills":  0,
+                                           "survival_seconds":  32.68333333333333,
+                                           "terminated":  true,
+                                           "truncated":  false,
+                                           "training_reward":  -4.561000000000006,
+                                           "shots":  60,
+                                           "shapes_destroyed":  0,
+                                           "damage_taken":  102.59999999999985
+                                       }
+                                   ],
+                      "summary":  {
+                                      "score":  {
+                                                    "mean":  0.0,
+                                                    "std":  0.0
+                                                },
+                                      "kills":  {
+                                                    "mean":  0.0,
+                                                    "std":  0.0
+                                                },
+                                      "survival_seconds":  {
+                                                               "mean":  61.48888888888889,
+                                                               "std":  33.199047100708505
+                                                           },
+                                      "shots":  {
+                                                    "mean":  27.666666666666668,
+                                                    "std":  24.417662095749915
+                                                },
+                                      "shapes_destroyed":  {
+                                                               "mean":  0.0,
+                                                               "std":  0.0
+                                                           },
+                                      "damage_taken":  {
+                                                           "mean":  100.86666666666662,
+                                                           "std":  1.2256517540566094
+                                                       }
+                                  },
+                      "evaluated_alias":  "pure_ppo_model.zip"
+                  }
+              ],
+    "Count":  3
+}

@@ -1,0 +1,16 @@
+{
+  "status": "completed",
+  "timesteps": 634880,
+  "initial_timesteps": 327680,
+  "additional_timesteps": 307200,
+  "requested_steps": 307200,
+  "target_timesteps": 634880,
+  "updated_at": "2026-11-02T04:11:36.150977+00:00",
+  "process_id": 446188,
+  "latest_checkpoint": "checkpoints/step_000634880.zip",
+  "best_timesteps": 573440,
+  "best_checkpoint": "checkpoints/best.zip",
+  "best_score": 114.25,
+  "final_checkpoint": "checkpoints/final.zip",
+  "elapsed_seconds": 2340.030999999959
+}

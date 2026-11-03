@@ -1,0 +1,1462 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="light" name="color-scheme"/><meta content="Space Z PPO 이산 행동, 관측 벡터, 신경망 설계, GPT 001~022 실험 및 평가의 전체 학습 흐름" name="description"/><title>Space Z · PPO 이산 행동 실험의 전체 흐름</title><style>
+:root{--bg:#f5f6f7;--paper:#fff;--ink:#162936;--muted:#52636d;--subtle:#748690;--line:#dbe3e7;--a:#1e6677;--a2:#0b4a5a;--mint:#eaf5f1;--warm:#fbf5e7;--warn:#8f5b2c;--red:#8d4247;--soft:#eaf0f3;--radius:15px;}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);font-family:'Pretendard','Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif;background:var(--bg);font-size:15px;line-height:1.83;letter-spacing:-.012em}
+a{color:var(--a);text-decoration:none}a:hover{text-decoration:underline}.shell{display:grid;grid-template-columns:252px minmax(0,1fr);max-width:1540px;margin:auto;min-height:100vh}.sidebar{background:#eff3f4;border-right:1px solid var(--line);padding:27px 16px 24px 23px;position:sticky;top:0;height:100vh;overflow:auto}.brand{color:var(--a2);font-weight:800;font-size:18px;line-height:1.2;letter-spacing:-.03em}.brand small{display:block;font-size:11px;letter-spacing:.14em;color:var(--subtle);font-weight:700;margin:0 0 10px}.sidebar .subtitle{font-size:12px;color:var(--muted);margin:13px 0 26px;line-height:1.6}.nav-label{font-size:10px;font-weight:800;letter-spacing:.14em;color:var(--subtle);padding:9px 10px}.nav-link{display:block;color:#3e5663;font-size:12.5px;line-height:1.5;font-weight:650;padding:10px 10px;border-radius:8px;margin:2px 0}.nav-link:hover,.nav-link.active{background:#e0ebed;text-decoration:none;color:#07576a}.sidebar-footer{border-top:1px solid var(--line);margin-top:24px;padding-top:17px;font-size:11px;color:var(--subtle)}.main{min-width:0}.content{max-width:1140px;padding:42px clamp(24px,5vw,76px) 94px;margin:auto}.hero{background:#102b3a;color:#fff;border-radius:22px;padding:clamp(30px,5vw,57px);margin-bottom:30px;position:relative;overflow:hidden;box-shadow:0 9px 22px #152b3b13}.hero:before{content:'';position:absolute;right:-170px;top:-250px;width:510px;height:510px;border:1px solid #ffffff28;border-radius:50%;box-shadow:0 0 0 85px #ffffff07,0 0 0 170px #ffffff05}.hero>*{position:relative;z-index:1}.eyebrow{font-size:11px;font-weight:800;letter-spacing:.19em;text-transform:uppercase;color:#9bd1d1}.hero h1{font-size:clamp(29px,4vw,48px);letter-spacing:-.055em;line-height:1.26;margin:14px 0 16px;font-weight:840;max-width:760px}.hero p{max-width:755px;color:#c8d9df;font-size:15px;line-height:1.9;margin-bottom:0}.hero-tags{display:flex;flex-wrap:wrap;gap:9px;margin:26px 0 0}.hero-tags span{border:1px solid #d3eef04d;border-radius:6px;padding:3px 10px;color:#bfe5e7;font-size:12px}.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:0 0 36px}.quick .tile{background:var(--paper);border:1px solid var(--line);border-radius:13px;padding:18px 16px}.tile strong{display:block;font-size:27px;letter-spacing:-.06em;color:#17596a;line-height:1.2}.tile span{display:block;font-size:12px;color:var(--muted);margin-top:9px;line-height:1.5}.article-section{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:clamp(23px,3.4vw,40px);margin:18px 0;scroll-margin-top:18px}.section-kicker{font-size:11px;color:var(--a);font-weight:800;letter-spacing:.08em;border-bottom:1px solid var(--line);padding:0 0 15px;margin-bottom:23px}.article-section h2{font-size:clamp(23px,2.6vw,31px);letter-spacing:-.052em;line-height:1.35;margin:12px 0 15px}.article-section h3{font-size:18px;letter-spacing:-.035em;margin:31px 0 14px;padding-left:11px;border-left:3px solid #64a4aa}.article-section h4{font-size:15px;margin:24px 0 10px}.article-section p{margin:13px 0 17px;color:#344955}.article-section strong{color:#142f3d}.article-section ul,.article-section ol{padding-left:23px;color:#344955}.article-section li{padding:2px 0}.article-section blockquote{margin:19px 0;padding:14px 19px;background:#edf4f5;border-left:3px solid #5496a1;color:#365866;border-radius:0 10px 10px 0}.article-section blockquote p{margin:0}.article-section .note{background:var(--warm);border-radius:10px;border:1px solid #eedfb9;padding:13px 16px;display:flex;gap:13px;margin:22px 0}.note b{color:var(--warn);white-space:nowrap}.note span{color:#6b5945}.table-scroll{max-width:100%;overflow-x:auto;border:1px solid var(--line);border-radius:12px;margin:18px 0 27px}.table-scroll table,.exp-table{width:100%;border-collapse:collapse;font-size:12.5px;line-height:1.55}.table-scroll table th,.exp-table th{background:#edf3f5;text-align:left;color:#294d5a;font-weight:800;border-bottom:1px solid var(--line);padding:11px 13px;white-space:nowrap}.table-scroll table td,.exp-table td{padding:11px 13px;vertical-align:top;border-bottom:1px solid #e6edee;color:#334a55}.table-scroll tr:nth-child(even) td,.exp-table tr:nth-child(even) td{background:#fafcfc}.table-scroll tr:last-child td,.exp-table tr:last-child td{border-bottom:0}.table-scroll table code{white-space:nowrap}.table-scroll table{min-width:610px}.article-section pre{background:#102a3a;color:#e3eff4;border-radius:11px;padding:18px 20px;overflow:auto;font-size:12.5px;line-height:1.68;margin:20px 0 25px}.article-section code{font-family:'Cascadia Code','JetBrains Mono',Consolas,monospace;font-size:.89em}.article-section :not(pre)>code{background:#edf2f3;color:#145467;padding:2px 5px;border-radius:4px;word-break:break-word}.article-section pre code{font-size:inherit}.article-section hr{border:0;border-top:1px solid var(--line);margin:26px 0}.experiment-section{padding-bottom:28px}.experiment-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;margin-bottom:16px}.experiment-head h2{margin:0}.explain{font-size:12px;color:var(--muted);margin:0 0 15px}.filters{display:flex;flex-wrap:wrap;gap:9px;margin:17px 0}.filters input,.filters select{border:1px solid #cbd8dc;background:#fff;border-radius:9px;padding:9px 12px;font-size:12px;color:var(--ink)}.filters input{min-width:220px;flex:1}.filters select{width:178px}.exp-table{min-width:1120px}.exp-table td:first-child{white-space:nowrap}.exp-table .numeric{font-variant-numeric:tabular-nums;white-space:nowrap}.exp-table .change{min-width:235px}.exp-table .group{display:inline-block;font-size:10px;background:#e9eff1;padding:1px 5px;border-radius:4px;margin-left:6px;color:#476571}.exp-table .reward{font-size:10.5px;font-weight:750;background:#eef3f6;border-radius:5px;padding:3px 6px;color:#466376;white-space:nowrap}.status{font-size:10px;display:inline-block;padding:2px 7px;border-radius:5px;white-space:nowrap;font-weight:800;background:#e9eef0;color:#547079}.status.selected{background:#e4f2ea;color:#23654d}.status.parent{background:#e8eff9;color:#38608b}.status.conditional{background:#fff0d8;color:#8c631b}.status.reject{background:#f5edef;color:#985966}.decision{display:block;margin-top:5px;font-size:11px;color:#5a7079;line-height:1.52}.legend{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:15px}.legend div{border:1px solid var(--line);border-radius:9px;padding:10px;font-size:12px}.legend b{display:block;color:#234858}.legend small{color:#697d87}.flowcards{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:30px 0 20px}.flowcard{background:#f4f8f8;border:1px solid #d6e5e8;border-radius:10px;padding:13px 10px;font-size:12px;text-align:center}.flowcard strong{display:block;color:#225b67;line-height:1.3}.flowcard span{display:block;margin-top:7px;color:#67808a;font-size:11px;line-height:1.45}.smallprint{font-size:11px;color:#70838e;line-height:1.7}.endline{font-size:11px;color:var(--subtle);text-align:center;margin:32px 0 0}.print-btn{font:inherit;border:1px solid #c9e6e9;color:#c2e3e5;background:#ffffff10;border-radius:7px;padding:6px 11px;cursor:pointer;font-size:12px}.print-btn:hover{background:#ffffff20}.figure-brief{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:26px 0}.figure-brief .brief{border:1px solid var(--line);border-radius:12px;padding:18px;background:#f9fbfc}.figure-brief .brief h4{margin:0 0 10px;font-size:14px}.figure-brief .brief strong{display:block;font-size:22px;letter-spacing:-.04em;color:#206273}.brief small{color:#647780}.footer-links{display:flex;gap:15px;flex-wrap:wrap;border-top:1px solid var(--line);margin:20px 0 0;padding:17px 0 0;font-size:12px}
+@media(max-width:1080px){.shell{grid-template-columns:204px minmax(0,1fr)}.content{padding:28px}.sidebar{padding-left:14px}.quick{grid-template-columns:repeat(2,1fr)}}@media(max-width:720px){.shell{display:block}.sidebar{position:relative;height:auto;max-height:none;padding:14px 18px}.sidebar .subtitle,.sidebar .nav-label,.sidebar-footer{display:none}.sidebar nav{display:flex;overflow-x:auto;gap:5px;padding-top:12px}.nav-link{flex-shrink:0;font-size:11px;padding:6px 9px;border:1px solid #d2e1e4}.content{padding:15px}.hero{border-radius:15px;padding:24px}.quick{gap:9px}.quick .tile{padding:12px}.tile strong{font-size:22px}.article-section{padding:21px 17px}.flowcards{grid-template-columns:1fr 1fr}.legend{grid-template-columns:1fr 1fr}.figure-brief{grid-template-columns:1fr}.filters input{width:100%;min-width:0}.filters select{width:100%}}
+@media print{body{background:#fff;font-size:11px}.shell{display:block}.sidebar,.print-btn,.filters{display:none!important}.content{max-width:none;padding:0}.hero{background:#fff;color:#142d3a;box-shadow:none;border:1px solid #c9d8dc;padding:20px}.hero p{color:#506571}.hero-tags span{color:#506571;border-color:#b3c2c7}.quick .tile,.article-section{break-inside:auto;border-radius:0;margin:14px 0;padding:16px 10px}.article-section h2,.article-section h3{break-after:avoid}.table-scroll{overflow:visible}.table-scroll table{min-width:0;font-size:9px}.exp-table{min-width:0;font-size:7.8px}.exp-table th,.exp-table td{padding:4px!important}.article-section pre{white-space:pre-wrap;overflow:visible;color:#203b48;background:#eaf0f2}.flowcards{gap:5px}.content section{page-break-before:auto}}
+
+/* Version lineage after the 22-row experiment table */
+.lineage-section{scroll-margin-top:20px}
+.lineage-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:20px 0 13px}
+.lineage-control{appearance:none;cursor:pointer;border:1px solid #c9d8dc;background:#fff;border-radius:8px;padding:8px 13px;font-size:12px;font-weight:750;color:#3b5c69}
+.lineage-control.is-active{background:#244e63;border-color:#244e63;color:#fff}
+.lineage-legend{display:flex;gap:8px 15px;flex-wrap:wrap;margin:10px 0 18px;font-size:11px;color:#58707c}
+.lineage-legend span{display:inline-flex;align-items:center;gap:6px}
+.lg-pill{width:13px;height:10px;display:inline-block;border-radius:3px;border:1.5px solid}
+.lg-published{background:#d8f3e7;border-color:#4a9873}.lg-parent{background:#eaf2fb;border-color:#7598b6}.lg-rejected{background:#fff5f2;border-color:#d0aca2}
+.lg-line{width:23px;border-top:2px solid #98afb8;display:inline-block}.lg-reset{border-top-style:dashed;border-color:#b1b9c0}.lg-mix{border-top-style:dashed;border-color:#9879ab}
+.lineage-scroll{overflow-x:auto;overflow-y:visible;background:linear-gradient(180deg,#f8fbfc,#fff);border:1px solid #dbe6e9;border-radius:14px;padding:14px 8px;position:relative}
+.lineage-svg{display:block;width:100%;height:auto;min-width:635px;max-width:900px;margin:auto;font-family:'NanumSquare','Noto Sans KR',sans-serif}
+.lineage-svg .node{cursor:pointer;transition:opacity .15s ease;outline:none}
+.lineage-svg .node polygon,.lineage-svg .node path{transition:stroke-width .15s ease}
+.lineage-svg .node:hover polygon,.lineage-svg .node:hover path{stroke-width:2.8}
+.lineage-svg .node:focus-visible polygon,.lineage-svg .node:focus-visible path{stroke:#075fa5;stroke-width:3.1}
+.lineage-svg .edge{transition:opacity .2s ease}
+.lineage-scroll.emphasis .node:not(.mainline),.lineage-scroll.emphasis .edge:not(.mainline){opacity:.18}
+.lineage-scroll.emphasis .node.mainline,.lineage-scroll.emphasis .edge.mainline{opacity:1}
+.lineage-svg .node.is-focused path,.lineage-svg .node.is-focused polygon{stroke:#17619b!important;stroke-width:3.5!important}
+.lineage-inspector{display:flex;flex-direction:column;gap:6px;margin-top:13px;padding:15px 18px;background:#eff5f7;border:1px solid #d6e3e7;border-radius:10px;font-size:12px;color:#415e6c;line-height:1.65}
+.lineage-inspector strong{color:#244e63;font-size:14px}
+@media(max-width:720px){.lineage-svg{min-width:615px}.lineage-scroll{padding:7px 0}.lineage-controls .smallprint{width:100%}}
+@media print{.lineage-scroll{overflow:visible;border:0}.lineage-svg{min-width:0;max-width:100%;width:100%}.lineage-controls{display:none}}
+</style><style>
+.hybrid-lineage-svg{display:block;width:100%;max-width:900px;height:auto;min-width:630px;margin:auto;font-family:"Malgun Gothic",sans-serif}
+.hybrid-lineage-svg a{cursor:pointer}
+.hybrid-graph{margin:12px 0 24px;padding:15px}
+.hybrid-bars{border:1px solid var(--line);background:#f6f9fa;padding:18px 20px;border-radius:12px;display:grid;gap:12px;margin:16px 0}
+.hybrid-bars>div{display:grid;grid-template-columns:190px minmax(100px,1fr) 55px;gap:10px;align-items:center;font-size:12px;font-weight:600}
+.bar-track{height:14px;border-radius:20px;overflow:hidden;background:#dfebee}
+.bar-track i{display:block;height:100%;border-radius:20px}
+@media(max-width:680px){.hybrid-bars>div{grid-template-columns:1fr 55px}.hybrid-bars>div span{grid-column:1/-1}.hybrid-lineage-svg{min-width:620px}}
+@media print{.hybrid-lineage-svg{min-width:0}.hybrid-bars{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style></head>
+<body><div class="shell"><aside class="sidebar"><div class="brand"><small>SPACE Z / RL LAB NOTES</small>실험의 흐름</div><p class="subtitle">연속 행동에서 이산 행동으로, 개체 인코더에서 독립 조준망으로.</p><div class="nav-label">CONTENTS</div><nav aria-label="문서 목차"><a class="nav-link" href="#overview">01 · 질문에서 출발하다</a><a class="nav-link" href="#personal">02 · 개인 PPO에서 이산 행동을 시험하다</a><a class="nav-link" href="#observation">03 · 모델은 게임을 어떤 숫자로 보았나</a><a class="nav-link" href="#architecture">04 · 신경망 구조가 달라진 지점</a><a class="nav-link" href="#earlygpt">05 · GPT 001~005: 모방학습과 순수 PPO의 대비</a><a class="nav-link" href="#training">06 · GPT 006~022: 무엇을 바꾸고 무엇을 포기했나</a><a class="nav-link" href="#experiment-table">06A · 001~022 전체 실험표</a><a class="nav-link" href="#branch-graph">06B · 실험 분기·가중치 계보</a><a class="nav-link" href="#rewards">07 · `score_v2~v7`: PPO는 무엇에 보상받았나</a><a class="nav-link" href="#evaluation">08 · 평가, p25, 모델 선택을 분리하다</a><a class="nav-link" href="#mechanics">09 · 실제 코드에서 동결과 가중치 혼합이 의미하는 것</a><a class="nav-link" href="#takeaways">10 · 결과를 어떻게 해석할까</a><a class="nav-link" href="#sources">부록 · 확인한 구현·실험 기록</a><a class="nav-link" href="#hybrid-intro">11 · 연속 회전 구조</a><a class="nav-link" href="#hybrid-experiments">12 · 연속 회전 5개 실험</a><a class="nav-link" href="#hybrid-validation">13 · 오류 정정·독립 검증</a><a class="nav-link" href="#hybrid-sources">14 · 연속 회전 근거</a></nav><div class="sidebar-footer">2026.11.01 · Notion 학습 노트 기반<br/>문서만 생성, Notion 원본 변경 없음</div></aside><main class="main"><div class="content"><header class="hero"><div class="eyebrow">A TRACEABLE LEARNING JOURNEY · EXPERIMENTS 001—022</div><h1>Space Z, PPO가 조준을 배우기까지</h1><p>처음 이산 행동을 시험했던 개인 PPO에서 시작해, GPT의 모방학습·순수 PPO·개체 인코더·독립 조준망·독립 평가까지. 무엇을 바꿨고 무엇이 개선되지 않았는지 하나의 시간 흐름으로 정리했다.</p><div class="hero-tags"><span>개인 PPO2~5</span><span>GPT 001~022</span><span>Observation 5,139</span><span>Action &amp; Policy</span><span>Reward &amp; Evaluation</span></div><div style="margin-top:24px"><button class="print-btn" onclick="window.print()">인쇄 / PDF 저장</button></div></header>
+<div class="quick"><div class="tile"><strong>5,139</strong><span>원본 관측값 수</span></div><div class="tile"><strong>54 → 5분기</strong><span>정수 조합과 factorized 행동의 차이</span></div><div class="tile"><strong>22</strong><span>GPT 실험 번호 001~022</span></div><div class="tile"><strong>018 유지</strong><span>022 평균 점수 증가에도 안정성 기준에 따라 공개 모델 보존</span></div><div class="tile"><strong>5개 추가 실험</strong><span>GPT 연속 회전 H001~005</span></div></div>
+<div class="flowcards"><div class="flowcard"><strong>개인 PPO2~4</strong><span>연속 → CNN → 이산</span></div><div class="flowcard"><strong>GPT 001~005</strong><span>교사 모방 vs 순수 PPO</span></div><div class="flowcard"><strong>GPT 006~013</strong><span>특징 추출 → 조준 분리</span></div><div class="flowcard"><strong>GPT 014~018</strong><span>동결 학습 → 기본 채택</span></div><div class="flowcard"><strong>GPT 019~022</strong><span>추가 학습 → 안정성 검증</span></div><div class="flowcard"><strong>회전 연속화 H001~005</strong><span>2M step · 정정된 독립 평가</span></div></div>
+<section class="article-section" id="overview"><div class="section-kicker">01 · 질문에서 출발하다</div><h2>처음 해결하려던 문제</h2>
+<p>Space Z의 게임 상태는 <strong>5,139차원 관측</strong>으로 표현할 수 있었지만, 그 안에는 플레이어 속도, 주변 적·천체·탄환, 지형 격자가 뒤섞여 있었다. 더 큰 문제는 AI가 <strong>상대 위치를 보고 회전하고, 실제로 명중시키며, 오래 살아남는 것</strong>을 동시에 배워야 한다는 점이었다.</p>
+<p>이번 기록은 정답 하나를 찾는 튜토리얼이 아니라, <strong>이산 행동의 표현을 바꿔 보고 → 관측 구조를 바꿔 보고 → 조준을 별도 문제로 분리하고 → 최종 모델을 독립 평가로 선택한 과정</strong>을 따라간다. 개인 실험(<code>training_hurwan</code>)과 GPT 실험(<code>gpt_training</code>)은 <strong>서로 별도의 학습 계보</strong>로 구분한다.</p>
+<h3>세 번의 중요한 전환</h3>
+<ol>
+<li><strong>행동 표현의 전환</strong> — 연속 출력의 게임 행동 변환에서, 정수 행동 54조합과 나중의 5개 분리 확률분포로.</li>
+<li><strong>입력 표현의 전환</strong> — 5,139개를 그대로 MLP에 넣는 대신, 개체별 인코더와 지형 CNN으로 의미 있는 특징을 학습.</li>
+<li><strong>학습 책임의 전환</strong> — 모든 행동을 한 Actor에 맡기기보다, 회전·발사를 조준망으로 분리하고 그 가중치를 선택적으로 동결.</li>
+</ol>
+<blockquote>
+<p><strong>핵심 구분</strong>: PPO의 <em>학습 보상</em>이 올랐다는 말과 기본 게임의 <em>실제 점수·생존</em>이 개선됐다는 말은 다르다. 따라서 모든 주요 선택은 기본 게임 평가에서 다시 확인했다.</p>
+</blockquote>
+</section><section class="article-section" id="personal"><div class="section-kicker">02 · 개인 PPO에서 이산 행동을 시험하다</div><h2>PPO2 → PPO3 → PPO4 → PPO5(설정만 존재)</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>계보</th>
+<th style="text-align:right">실제 기록된 총 환경 step</th>
+<th>관측·특징 처리</th>
+<th>행동 구조</th>
+<th>관찰된 방향</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PPO2</td>
+<td style="text-align:right"><strong>1,202,176</strong></td>
+<td>5,139개 원본 숫자, 일반 MLP</td>
+<td>연속 행동 출력 → 게임 명령 변환</td>
+<td>발사 비용·명중 보상 조절, 장기 학습</td>
+</tr>
+<tr>
+<td>PPO3</td>
+<td style="text-align:right"><strong>202,752</strong></td>
+<td>수치 1,224개 + 지형 CNN 64개 → 1,288</td>
+<td>연속 행동 유지</td>
+<td>지형의 공간적 구조를 살리려는 시도</td>
+</tr>
+<tr>
+<td>PPO4</td>
+<td style="text-align:right"><strong>11,063,296</strong></td>
+<td>지형 CNN 유지</td>
+<td>이산 행동 전환</td>
+<td>천체 조준 중심, 보상과 환경을 반복 수정한 13회 세션</td>
+</tr>
+<tr>
+<td>PPO5</td>
+<td style="text-align:right"><strong>0(미실행)</strong></td>
+<td>지형 CNN 예정</td>
+<td>전투 행동 이산화 계획</td>
+<td>벽·공격하는 적까지 확대하려는 설정만 존재</td>
+</tr>
+</tbody>
+</table></div>
+<h3>첫 번째 이산 행동 공간: <code>DiscreteActionDecoder</code></h3>
+<p>게임의 기본 <code>DiscreteActionDecoder</code>는 이동 9개 × 회전 3개 × 발사 2개를 <strong>하나의 정수</strong>로 인코딩한다. 성장 선택을 끈 기본형은 <code>Discrete(54)</code>다. 성장을 포함하도록 설정하면 전체 경우의 수가 더 커진다.</p>
+<pre><code class="language-python"># 기본 이산 행동 디코더의 논리적 인코딩
+# 9 이동 × 3 회전 × 2 발사 = 54 조합
+encoded_action = (move * 3 + rotation) * 2 + fire
+# 0~53의 단일 정수를 정책이 선택
+</code></pre>
+<p>이 표현은 <strong>서로 독립인 세 가지 결정을 하나의 번호에 합친 것</strong>이야. 나중에 등장하는 GPT의 <code>MultiDiscrete([9,9,2,6,5])</code>는 <strong>행동 분기마다 확률분포를 따로 만드는 다른 방법</strong>이므로 혼동하면 안 된다.</p>
+<h3>PPO4의 13개 세션은 무엇을 바꿨나</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>단계</th>
+<th>주된 실험</th>
+<th>해석상의 제약</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>001~003</td>
+<td>적·벽이 없는 곳에서 천체를 조준·발사하도록 학습</td>
+<td>실제 전투의 위험을 경험하지 않음</td>
+</tr>
+<tr>
+<td>004~010</td>
+<td>파괴·명중 보상, 발사 비용, 학습률·엔트로피·KL 조정</td>
+<td>여러 변수가 동시에 달라진 실험들이 있음</td>
+</tr>
+<tr>
+<td>011</td>
+<td>천체 60→40, 생성 거리 300→700, 피해/파괴 보상 재조절</td>
+<td>더 먼 천체를 정확히 맞히도록 유도하려는 가설</td>
+</tr>
+<tr>
+<td>012</td>
+<td>공격하지 않는 적 3기, 천체 파괴·적 처치 보상 증대</td>
+<td>적을 추가했지만 공격하는 실전 적과는 다름</td>
+</tr>
+<tr>
+<td>013</td>
+<td>천체 40개 + 비발사 적 3기, <code>n_steps=512</code>, <code>gamma=.99</code>, 보상 재설정</td>
+<td>11,063,296 step에서 중단됨</td>
+</tr>
+</tbody>
+</table></div>
+<p>PPO4 마지막 평가(기본 검증 3시드·200초)는 <strong>천체 전용 평균 55점, 전투 평균 3.33점</strong>으로 기록됐다. 이것만으로 이산 행동 자체가 나쁘다고 결론 내릴 수는 없다. 행동 표현뿐 아니라 <strong>보상 설계, 초기 탐색, 연습 환경과 실전 환경의 간격</strong>이 함께 작용했기 때문이다.</p>
+<div class="note warning"><b>특히 주의</b><span>개인 PPO2·PPO3·PPO4는 서로 별도의 모델 계보로 집계된 step이다. 120만 + 20만 + 1,106만 step을 하나의 네트워크가 연속 학습했다는 뜻이 아니다.</span></div>
+</section><section class="article-section" id="observation"><div class="section-kicker">03 · 모델은 게임을 어떤 숫자로 보았나</div><h2>5,139차원 Observation을 실제로 펼쳐 보기</h2>
+<p><code>VectorObservation.build(game)</code>은 <strong>게임 객체와 타일 맵을 직접 읽어서</strong> 길이 5,139의 <code>float32</code> 배열을 만든다. 화면을 캡처하거나 이미지를 생성하는 방식이 아니다. 슬라이스는 Python 인덱스 기준으로 오른쪽 끝을 포함하지 않는다.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>전체 인덱스</th>
+<th>의미</th>
+<th style="text-align:right">차원</th>
+<th>후속 GPT FeatureExtractor 처리</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0:10</code></td>
+<td>플레이어 상태</td>
+<td style="text-align:right">10</td>
+<td>성장 상태와 합쳐 133→64</td>
+</tr>
+<tr>
+<td><code>10:133</code></td>
+<td>성장·기체·전직</td>
+<td style="text-align:right">123</td>
+<td>위와 동일</td>
+</tr>
+<tr>
+<td><code>133:412</code></td>
+<td>적 9기 × 31</td>
+<td style="text-align:right">279</td>
+<td>EntityEncoder → 96</td>
+</tr>
+<tr>
+<td><code>412:712</code></td>
+<td>천체 30개 × 10</td>
+<td style="text-align:right">300</td>
+<td>EntityEncoder → 96</td>
+</tr>
+<tr>
+<td><code>712:1224</code></td>
+<td>적 탄환 64발 × 8</td>
+<td style="text-align:right">512</td>
+<td>EntityEncoder → 48</td>
+</tr>
+<tr>
+<td><code>1224:5139</code></td>
+<td>지형 3채널 × 29행 × 45열</td>
+<td style="text-align:right">3,915</td>
+<td>CNN → 32</td>
+</tr>
+<tr>
+<td><strong>전체</strong></td>
+<td>수치 1,224 + 격자 3,915</td>
+<td style="text-align:right"><strong>5,139</strong></td>
+<td>336 합성 → 256</td>
+</tr>
+</tbody>
+</table></div>
+<h3>플레이어 기본 상태 — 정확히 10개</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>인덱스</th>
+<th>값</th>
+<th>정규화·표현</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0,1</code></td>
+<td>플레이어 속도 X·Y</td>
+<td>속도 / 기본 최대 속도</td>
+</tr>
+<tr>
+<td><code>2</code></td>
+<td>플레이어 체력</td>
+<td>현재 HP / 최대 HP</td>
+</tr>
+<tr>
+<td><code>3,4</code></td>
+<td>포신 방향</td>
+<td><code>sin(θ), cos(θ)</code></td>
+</tr>
+<tr>
+<td><code>5</code></td>
+<td>발사 대기</td>
+<td>남은 쿨다운 / 무기 발사 간격</td>
+</tr>
+<tr>
+<td><code>6</code></td>
+<td>충돌 크기</td>
+<td>반지름 / 타일 길이</td>
+</tr>
+<tr>
+<td><code>7</code></td>
+<td>탄약 제한 켜짐</td>
+<td>불리언 0/1</td>
+</tr>
+<tr>
+<td><code>8</code></td>
+<td>잔탄 비율</td>
+<td>남은 탄약 / 탄창 용량; 무제한이면 0</td>
+</tr>
+<tr>
+<td><code>9</code></td>
+<td>재장전</td>
+<td>남은 재장전 프레임 / 총 재장전 프레임</td>
+</tr>
+</tbody>
+</table></div>
+<h3>성장 상태 — 123개</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>인덱스</th>
+<th>항목</th>
+<th>표현</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>10:31</code></td>
+<td>현재 기체</td>
+<td>21차원 One-hot</td>
+</tr>
+<tr>
+<td><code>31:35</code></td>
+<td>레벨·XP·강화 포인트·특수 보상 수</td>
+<td>레벨 및 개수는 <code>x/(x+1)</code>, XP는 다음 레벨까지 비율</td>
+</tr>
+<tr>
+<td><code>35:40</code></td>
+<td>스탯 5종의 강화 단계</td>
+<td>health/damage/range/rapid/speed의 현재 레벨 / 최대 레벨</td>
+</tr>
+<tr>
+<td><code>40:45</code></td>
+<td>해당 스탯 강화 가능 여부</td>
+<td>각 0/1</td>
+</tr>
+<tr>
+<td><code>45:133</code></td>
+<td>전직 선택지</td>
+<td>4칸 × (존재 1 + 기체 One-hot 21)</td>
+</tr>
+</tbody>
+</table></div>
+<h3>적 한 기 — 내부 31개 값</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>적 내부 인덱스</th>
+<th>의미</th>
+<th>값</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0</code></td>
+<td>슬롯 존재</td>
+<td>개체 있음 1 / 빈 슬롯 0</td>
+</tr>
+<tr>
+<td><code>1:3</code></td>
+<td>상대 위치 dx, dy</td>
+<td>(적 − 플레이어 위치) / 관측 영역 반폭·반높이</td>
+</tr>
+<tr>
+<td><code>3:5</code></td>
+<td>이동 속도 X·Y</td>
+<td>속도 / 최대 속도</td>
+</tr>
+<tr>
+<td><code>5</code></td>
+<td>체력 비율</td>
+<td>HP / 최대 HP</td>
+</tr>
+<tr>
+<td><code>6:8</code></td>
+<td>포신 방향</td>
+<td><code>sin(θ), cos(θ)</code></td>
+</tr>
+<tr>
+<td><code>8</code></td>
+<td>충돌 반지름</td>
+<td>반지름 / 타일 길이</td>
+</tr>
+<tr>
+<td><code>9:30</code></td>
+<td>기체 종류</td>
+<td>21차원 One-hot</td>
+</tr>
+<tr>
+<td><code>30</code></td>
+<td>엘리트 여부</td>
+<td>0/1</td>
+</tr>
+</tbody>
+</table></div>
+<h3>천체 하나 — 내부 10개 값</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>내부 인덱스</th>
+<th>의미</th>
+<th>표현</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0</code></td>
+<td>존재</td>
+<td>0/1</td>
+</tr>
+<tr>
+<td><code>1:3</code></td>
+<td>상대 위치</td>
+<td>(천체 − 플레이어) / 관측 반폭·반높이</td>
+</tr>
+<tr>
+<td><code>3:5</code></td>
+<td>이동 속도</td>
+<td>각 축 속도 / 최대 속도</td>
+</tr>
+<tr>
+<td><code>5</code></td>
+<td>체력</td>
+<td>현재 / 최대</td>
+</tr>
+<tr>
+<td><code>6</code></td>
+<td>반지름</td>
+<td>반지름 / 타일 길이</td>
+</tr>
+<tr>
+<td><code>7:10</code></td>
+<td>종류</td>
+<td><code>[square, triangle, pentagon]</code> 3차원 One-hot</td>
+</tr>
+</tbody>
+</table></div>
+<h3>적 탄환 한 발 — 내부 8개 값</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>내부 인덱스</th>
+<th>의미</th>
+<th>표현</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0</code></td>
+<td>존재</td>
+<td>0/1</td>
+</tr>
+<tr>
+<td><code>1:3</code></td>
+<td>상대 위치</td>
+<td>(탄환 − 플레이어) / 관측 반폭·반높이</td>
+</tr>
+<tr>
+<td><code>3:5</code></td>
+<td>탄환 속도 X·Y</td>
+<td>속도 / 기본 탄환 속도</td>
+</tr>
+<tr>
+<td><code>5</code></td>
+<td>반지름</td>
+<td>반지름 / 타일 길이</td>
+</tr>
+<tr>
+<td><code>6:8</code></td>
+<td>종류</td>
+<td><code>plasma</code>, <code>shell</code> 여부; 다른 종류는 둘 다 0 가능</td>
+</tr>
+</tbody>
+</table></div>
+<p>적·천체·탄환은 관측 영역에 걸친 개체를 가까운 순으로 최대 슬롯 개수까지 선택한다. <strong>없는 슬롯은 모두 0</strong>, 벽 뒤에 가려져도 관측 영역 안이면 포함한다. 탄환은 상대 진영 탄환만 넣는다. 모든 최종 값은 <code>[-1, 1]</code> 범위로 잘린다.</p>
+<h3>지형 격자: 3 × 29 × 45는 어디에서 나오나</h3>
+<p>플레이어가 속한 타일의 열·행을 중심으로 왼쪽 22칸~오른쪽 22칸, 위쪽 14칸~아래쪽 14칸을 읽는다. 총 <strong>45열 × 29행</strong>, 각 위치에 세 가지 속성을 기록한다.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>채널·전체 인덱스</th>
+<th>실제 데이터</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>채널 0 · <code>1224:2529</code></td>
+<td><code>terrain.is_solid_tile(col,row)</code></td>
+<td>이동 불가 타일=1, 빈 바닥=0, 맵 밖은 1</td>
+</tr>
+<tr>
+<td>채널 1 · <code>2529:3834</code></td>
+<td>해당 타일이 <code>MUD</code>인지</td>
+<td>중력장 유무 0/1</td>
+</tr>
+<tr>
+<td>채널 2 · <code>3834:5139</code></td>
+<td><code>breakable_hp / breakable_hp_max</code></td>
+<td>파괴 가능한 벽의 남은 체력 비율</td>
+</tr>
+</tbody>
+</table></div>
+<pre><code class="language-python">center_col, center_row = terrain.tile_of(player.x, player.y)
+grid = np.zeros((3, 29, 45), dtype=np.float32)
+for row in range(29):
+    for col in range(45):
+        world_col = center_col + col - 22
+        world_row = center_row + row - 14
+        grid[0, row, col] = terrain.is_solid_tile(world_col, world_row)
+        # grid[1] = 해당 위치가 중력장인지
+        # grid[2] = 파괴 가능한 벽의 남은 체력 비율
+flat = grid.reshape(-1)              # 3,915개
+# 신경망 입력 시: flat.reshape(batch, 3, 29, 45)
+</code></pre>
+<p>기본 <code>n_rays=0</code>이라 추가 레이 센서는 사용하지 않는다. 지형이 <strong>flat vector로 저장됐다가 CNN 앞에서 다시 3채널 배열로 복원</strong>된다는 점이 중요하다.</p>
+</section><section class="article-section" id="architecture"><div class="section-kicker">04 · 신경망 구조가 달라진 지점</div><h2>모든 실험이 다른 네트워크는 아니다</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>구간</th>
+<th>구조 변화</th>
+<th>이어받는 부분</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GPT 001~003</strong></td>
+<td>164차원 <strong>전술 관측</strong> → 기본 MLP Actor/Critic, <code>MultiDiscrete(9,9,2)</code></td>
+<td>교사·모방·PPO 혼합 계보</td>
+</tr>
+<tr>
+<td><strong>GPT 004~005</strong></td>
+<td>5,139차원 <strong>원본 관측</strong> → MLP <code>[128,128]</code> × Actor/Critic, <code>MultiDiscrete(9,9,2,6,5)</code></td>
+<td>004에서 005로 가중치 계승</td>
+</tr>
+<tr>
+<td><strong>GPT 006~008</strong></td>
+<td>개체 공유 인코더 + Attention Pooling + 지형 CNN을 묶은 <code>SpatialFeaturesExtractor</code> 추가</td>
+<td>006은 새 초기화, 007/008은 선택 체크포인트에서 분기</td>
+</tr>
+<tr>
+<td><strong>GPT 009~011</strong></td>
+<td>기존 Actor의 회전·발사 Logits를 <strong>잔차 조준망으로 보정</strong></td>
+<td>기본 구조 유지, 추가 조준 head 학습</td>
+</tr>
+<tr>
+<td><strong>GPT 012~013</strong></td>
+<td>보정이 아니라 <strong>독립 조준망이 회전·발사 Logits를 교체</strong></td>
+<td>이전 몸체 유지, 조준 head 재초기화</td>
+</tr>
+<tr>
+<td><strong>GPT 014~017</strong></td>
+<td>같은 신경망에서 동결 대상을 바꾸며 학습</td>
+<td>조준/몸체 분리 훈련</td>
+</tr>
+<tr>
+<td><strong>GPT 018~022</strong></td>
+<td>018 행동 간격 변경, 019~021 PPO 추가 학습, 022 가중치 혼합</td>
+<td>독립 조준 구조 유지</td>
+</tr>
+</tbody>
+</table></div>
+<h3>006 이후 FeatureExtractor: 입력은 하나, 출력도 하나</h3>
+<p><code>SpatialFeaturesExtractor</code>는 <code>BaseFeaturesExtractor</code>의 사용자 정의 구현이다. 내부에서 다른 종류의 관측을 분리하지만 <strong>Actor와 Critic을 직접 생성하지 않는다.</strong> 출력은 공통 <strong>256차원 특징 벡터 하나</strong>다.</p>
+<pre><code class="language-text">Observation (batch, 5139)
+ ├── Player + progression (133) ── MLP ───────────► 64
+ ├── Enemies (9 × 31) ─────────── EntityEncoder ─► 96
+ ├── Shapes (30 × 10) ─────────── EntityEncoder ─► 96
+ ├── Bullets (64 × 8) ─────────── EntityEncoder ─► 48
+ └── Terrain (3 × 29 × 45) ────── CNN ──────────► 32
+                                      CONCAT = 336
+                                           ↓
+                                    Linear(336,256)
+                                           ↓
+                                shared features (256)
+                                    ↙             ↘
+                        Actor MLP [128,128]   Critic MLP [128,128]
+                                    ↓             ↓
+                              31 logits         V(s)
+</code></pre>
+<p>각 EntityEncoder는 개체 원본에 <strong>플레이어 포신 기준 기하 6개</strong> (<code>forward</code>, <code>sideways</code>, <code>distance</code>, <code>forward/d</code>, <code>sideways/d</code>, <code>1/(1+d)</code>)를 덧붙인 후, <strong>같은 종류의 개체에 하나의 공유 MLP</strong>를 적용한다. 그다음 <code>[첫 개체 임베딩, Attention 가중합, 특징별 Max Pooling]</code>을 연결한다.</p>
+<p><strong>Max Pooling은 평균이 아니다.</strong> 예를 들어 <code>[1,7,2]</code>와 <code>[5,3,4]</code>가 들어오면 Max Pooling은 <code>[5,7,4]</code>이고, Average Pooling은 <code>[3,5,3]</code>이다. <strong>Masked Attention</strong>은 비어 있는 엔티티 슬롯의 중요도 점수를 마스킹하고, 남아 있는 개체들의 임베딩을 가중합한다. 이 구현은 Transformer의 Q/K/V Self-Attention과 다르다.</p>
+<h3>행동 출력: 왜 31 Logits에서 다섯 가지 행동이 나오나</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Logits 슬라이스</th>
+<th>행동 분기</th>
+<th style="text-align:right">선택지 수</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0:9</code></td>
+<td>이동</td>
+<td style="text-align:right">9</td>
+</tr>
+<tr>
+<td><code>9:18</code></td>
+<td>회전</td>
+<td style="text-align:right">9</td>
+</tr>
+<tr>
+<td><code>18:20</code></td>
+<td>발사</td>
+<td style="text-align:right">2</td>
+</tr>
+<tr>
+<td><code>20:26</code></td>
+<td>강화</td>
+<td style="text-align:right">6</td>
+</tr>
+<tr>
+<td><code>26:31</code></td>
+<td>전직</td>
+<td style="text-align:right">5</td>
+</tr>
+</tbody>
+</table></div>
+<p>이는 전체 31개를 하나의 Softmax로 처리하는 것이 아니라 <strong>다섯 구간에 별도로 Softmax</strong>를 적용하는 <code>MultiCategoricalDistribution</code>이다. PPO가 사용한 전체 행동 로그 확률은 분기별 로그 확률의 합이다.</p>
+<h3>잔차 조준망에서 독립 조준망으로</h3>
+<pre><code class="language-text">009~011 잔차형
+  기본 Actor: turn/fire logits ──────────┐
+  조준 기하 + Actor latent → MLP → Δ11 ┼→ 더하기 → 행동분포
+                                        ┘
+012~022 독립형
+  기본 Actor: move/growth logits ────────┐
+  원본 observation → 기하/가시 표적 → MLP → 11 logits
+                                        └→ turn/fire 교체 → 행동분포
+</code></pre>
+<p>009의 보정망은 회전 9개·발사 2개의 기본 Logits에 <strong>11개 보정값을 더하고</strong>, 마지막 층을 0으로 초기화해 기존 행동을 처음에는 보존했다. 012의 독립망은 <strong>기본 Actor의 회전·발사 출력을 사용하지 않고 새 11개 값으로 교체</strong>한다. 독립망에는 Actor의 256차원 특징을 그대로 넣는 것이 아니라 원본 Observation에서 추출한 표적 기하정보가 별도 경로로 들어간다.</p>
+<h3><code>GrowthMaskedPolicy</code>는 PPO 자체가 아니다</h3>
+<p><code>GrowthMaskedPolicy(ActorCriticPolicy)</code>는 SB3에 맞춰 만든 <strong>정책 클래스</strong>다. <code>SpatialFeaturesExtractor</code>로 256차원 특징을 만들고, Actor/Critic을 계산하고, 독립 조준망을 연결하며, <strong>불가능한 강화·전직 선택지만 마스킹</strong>해서 확률 분포를 만든다. 반면 <code>PPO</code> 클래스가 rollout, GAE, policy/value loss, 역전파를 담당한다.</p>
+<pre><code class="language-python">model = PPO(
+    GrowthMaskedPolicy, env,
+    policy_kwargs={
+        'features_extractor_class': SpatialFeaturesExtractor,
+        'net_arch': {'pi':[128,128], 'vf':[128,128]},
+    },
+)
+</code></pre>
+</section><section class="article-section" id="earlygpt"><div class="section-kicker">05 · GPT 001~005: 모방학습과 순수 PPO의 대비</div><h2>001~003: 규칙 교사의 동작을 배우고 PPO로 수정하다</h2>
+<p>규칙 교사(Teacher)는 <em>가장 가까운 목표를 찾아 방향을 계산하고, 포신을 돌리고, 발사</em>하는 식의 코딩된 행동 함수다. <strong>BC(Behavior Cloning)</strong> 는 교사의 <code>(관측, 행동)</code>을 지도학습해 행동 확률을 높이는 과정이고, PPO의 현재 정책 RolloutBuffer를 미리 채우는 것과는 다르다.</p>
+<p>001은 교사 시연 16,384개를 모방하고 <strong>모방 직후 평균 3,070점</strong>을 얻었다. 하지만 PPO 34,048 step을 추가하자 <strong>2,640점으로 감소</strong>했다. 이를 곧바로 Critic 문제라고 확정할 수는 없다. <strong>BC는 기본적으로 Actor의 행동 분포를 학습하지만 Critic 가치 함수를 정확하게 만드는 것은 아니며</strong>, 보상 목적의 차이, 학습·평가 환경 차이도 가능성이다.</p>
+<p>003은 DAgger식 접근을 도입했다. <strong>교사와 학습자가 50:50 비율로 실제 행동을 실행</strong>해 다양한 상태를 방문하고, <strong>방문한 상태의 정답은 교사의 행동</strong>으로 기록했다. 그 뒤 BC를 다시 하고 PPO로 미세조정했다. 고정 3시드·200초에서는 평균 3,967점까지 올라갔지만, <strong>새 3시드·600초 비교에서는 001 BC 정책(5,380점·289.82초)보다 003(5,068.33점·265.34초)이 낮았다.</strong> 개발 시드의 성공이 독립 시드의 성공을 보장하지 않는다는 첫 사례다.</p>
+<h2>004~005: 교사 없이 순수 PPO를 실행하다</h2>
+<p>004는 <strong>164차원 전술 관측과 규칙 기반 성장 결정을 버리고</strong>, 5,139차원 원본 관측에서 이동·회전·발사·강화·전직을 모두 정책이 선택하도록 바꿨다. 신경망은 MLP <code>[128,128]</code>이었고 무작위 초기화에서 출발했다. 005에서 추가로 학습했지만 실전 점수는 거의 개선되지 않았다.</p>
+<p>이때의 결론은 <strong>"PPO가 안 된다"</strong>가 아니라 <strong>"현재 관측 표현·행동 구조·커리큘럼 조합에서는 처음부터 조준을 발견하기 어렵다"</strong>였다. 그래서 006은 보상을 더 크게 만드는 것만이 아니라 특징 추출 구조 자체를 변경했다.</p>
+</section><section class="article-section" id="training"><div class="section-kicker">06 · GPT 006~022: 무엇을 바꾸고 무엇을 포기했나</div><h2>전환 1 — 006~008: 관측을 구조화했지만 실전으로 옮겨가지 못하다</h2>
+<p>006은 원본 5,139차원은 유지한 채 <strong>개체별 공유 인코더·Attention Pooling·지형 CNN</strong>을 결합해 256차원 특징을 만들었다. 작은 천체 연습 공간에서 무작위 초기화 PPO를 시작했다. 개발 평가 최고 168.33점의 체크포인트는 마지막 155점보다 좋았고, 그래서 <strong>마지막이 아니라 중간 최고 모델</strong>을 다음 부모로 선택했다.</p>
+<p>007은 공격하지 않는 이동 적 2기를 추가하고, 008은 실제 기본 게임과 보상 v3을 사용했지만 독립적인 큰 개선은 없었다. <strong>연습 환경에서 점수가 오르는 것과 벽·발사 적이 있는 기본 게임에서 살아남는 것은 다르다</strong>는 문제를 확인했다.</p>
+<h2>전환 2 — 009~013: 조준을 별도 신경망으로 격리하다</h2>
+<p>009에서는 기존 정책의 회전·발사 출력을 보정하는 <code>aim_residual</code>을 추가했다. 010~011에서는 기본 Actor를 동결해 별도 사격장에서 조준만 학습했지만 <strong>실전으로의 전이는 약했다.</strong></p>
+<p>012는 조준 입력을 재정리하고 회전·발사 Logits를 <strong>독립 조준망이 완전히 대체</strong>하도록 바꿨다. 이 변경 이후 개발 평가가 595점, 013에서 이동 표적을 추가하자 820점까지 올라갔다. 다만 조준망 구조만 바뀐 것이 아니라 입력 구성과 학습도 함께 바뀌었으므로 <strong>단독 인과 효과로 해석하지 않는다.</strong></p>
+<h2>전환 3 — 014~018: 조준망을 고정하고 몸체를 학습하다</h2>
+<p>014는 조준망을 동결하고 <strong>기본 Actor(이동·강화·진화), 공유 특징 추출기, Critic</strong>을 기본 게임에서 PPO로 학습했다. 독립 10시드·400초 평가에서 기존 005 대비 점수가 <strong>11.5→1,389점</strong>, 평균 생존이 <strong>67.74→197.66초</strong>가 되어 1차 기준 모델로 채택됐다.</p>
+<p>015에서는 추가 학습만으로 초반 하위 점수를 안정화하지 못했고, 016에서는 과도한 조준 보조 보상을 줄이고 피격·사망 비용을 늘린 <code>score_v6</code>를 시도했다. 018은 <strong>016의 가중치는 그대로 사용하면서 행동 결정 주기를 4프레임에서 2프레임으로</strong> 바꿨다. 새 20시드·400초 비교에서 120초 점수 p25가 618.75→788.75, 평균 최종 점수가 1,167→1,434.5, 생존이 160.69→197.18초로 좋아져 <strong>공개 기본 모델</strong>이 됐다.</p>
+<h2>전환 4 — 019~022: 평균 점수가 올라도 배포 모델을 바꾸지 않다</h2>
+<p>019는 2프레임 판단 주기에서 몸체를 다시 학습했고, 020은 물리 시간 기준 할인 효과를 맞추려고 <code>gamma=sqrt(.995)</code>를 적용했다. 020은 새 20시드에서 평균 점수는 올랐지만 <strong>120초 하위 점수와 평균 생존이 떨어졌다.</strong> 021의 조준망 추가학습도 후보가 되지 못했다.</p>
+<p>022는 018과 020의 <strong>같은 구조를 가진 신경망 가중치를 원소별로 혼합</strong>했다. PPO 업데이트는 0번이었다. 다시 새 20시드에서 최종 평균 점수는 <strong>1,591.25→2,057.75(+29.3%)</strong>, 평균 생존은 <strong>185.72→235.43초</strong>로 올랐지만, <strong>120초 p25가 865→650(-24.9%)</strong>으로 악화됐다. 사전에 정한 안정성 조건에 미달하여 <strong>기본 모델은 018로 유지</strong>했다.</p>
+</section><section class="article-section experiment-section" id="experiment-table">
+<div class="section-kicker">06A · 001~022 전체 실험 원장</div>
+<div class="experiment-head"><h2>한 표로 비교하는 22개 실험</h2><span class="smallprint">기본적으로 마지막 checkpoint 평가 · 018/022는 D그룹 독립평가</span></div>
+<p class="explain">행 아래의 ‘A/B/C/D’는 평가 조건이 다른 그룹이다. 표의 숫자는 <b>평균 / p25</b>(점수)이며, 120초 이전 사망 시 마지막 점수를 사용한다. 직접적인 모델 간 성능 비교는 반드시 <b>같은 평가 그룹과 동일 조건 안에서</b> 읽어야 한다.</p>
+<div class="filters"><input aria-label="실험 검색" id="exp-search" placeholder="실험 번호·구조·보상 검색" type="search"/><select aria-label="평가 그룹" id="exp-group"><option value="all">전체 평가 그룹</option><option value="A">A · 3시드·200초</option><option value="B">B · 6시드·200초</option><option value="C">C · 4시드·200초</option><option value="D">D · 새 20시드·400초</option></select><span aria-live="polite" class="smallprint" id="exp-count"></span></div>
+<div class="table-scroll"><table class="exp-table"><thead><tr><th>실험</th><th>단계</th><th>최종 점수 평균 / p25</th><th>120초 점수 평균 / p25</th><th>생존 평균(초)</th><th>보상</th><th>설정 변경 및 가설</th><th>채택 판단</th></tr></thead><tbody id="experiment-tbody"><tr data-group="A" data-search="001 모방 정책 출발 초기 규칙 교사 16,384 시연 → bc 25 epoch → ppo +34,048. bc 직후 평균 3,070점. ppo 후퇴 / bc 보존"><td><b>001</b><span class="group">A</span></td><td>모방 정책 출발</td><td class="numeric">2640 / 2563</td><td class="numeric">—</td><td class="numeric">193.2</td><td><span class="reward">초기</span></td><td class="change">규칙 교사 16,384 시연 → BC 25 epoch → PPO +34,048. BC 직후 평균 3,070점.</td><td><span class="status reject">미채택</span><small class="decision">PPO 후퇴 / BC 보존</small></td></tr><tr data-group="A" data-search="002 실제 게임 ppo 보정 초기 001의 bc 가중치로 기본 게임에서 ppo +66,304. bc 가중치 유지"><td><b>002</b><span class="group">A</span></td><td>실제 게임 PPO 보정</td><td class="numeric">3028 / 2690</td><td class="numeric">—</td><td class="numeric">181.4</td><td><span class="reward">초기</span></td><td class="change">001의 BC 가중치로 기본 게임에서 PPO +66,304.</td><td><span class="status reject">미채택</span><small class="decision">BC 가중치 유지</small></td></tr><tr data-group="A" data-search="003 dagger식 혼합 수집 초기 교사 50%·학습자 50%로 실행해 상태 수집, 정답은 교사. bc 30 epoch → ppo +16,640. 개발 채택 / 독립 600초에선 bc보다 열세"><td><b>003</b><span class="group">A</span></td><td>DAgger식 혼합 수집</td><td class="numeric">3967 / 3725</td><td class="numeric">—</td><td class="numeric">200.0</td><td><span class="reward">초기</span></td><td class="change">교사 50%·학습자 50%로 실행해 상태 수집, 정답은 교사. BC 30 epoch → PPO +16,640.</td><td><span class="status conditional">조건부</span><small class="decision">개발 채택 / 독립 600초에선 BC보다 열세</small></td></tr><tr data-group="A" data-search="004 순수 ppo 처음부터 초기 교사 제거. 원본 5,139차원, multidiscrete 5분기, mlp [128,128]. 후속 부모 / 실패 기준선"><td><b>004</b><span class="group">A</span></td><td>순수 PPO 처음부터</td><td class="numeric">3.3 / 0</td><td class="numeric">—</td><td class="numeric">60.9</td><td><span class="reward">초기</span></td><td class="change">교사 제거. 원본 5,139차원, MultiDiscrete 5분기, MLP [128,128].</td><td><span class="status parent">후속 부모</span><small class="decision">후속 부모 / 실패 기준선</small></td></tr><tr data-group="A" data-search="005 기본 게임 추가 학습 초기 004에서 +263,424 step 이어 학습. 최신 거절 / 이전 체크포인트 유지"><td><b>005</b><span class="group">A</span></td><td>기본 게임 추가 학습</td><td class="numeric">3.3 / 0</td><td class="numeric">—</td><td class="numeric">43.6</td><td><span class="reward">초기</span></td><td class="change">004에서 +263,424 step 이어 학습.</td><td><span class="status reject">미채택</span><small class="decision">최신 거절 / 이전 체크포인트 유지</small></td></tr><tr data-group="B" data-search="006 개체별 특징 추출 v2 새 초기화, entityencoder·attention·cnn→256, 짧은 조준 훈련. 중간 최고 168.3점 선택"><td><b>006</b><span class="group">B</span></td><td>개체별 특징 추출</td><td class="numeric">155 / 99</td><td class="numeric">—</td><td class="numeric">33.5</td><td><span class="reward">v2</span></td><td class="change">새 초기화, EntityEncoder·Attention·CNN→256, 짧은 조준 훈련.</td><td><span class="status parent">후속 부모</span><small class="decision">중간 최고 168.3점 선택</small></td></tr><tr data-group="B" data-search="007 움직이는 적 연습 v2 006 best에서 비발사 이동 적 2기로 커리큘럼. 후퇴 / 006으로 복귀"><td><b>007</b><span class="group">B</span></td><td>움직이는 적 연습</td><td class="numeric">107 / 26</td><td class="numeric">—</td><td class="numeric">45.7</td><td><span class="reward">v2</span></td><td class="change">006 best에서 비발사 이동 적 2기로 커리큘럼.</td><td><span class="status reject">미채택</span><small class="decision">후퇴 / 006으로 복귀</small></td></tr><tr data-group="B" data-search="008 실전 환경 보상 조절 v3 전체 게임·피격/사망/발사 품질/탄환 위험 보상 조정. 개선 실패"><td><b>008</b><span class="group">B</span></td><td>실전 환경 보상 조절</td><td class="numeric">135 / 69</td><td class="numeric">—</td><td class="numeric">33.9</td><td><span class="reward">v3</span></td><td class="change">전체 게임·피격/사망/발사 품질/탄환 위험 보상 조정.</td><td><span class="status reject">미채택</span><small class="decision">개선 실패</small></td></tr><tr data-group="B" data-search="009 잔차 조준망 v4 기본 actor의 회전·발사 logits에 보조 조준망 출력 추가. 중간 최고 188.3점 선택"><td><b>009</b><span class="group">B</span></td><td>잔차 조준망</td><td class="numeric">138 / 46</td><td class="numeric">—</td><td class="numeric">40.0</td><td><span class="reward">v4</span></td><td class="change">기본 Actor의 회전·발사 logits에 보조 조준망 출력 추가.</td><td><span class="status parent">후속 부모</span><small class="decision">중간 최고 188.3점 선택</small></td></tr><tr data-group="B" data-search="010 정적 표적 조준 v5 기본 actor·특징 추출기 동결, 조준망과 critic 학습. 실전 전이 미흡"><td><b>010</b><span class="group">B</span></td><td>정적 표적 조준</td><td class="numeric">134 / 39</td><td class="numeric">—</td><td class="numeric">58.0</td><td><span class="reward">v5</span></td><td class="change">기본 Actor·특징 추출기 동결, 조준망과 Critic 학습.</td><td><span class="status reject">미채택</span><small class="decision">실전 전이 미흡</small></td></tr><tr data-group="B" data-search="011 이동 표적·입력 통합 v5 이동 표적과 적/천체 공통 기하 입력. 후퇴 / 조준 구조 재설계"><td><b>011</b><span class="group">B</span></td><td>이동 표적·입력 통합</td><td class="numeric">72 / 43</td><td class="numeric">—</td><td class="numeric">61.7</td><td><span class="reward">v5</span></td><td class="change">이동 표적과 적/천체 공통 기하 입력.</td><td><span class="status reject">미채택</span><small class="decision">후퇴 / 조준 구조 재설계</small></td></tr><tr data-group="B" data-search="012 독립 조준망 v5 조준망 출력층 재초기화, 회전·발사 logits 보정에서 교체로 변경. 중간 최고 623.3점 선택"><td><b>012</b><span class="group">B</span></td><td>독립 조준망</td><td class="numeric">595 / 408</td><td class="numeric">—</td><td class="numeric">110.8</td><td><span class="reward">v5</span></td><td class="change">조준망 출력층 재초기화, 회전·발사 logits 보정에서 교체로 변경.</td><td><span class="status parent">후속 부모</span><small class="decision">중간 최고 623.3점 선택</small></td></tr><tr data-group="B" data-search="013 이동 표적 독립 조준 v5 012 best에서 이동 표적 훈련. 조준 입력에서 불필요한 hp 제외. 014 부모"><td><b>013</b><span class="group">B</span></td><td>이동 표적 독립 조준</td><td class="numeric">820 / 621</td><td class="numeric">—</td><td class="numeric">114.6</td><td><span class="reward">v5</span></td><td class="change">012 best에서 이동 표적 훈련. 조준 입력에서 불필요한 HP 제외.</td><td><span class="status parent">후속 부모</span><small class="decision">014 부모</small></td></tr><tr data-group="B" data-search="014 몸체 정책 학습 v5 조준 동결, 개체 인코더·cnn·기본 actor·critic 학습. 1차 기본 모델 채택"><td><b>014</b><span class="group">B</span></td><td>몸체 정책 학습</td><td class="numeric">1459 / 1271</td><td class="numeric">—</td><td class="numeric">156.9</td><td><span class="reward">v5</span></td><td class="change">조준 동결, 개체 인코더·CNN·기본 Actor·Critic 학습.</td><td><span class="status selected">선택</span><small class="decision">1차 기본 모델 채택</small></td></tr><tr data-group="B" data-search="015 추가 몸체 학습 v5 014에서 기존 보상으로 추가 ppo, 초반 성능/하위 성적 기준 도입. 초반 p25 악화 / 거절"><td><b>015</b><span class="group">B</span></td><td>추가 몸체 학습</td><td class="numeric">1490 / 884</td><td class="numeric">1070 / 634</td><td class="numeric">141.6</td><td><span class="reward">v5</span></td><td class="change">014에서 기존 보상으로 추가 PPO, 초반 성능/하위 성적 기준 도입.</td><td><span class="status reject">미채택</span><small class="decision">초반 p25 악화 / 거절</small></td></tr><tr data-group="B" data-search="016 실제 점수·생존 보상 v6 보조 보상 축소, 피격·사망 비용 확대. 조준 동결. 4프레임은 열세 / 2프레임 018 후보"><td><b>016</b><span class="group">B</span></td><td>실제 점수·생존 보상</td><td class="numeric">896 / 590</td><td class="numeric">869 / 581</td><td class="numeric">84.9</td><td><span class="reward">v6</span></td><td class="change">보조 보상 축소, 피격·사망 비용 확대. 조준 동결.</td><td><span class="status parent">후속 부모</span><small class="decision">4프레임은 열세 / 2프레임 018 후보</small></td></tr><tr data-group="B" data-search="017 조준망만 실전 조정 v5 몸체 동결, 조준망과 critic 추가 학습. 018 계열 대비 탈락"><td><b>017</b><span class="group">B</span></td><td>조준망만 실전 조정</td><td class="numeric">1258 / 1056</td><td class="numeric">996 / 788</td><td class="numeric">157.5</td><td><span class="reward">v5</span></td><td class="change">몸체 동결, 조준망과 Critic 추가 학습.</td><td><span class="status reject">미채택</span><small class="decision">018 계열 대비 탈락</small></td></tr><tr data-group="D" data-search="018 행동 주기 보정 v6 계보 016 가중치 변경 없이 frame_skip 4→2, ppo 업데이트 0. 최종 공개 기본 모델 유지"><td><b>018</b><span class="group">D</span></td><td>행동 주기 보정</td><td class="numeric">1591 / 1113</td><td class="numeric">1139 / 865</td><td class="numeric">185.7</td><td><span class="reward">v6 계보</span></td><td class="change">016 가중치 변경 없이 frame_skip 4→2, PPO 업데이트 0.</td><td><span class="status selected">선택</span><small class="decision">최종 공개 기본 모델 유지</small></td></tr><tr data-group="C" data-search="019 2프레임에서 추가 학습 v6 조준 동결, 몸체·critic 2프레임에서 ppo 재학습. 020·021의 부모 / 미승격"><td><b>019</b><span class="group">C</span></td><td>2프레임에서 추가 학습</td><td class="numeric">1964 / 1880</td><td class="numeric">1593 / 1336</td><td class="numeric">177.4</td><td><span class="reward">v6</span></td><td class="change">조준 동결, 몸체·Critic 2프레임에서 PPO 재학습.</td><td><span class="status parent">후속 부모</span><small class="decision">020·021의 부모 / 미승격</small></td></tr><tr data-group="C" data-search="020 할인율 시간 보정 v7 019에서 추가 학습, γ=√0.995 ≈ 0.9975. 독립 시드에선 p25·생존 악화"><td><b>020</b><span class="group">C</span></td><td>할인율 시간 보정</td><td class="numeric">1821 / 1336</td><td class="numeric">1516 / 1075</td><td class="numeric">200.0</td><td><span class="reward">v7</span></td><td class="change">019에서 추가 학습, γ=√0.995 ≈ 0.9975.</td><td><span class="status reject">미채택</span><small class="decision">독립 시드에선 p25·생존 악화</small></td></tr><tr data-group="C" data-search="021 조준만 재학습 v5 019에서 몸체 동결, 조준망 ppo 업데이트. 거절"><td><b>021</b><span class="group">C</span></td><td>조준만 재학습</td><td class="numeric">1176 / 646</td><td class="numeric">875 / 631</td><td class="numeric">148.0</td><td><span class="reward">v5</span></td><td class="change">019에서 몸체 동결, 조준망 PPO 업데이트.</td><td><span class="status reject">미채택</span><small class="decision">거절</small></td></tr><tr data-group="D" data-search="022 체크포인트 가중치 혼합 학습 없음 018·020의 파라미터를 원소별 50:50 혼합, ppo 0 step. 120초 p25 865→650 / 공개 거절"><td><b>022</b><span class="group">D</span></td><td>체크포인트 가중치 혼합</td><td class="numeric">2058 / 1151</td><td class="numeric">1164 / 650</td><td class="numeric">235.4</td><td><span class="reward">학습 없음</span></td><td class="change">018·020의 파라미터를 원소별 50:50 혼합, PPO 0 step.</td><td><span class="status reject">미채택</span><small class="decision">120초 p25 865→650 / 공개 거절</small></td></tr></tbody></table></div>
+<div class="legend"><div><b>A · 초기 GPT</b><small>001~005 · 개발 3시드 · 200초</small></div><div><b>B · 구조 개선</b><small>006~017 · 개발 6시드 · 200초</small></div><div><b>C · 2프레임 재학습</b><small>019~021 · 개발 4시드 · 200초</small></div><div><b>D · 최종 비교</b><small>018 및 022 · 같은 새로운 20시드 · 400초</small></div></div>
+</section><section class="article-section lineage-section" id="branch-graph">
+<div class="section-kicker">06B · 학습 가중치의 계보와 실험 분기</div>
+<h2>22개 실험은 어떻게 갈라졌나?</h2>
+<p>위 표가 각 실험의 결과를 보여준다면, 이 그래프는 <strong>어떤 체크포인트에서 이어서 학습했는지, 어떤 실험을 버리고 이전 지점으로 돌아갔는지</strong> 보여준다. <strong>실선</strong>은 가중치 계승, <strong>회색 점선</strong>은 <em>가중치 계승 없이 새로운 구조·초기화로 전환</em>, <strong>보라색 점선</strong>은 두 정책의 가중치 혼합을 의미한다.</p>
+<div class="lineage-controls"><button aria-pressed="true" class="lineage-control is-active" id="lineage-all" type="button">전체 분기</button><button aria-pressed="false" class="lineage-control" id="lineage-main" type="button">018 채택 계보 강조</button><span class="smallprint">노드를 누르면 변경 이유를 볼 수 있어.</span></div>
+<div aria-label="그래프 표시 범례" class="lineage-legend">
+<span><i class="lg-pill lg-published"></i>최종 공개(018)</span>
+<span><i class="lg-pill lg-parent"></i>후속 실험 부모</span>
+<span><i class="lg-pill lg-rejected"></i>미채택</span>
+<span><i class="lg-line lg-reset"></i>다른 초기화·구조 전환</span>
+<span><i class="lg-line lg-mix"></i>가중치 혼합</span>
+</div>
+<div aria-label="실험 분기 그래프, 세로로 읽기" class="lineage-scroll" tabindex="0">
+<!-- Generated by graphviz version 2.42.4 (0)
+ -->
+<!-- Title: gpt_lineage Pages: 1 -->
+<svg aria-label="GPT 001부터 022까지 부모 체크포인트 및 실험 분기 그래프" class="lineage-svg" height="1437pt" role="img" viewbox="0.00 0.00 687.50 1437.00" width="688pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g class="graph" id="graph0" transform="scale(1 1) rotate(0) translate(18 1419)">
+<title>gpt_lineage</title>
+<!-- 001&#45;&gt;002 -->
+<g class="edge lineage-edge" id="branch-edge-001-002">
+<title>001-&gt;002</title>
+<path d="M86.2,-1354.97C82.72,-1341.75 78.26,-1324.8 74.52,-1310.57" fill="none" stroke="#98afb8" stroke-width="1.7"></path>
+<polygon fill="#98afb8" points="76.71,-1309.95 72.85,-1304.24 72.31,-1311.11 76.71,-1309.95" stroke="#98afb8" stroke-width="1.7"></polygon>
+<text fill="#6b7f89" font-family="NanumSquare" font-size="10.00" text-anchor="middle" x="87.5" y="-1327">BC</text>
+</g>
+<!-- 001&#45;&gt;003 -->
+<g class="edge lineage-edge" id="branch-edge-001-003">
+<title>001-&gt;003</title>
+<path d="M127.02,-1354.97C149.53,-1340.81 178.84,-1322.37 202.37,-1307.56" fill="none" stroke="#98afb8" stroke-width="1.7"></path>
+<polygon fill="#98afb8" points="203.62,-1309.47 207.91,-1304.08 201.19,-1305.61 203.62,-1309.47" stroke="#98afb8" stroke-width="1.7"></polygon>
+<text fill="#6b7f89" font-family="NanumSquare" font-size="10.00" text-anchor="middle" x="179.5" y="-1327">BC</text>
+</g>
+<!-- 003&#45;&gt;004 -->
+<g class="edge lineage-edge" id="branch-edge-003-004">
+<title>003-&gt;004</title>
+<path d="M243,-1257.97C243,-1244.87 243,-1228.11 243,-1213.96" fill="none" stroke="#b1b9c0" stroke-dasharray="5,2" stroke-width="1.3"></path>
+<polygon fill="#b1b9c0" points="245.28,-1213.74 243,-1207.24 240.73,-1213.74 245.28,-1213.74" stroke="#b1b9c0" stroke-width="1.3"></polygon>
+<text fill="#849198" font-family="NanumSquare" font-size="10.00" text-anchor="middle" x="262.5" y="-1230">새 초기화</text>
+</g>
+<!-- 004&#45;&gt;005 -->
+<g class="edge lineage-edge" id="branch-edge-004-005">
+<title>004-&gt;005</title>
+<path d="M243,-1160.67C243,-1150.32 243,-1137.9 243,-1126.85" fill="none" stroke="#98afb8" stroke-width="1.7"></path>
+<polygon fill="#98afb8" points="245.28,-1126.68 243,-1120.18 240.73,-1126.68 245.28,-1126.68" stroke="#98afb8" stroke-width="1.7"></polygon>
+</g>
+<!-- 005&#45;&gt;006 -->
+<g class="edge lineage-edge" id="branch-edge-005-006">
+<title>005-&gt;006</title>
+<path d="M243,-1073.97C243,-1060.87 243,-1044.11 243,-1029.96" fill="none" stroke="#b1b9c0" stroke-dasharray="5,2" stroke-width="1.3"></path>
+<polygon fill="#b1b9c0" points="245.28,-1029.74 243,-1023.24 240.73,-1029.74 245.28,-1029.74" stroke="#b1b9c0" stroke-width="1.3"></polygon>
+<text fill="#849198" font-family="NanumSquare" font-size="10.00" text-anchor="middle" x="273.5" y="-1046">새 구조·초기화</text>
+</g>
+<!-- 006&#45;&gt;007 -->
+<g class="edge lineage-edge" id="branch-edge-006-007">
+<title>006-&gt;007</title>
+<path d="M198.52,-976.89C175.16,-965.28 146.46,-951.01 122.3,-939" fill="none" stroke="#98afb8" stroke-width="1.7"></path>
+<polygon fill="#98afb8" points="123.09,-936.86 116.26,-936 121.07,-940.93 123.09,-936.86" stroke="#98afb8" stroke-width="1.7"></polygon>
+</g>
+<!-- 006&#45;&gt;008 -->
+<g class="edge lineage-edge" id="branch-edge-006-008">
+<title>006-&gt;008</title>
+<path d="M243,-976.67C243,-966.32 243,-953.9 243,-942.85" fill="none" stroke="#98afb8" stroke-width="1.7"></path>
+<polygon fill="#98afb8" points="245.28,-942.68 243,-936.18 240.73,-942.68 245.28,-942.68" stroke="#98afb8" stroke-width="1.7"></polygon>
+</g>
+<!-- 006&#45;&gt;009 -->
+<g class="edge mainline lineage-edge" id="branch-edge-006-009">
+<title>006-&gt;009</title>
+<path d="M286.18,-976.89C308.85,-965.28 336.72,-951.01 360.17,-939" fill="none" stroke="#98afb8" stroke-width="1.7"></path>
+<polygon fill="#98afb8" points="361.29,-940.99 366.03,-936 359.21,-936.94 361.29,-940.99" stroke="#98afb8" stroke-width="1.7"></polygon>
+</g>
+<!-- 009&#45;&gt;010 -->
+<g class="edge mainline lineage-edge" id="branch-edge-009-010">
+<title>009-&gt;010</title>
+<path d="M409,-889.67C409,-879.32 409,-866.9 409,-855.85" fill="none" stroke="#98afb8" stroke-width="1.7"></path>
+<polygon fill="#98afb8" points="411.28,-855.68 409,-849.18 406.73,-855.68 411.28,-855.68" stroke="#98afb8" stroke-width="1.7"></polygon>
+</g>
+<!-- 010&#45;&gt;011 -->
+<g class="edge mainline lineage-edge" id="branch-edge-010-011">
+<title>010-&gt;011</title>
+<path d="M409,-802.67C409,-792.32 409,-779.9 409,-768.85" fill="none" stroke="#98afb8" stroke-width="1.7"></path>
+<polygon fill="#98afb8" points="411.28,-768.68 409,-762.18 406.73,-768.68 411.28,-768.68" stroke="#98afb8" stroke-width="1.7"></polygon>
+</g>
+<!-- 011&#45;&gt;012 -->
+<g class="edge mainline lineage-edge" id="branch-edge-011-012">
+<title>011-&gt;012</title>
+<path d="M409,-715.67C409,-705.32 409,-692.9 409,-681.85" fill="none" stroke="#98afb8" stroke-width="1.7"></path>
+<polygon fill="#98afb8" points="411.28,-681.68 409,-675.18 406.73,-681.68 411.28,-681.68" stroke="#98afb8" stroke-width="1.7"></polygon>
+</g>
+<!-- 012&#45;&gt;013 -->
+<g class="edge mainline lineage-edge" id="branch-edge-012-013">
+<title>012-&gt;013</title>
+<path d="M409,-628.67C409,-618.32 409,-605.9 409,-594.85" fill="none" stroke="#98afb8" stroke-width="1.7"></path>
+<polygon fill="#98afb8" points="411.28,-594.68 409,-588.18 406.73,-594.68 411.28,-594.68" stroke="#98afb8" stroke-width="1.7"></polygon>
+</g>
+<!-- 013&#45;&gt;014 -->
+<g class="edge mainline lineage-edge" id="branch-edge-013-014">
+<title>013-&gt;014</title>
+<path d="M409,-541.67C409,-531.32 409,-518.9 409,-507.85" fill="none" stroke="#98afb8" stroke-width="1.7"></path>
+<polygon fill="#98afb8" points="411.28,-507.68 409,-501.18 406.73,-507.68 411.28,-507.68" stroke="#98afb8" stroke-width="1.7"></polygon>
+</g>
+<!-- 014&#45;&gt;015 -->
+<g class="edge lineage-edge" id="branch-edge-014-015">
+<title>014-&gt;015</title>
+<path d="M365.82,-454.89C343.15,-443.28 315.28,-429.01 291.83,-417" fill="none" stroke="#98afb8" stroke-width="1.7"></path>
+<polygon fill="#98afb8" points="292.79,-414.94 285.97,-414 290.71,-418.99 292.79,-414.94" stroke="#98afb8" stroke-width="1.7"></polygon>
+</g>
+<!-- 014&#45;&gt;016 -->
+<g class="edge mainline lineage-edge" id="branch-edge-014-016">
+<title>014-&gt;016</title>
+<path d="M409,-454.67C409,-444.32 409,-431.9 409,-420.85" fill="none" stroke="#98afb8" stroke-width="1.7"></path>
+<polygon fill="#98afb8" points="411.28,-420.68 409,-414.18 406.73,-420.68 411.28,-420.68" stroke="#98afb8" stroke-width="1.7"></polygon>
+</g>
+<!-- 014&#45;&gt;017 -->
+<g class="edge lineage-edge" id="branch-edge-014-017">
+<title>014-&gt;017</title>
+<path d="M453.48,-454.89C476.84,-443.28 505.54,-429.01 529.7,-417" fill="none" stroke="#98afb8" stroke-width="1.7"></path>
+<polygon fill="#98afb8" points="530.93,-418.93 535.74,-414 528.91,-414.86 530.93,-418.93" stroke="#98afb8" stroke-width="1.7"></polygon>
+</g>
+<!-- 016&#45;&gt;018 -->
+<g class="edge mainline lineage-edge" id="branch-edge-016-018">
+<title>016-&gt;018</title>
+<path d="M409,-367.97C409,-354.87 409,-338.11 409,-323.96" fill="none" stroke="#98afb8" stroke-width="1.7"></path>
+<polygon fill="#98afb8" points="411.28,-323.74 409,-317.24 406.73,-323.74 411.28,-323.74" stroke="#98afb8" stroke-width="1.7"></polygon>
+<text fill="#6b7f89" font-family="NanumSquare" font-size="10.00" text-anchor="middle" x="433" y="-340">가중치 유지</text>
+</g>
+<!-- 018&#45;&gt;019 -->
+<g class="edge lineage-edge" id="branch-edge-018-019">
+<title>018-&gt;019</title>
+<path d="M392.71,-270.67C384.88,-259.93 375.42,-246.96 367.14,-235.61" fill="none" stroke="#98afb8" stroke-width="1.7"></path>
+<polygon fill="#98afb8" points="368.85,-234.09 363.18,-230.18 365.17,-236.78 368.85,-234.09" stroke="#98afb8" stroke-width="1.7"></polygon>
+</g>
+<!-- 018&#45;&gt;022 -->
+<g class="edge lineage-edge" id="branch-edge-018-022">
+<title>018-&gt;022</title>
+<path d="M422.03,-270.78C428.16,-259.07 434.81,-244.22 438,-230 451.92,-167.99 470.66,-142.11 439,-87 429.8,-70.99 414.8,-58.66 398.86,-49.34" fill="none" stroke="#9879ab" stroke-dasharray="5,2" stroke-width="2"></path>
+<polygon fill="#9879ab" points="399.73,-47.23 392.95,-46.04 397.51,-51.2 399.73,-47.23" stroke="#9879ab" stroke-width="2"></polygon>
+<text fill="#79588d" font-family="NanumSquare" font-size="10.00" text-anchor="middle" x="477" y="-156">50% 기준</text>
+</g>
+<!-- 019&#45;&gt;020 -->
+<g class="edge lineage-edge" id="branch-edge-019-020">
+<title>019-&gt;020</title>
+<path d="M310.59,-183.97C287.19,-169.81 256.71,-151.37 232.25,-136.56" fill="none" stroke="#98afb8" stroke-width="1.7"></path>
+<polygon fill="#98afb8" points="233.23,-134.5 226.49,-133.08 230.87,-138.39 233.23,-134.5" stroke="#98afb8" stroke-width="1.7"></polygon>
+</g>
+<!-- 019&#45;&gt;021 -->
+<g class="edge lineage-edge" id="branch-edge-019-021">
+<title>019-&gt;021</title>
+<path d="M349.09,-183.97C350.33,-170.87 351.92,-154.11 353.26,-139.96" fill="none" stroke="#98afb8" stroke-width="1.7"></path>
+<polygon fill="#98afb8" points="355.54,-139.93 353.89,-133.24 351.01,-139.5 355.54,-139.93" stroke="#98afb8" stroke-width="1.7"></polygon>
+</g>
+<!-- 020&#45;&gt;022 -->
+<g class="edge lineage-edge" id="branch-edge-020-022">
+<title>020-&gt;022</title>
+<path d="M226.68,-86.89C245.69,-75.43 269,-61.37 288.76,-49.46" fill="none" stroke="#9879ab" stroke-dasharray="5,2" stroke-width="2"></path>
+<polygon fill="#9879ab" points="290.11,-51.3 294.51,-46 287.76,-47.41 290.11,-51.3" stroke="#9879ab" stroke-width="2"></polygon>
+</g>
+<!-- 001 -->
+<g class="node lineage-node" id="branch-node-001">
+<title>001</title>
+<g id="a_branch-node-001"><a xlink:title="G001 — 교사·모방 학습: 교사 시연 → BC → PPO. 모방 직후가 PPO 이후보다 높아 BC 가중치를 다음 실험의 출발점으로 사용.">
+<path d="M147,-1401C147,-1401 37,-1401 37,-1401 31,-1401 25,-1395 25,-1389 25,-1389 25,-1367 25,-1367 25,-1361 31,-1355 37,-1355 37,-1355 147,-1355 147,-1355 153,-1355 159,-1361 159,-1367 159,-1367 159,-1389 159,-1389 159,-1395 153,-1401 147,-1401" fill="#f0f5fa" stroke="#7f9bb2" stroke-width="1.35"></path>
+<text fill="#27465a" font-family="NanumSquare" font-size="13.00" text-anchor="middle" x="92" y="-1374.6">001  교사·모방 학습</text>
+</a>
+</g>
+</g>
+<!-- 002 -->
+<g class="node lineage-node" id="branch-node-002">
+<title>002</title>
+<g id="a_branch-node-002"><a xlink:title="G002 — BC → PPO: 001의 BC 가중치에서 추가 PPO. 평가 성능 회귀로 기존 모방 가중치를 보존.">
+<path d="M122,-1304C122,-1304 12,-1304 12,-1304 6,-1304 0,-1298 0,-1292 0,-1292 0,-1270 0,-1270 0,-1264 6,-1258 12,-1258 12,-1258 122,-1258 122,-1258 128,-1258 134,-1264 134,-1270 134,-1270 134,-1292 134,-1292 134,-1298 128,-1304 122,-1304" fill="#fff5f2" stroke="#d0aca2" stroke-width="1.35"></path>
+<text fill="#86564d" font-family="NanumSquare" font-size="13.00" text-anchor="middle" x="67" y="-1277.6">002  BC → PPO</text>
+</a>
+</g>
+</g>
+<!-- 003 -->
+<g class="node lineage-node" id="branch-node-003">
+<title>003</title>
+<g id="a_branch-node-003"><a xlink:title="G003 — 혼합 시연·DAgger: 001 BC에서 분기. 혼합 rollout+BC+PPO, 개발평가 개선이나 독립 검증에선 001 BC에 열세.">
+<path d="M307.5,-1304C307.5,-1304 178.5,-1304 178.5,-1304 172.5,-1304 166.5,-1298 166.5,-1292 166.5,-1292 166.5,-1270 166.5,-1270 166.5,-1264 172.5,-1258 178.5,-1258 178.5,-1258 307.5,-1258 307.5,-1258 313.5,-1258 319.5,-1264 319.5,-1270 319.5,-1270 319.5,-1292 319.5,-1292 319.5,-1298 313.5,-1304 307.5,-1304" fill="#f4f7f9" stroke="#9ab0bc" stroke-width="1.35"></path>
+<text fill="#365361" font-family="NanumSquare" font-size="13.00" text-anchor="middle" x="243" y="-1277.6">003  혼합 시연·DAgger</text>
+</a>
+</g>
+</g>
+<!-- 004 -->
+<g class="node lineage-node" id="branch-node-004">
+<title>004</title>
+<g id="a_branch-node-004"><a xlink:title="G004 — 원본 벡터 PPO: 교사 가중치를 물려받지 않고 처음부터 학습. 5,139차원 원본 + 5분기 이산 행동.">
+<path d="M298,-1207C298,-1207 188,-1207 188,-1207 182,-1207 176,-1201 176,-1195 176,-1195 176,-1173 176,-1173 176,-1167 182,-1161 188,-1161 188,-1161 298,-1161 298,-1161 304,-1161 310,-1167 310,-1173 310,-1173 310,-1195 310,-1195 310,-1201 304,-1207 298,-1207" fill="#f0f5fa" stroke="#7f9bb2" stroke-width="1.35"></path>
+<text fill="#27465a" font-family="NanumSquare" font-size="13.00" text-anchor="middle" x="243" y="-1180.6">004  원본 벡터 PPO</text>
+</a>
+</g>
+</g>
+<!-- 005 -->
+<g class="node lineage-node" id="branch-node-005">
+<title>005</title>
+<g id="a_branch-node-005"><a xlink:title="G005 — 순수 PPO 추가: 004 가중치를 추가 학습했으나 회귀. 이전 체크포인트로 돌아감.">
+<path d="M298,-1120C298,-1120 188,-1120 188,-1120 182,-1120 176,-1114 176,-1108 176,-1108 176,-1086 176,-1086 176,-1080 182,-1074 188,-1074 188,-1074 298,-1074 298,-1074 304,-1074 310,-1080 310,-1086 310,-1086 310,-1108 310,-1108 310,-1114 304,-1120 298,-1120" fill="#fff5f2" stroke="#d0aca2" stroke-width="1.35"></path>
+<text fill="#86564d" font-family="NanumSquare" font-size="13.00" text-anchor="middle" x="243" y="-1093.6">005  순수 PPO 추가</text>
+</a>
+</g>
+</g>
+<!-- 006 -->
+<g class="node mainline lineage-node" id="branch-node-006">
+<title>006</title>
+<g id="a_branch-node-006"><a xlink:title="G006 — 개체 인코더·CNN: 005를 이어받은 것이 아니라 새로 초기화. 구조화 특징추출기로 최고 체크포인트 선택.">
+<path d="M305,-1023C305,-1023 181,-1023 181,-1023 175,-1023 169,-1017 169,-1011 169,-1011 169,-989 169,-989 169,-983 175,-977 181,-977 181,-977 305,-977 305,-977 311,-977 317,-983 317,-989 317,-989 317,-1011 317,-1011 317,-1017 311,-1023 305,-1023" fill="#eaf2fb" stroke="#7598b6" stroke-width="1.35"></path>
+<text fill="#2b5572" font-family="NanumSquare" font-size="13.00" text-anchor="middle" x="243" y="-996.6">006  개체 인코더·CNN</text>
+</a>
+</g>
+</g>
+<!-- 007 -->
+<g class="node lineage-node" id="branch-node-007">
+<title>007</title>
+<g id="a_branch-node-007"><a xlink:title="G007 — 이동하는 적 연습: 006 best에서 분기한 이동 적 2기 연습. 실전 평가 악화, 006으로 복귀.">
+<path d="M131.5,-936C131.5,-936 12.5,-936 12.5,-936 6.5,-936 0.5,-930 0.5,-924 0.5,-924 0.5,-902 0.5,-902 0.5,-896 6.5,-890 12.5,-890 12.5,-890 131.5,-890 131.5,-890 137.5,-890 143.5,-896 143.5,-902 143.5,-902 143.5,-924 143.5,-924 143.5,-930 137.5,-936 131.5,-936" fill="#fff5f2" stroke="#d0aca2" stroke-width="1.35"></path>
+<text fill="#86564d" font-family="NanumSquare" font-size="13.00" text-anchor="middle" x="72" y="-909.6">007  이동하는 적 연습</text>
+</a>
+</g>
+</g>
+<!-- 008 -->
+<g class="node lineage-node" id="branch-node-008">
+<title>008</title>
+<g id="a_branch-node-008"><a xlink:title="G008 — 실전 보상 v3: 006 best에서 별도 분기. 피격·조준 관련 보상 강화, 개선 미확인.">
+<path d="M298,-936C298,-936 188,-936 188,-936 182,-936 176,-930 176,-924 176,-924 176,-902 176,-902 176,-896 182,-890 188,-890 188,-890 298,-890 298,-890 304,-890 310,-896 310,-902 310,-902 310,-924 310,-924 310,-930 304,-936 298,-936" fill="#fff5f2" stroke="#d0aca2" stroke-width="1.35"></path>
+<text fill="#86564d" font-family="NanumSquare" font-size="13.00" text-anchor="middle" x="243" y="-909.6">008  실전 보상 v3</text>
+</a>
+</g>
+</g>
+<!-- 009 -->
+<g class="node mainline lineage-node" id="branch-node-009">
+<title>009</title>
+<g id="a_branch-node-009"><a xlink:title="G009 — 잔차 조준망: 006 best에서 새로 분기. 회전/발사 Logits에 조준 보정을 더함.">
+<path d="M464,-936C464,-936 354,-936 354,-936 348,-936 342,-930 342,-924 342,-924 342,-902 342,-902 342,-896 348,-890 354,-890 354,-890 464,-890 464,-890 470,-890 476,-896 476,-902 476,-902 476,-924 476,-924 476,-930 470,-936 464,-936" fill="#eaf2fb" stroke="#7598b6" stroke-width="1.35"></path>
+<text fill="#2b5572" font-family="NanumSquare" font-size="13.00" text-anchor="middle" x="409" y="-909.6">009  잔차 조준망</text>
+</a>
+</g>
+</g>
+<!-- 010 -->
+<g class="node mainline lineage-node" id="branch-node-010">
+<title>010</title>
+<g id="a_branch-node-010"><a xlink:title="G010 — 정지 표적 조준: 009 best에서 몸체를 동결하고 조준망만 학습. 실전 전이는 제한적.">
+<path d="M464,-849C464,-849 354,-849 354,-849 348,-849 342,-843 342,-837 342,-837 342,-815 342,-815 342,-809 348,-803 354,-803 354,-803 464,-803 464,-803 470,-803 476,-809 476,-815 476,-815 476,-837 476,-837 476,-843 470,-849 464,-849" fill="#f4f7f9" stroke="#9ab0bc" stroke-width="1.35"></path>
+<text fill="#365361" font-family="NanumSquare" font-size="13.00" text-anchor="middle" x="409" y="-822.6">010  정지 표적 조준</text>
+</a>
+</g>
+</g>
+<!-- 011 -->
+<g class="node mainline lineage-node" id="branch-node-011">
+<title>011</title>
+<g id="a_branch-node-011"><a xlink:title="G011 — 이동 표적 조준: 010에서 이동 표적 및 공통 조준 입력을 시험했으나 실전 성능 하락.">
+<path d="M464,-762C464,-762 354,-762 354,-762 348,-762 342,-756 342,-750 342,-750 342,-728 342,-728 342,-722 348,-716 354,-716 354,-716 464,-716 464,-716 470,-716 476,-722 476,-728 476,-728 476,-750 476,-750 476,-756 470,-762 464,-762" fill="#f4f7f9" stroke="#9ab0bc" stroke-width="1.35"></path>
+<text fill="#365361" font-family="NanumSquare" font-size="13.00" text-anchor="middle" x="409" y="-735.6">011  이동 표적 조준</text>
+</a>
+</g>
+</g>
+<!-- 012 -->
+<g class="node mainline lineage-node" id="branch-node-012">
+<title>012</title>
+<g id="a_branch-node-012"><a xlink:title="G012 — 독립 조준망: 011에서 조준 출력층을 재초기화해 회전·발사 Logits를 독립망으로 교체. 성능 개선.">
+<path d="M464,-675C464,-675 354,-675 354,-675 348,-675 342,-669 342,-663 342,-663 342,-641 342,-641 342,-635 348,-629 354,-629 354,-629 464,-629 464,-629 470,-629 476,-635 476,-641 476,-641 476,-663 476,-663 476,-669 470,-675 464,-675" fill="#eaf2fb" stroke="#7598b6" stroke-width="1.35"></path>
+<text fill="#2b5572" font-family="NanumSquare" font-size="13.00" text-anchor="middle" x="409" y="-648.6">012  독립 조준망</text>
+</a>
+</g>
+</g>
+<!-- 013 -->
+<g class="node mainline lineage-node" id="branch-node-013">
+<title>013</title>
+<g id="a_branch-node-013"><a xlink:title="G013 — 이동 표적 개선: 012의 선택 가중치로 이동 표적 조준 개선. 014의 부모.">
+<path d="M464,-588C464,-588 354,-588 354,-588 348,-588 342,-582 342,-576 342,-576 342,-554 342,-554 342,-548 348,-542 354,-542 354,-542 464,-542 464,-542 470,-542 476,-548 476,-554 476,-554 476,-576 476,-576 476,-582 470,-588 464,-588" fill="#eaf2fb" stroke="#7598b6" stroke-width="1.35"></path>
+<text fill="#2b5572" font-family="NanumSquare" font-size="13.00" text-anchor="middle" x="409" y="-561.6">013  이동 표적 개선</text>
+</a>
+</g>
+</g>
+<!-- 014 -->
+<g class="node mainline lineage-node" id="branch-node-014">
+<title>014</title>
+<g id="a_branch-node-014"><a xlink:title="G014 — 조준 동결·몸체: 013에서 조준 고정, 몸체 학습. 독립 시드 검증 후 1차 기본 모델 채택.">
+<path d="M464,-501C464,-501 354,-501 354,-501 348,-501 342,-495 342,-489 342,-489 342,-467 342,-467 342,-461 348,-455 354,-455 354,-455 464,-455 464,-455 470,-455 476,-461 476,-467 476,-467 476,-489 476,-489 476,-495 470,-501 464,-501" fill="#e8f6ed" stroke="#70ad86" stroke-width="1.35"></path>
+<text fill="#256340" font-family="NanumSquare" font-size="13.00" text-anchor="middle" x="409" y="-474.6">014  조준 동결·몸체</text>
+</a>
+</g>
+</g>
+<!-- 015 -->
+<g class="node lineage-node" id="branch-node-015">
+<title>015</title>
+<g id="a_branch-node-015"><a xlink:title="G015 — 몸체 추가 학습: 014에서 분기. 초기 점수 p25/생존이 나빠져 기존 모델 유지.">
+<path d="M298,-414C298,-414 188,-414 188,-414 182,-414 176,-408 176,-402 176,-402 176,-380 176,-380 176,-374 182,-368 188,-368 188,-368 298,-368 298,-368 304,-368 310,-374 310,-380 310,-380 310,-402 310,-402 310,-408 304,-414 298,-414" fill="#fff5f2" stroke="#d0aca2" stroke-width="1.35"></path>
+<text fill="#86564d" font-family="NanumSquare" font-size="13.00" text-anchor="middle" x="243" y="-387.6">015  몸체 추가 학습</text>
+</a>
+</g>
+</g>
+<!-- 016 -->
+<g class="node mainline lineage-node" id="branch-node-016">
+<title>016</title>
+<g id="a_branch-node-016"><a xlink:title="G016 — 보상 v6·몸체: 014에서 별도 분기. 보조보상 축소 및 생존 강화. 이후 018의 가중치가 됨.">
+<path d="M464,-414C464,-414 354,-414 354,-414 348,-414 342,-408 342,-402 342,-402 342,-380 342,-380 342,-374 348,-368 354,-368 354,-368 464,-368 464,-368 470,-368 476,-374 476,-380 476,-380 476,-402 476,-402 476,-408 470,-414 464,-414" fill="#eaf2fb" stroke="#7598b6" stroke-width="1.35"></path>
+<text fill="#2b5572" font-family="NanumSquare" font-size="13.00" text-anchor="middle" x="409" y="-387.6">016  보상 v6·몸체</text>
+</a>
+</g>
+</g>
+<!-- 017 -->
+<g class="node lineage-node" id="branch-node-017">
+<title>017</title>
+<g id="a_branch-node-017"><a xlink:title="G017 — 조준만 추가 학습: 014에서 별도 분기. 몸체 고정, 조준 업데이트. 016 계열보다 열세.">
+<path d="M639.5,-414C639.5,-414 520.5,-414 520.5,-414 514.5,-414 508.5,-408 508.5,-402 508.5,-402 508.5,-380 508.5,-380 508.5,-374 514.5,-368 520.5,-368 520.5,-368 639.5,-368 639.5,-368 645.5,-368 651.5,-374 651.5,-380 651.5,-380 651.5,-402 651.5,-402 651.5,-408 645.5,-414 639.5,-414" fill="#fff5f2" stroke="#d0aca2" stroke-width="1.35"></path>
+<text fill="#86564d" font-family="NanumSquare" font-size="13.00" text-anchor="middle" x="580" y="-387.6">017  조준만 추가 학습</text>
+</a>
+</g>
+</g>
+<!-- 018 -->
+<g class="node mainline lineage-node" id="branch-node-018">
+<title>018</title>
+<g id="a_branch-node-018"><a xlink:title="G018 — 2프레임·최종 기본: 016 가중치 변경 없이 행동 결정 주기 4→2. 독립평가 승격, 현재 공개 기본 모델.">
+<path d="M473.5,-317C473.5,-317 344.5,-317 344.5,-317 338.5,-317 332.5,-311 332.5,-305 332.5,-305 332.5,-283 332.5,-283 332.5,-277 338.5,-271 344.5,-271 344.5,-271 473.5,-271 473.5,-271 479.5,-271 485.5,-277 485.5,-283 485.5,-283 485.5,-305 485.5,-305 485.5,-311 479.5,-317 473.5,-317" fill="#d8f3e7" stroke="#4a9873" stroke-width="2.2"></path>
+<text fill="#185c3a" font-family="NanumSquare" font-size="13.00" text-anchor="middle" x="409" y="-290.6">018  2프레임·최종 기본</text>
+</a>
+</g>
+</g>
+<!-- 019 -->
+<g class="node lineage-node" id="branch-node-019">
+<title>019</title>
+<g id="a_branch-node-019"><a xlink:title="G019 — 2프레임 몸체 학습: 018에서 분기. 같은 결정주기로 몸체 추가 학습, 조준 동결. 공개 승격 안 함.">
+<path d="M410.5,-230C410.5,-230 283.5,-230 283.5,-230 277.5,-230 271.5,-224 271.5,-218 271.5,-218 271.5,-196 271.5,-196 271.5,-190 277.5,-184 283.5,-184 283.5,-184 410.5,-184 410.5,-184 416.5,-184 422.5,-190 422.5,-196 422.5,-196 422.5,-218 422.5,-218 422.5,-224 416.5,-230 410.5,-230" fill="#f4f7f9" stroke="#9ab0bc" stroke-width="1.35"></path>
+<text fill="#365361" font-family="NanumSquare" font-size="13.00" text-anchor="middle" x="347" y="-203.6">019  2프레임 몸체 학습</text>
+</a>
+</g>
+</g>
+<!-- 020 -->
+<g class="node lineage-node" id="branch-node-020">
+<title>020</title>
+<g id="a_branch-node-020"><a xlink:title="G020 — 시간 할인율 v7: 019에서 추가 몸체 학습. 평균 점수↑, 독립 평가 초기 p25/생존↓.">
+<path d="M245,-133C245,-133 135,-133 135,-133 129,-133 123,-127 123,-121 123,-121 123,-99 123,-99 123,-93 129,-87 135,-87 135,-87 245,-87 245,-87 251,-87 257,-93 257,-99 257,-99 257,-121 257,-121 257,-127 251,-133 245,-133" fill="#fff5f2" stroke="#d0aca2" stroke-width="1.35"></path>
+<text fill="#86564d" font-family="NanumSquare" font-size="13.00" text-anchor="middle" x="190" y="-106.6">020  시간 할인율 v7</text>
+</a>
+</g>
+</g>
+<!-- 021 -->
+<g class="node lineage-node" id="branch-node-021">
+<title>021</title>
+<g id="a_branch-node-021"><a xlink:title="G021 — 조준 업데이트: 019에서 분기. 몸체 동결·조준만 업데이트. 우위 입증 실패.">
+<path d="M411,-133C411,-133 301,-133 301,-133 295,-133 289,-127 289,-121 289,-121 289,-99 289,-99 289,-93 295,-87 301,-87 301,-87 411,-87 411,-87 417,-87 423,-93 423,-99 423,-99 423,-121 423,-121 423,-127 417,-133 411,-133" fill="#fff5f2" stroke="#d0aca2" stroke-width="1.35"></path>
+<text fill="#86564d" font-family="NanumSquare" font-size="13.00" text-anchor="middle" x="356" y="-106.6">021  조준 업데이트</text>
+</a>
+</g>
+</g>
+<!-- 022 -->
+<g class="node lineage-node" id="branch-node-022">
+<title>022</title>
+<g id="a_branch-node-022"><a xlink:title="G022 — 018+020 가중치 혼합: 두 부모의 같은 파라미터를 50:50 섞음(PPO 0 step). 120초 p25가 악화되어 미채택.">
+<path d="M405,-46C405,-46 257,-46 257,-46 251,-46 245,-40 245,-34 245,-34 245,-12 245,-12 245,-6 251,0 257,0 257,0 405,0 405,0 411,0 417,-6 417,-12 417,-12 417,-34 417,-34 417,-40 411,-46 405,-46" fill="#fff5f2" stroke="#d0aca2" stroke-width="1.35"></path>
+<text fill="#86564d" font-family="NanumSquare" font-size="13.00" text-anchor="middle" x="331" y="-19.6">022  018+020 가중치 혼합</text>
+</a>
+</g>
+</g>
+</g>
+</svg>
+</div>
+<div aria-live="polite" class="lineage-inspector" id="lineage-inspector"><strong>실험 노드를 선택해봐.</strong><span>실험번호를 누르면 모델 구조·학습 목적·채택 사유를 간단히 표시해.</span></div>
+<p class="smallprint" style="margin-top:12px">001의 모방학습은 002·003에 분기했고, 004와 006은 각각 새 초기화에서 출발했어. 014는 1차 기본 모델로 채택되었지만, 016을 2프레임 주기로 실행한 018이 최종 공개 모델로 승격됐어. 022는 018과 020의 부모가 둘인 <strong>가중치 혼합</strong>이지만 안정성 기준에 미달해 미채택.</p>
+</section><section class="article-section" id="rewards"><div class="section-kicker">07 · `score_v2~v7`: PPO는 무엇에 보상받았나</div><h2>보상 버전은 게임 점수의 버전이 아니다</h2>
+<p><code>score_v*</code>는 <strong>PPO가 최대화하는 보상 조합</strong>이야. 게임 점수 그 자체와 다르다. 초기 v2는 실제 점수 증가, 천체 피해, 적 피해, 받은 피해, 사망, 발사 횟수, 포신의 조준·접근 진전을 섞었다.</p>
+<pre><code class="language-text">reward ≈ 0.02 × 게임 점수 증가
+       + 0.03 × 천체 피해 가중치
+       + 0.015 × 적 피해
+       - 0.5 × (받은 피해 / 최대 HP)
+       - 2 × 사망 여부
+       - 0.001 × 발사 횟수
+       + γ Φ(next) - Φ(previous)
+</code></pre>
+<p>여기서 <code>Φ</code>는 목표와의 방향 정렬·거리·사거리를 반영한 potential이다. <code>γΦ(s') − Φ(s)</code>는 같은 방향으로 가만히 있는 것보다 <strong>조준·접근 상태의 변화</strong>를 반영한다.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>버전</th>
+<th>이전 버전 대비 차이</th>
+<th>주요 실험</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>v2</strong></td>
+<td>점수×.02, 천체 피해×.03, 적 피해×.015, 피격×−.5, 사망−2, 발사−.001, potential 배율 .8, γ=.995</td>
+<td>006~007</td>
+</tr>
+<tr>
+<td><strong>v3</strong></td>
+<td>적 피해 .05, 피격 비용 2, 사망 3, 잘 조준한 발사 보너스 .15, 탄환 근접 위험 비용 .02</td>
+<td>008</td>
+</tr>
+<tr>
+<td><strong>v4</strong></td>
+<td>v3 + 가까운 <strong>가시 표적</strong>에 집중하는 <code>focus_nearest</code></td>
+<td>009</td>
+</tr>
+<tr>
+<td><strong>v5</strong></td>
+<td>v4 + potential 배율 .8→.2</td>
+<td>010~015, 017, 021</td>
+</tr>
+<tr>
+<td><strong>v6</strong></td>
+<td>부분 피해 보상 각각 .01, 조준 발사 보너스 .02, potential .1, 피격 비용 3, 사망 6, 탄환 위험 .03</td>
+<td>016, 019</td>
+</tr>
+<tr>
+<td><strong>v7</strong></td>
+<td>v6 + <code>γ = √.995 ≈ .9975</code></td>
+<td>020</td>
+</tr>
+</tbody>
+</table></div>
+<p><code>v7</code>의 할인율 조정은 행동 결정을 4프레임마다 하다가 2프레임마다 하게 될 때, <strong>동일 물리 시간에서 보상의 할인 정도</strong>가 달라지는 문제를 다룬 것이다. 새 실험에서는 학습량·시드·환경 등 다른 조건도 달라졌으므로 <code>gamma</code> 하나의 효과라고 단정할 수 없다.</p>
+</section><section class="article-section" id="evaluation"><div class="section-kicker">08 · 평가, p25, 모델 선택을 분리하다</div><h2>학습 도중 높은 점수만으로 모델을 채택하지 않는다</h2>
+<p><code>gpt_training</code>은 <strong>(1) 학습 중 고정 시드 개발 평가 → (2) 체크포인트 후보 선택 → (3) 사용하지 않은 새 시드 독립 평가 → (4) 공개 모델 채택/기존 모델 유지</strong>의 순서로 발전했다.</p>
+<p>평가 지표는 <em>게임 최종 점수</em>, <em>60/120/200초 점수</em>, <em>생존 시간</em>, <em>적 처치</em>, <em>제한 시간 생존 비율</em>이야. <strong>p25(25백분위)</strong>는 점수를 낮은 순으로 정렬한 25% 지점으로, 평균에 가려지는 하위 성적을 확인한다. 120초 전에 사망한 에피소드에서는 <strong>사망 당시 마지막 점수</strong>를 120초 점수로 사용했다.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>같은 독립 평가에서 비교</th>
+<th>모델</th>
+<th>120초 점수 평균 / p25</th>
+<th>최종 점수 평균 / p25</th>
+<th>생존 평균 / p25</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>새 10시드 · 400초</td>
+<td>005</td>
+<td>—</td>
+<td>11.5 / 0</td>
+<td>67.74 / 25.08초</td>
+</tr>
+<tr>
+<td>같은 평가</td>
+<td><strong>014</strong></td>
+<td>—</td>
+<td><strong>1,389 / 965</strong></td>
+<td><strong>197.66 / 68.66초</strong></td>
+</tr>
+<tr>
+<td>새 20시드 · 400초</td>
+<td>014</td>
+<td>835.25 / 618.75</td>
+<td>1,167 / 701.25</td>
+<td>160.69 / 77.27초</td>
+</tr>
+<tr>
+<td>같은 평가</td>
+<td><strong>018</strong></td>
+<td><strong>1,003.75 / 788.75</strong></td>
+<td><strong>1,434.5 / 861.25</strong></td>
+<td><strong>197.18 / 93.55초</strong></td>
+</tr>
+<tr>
+<td>다른 새 20시드 · 400초</td>
+<td>018</td>
+<td>1,010.75 / 736.25</td>
+<td>1,561.25 / 1,182.5</td>
+<td>240.23 / 182.24초</td>
+</tr>
+<tr>
+<td>같은 평가</td>
+<td>020</td>
+<td>1,148.75 / 667.5</td>
+<td>1,764.75 / 842.5</td>
+<td>195.09 / 72.15초</td>
+</tr>
+<tr>
+<td>또 다른 새 20시드 · 400초</td>
+<td><strong>018</strong></td>
+<td><strong>1,139 / 865</strong></td>
+<td>1,591.25 / 1,112.5</td>
+<td>185.72 / 107.88초</td>
+</tr>
+<tr>
+<td>같은 평가</td>
+<td>022(50% 혼합)</td>
+<td>1,163.5 / <strong>650</strong></td>
+<td><strong>2,057.75 / 1,151.25</strong></td>
+<td><strong>235.43 / 92.27초</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>표를 세로로 읽어 절대 우열을 단정하면 안 된다.</strong> 평가 시드 집합이 서로 다르고, 어떤 비교에는 행동 결정 주기도 다르다. 동일한 비교 묶음 안에서만 모델 간 차이를 읽어야 한다. 시드가 3~6개뿐인 초기 실험의 p25는 특히 불안정하다.</p>
+<h3>학습 도중 체크포인트를 되돌리는 이유</h3>
+<p>PPO의 clipping은 매 업데이트의 정책 변화 폭을 제한하려는 장치이지, <strong>게임 점수가 언제나 단조 증가하도록 보장하는 장치가 아니다.</strong> 그래서 006·009·012 등에서는 마지막보다 앞선 checkpoint를 다음 실험의 출발점으로 선택했다. 독립 평가가 선택 모델을 뒤집으면 승격도 거부했다.</p>
+</section><section class="article-section" id="mechanics"><div class="section-kicker">09 · 실제 코드에서 동결과 가중치 혼합이 의미하는 것</div><h2>Actor의 '몸체'는 무엇인가</h2>
+<p>이 프로젝트에서 <strong>몸체(body)</strong>는 독립 조준망을 제외한 기본 정책의 학습 가능한 경로를 뜻한다. <code>freeze_aim=True</code> 상태에서 <strong>공유 FeatureExtractor(개체 인코더·CNN), 기본 Actor MLP, action_net, Critic</strong>은 PPO로 계속 업데이트될 수 있다.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>학습 형태</th>
+<th>특징 추출기·기본 Actor</th>
+<th>별도 조준망</th>
+<th>Critic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>조준 집중 (<code>freeze_base_actor=True</code>)</td>
+<td>동결</td>
+<td>학습</td>
+<td>학습 가능</td>
+</tr>
+<tr>
+<td>몸체 집중 (<code>freeze_aim=True</code>)</td>
+<td>학습</td>
+<td>동결</td>
+<td>학습 가능</td>
+</tr>
+</tbody>
+</table></div>
+<pre><code class="language-python"># 네트워크 동결은 파라미터의 기울기 갱신 여부를 바꾼다.
+for p in model.policy.aim_residual.parameters():
+    p.requires_grad_(False)  # 몸체 훈련에서 조준망 고정
+</code></pre>
+<p>조준망은 <strong>SpatialFeaturesExtractor의 256차원 특징을 반드시 사용해야 하는 구조가 아니라</strong>, 원본 Observation에서 조준 기하정보를 직접 추출한다. 그래서 014에서 공유 FeatureExtractor가 바뀌어도 독립 조준망이 사용하는 입력의 의미는 유지할 수 있었다.</p>
+<h2>022의 가중치 평균은 모델 예측 평균이 아니다</h2>
+<p>022는 두 모델의 <strong>대응되는 같은 모양 파라미터 텐서</strong>를 섞었다.</p>
+<pre><code class="language-python"># θ_blend = (1 - α)·θ_018 + α·θ_020
+blended = torch.lerp(theta_018, theta_020, 0.50)
+</code></pre>
+<p>두 모델의 동일한 가중치는 그대로 복사했고, 학습하지 않고 평가했다. 50% 혼합은 두 모델의 점수를 절반씩 더한 것도, 두 모델이 각각 행동을 내어 투표한 것도 아니다. <strong>새로운 하나의 신경망</strong>을 만든 거야. 같은 출발점의 가중치를 섞더라도 안정성이 좋아진다는 보장은 없고, 022는 실제로 초반 p25가 하락했다.</p>
+</section><section class="article-section" id="takeaways"><div class="section-kicker">10 · 결과를 어떻게 해석할까</div><h2>이 연구에서 확인한 것과 아직 확정하지 못한 것</h2>
+<p><strong>확인된 것</strong>: 이산 행동으로 바꿨다는 사실만으로는 실전 조준 문제가 해결되지 않았다. 순수 PPO 계보에서는 <strong>관측 구조화 → 조준망 분리 → 조준 동결 후 몸체 학습</strong>을 거치며 실전 점수와 생존이 개선됐다. 후반에는 평균 점수뿐 아니라 <strong>120초 하위 성적</strong>이 모델 채택의 명시적인 기준이 됐다.</p>
+<p><strong>확정하지 못한 것</strong>: CNN 하나, 독립 조준망 하나 또는 특정 보상 계수 하나가 개선을 독립적으로 일으켰는지는 검증되지 않았다. 커리큘럼, 입력 표현, 보상, 평가 시점이 동시에 바뀐 실험이 많았다. 또한 20개 시드·최대 400초의 결과를 모든 맵이나 무제한 시간으로 일반화할 수 없다.</p>
+<h3>다음에 비슷한 실험을 설계한다면</h3>
+<ul>
+<li>학습 목표를 <strong>조준 정확도 → 전투 점수·생존 → 초기 안정성</strong>처럼 구분한다.</li>
+<li>새로운 관측 구조나 reward를 바꾸면 가능하면 <strong>하나의 변수만 달리한 비교</strong>를 추가한다.</li>
+<li>개발 평가와 최종 독립 평가의 시드를 구분하고, 채택 조건을 결과를 보기 전에 기록한다.</li>
+<li><code>learn()</code>을 더 오래 돌리기보다 <strong>현재 체크포인트 중 무엇을 이어받아야 하는지</strong>를 먼저 판단한다.</li>
+</ul>
+<p>이 문서의 주요 수치와 설정은 <a href="https://app.notion.com/p/40b117a41d4d80fe8bb6de068ddcf6db">Notion 학습 노트</a> 및 관련 프로젝트 기록에서 가져왔다. 별도의 Notion 페이지를 만들거나 기존 페이지를 수정하지 않았다.</p>
+</section><section class="article-section" id="hybrid-intro">
+<div class="section-kicker">11 · 다음 실험: 회전만 연속으로</div>
+<h2>이산 조준은 나아졌지만, 회전까지 9개 중 하나여야 할까?</h2>
+<p>GPT 018은 기존의 원본 5,139차원 관측, 개체별 특징 추출기, 독립 조준망을 사용해 점수와 안정성을 개선했다. 그러나 회전은 여전히 <code>9개 이산 선택</code>이었다. 이후 <code>gpt_training_rotation_continuous</code>는 이 모델을 출발점으로 삼아 <strong>회전만 연속값으로 변경</strong>하는 별도 계보를 만들었다.</p>
+<div class="quick">
+<div class="tile"><strong>2,000,000</strong><span>전체 분기 실험 연구 step 합계</span></div>
+<div class="tile"><strong>5개</strong><span>H001~H005 학습 구간</span></div>
+<div class="tile"><strong>1,200,000</strong><span>최종 선택 가중치의 새 계보 step</span></div>
+<div class="tile"><strong>+92.4%</strong><span>오류 수정 후 독립 20시드 평균 점수 증가</span></div>
+</div>
+<h3>이산 5분기 → 혼합 행동 분포</h3>
+<div class="table-scroll"><table><thead><tr><th>행동 요소</th><th>GPT 018 (기존)</th><th>연속 회전 실험</th></tr></thead><tbody>
+<tr><td>이동</td><td>Categorical(9)</td><td>Categorical(9) 유지</td></tr>
+<tr><td>회전</td><td>Categorical(9)</td><td><b>tanh Gaussian, -1~1</b>로 변경</td></tr>
+<tr><td>발사</td><td>Categorical(2)</td><td>Bernoulli로 표현</td></tr>
+<tr><td>강화</td><td>Categorical(6)</td><td>Categorical(6) + 유효 행동 마스킹</td></tr>
+<tr><td>진화</td><td>Categorical(5)</td><td>Categorical(5) + 유효 행동 마스킹</td></tr>
+<tr><td>Observation</td><td>5,139개 원본 벡터</td><td>그대로 5,139개</td></tr>
+</tbody></table></div>
+<p>핵심은 <strong>모든 행동을 실수로 바꾼 것이 아니라 회전 강도 한 항목만 연속 분포로 학습</strong>한 것이야. Gymnasium에는 다섯 칸짜리 <code>Box</code>에 담아 전달하지만, 다른 네 요소는 실제로 범주형 또는 Bernoulli 분포에서 정수 행동을 선택해. 실수를 반올림해 이산 선택을 만드는 방식이 아니다.</p>
+<div class="note"><b>정책의 수학적 출력</b><span><code>action_net</code>은 22개 값을 만들고, 독립 조준망 <code>aim_net</code>이 회전 평균과 발사 Logit 두 값을 덮어쓴다. 회전은 <code>u ~ Normal(μ, σ)</code>, <code>rotation = tanh(u)</code>이며, PPO의 <code>log_prob</code>에는 tanh 변화에 따른 Jacobian 보정이 적용된다.</span></div>
+<h3>어느 부분의 가중치를 이어받았나?</h3>
+<p>기존 G018의 <code>SpatialFeaturesExtractor</code>, Actor/Critic MLP, Critic, 이동·강화·진화 출력은 재사용했다. 조준망의 기존 발사 Logit 차이를 Bernoulli Logit으로 이전하고, <strong>회전 평균 출력은 0으로 초기화</strong>해 새로 학습했어. 따라서 이는 무작위 초기화 전체 재학습도, 구형 체크포인트를 아무 변경 없이 이어 학습한 것도 아니야.</p>
+<pre><code>Observation (B, 5,139)
+  ├─ SpatialFeaturesExtractor → 256차원
+  │    ├─ Actor MLP 128 → 128 → action_net(22)
+  │    │    ├─ move: 9 logits
+  │    │    ├─ rotation: 1 mean (aim_net 출력으로 교체)
+  │    │    ├─ fire: 1 logit (aim_net 출력으로 교체)
+  │    │    ├─ stat: 6 logits
+  │    │    └─ evolution: 5 logits
+  │    └─ Critic MLP 128 → 128 → V(s)
+  └─ Observation 직접 기하 계산 → aim_net(187 → 64 → 2)
+                                      ├─ rotation mean μ
+                                      └─ fire logit
+  + trainable log_std(σ) → tanh Gaussian rotation
+  + categorical/Bernoulli 분포 → 결합 log_probability
+  → Growth mask → RotationContinuousActionDecoder → PlayerControl</code></pre>
+<p>새 정책 클래스는 <code>RotationContinuousPolicy</code>이고, 행동 분포는 <code>RotationHybridDistribution</code>, 디코더는 <code>RotationContinuousActionDecoder</code>야. PPO의 rollout·Advantage·업데이트 과정은 여전히 Stable-Baselines3의 PPO를 사용했어.</p>
+</section><section class="article-section" id="hybrid-experiments">
+<div class="section-kicker">12 · H001~H005 실험과 분기</div>
+<h2>조준 적응 → 전체 정책 실패 → 몸체 안정화 → 조준 재정밀화</h2>
+<p>기본 평가 조건은 게임 60 FPS, 행동 선택 30 Hz(<code>frame_skip=2</code>), 일정 간격으로 <strong>동일한 기본 게임에서 실제 점수·120초 점수·생존</strong>을 확인하는 방식이었어. 표의 점수는 별도 개발 시드 8개(200초, 원래 디코더)의 개발 평가로, 마지막 H005의 채택 및 수정 후 수치와 혼동하지 않도록 구분했어.</p>
+<div class="table-scroll"><table><thead><tr><th>실험</th><th>추가 step</th><th>주요 설정·동결</th><th>개발 8시드 점수 / 120초 / 생존</th><th>다음 판단</th></tr></thead><tbody>
+<tr id="hybrid-h001"><td><b>H001</b><br/>조준 적응</td><td>300,000</td><td>G018 가중치 이전, 회전 출력 신규 / 몸체 동결 / 조준·발사·Critic 학습<br/><code>score_v5, lr=3e-4</code></td><td>1,161.25 / 940.00 / 124.90초</td><td>4시드 점수는 좋아졌지만 8시드에서는 약함. 002/003 분기 부모</td></tr>
+<tr id="hybrid-h002"><td><b>H002</b><br/>전체 동시 적응</td><td>200,000</td><td>전체 Actor·조준 동시 학습, 기본 게임 / <code>score_v7, lr=1e-4</code></td><td>1,446.88 / 1,228.75 / 123.18초</td><td>초기 p25 및 생존 기준 부족, 계획 70만에서 20만으로 중단</td></tr>
+<tr id="hybrid-h003"><td><b>H003</b><br/>몸체 안정화</td><td>500,000</td><td><b>H001에서 새 분기</b>, 조준과 회전 표준편차 동결, 몸체·Critic 업데이트 / <code>score_v7, lr=3e-5</code></td><td><b>2,823.75 / 1,927.50 / 195.60초</b></td><td>중간 800k 체크포인트를 H004·H005 부모로 채택</td></tr>
+<tr id="hybrid-h004"><td><b>H004</b><br/>몸체 추가 연장</td><td>500,000</td><td>H003의 800k 가중치에서 몸체 업데이트 연장, 조준 동결 / <code>score_v7, lr=3e-5</code></td><td>2,013.13 / 1,364.38 / 160.28초</td><td>부모 003보다 검증 성능 후퇴, 채택하지 않음</td></tr>
+<tr id="hybrid-h005"><td><b>H005</b><br/>조준 정밀화</td><td>500,000</td><td><b>H003으로 되돌려 새 분기</b>, 몸체·CNN·성장 고정, 회전·발사·Critic 학습 / <code>score_v7, lr=2e-5</code></td><td>1.2M checkpoint: 2,535.63 / 2,122.50 / 178.75초 <small>(당시 원본 디코더 개발 평가)</small></td><td>H005 계보 <b>1.2M</b> 선택; 수정 후 독립평가로 최종 확정</td></tr>
+</tbody></table></div>
+<div class="lineage-controls"><span class="smallprint">체크포인트 화살표는 단순 실행 순서가 아니라 <b>실제 가중치 상속 관계</b>를 뜻해.</span></div>
+<div class="lineage-scroll hybrid-graph"><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<!-- Generated by graphviz version 2.42.4 (0)
+ -->
+<!-- Title: hybrid_rl Pages: 1 -->
+<svg aria-label="G018에서 시작하여 H001에서 H002와 H003으로 분기하고 H003에서 H004와 H005로 분기하는 연속 회전 학습 계보" class="hybrid-lineage-svg" height="467pt" role="img" viewbox="0.00 0.00 497.18 466.68" width="497pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g class="graph" id="graph0" transform="scale(1 1) rotate(0) translate(15.84 450.84)">
+<title>hybrid_rl</title>
+<!-- G018 -->
+<g class="node" id="node1">
+<title>G018</title>
+<g id="a_node1"><a target="_self" xlink:href="#branch-graph" xlink:title="G018 / 기존 기본 정책\n회전도 이산 · 018 가중치">
+<path d="M206.5,-435C206.5,-435 76.5,-435 76.5,-435 70.5,-435 64.5,-429 64.5,-423 64.5,-423 64.5,-403 64.5,-403 64.5,-397 70.5,-391 76.5,-391 76.5,-391 206.5,-391 206.5,-391 212.5,-391 218.5,-397 218.5,-403 218.5,-403 218.5,-423 218.5,-423 218.5,-429 212.5,-435 206.5,-435" fill="#e7f4eb" stroke="#73a38a" stroke-width="1.45"></path>
+<text fill="#233e4e" font-family="Malgun Gothic" font-size="12.00" text-anchor="middle" x="141.5" y="-416.4">G018 / 기존 기본 정책</text>
+<text fill="#233e4e" font-family="Malgun Gothic" font-size="12.00" text-anchor="middle" x="141.5" y="-403.4">회전도 이산 · 018 가중치</text>
+</a>
+</g>
+</g>
+<!-- H001 -->
+<g class="node" id="node2">
+<title>H001</title>
+<g id="a_node2"><a target="_self" xlink:href="#hybrid-h001" xlink:title="H001 / 조준 적응\n300,000 step · 조준 학습">
+<path d="M208,-329C208,-329 75,-329 75,-329 69,-329 63,-323 63,-317 63,-317 63,-297 63,-297 63,-291 69,-285 75,-285 75,-285 208,-285 208,-285 214,-285 220,-291 220,-297 220,-297 220,-317 220,-317 220,-323 214,-329 208,-329" fill="#e9f3fc" stroke="#78a0be" stroke-width="1.45"></path>
+<text fill="#233e4e" font-family="Malgun Gothic" font-size="12.00" text-anchor="middle" x="141.5" y="-310.4">H001 / 조준 적응</text>
+<text fill="#233e4e" font-family="Malgun Gothic" font-size="12.00" text-anchor="middle" x="141.5" y="-297.4">300,000 step · 조준 학습</text>
+</a>
+</g>
+</g>
+<!-- G018&#45;&gt;H001 -->
+<g class="edge" id="edge1">
+<title>G018-&gt;H001</title>
+<path d="M141.5,-390.95C141.5,-375.17 141.5,-353.39 141.5,-336.11" fill="none" stroke="#6f9aab" stroke-width="1.6"></path>
+<polygon fill="#6f9aab" points="143.95,-336.01 141.5,-329.01 139.05,-336.01 143.95,-336.01" stroke="#6f9aab" stroke-width="1.6"></polygon>
+<text fill="#59717b" font-family="Malgun Gothic" font-size="10.00" text-anchor="middle" x="174.5" y="-363">회전 표현 전환</text>
+<text fill="#59717b" font-family="Malgun Gothic" font-size="10.00" text-anchor="middle" x="174.5" y="-352">특징/몸체 이전</text>
+</g>
+<!-- H002 -->
+<g class="node" id="node3">
+<title>H002</title>
+<g id="a_node3"><a target="_self" xlink:href="#hybrid-h002" xlink:title="H002 / 전체 PPO\n200,000 step · 미채택">
+<path d="M131,-234C131,-234 12,-234 12,-234 6,-234 0,-228 0,-222 0,-222 0,-202 0,-202 0,-196 6,-190 12,-190 12,-190 131,-190 131,-190 137,-190 143,-196 143,-202 143,-202 143,-222 143,-222 143,-228 137,-234 131,-234" fill="#fff2ee" stroke="#ca9387" stroke-width="1.45"></path>
+<text fill="#233e4e" font-family="Malgun Gothic" font-size="12.00" text-anchor="middle" x="71.5" y="-215.4">H002 / 전체 PPO</text>
+<text fill="#233e4e" font-family="Malgun Gothic" font-size="12.00" text-anchor="middle" x="71.5" y="-202.4">200,000 step · 미채택</text>
+</a>
+</g>
+</g>
+<!-- H001&#45;&gt;H002 -->
+<g class="edge" id="edge2">
+<title>H001-&gt;H002</title>
+<path d="M124.76,-284.82C119.81,-278.48 114.4,-271.48 109.5,-265 103.43,-256.97 96.93,-248.15 91.05,-240.1" fill="none" stroke="#9bafb7" stroke-width="1.6"></path>
+<polygon fill="#9bafb7" points="92.8,-238.33 86.7,-234.11 88.83,-241.21 92.8,-238.33" stroke="#9bafb7" stroke-width="1.6"></polygon>
+<text fill="#59717b" font-family="Malgun Gothic" font-size="10.00" text-anchor="middle" x="142" y="-257">전체 동시 학습</text>
+</g>
+<!-- H003 -->
+<g class="node" id="node4">
+<title>H003</title>
+<g id="a_node4"><a target="_self" xlink:href="#hybrid-h003" xlink:title="H003 / 몸체 안정화\n500,000 step · 분기 선택">
+<path d="M318,-234C318,-234 185,-234 185,-234 179,-234 173,-228 173,-222 173,-222 173,-202 173,-202 173,-196 179,-190 185,-190 185,-190 318,-190 318,-190 324,-190 330,-196 330,-202 330,-202 330,-222 330,-222 330,-228 324,-234 318,-234" fill="#e9f3fc" stroke="#78a0be" stroke-width="1.45"></path>
+<text fill="#233e4e" font-family="Malgun Gothic" font-size="12.00" text-anchor="middle" x="251.5" y="-215.4">H003 / 몸체 안정화</text>
+<text fill="#233e4e" font-family="Malgun Gothic" font-size="12.00" text-anchor="middle" x="251.5" y="-202.4">500,000 step · 분기 선택</text>
+</a>
+</g>
+</g>
+<!-- H001&#45;&gt;H003 -->
+<g class="edge" id="edge3">
+<title>H001-&gt;H003</title>
+<path d="M166.46,-284.9C182.63,-271.22 203.81,-253.32 220.98,-238.8" fill="none" stroke="#5b907c" stroke-width="2"></path>
+<polygon fill="#5b907c" points="222.87,-240.41 226.64,-234.02 219.71,-236.67 222.87,-240.41" stroke="#5b907c" stroke-width="2"></polygon>
+<text fill="#59717b" font-family="Malgun Gothic" font-size="10.00" text-anchor="middle" x="237" y="-257">조준 동결·재분기</text>
+</g>
+<!-- H004 -->
+<g class="node" id="node5">
+<title>H004</title>
+<g id="a_node5"><a target="_self" xlink:href="#hybrid-h004" xlink:title="H004 / 몸체 연장\n500,000 step · 미채택">
+<path d="M246,-139C246,-139 127,-139 127,-139 121,-139 115,-133 115,-127 115,-127 115,-107 115,-107 115,-101 121,-95 127,-95 127,-95 246,-95 246,-95 252,-95 258,-101 258,-107 258,-107 258,-127 258,-127 258,-133 252,-139 246,-139" fill="#fff2ee" stroke="#ca9387" stroke-width="1.45"></path>
+<text fill="#233e4e" font-family="Malgun Gothic" font-size="12.00" text-anchor="middle" x="186.5" y="-120.4">H004 / 몸체 연장</text>
+<text fill="#233e4e" font-family="Malgun Gothic" font-size="12.00" text-anchor="middle" x="186.5" y="-107.4">500,000 step · 미채택</text>
+</a>
+</g>
+</g>
+<!-- H003&#45;&gt;H004 -->
+<g class="edge" id="edge4">
+<title>H003-&gt;H004</title>
+<path d="M236.75,-189.9C227.44,-176.58 215.33,-159.25 205.33,-144.95" fill="none" stroke="#9bafb7" stroke-width="1.6"></path>
+<polygon fill="#9bafb7" points="207.21,-143.35 201.19,-139.02 203.19,-146.16 207.21,-143.35" stroke="#9bafb7" stroke-width="1.6"></polygon>
+<text fill="#59717b" font-family="Malgun Gothic" font-size="10.00" text-anchor="middle" x="242" y="-162">몸체 연장</text>
+</g>
+<!-- H005 -->
+<g class="node" id="node6">
+<title>H005</title>
+<g id="a_node6"><a target="_self" xlink:href="#hybrid-h005" xlink:title="H005 / 조준 정밀화\n500,000 step · 후속 채택">
+<path d="M433,-139C433,-139 300,-139 300,-139 294,-139 288,-133 288,-127 288,-127 288,-107 288,-107 288,-101 294,-95 300,-95 300,-95 433,-95 433,-95 439,-95 445,-101 445,-107 445,-107 445,-127 445,-127 445,-133 439,-139 433,-139" fill="#e7f4eb" stroke="#73a38a" stroke-width="1.45"></path>
+<text fill="#233e4e" font-family="Malgun Gothic" font-size="12.00" text-anchor="middle" x="366.5" y="-120.4">H005 / 조준 정밀화</text>
+<text fill="#233e4e" font-family="Malgun Gothic" font-size="12.00" text-anchor="middle" x="366.5" y="-107.4">500,000 step · 후속 채택</text>
+</a>
+</g>
+</g>
+<!-- H003&#45;&gt;H005 -->
+<g class="edge" id="edge5">
+<title>H003-&gt;H005</title>
+<path d="M277.6,-189.9C294.65,-176.1 317.03,-158.01 335.06,-143.42" fill="none" stroke="#5b907c" stroke-width="2"></path>
+<polygon fill="#5b907c" points="336.61,-145.33 340.51,-139.02 333.52,-141.52 336.61,-145.33" stroke="#5b907c" stroke-width="2"></polygon>
+<text fill="#59717b" font-family="Malgun Gothic" font-size="10.00" text-anchor="middle" x="349" y="-162">몸체 동결·재분기</text>
+</g>
+<!-- FINAL -->
+<g class="node" id="node7">
+<title>FINAL</title>
+<g id="a_node7"><a target="_self" xlink:href="#hybrid-validation" xlink:title="최종 모델\nH005 계보 1,200,000 step">
+<path d="M438,-44C438,-44 295,-44 295,-44 289,-44 283,-38 283,-32 283,-32 283,-12 283,-12 283,-6 289,0 295,0 295,0 438,0 438,0 444,0 450,-6 450,-12 450,-12 450,-32 450,-32 450,-38 444,-44 438,-44" fill="#d9f1e6" stroke="#4b9670" stroke-width="1.45"></path>
+<text fill="#233e4e" font-family="Malgun Gothic" font-size="12.00" text-anchor="middle" x="366.5" y="-25.4">최종 모델</text>
+<text fill="#233e4e" font-family="Malgun Gothic" font-size="12.00" text-anchor="middle" x="366.5" y="-12.4">H005 계보 1,200,000 step</text>
+</a>
+</g>
+</g>
+<!-- H005&#45;&gt;FINAL -->
+<g class="edge" id="edge6">
+<title>H005-&gt;FINAL</title>
+<path d="M366.5,-94.9C366.5,-81.94 366.5,-65.18 366.5,-51.1" fill="none" stroke="#5b907c" stroke-width="2"></path>
+<polygon fill="#5b907c" points="368.95,-51.02 366.5,-44.02 364.05,-51.02 368.95,-51.02" stroke="#5b907c" stroke-width="2"></polygon>
+<text fill="#59717b" font-family="Malgun Gothic" font-size="10.00" text-anchor="middle" x="416" y="-67">1.2M checkpoint 선발</text>
+</g>
+</g>
+</svg>
+</div>
+<p class="smallprint">H001~H005의 추가 step 합은 200만이지만 최종 H005 모델의 <b>새 행동 방식 학습 계보</b>는 H001 30만 + H003 50만 + H005 중간 40만 = <b>120만 step</b>이야. H002·H004의 실패한 분기 학습량을 최종 모델 계보에 더하면 안 돼. 기반 G018의 147만 4,560 step 역시 별도의 이전 계보야.</p>
+<h3>모델 선택에 사용한 통계</h3>
+<p>같은 시드로 체크포인트를 비교하되 4개 개발 시드만 반복해서 고르면 특정 난수 조건에 과적합될 수 있으므로, <b>8개 추가 개발 시드에서 120초 평균·p25, 최종 점수, 생존</b>을 함께 확인했어. 이후 후보 가중치와 재생 방식(greedy)을 확정한 뒤 새로운 20시드로 독립 비교했어.</p>
+<p>또 학습 시에는 확률적으로 행동을 샘플링하지만, 평가에서는 확률이 가장 높은 행동을 고르는 greedy를 쓰기도 해. H003 중간 체크포인트에서 sampled가 우세한 사례가 나왔어도, 800k에서는 greedy가 더 좋아져 <strong>실험 중 검증과 판단을 바꾼 근거</strong>를 남겼어.</p>
+</section><section class="article-section" id="hybrid-validation">
+<div class="section-kicker">13 · 디코더 오류와 정정된 독립 평가</div>
+<h2>성능이 좋다고 끝이 아니었다: 실제 전직 명령이 적용되는가?</h2>
+<p>200만 연구 step의 최초 독립 평가는 점수가 높았지만 <strong>전직 행동의 Python 정수 타입 검증 문제</strong>가 뒤늦게 발견됐어. 디코더가 넘긴 <code>numpy.int64</code>를 게임 코어의 <code>isinstance(index, int)</code>가 받아들이지 않아 실제 전직이 무시됐던 거야. 이 오류는 성장과 적의 성장에도 영향을 줄 수 있기 때문에 최초 독립 평가(평균 3,402.5점)는 최종 결과로 사용할 수 없어.</p>
+<div class="note warning"><b>실제 수정 내용</b><span>선택지 배열에서 가져온 정수를 Python의 <code>int</code>로 명시 변환했다: <code>movement, fire, stat, evolution = map(int, choices)</code>. 레벨 10 전직이 실제 <code>TankEnv.step()</code> 이후 기체 변경으로 이어지는 통합 검증을 수행했으며, <strong>가중치를 수정하지 않았고 수정 후 추가 연구 학습도 0 step</strong>이야. 따라서 이것을 처음부터 정상 전직 환경으로 학습한 성과라고 해석하면 안 돼.</span></div>
+<h3>최종 검증 — 완전히 새로운 20시드, 최대 400초</h3>
+<p>G018 기반 기존 모델과 H005의 선택 체크포인트를 <strong>같은 20개 새로운 시드</strong>에서 각각 결정적(greedy) 방식, 행동 30Hz로 비교했어. 아래 숫자는 <code>corrected_heldout_*</code> 파일에서 가져온 <b>오류 수정 후 최종 수치</b>야.</p>
+<div class="table-scroll"><table><thead><tr><th>지표</th><th>기존 이산 G018</th><th>연속 회전 H005 선택 모델</th><th>해석</th></tr></thead><tbody>
+<tr><td>120초 평균 점수</td><td>1,049.25</td><td><b>1,530.00</b></td><td>+45.8%</td></tr>
+<tr><td>120초 점수 p25</td><td>778.75</td><td><b>912.50</b></td><td>초기 하위 성적 개선</td></tr>
+<tr><td>최종 평균 점수</td><td>1,508.00</td><td><b>2,902.00</b></td><td><b>+92.4%</b></td></tr>
+<tr><td>최종 점수 p25</td><td>1,166.25</td><td><b>1,695.00</b></td><td>하위 점수 개선</td></tr>
+<tr><td>평균 생존</td><td>222.67초</td><td><b>262.84초</b></td><td>+40.17초, 불확실성 남음</td></tr>
+<tr><td>평균 적 처치</td><td>4.30</td><td><b>8.25</b></td><td>+3.95기</td></tr>
+<tr><td>400초 도달</td><td>2 / 20</td><td><b>5 / 20</b></td><td>최대 시간 도달 비율</td></tr>
+<tr><td>같은 시드 최종 점수</td><td colspan="2">연속 회전 후보 <b>14승 · 6패</b></td><td>모든 시드 우위는 아님</td></tr>
+</tbody></table></div>
+<div class="hybrid-bars">
+<div><span>기존 기본 모델 · 최종 점수</span><div class="bar-track"><i style="width:52%;background:#8ba3b3"></i></div><strong>1,508</strong></div>
+<div><span>연속 회전 후보 · 최종 점수</span><div class="bar-track"><i style="width:100%;background:#2c846c"></i></div><strong>2,902</strong></div>
+</div>
+<p>동일 시드 쌍을 함께 재표집한 bootstrap 10,000회 기준, 평균 최종 점수 차이의 95% 구간은 <b>+594~+2,282점</b>으로 0보다 높아. 하지만 평균 생존 차이 구간은 <b>−32.18~+111.79초</b>로 0을 포함해, 생존 개선은 확정적으로 말하기 어려워.</p>
+<h3>무엇이 성능을 올렸다고 말할 수 있나?</h3>
+<p>이 실험으로 <b>G018을 기반으로 회전 표현을 변경하고 단계별 학습·동결을 적용한 최종 후보가 같은 시드에서 높은 점수를 냈다</b>는 것은 확인할 수 있어. 그러나 회전 연속화 자체의 순수 인과 효과는 구분되지 않아. 기존 가중치 이전, 환경 구성, 학습량, 조준/몸체 동결, 보상 구성도 함께 달라졌기 때문이야.</p>
+<p>기존 <code>gpt_training/pure_ppo_model.zip</code>을 덮어쓰지 않고, 새 폴더의 <code>selected_model.zip</code>을 별도 최종 선택 모델로 남겼어. 또한 프로세스 8개 제한은 전 실행 과정에서 지켜지지 않았다는 기록도 남아 있으므로 재현성·실험 운영의 한계로 구분해야 해.</p>
+</section><section class="article-section" id="hybrid-sources">
+<div class="section-kicker">14 · 연속 회전 근거 파일</div>
+<h2>무엇을 읽어서 이 결론을 얻었나?</h2>
+<div class="table-scroll"><table><thead><tr><th>파일</th><th>이 문서에서 확인한 내용</th></tr></thead><tbody>
+<tr><td><code>gpt_training_rotation_continuous/README.md</code>, <code>RESULTS.md</code>, <code>RESEARCH.md</code></td><td>계보·가설·스텝 예산·검증·미채택 이유 및 정정 사실</td></tr>
+<tr><td><code>policy.py</code>, <code>train.py</code></td><td>HybridDistribution, tanh Gaussian, 22개 파라미터, log_prob, 동결, PPO 학습 설정</td></tr>
+<tr><td><code>actions/rotation_continuous_action_decoder.py</code></td><td>연속 회전 변환과 Python int 디코더 정정</td></tr>
+<tr><td><code>experiments/001~005/experiment.json</code></td><td>실제 부모 체크포인트·보상·학습률·동결·완료 상태</td></tr>
+<tr><td><code>corrected_candidate_selection.json</code>, <code>corrected_heldout_comparison.json</code></td><td>오류 수정 후 후보 결정, 독립 평가, 생존·점수·p25·부트스트랩 구간</td></tr>
+</tbody></table></div>
+<p class="smallprint">여기까지 포함해 HTML은 개인 PPO, GPT 이산 001~022, GPT 연속 회전 H001~H005의 별도 계보를 한 흐름으로 읽을 수 있도록 구성했어. <b>Notion 원본 파일은 수정하지 않았다.</b></p>
+</section><section class="article-section" id="sources"><div class="section-kicker">부록 · 확인한 구현·실험 기록</div><h2>참고한 코드와 로그</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>구현·기록</th>
+<th>확인한 내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>rl/actions/discrete_action_decoder.py</code></td>
+<td>개인 이산 조작 기본형 <code>Discrete(54)</code>와 정수 ↔ 이동/회전/발사 디코딩</td>
+</tr>
+<tr>
+<td><code>rl/observations/vector_observation.py</code></td>
+<td>5,139차원 벡터의 원소 순서·정규화·지형 격자 추출</td>
+</tr>
+<tr>
+<td><code>rl/observations/progression_observation.py</code></td>
+<td>기체 원핫·성장·강화·전직 123개 생성</td>
+</tr>
+<tr>
+<td><code>config/learning.py</code></td>
+<td><code>ObsConfig</code>, 슬롯 개수와 격자·채널 설정</td>
+</tr>
+<tr>
+<td><code>rl/gpt_training/environment.py</code></td>
+<td>FactorizedActions와 <code>MultiDiscrete</code> 5분기 변환, 전술 관측</td>
+</tr>
+<tr>
+<td><code>rl/gpt_training/networks.py</code></td>
+<td><code>EntityEncoder</code>, <code>SpatialFeaturesExtractor</code>, <code>GrowthMaskedPolicy</code>, 조준망과 동결</td>
+</tr>
+<tr>
+<td><code>rl/gpt_training/score_reward.py</code></td>
+<td><code>score_v2~v7</code> 보상과 potential 계산</td>
+</tr>
+<tr>
+<td><code>rl/gpt_training/EXPERIMENTS.md</code></td>
+<td>001~005의 교사·BC·DAgger식 실험 및 독립 평가</td>
+</tr>
+<tr>
+<td><code>rl/gpt_training/RESEARCH.md</code>, <code>RESULTS.md</code></td>
+<td>006~014의 조준·몸체 전환과 독립 10시드 평가</td>
+</tr>
+<tr>
+<td><code>rl/gpt_training/RESULTS_PHASE2.md</code></td>
+<td>015~018, frame_skip 변경, 새 20시드 평가</td>
+</tr>
+<tr>
+<td><code>rl/gpt_training/RESULTS_PHASE3.md</code></td>
+<td>019~022, 할인율·가중치 평균·승격 거절</td>
+</tr>
+<tr>
+<td><code>rl/gpt_training/phase*_results_summary.json</code></td>
+<td>120초 점수 p25, 최종 점수, 생존 및 시드별 비교</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>문서 기준일: <strong>2026년 11월 1일</strong>. 시드·step·보상 계수가 서로 다른 실험은 정량적 우열을 같은 평가 프로토콜 안에서만 판단한다.</p>
+</blockquote>
+</section>
+<div class="footer-links"><a href="https://app.notion.com/p/40b117a41d4d80fe8bb6de068ddcf6db" rel="noopener" target="_blank">원본 Notion 학습 노트</a><a href="#overview">처음으로 돌아가기 ↑</a></div><p class="endline">Space Z · 실험을 연결해 이해하기 위한 자체 완결형 HTML · 2026-11-01</p></div></main></div><script>
+(function(){
+  const search=document.getElementById('exp-search');
+  const group=document.getElementById('exp-group');
+  const rows=Array.from(document.querySelectorAll('#experiment-tbody tr'));
+  const count=document.getElementById('exp-count');
+  function filter(){const q=search.value.trim().toLowerCase();let shown=0;rows.forEach(tr=>{const on=(group.value==='all'||tr.dataset.group===group.value)&&(!q||tr.dataset.search.includes(q));tr.hidden=!on;if(on)shown++;});count.textContent=shown+' / '+rows.length+'건 표시';}
+  search.addEventListener('input',filter);group.addEventListener('change',filter);filter();
+  const links=Array.from(document.querySelectorAll('.nav-link'));
+  const sec=Array.from(document.querySelectorAll('.article-section'));
+  if ('IntersectionObserver' in window){const ob=new IntersectionObserver(items=>{items.forEach(i=>{if(i.isIntersecting){links.forEach(l=>l.classList.toggle('active',l.hash==='#'+i.target.id));}})},{rootMargin:'-10% 0px -77% 0px'});sec.forEach(s=>ob.observe(s));}
+})();
+
+(function(){
+ const box=document.querySelector('.lineage-scroll');
+ if(!box) return;
+ const all=document.getElementById('lineage-all'), main=document.getElementById('lineage-main');
+ const inspector=document.getElementById('lineage-inspector');
+ const details={"001": "교사 시연 → BC → PPO. 모방 직후가 PPO 이후보다 높아 BC 가중치를 다음 실험의 출발점으로 사용.", "002": "001의 BC 가중치에서 추가 PPO. 평가 성능 회귀로 기존 모방 가중치를 보존.", "003": "001 BC에서 분기. 혼합 rollout+BC+PPO, 개발평가 개선이나 독립 검증에선 001 BC에 열세.", "004": "교사 가중치를 물려받지 않고 처음부터 학습. 5,139차원 원본 + 5분기 이산 행동.", "005": "004 가중치를 추가 학습했으나 회귀. 이전 체크포인트로 돌아감.", "006": "005를 이어받은 것이 아니라 새로 초기화. 구조화 특징추출기로 최고 체크포인트 선택.", "007": "006 best에서 분기한 이동 적 2기 연습. 실전 평가 악화, 006으로 복귀.", "008": "006 best에서 별도 분기. 피격·조준 관련 보상 강화, 개선 미확인.", "009": "006 best에서 새로 분기. 회전/발사 Logits에 조준 보정을 더함.", "010": "009 best에서 몸체를 동결하고 조준망만 학습. 실전 전이는 제한적.", "011": "010에서 이동 표적 및 공통 조준 입력을 시험했으나 실전 성능 하락.", "012": "011에서 조준 출력층을 재초기화해 회전·발사 Logits를 독립망으로 교체. 성능 개선.", "013": "012의 선택 가중치로 이동 표적 조준 개선. 014의 부모.", "014": "013에서 조준 고정, 몸체 학습. 독립 시드 검증 후 1차 기본 모델 채택.", "015": "014에서 분기. 초기 점수 p25/생존이 나빠져 기존 모델 유지.", "016": "014에서 별도 분기. 보조보상 축소 및 생존 강화. 이후 018의 가중치가 됨.", "017": "014에서 별도 분기. 몸체 고정, 조준 업데이트. 016 계열보다 열세.", "018": "016 가중치 변경 없이 행동 결정 주기 4→2. 독립평가 승격, 현재 공개 기본 모델.", "019": "018에서 분기. 같은 결정주기로 몸체 추가 학습, 조준 동결. 공개 승격 안 함.", "020": "019에서 추가 몸체 학습. 평균 점수↑, 독립 평가 초기 p25/생존↓.", "021": "019에서 분기. 몸체 동결·조준만 업데이트. 우위 입증 실패.", "022": "두 부모의 같은 파라미터를 50:50 섞음(PPO 0 step). 120초 p25가 악화되어 미채택."};
+ function mode(highlight){box.classList.toggle('emphasis',highlight);all.classList.toggle('is-active',!highlight);main.classList.toggle('is-active',highlight);all.setAttribute('aria-pressed',String(!highlight));main.setAttribute('aria-pressed',String(highlight));}
+ all.addEventListener('click',()=>mode(false));main.addEventListener('click',()=>mode(true));
+ const nodes=Array.from(box.querySelectorAll('g.node'));
+ nodes.forEach(n=>{
+  const id=(n.id||'').replace('branch-node-','');if(!details[id])return;
+  n.setAttribute('role','button');n.setAttribute('tabindex','0');n.setAttribute('aria-label',id+'번 실험 상세 보기');
+  const open=()=>{nodes.forEach(x=>x.classList.remove('is-focused'));n.classList.add('is-focused');const label=n.querySelector('text')?.textContent||id;inspector.innerHTML='<strong>G'+id+' · '+label.replace(/^'+id+'\s*/,'')+'</strong><span>'+details[id]+'</span>';};
+  n.addEventListener('click',open);n.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open();}});
+ });
+})();
+</script></body></html>
