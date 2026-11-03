@@ -69,6 +69,17 @@ def parse_reward_overrides(entries):
     return overrides
 
 
+def check_process_budget(maximum):
+    """학습 본체·자식·Python 실행기를 포함한 프로세스 상한을 확인한다."""
+    process = psutil.Process()
+    launcher = process.parent()
+    children = process.children(recursive=True)
+    count = 1 + len(children) + int(launcher is not None and launcher.name().lower().startswith('python'))
+    if count > maximum:
+        raise RuntimeError(f'Owned process budget exceeded: {count} > {maximum}')
+    return dict(owned_process_count=count, worker_pids=[child.pid for child in children])
+
+
 def new_experiment(name, title, kind, goal, config, parent=None):
     if not name or Path(name).name != name or name in ('.', '..'):
         raise ValueError('Experiment name must be one directory name')
@@ -103,7 +114,7 @@ def new_experiment(name, title, kind, goal, config, parent=None):
                     versions=dict(python=sys.version, torch=torch.__version__,
                                   stable_baselines3=stable_baselines3.__version__, gymnasium=gymnasium.__version__),
                     process_policy=('SubprocVecEnv workers' if config.get('parallel') else 'DummyVecEnv in one process')
-                                   + '; evaluation is sequential; maximum 18 owned processes',
+                                   + f'; evaluation is sequential; maximum {config.get("maximum_owned_processes", 18)} owned processes',
                     distribution_dependency='Only RotationHybridDistribution is reused; no parent policy or aim_features is called')
     write_json(directory / 'manifest.json', manifest)
     write_json(directory / 'state.json', dict(status='prepared', timesteps=0, updated_at=now(), process_id=os.getpid()))
@@ -131,10 +142,11 @@ class TrainingJsonWriter(KVWriter):
 class EpisodeRecorder(BaseCallback):
     """에피소드 결과와 학습 진행 상태를 기록한다."""
 
-    def __init__(self, directory, environment_count, start_time):
+    def __init__(self, directory, environment_count, start_time, maximum_owned_processes=18):
         super().__init__()
         self.directory = directory
         self.start_time = start_time
+        self.maximum_owned_processes = maximum_owned_processes
         self.components = [dict() for _ in range(environment_count)]
         self.reward_inputs = [dict() for _ in range(environment_count)]
         self.shots = [0] * environment_count
@@ -173,10 +185,14 @@ class EpisodeRecorder(BaseCallback):
         return not (self.directory / 'stop.request').exists()
 
     def _on_rollout_end(self):
+        process_usage = check_process_budget(self.maximum_owned_processes)
+        self.logger.record('resources/owned_python_processes', process_usage['owned_process_count'])
         state = json.loads((self.directory / 'state.json').read_text(encoding='utf-8'))
         state.update(status='training', timesteps=self.num_timesteps, updated_at=now(),
                      additional_timesteps=self.num_timesteps - state.get('initial_timesteps', 0),
-                     process_id=os.getpid(), elapsed_seconds=time.monotonic() - self.start_time)
+                     process_id=os.getpid(), elapsed_seconds=time.monotonic() - self.start_time,
+                     owned_process_count=process_usage['owned_process_count'],
+                     maximum_owned_processes=self.maximum_owned_processes)
         write_json(self.directory / 'state.json', state)
 
 
@@ -296,6 +312,10 @@ def main():
     parser.add_argument('--evaluation-interval', type=int, default=32768)
     parser.add_argument('--num-envs', type=int, default=4)
     parser.add_argument('--parallel', action='store_true')
+    parser.add_argument('--max-owned-processes', type=int, default=18)
+    parser.add_argument('--checkpoint-interval', type=int, default=None)
+    parser.add_argument('--title')
+    parser.add_argument('--goal')
     parser.add_argument('--evaluation-seeds', type=int, nargs='+', default=EVALUATION_SEEDS)
     parser.add_argument('--confirmation-seeds', type=int, nargs='+', default=[720101,720202,720303,720404,720505,720606])
     parser.add_argument('--learning-rate', type=float, default=None,
@@ -303,14 +323,18 @@ def main():
     parser.add_argument('--reward-overrides', type=str, nargs='+', default=None,
                         help='score_gain=0.03 enemy_damage=0.015 형태. 지정한 키만 REWARD_COEFFICIENTS 기본값 위에 덮어씀.')
     args = parser.parse_args()
-    if not 1 <= args.num_envs <= 16:
-        parser.error('Use 1–16 environments within the 18-process budget')
+    if not 2 <= args.max_owned_processes <= 18:
+        parser.error('Use a process budget between 2 and 18')
+    if not 1 <= args.num_envs <= 16 or (args.parallel and args.num_envs + 2 > args.max_owned_processes):
+        parser.error('Environment workers plus trainer and launcher must fit the process budget')
     try:
         reward_overrides = parse_reward_overrides(args.reward_overrides)
     except ValueError as error:
         parser.error(str(error))
     rollout_size = args.num_envs * PPO_OPTIONS['n_steps']
-    checkpoint_interval = rollout_size * (6 if args.parallel else 16)
+    checkpoint_interval = args.checkpoint_interval if args.checkpoint_interval is not None else rollout_size * (6 if args.parallel else 16)
+    if checkpoint_interval <= 0 or checkpoint_interval % rollout_size:
+        parser.error('Checkpoint interval must be a positive multiple of the rollout size')
     if args.steps <= 0 or args.steps % rollout_size:
         parser.error('Steps must be a positive multiple of the rollout size')
     if args.evaluation_interval <= 0 or args.evaluation_interval % checkpoint_interval:
@@ -324,7 +348,7 @@ def main():
     initial_timesteps = parent['timesteps'] if parent else 0
     target_timesteps = initial_timesteps + args.steps
     config = dict(training_seed=args.seed, requested_steps=args.steps, number_of_environments=args.num_envs,
-                  parallel=args.parallel, rollout_size=rollout_size, maximum_owned_processes=18,
+                  parallel=args.parallel, rollout_size=rollout_size, maximum_owned_processes=args.max_owned_processes,
                   initial_timesteps=initial_timesteps, target_timesteps=target_timesteps, parent=parent,
                   environment=environment_configuration(reward_overrides), ppo=PPO_OPTIONS,
                   learning_rate_override=args.learning_rate,
@@ -338,6 +362,8 @@ def main():
     title = '학습량 증가 · 같은 조건에서 이어 학습' if parent else '원본 벡터만으로 기본 게임 예비 학습'
     goal = (f'{parent["experiment_id"]}의 체크포인트에서 구조·보상·게임·PPO 설정을 유지하고 이어 학습한다. 환경 수 {args.num_envs}, 병렬 실행 {args.parallel}, rollout {rollout_size}스텝.'
             if parent else '목표 선택·조준 보조 입력 없이 기본 게임에서 점수 획득과 생존을 PPO로 학습할 수 있는지 살펴본다.')
+    title = args.title or title
+    goal = args.goal or goal
     directory = new_experiment(args.name, title, 'training', goal, config, parent=parent)
     started = time.monotonic()
     environments = None
@@ -350,13 +376,9 @@ def main():
     try:
         factories = [lambda: Monitor(make_environment(120, reward_overrides=reward_overrides)) for _ in range(args.num_envs)]
         environments = SubprocVecEnv(factories, start_method='spawn') if args.parallel else DummyVecEnv(factories)
-        process = psutil.Process()
-        launcher = process.parent()
-        process_count = 1 + len(process.children(recursive=True)) + int(launcher.name().lower().startswith('python'))
-        if process_count > 18:
-            raise RuntimeError(f'Owned process budget exceeded: {process_count}')
+        process_usage = check_process_budget(args.max_owned_processes)
         event(directory, '프로세스 확인', '실측한 자체 Python 프로세스 수를 기록했다.',
-              owned_process_count=process_count, worker_pids=[child.pid for child in process.children(recursive=True)])
+              **process_usage)
         if parent:
             model = PPO.load(args.resume, env=environments, device='cpu', seed=args.seed)
             checks = verify_loaded_parent(model, args.resume, args.num_envs)
@@ -379,7 +401,7 @@ def main():
         model.set_logger(configure(str(directory / 'logs/tensorboard'), ['stdout', 'tensorboard']))
         model.logger.output_formats.append(TrainingJsonWriter(directory))
         model.logger.output_formats.append(HumanOutputFormat(str(directory / 'logs/console.log')))
-        recorder = EpisodeRecorder(directory, args.num_envs, started)
+        recorder = EpisodeRecorder(directory, args.num_envs, started, args.max_owned_processes)
         event(directory, 'started', '기본 게임의 기존 관찰만 사용하며 보조 목표 선택·시야선 보상은 사용하지 않는다.',
               policy_parameters=sum(parameter.numel() for parameter in model.policy.parameters()),
               process_id=os.getpid(), environment_processes=args.num_envs if args.parallel else 0,

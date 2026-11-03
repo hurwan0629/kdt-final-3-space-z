@@ -1,0 +1,145 @@
+{
+  "selected_at": "2026-10-31T12:12:26.697567+00:00",
+  "source": "experiments/003_dagger_full/checkpoints/best.zip",
+  "sha256": "4606e6c48b1a4ce519fbd2259a171312a0ab97facfdc8d91a2a2e46903a73415",
+  "selection_rule": "Completion fraction, then score on seeds 101/202/303; chosen before unseen 707/808/909 test",
+  "observation_features": 164,
+  "action_space": [
+    9,
+    9,
+    2
+  ],
+  "fixed_growth_controller": true,
+  "selection_evaluation": {
+    "label": "final",
+    "timesteps": 16640,
+    "stage": "full",
+    "max_steps": 3000,
+    "episodes": [
+      {
+        "seed": 101,
+        "score": 4040,
+        "kills": 11,
+        "survival_seconds": 200.0,
+        "terminated": false,
+        "truncated": true,
+        "training_reward": 50.89270565505403,
+        "shots": 258,
+        "shapes_destroyed": 58,
+        "damage_taken": 148.67695833333335
+      },
+      {
+        "seed": 202,
+        "score": 3410,
+        "kills": 8,
+        "survival_seconds": 200.0,
+        "terminated": false,
+        "truncated": true,
+        "training_reward": 43.72174750932684,
+        "shots": 230,
+        "shapes_destroyed": 73,
+        "damage_taken": 38.727500000000006
+      },
+      {
+        "seed": 303,
+        "score": 4450,
+        "kills": 15,
+        "survival_seconds": 200.0,
+        "terminated": false,
+        "truncated": true,
+        "training_reward": 56.81388524705152,
+        "shots": 235,
+        "shapes_destroyed": 62,
+        "damage_taken": 114.12636666666666
+      }
+    ],
+    "summary": {
+      "score": {
+        "mean": 3966.6666666666665,
+        "std": 427.73304239391604
+      },
+      "kills": {
+        "mean": 11.333333333333334,
+        "std": 2.8674417556808756
+      },
+      "survival_seconds": {
+        "mean": 200.0,
+        "std": 0.0
+      },
+      "shots": {
+        "mean": 241.0,
+        "std": 12.192894105447921
+      },
+      "shapes_destroyed": {
+        "mean": 64.33333333333333,
+        "std": 6.342099196813483
+      },
+      "damage_taken": {
+        "mean": 100.51027500000002,
+        "std": 45.90765594215307
+      }
+    }
+  },
+  "unseen_evaluation": "final_unseen_evaluation.json",
+  "unseen_test_results": [
+    {
+      "policy": "experiments\\001_imitation_combat\\checkpoints\\imitation.zip",
+      "summary": {
+        "score": {
+          "mean": 5380.0,
+          "std": 1479.3748679763355
+        },
+        "kills": {
+          "mean": 16.666666666666668,
+          "std": 4.496912521077347
+        },
+        "survival_seconds": {
+          "mean": 289.81666666666666,
+          "std": 95.22660206444804
+        },
+        "shots": {
+          "mean": 366.3333333333333,
+          "std": 78.01851632073561
+        },
+        "shapes_destroyed": {
+          "mean": 80.0,
+          "std": 27.58018612458347
+        },
+        "damage_taken": {
+          "mean": 408.19753333333506,
+          "std": 63.170472536112136
+        }
+      }
+    },
+    {
+      "policy": "experiments\\003_dagger_full\\checkpoints\\best.zip",
+      "summary": {
+        "score": {
+          "mean": 5068.333333333333,
+          "std": 2863.2159463714147
+        },
+        "kills": {
+          "mean": 12.666666666666666,
+          "std": 4.642796092394707
+        },
+        "survival_seconds": {
+          "mean": 265.3388888888889,
+          "std": 152.52522944511165
+        },
+        "shots": {
+          "mean": 312.0,
+          "std": 180.43835512440253
+        },
+        "shapes_destroyed": {
+          "mean": 99.66666666666667,
+          "std": 76.36025726049441
+        },
+        "damage_taken": {
+          "mean": 328.0895722222223,
+          "std": 200.61355367225426
+        }
+      }
+    }
+  ],
+  "unseen_test_conclusion": "No confirmed generalization improvement over initial imitation; 0/3 episodes reached 600 seconds"
+}

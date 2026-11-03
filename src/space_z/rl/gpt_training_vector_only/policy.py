@@ -44,8 +44,11 @@ class VectorFeaturesExtractor(BaseFeaturesExtractor):
                     observation[:, 412:712].reshape(-1, 30, 10),
                     observation[:, 712:1224].reshape(-1, 64, 8)]
         tokens = [encoder(values) + self.type_embedding.weight[index]
-                  for index, (encoder, values) in enumerate(zip(
-                      [self.enemy_encoder, self.shape_encoder, self.bullet_encoder], entities))]
+                  for index, (encoder, values) 
+                  in enumerate(zip(
+                      [self.enemy_encoder, self.shape_encoder, self.bullet_encoder],
+                        entities
+                  ))]
         terrain = self.terrain_cnn(observation[:, 1224:].reshape(-1, 3, 29, 45))
         terrain = terrain.flatten(2).transpose(1, 2)
         terrain = (self.terrain_projection(terrain) + self.terrain_position_projection(self.terrain_positions)

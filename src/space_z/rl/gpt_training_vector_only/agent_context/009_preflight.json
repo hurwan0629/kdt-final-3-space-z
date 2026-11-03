@@ -1,0 +1,44 @@
+{
+  "recorded_at": "2026-11-03T04:35:09.305794+00:00",
+  "parent": {
+    "checkpoint": "experiments/008_combined_reward_and_lr/checkpoints/best.zip",
+    "sha256": "1e9a791b8141d345fb63ce88d0a742258a208395dcdbee781c855128acd9fb03",
+    "timesteps": 828416,
+    "experiment_id": "008_combined_reward_and_lr",
+    "optimizer_preserved": true,
+    "environment_reset_on_resume": true
+  },
+  "checks": {
+    "parent_weights": {
+      "passed": true,
+      "tensors": 153
+    },
+    "parent_optimizer": {
+      "passed": true,
+      "parameter_states": 56
+    },
+    "parent_hyperparameters": {
+      "passed": true,
+      "settings": 9
+    }
+  },
+  "loaded_model_learning_rate": 0.0003,
+  "loaded_lr_schedule": 0.0003,
+  "loaded_optimizer_lr": 0.0001,
+  "branch_source_changes_vs_008": [
+    "branch/environment.py",
+    "branch/experiment.py",
+    "branch/policy.py"
+  ],
+  "policy_and_environment_ast_unchanged": true,
+  "process_cap_guard_checked": true,
+  "reward_coefficients_verified": {
+    "score_gain": 0.03,
+    "shape_damage": 0.015,
+    "enemy_damage": 0.015,
+    "damage_taken": -0.02,
+    "death": -1.5
+  },
+  "runner_sha256": "3cc5388a58df78300e5caebc448ed7438146f1b66ec46b243f3e7a0b299677c0",
+  "invalid_process_cli_rejected": true
+}

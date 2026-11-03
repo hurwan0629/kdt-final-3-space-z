@@ -4116,15 +4116,15 @@
     "semantic_hash": ""
   },
   "src/space_z/rl/gpt_training_vector_only/environment.py": {
-    "mtime": 1793598258.7566028,
-    "seen": 1793608313.2129521,
-    "ast_hash": "3c3ea70d50cf3e081c0ffbbac62741e9",
+    "mtime": 1793661506.337378,
+    "seen": 1793661700.053903,
+    "ast_hash": "fd2f05b1adfc1822c6ceaadb26d623a9",
     "semantic_hash": ""
   },
   "src/space_z/rl/gpt_training_vector_only/experiment.py": {
-    "mtime": 1793598224.0147974,
-    "seen": 1793608313.2135234,
-    "ast_hash": "2c1ae5151fae85b4e9579b935366f9cc",
+    "mtime": 1793680524.7880259,
+    "seen": 1793680650.4563305,
+    "ast_hash": "021d4a313c3c46cc228438a4d28cb0ed",
     "semantic_hash": ""
   },
   "src/space_z/rl/gpt_training_vector_only/experiments/001_contract_checks/checks.json": {
@@ -4176,9 +4176,9 @@
     "semantic_hash": ""
   },
   "src/space_z/rl/gpt_training_vector_only/policy.py": {
-    "mtime": 1793584469.9560921,
-    "seen": 1793584940.2937405,
-    "ast_hash": "831995f497cc2a0dc82cc9ec1af89636",
+    "mtime": 1793660522.2519348,
+    "seen": 1793660613.8756158,
+    "ast_hash": "83bf3836e3ea01bc4c25ec6cc82eb39b",
     "semantic_hash": ""
   },
   "src/space_z/rl/gpt_training_vector_only/report.py": {
@@ -4206,9 +4206,9 @@
     "semantic_hash": ""
   },
   "src/space_z/rl/gpt_training_vector_only/agent_context/current.md": {
-    "mtime": 1793594180.384062,
-    "seen": 1793608313.2484677,
-    "ast_hash": "99b100e6d994c283618f826a78bd5eac",
+    "mtime": 1793680631.8762035,
+    "seen": 1793680650.5018861,
+    "ast_hash": "453985808471abb76f1268f72305957b",
     "semantic_hash": ""
   },
   "src/space_z/rl/gpt_training_vector_only/report_template.html": {
@@ -4224,9 +4224,9 @@
     "semantic_hash": ""
   },
   "src/space_z/rl/gpt_training_vector_only/reports/index.html": {
-    "mtime": 1793608163.4446628,
-    "seen": 1793608313.2488258,
-    "ast_hash": "a173d5dcebdd7615724c1d398b0708c5",
+    "mtime": 1793630869.8529086,
+    "seen": 1793660613.8951561,
+    "ast_hash": "6e6d951a73569bc745c87ebf611739f4",
     "semantic_hash": ""
   },
   "src/space_z/rl/gpt_training_vector_only/experiments/002_full_game_pilot/replays/000000000_seed_710101_frame_000002.png": {
@@ -4524,9 +4524,9 @@
     "semantic_hash": ""
   },
   "src/space_z/rl/gpt_training_vector_only/experiments/007_higher_combat_reward/state.json": {
-    "mtime": 1793608163.2687309,
-    "seen": 1793608313.2161372,
-    "ast_hash": "feeea6bb4370707fcf4587cdac9f7225",
+    "mtime": 1793609808.7992887,
+    "seen": 1793610800.154784,
+    "ast_hash": "ac38f43441f0d6001a5ae012958371e4",
     "semantic_hash": ""
   },
   "study/ppo_policy_assembly/environment.py": {
@@ -4548,9 +4548,9 @@
     "semantic_hash": ""
   },
   "src/space_z/rl/gpt_report/experiment_atlas.html": {
-    "mtime": 1793608294.410738,
-    "seen": 1793608313.2364516,
-    "ast_hash": "4409be2316d1a878a1b7d9402e6d7a3d",
+    "mtime": 1793661686.450358,
+    "seen": 1793661700.0858417,
+    "ast_hash": "6d1eea8ab2d5cc283a5740857b3505d2",
     "semantic_hash": ""
   },
   "src/space_z/rl/gpt_report/space_z_ppo_full_journey_with_hybrid_rotation.html": {
@@ -4671,6 +4671,1380 @@
     "mtime": 1793606187.485644,
     "seen": 1793608313.2994454,
     "ast_hash": "b70600e41815c29fa64a533344b7982a",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/007_higher_combat_reward/confirmation.json": {
+    "mtime": 1793609807.7424932,
+    "seen": 1793610800.154676,
+    "ast_hash": "f5646f40b9037520aefe33a8ec4ae5cf",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/007_higher_combat_reward/replays/000880640_seed_730001_frame_000002.png": {
+    "mtime": 1793609325.3952482,
+    "seen": 1793610800.201722,
+    "ast_hash": "911f3f901ebcb96d259890c29cff44fe",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/007_higher_combat_reward/replays/000880640_seed_730001_frame_001727.png": {
+    "mtime": 1793609333.485547,
+    "seen": 1793610800.201725,
+    "ast_hash": "4232526cdcfa35d6022bf58eef995b59",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_report/record_milestones.py": {
+    "mtime": 1793661366.12488,
+    "seen": 1793661700.003887,
+    "ast_hash": "e0c8c4930fdd3ecb8b0b58e15198d5cd",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_report/videos/manifest.json": {
+    "mtime": 1793661588.1477034,
+    "seen": 1793661700.0038896,
+    "ast_hash": "45adcde4ea5500e8d8c389d8518442c4",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_report/edit_milestone_videos.py": {
+    "mtime": 1793661366.1238778,
+    "seen": 1793661700.0038815,
+    "ast_hash": "0dadaedb14ee210c2456d9db27844c0d",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_report/videos/diagram_previews/index.html": {
+    "mtime": 1793661512.7232783,
+    "seen": 1793661700.0860105,
+    "ast_hash": "322627315bff258f70e707f90d476eb8",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_report/videos/diagram_previews/001_diagram_preview.png": {
+    "mtime": 1793661513.6208751,
+    "seen": 1793661700.1331875,
+    "ast_hash": "26f270cf60377cc035d2d70edfdc3af4",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_report/videos/diagram_previews/002_diagram_preview.png": {
+    "mtime": 1793661513.741852,
+    "seen": 1793661700.1331909,
+    "ast_hash": "812ca1ed28a504b9417bfada73b9aaef",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_report/videos/diagram_previews/003_diagram_preview.png": {
+    "mtime": 1793661513.852895,
+    "seen": 1793661700.133193,
+    "ast_hash": "25926d3fcf79610ff2e480cfcf24db70",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_report/videos/diagram_previews/004_diagram_preview.png": {
+    "mtime": 1793661513.9631457,
+    "seen": 1793661700.1331959,
+    "ast_hash": "fe2b86dfa2bf1e7bb7202db7c78454d5",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_report/videos/001_EXP001_seed505_edited.mp4": {
+    "mtime": 1793661519.1589253,
+    "seen": 1793661700.157598,
+    "ast_hash": "393478e1d279b0243fee1932a9d64a8b",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_report/videos/002_EXP023_seed505_edited.mp4": {
+    "mtime": 1793661518.5528564,
+    "seen": 1793661700.157601,
+    "ast_hash": "d2845c6e3177cd1d099b1dd04369d3b7",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/008_combined_reward_and_lr/checks.json": {
+    "mtime": 1793626635.4308567,
+    "seen": 1793626790.3876963,
+    "ast_hash": "bc725f3cc33fc242091acb9595d22f8f",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/008_combined_reward_and_lr/config.json": {
+    "mtime": 1793626622.4501429,
+    "seen": 1793626790.3876994,
+    "ast_hash": "1e556c931bc7ea5433fd1958759470f2",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/008_combined_reward_and_lr/manifest.json": {
+    "mtime": 1793626622.5643733,
+    "seen": 1793626790.3877017,
+    "ast_hash": "d110850298ff891c0331bd008bb5bc02",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/008_combined_reward_and_lr/state.json": {
+    "mtime": 1793630869.6593876,
+    "seen": 1793660613.8754516,
+    "ast_hash": "8c7483e81acdf62de7dc84c9cbd3106e",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_report/videos/endings/index.html": {
+    "mtime": 1793661469.5618422,
+    "seen": 1793661700.0860138,
+    "ast_hash": "ceab3613d51810b77e894c22792ee7cc",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_report/videos/endings/001.png": {
+    "mtime": 1793626496.7919843,
+    "seen": 1793626790.427725,
+    "ast_hash": "fefd33d16c37df46e684115d04d65dd0",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_report/videos/endings/002.png": {
+    "mtime": 1793626497.0389965,
+    "seen": 1793626790.4277272,
+    "ast_hash": "4dea6391d9c3154855de93c08ca38f7f",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_report/videos/endings/003.png": {
+    "mtime": 1793661512.4704578,
+    "seen": 1793661700.1335764,
+    "ast_hash": "1a2ff0fbede4cae828fcc379ba19b4da",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_report/videos/endings/004.png": {
+    "mtime": 1793626663.9512138,
+    "seen": 1793661700.1335785,
+    "ast_hash": "01c00eee7b802c212dec6a09976e4af5",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/008_combined_reward_and_lr/replays/000634880_seed_730001_frame_000002.png": {
+    "mtime": 1793626642.4674027,
+    "seen": 1793626790.4425647,
+    "ast_hash": "911f3f901ebcb96d259890c29cff44fe",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/008_combined_reward_and_lr/replays/000634880_seed_730001_frame_003600.png": {
+    "mtime": 1793626658.3377686,
+    "seen": 1793626790.442567,
+    "ast_hash": "1d05b9f27491ba375a6c26a479da3baf",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/008_combined_reward_and_lr/replays/000634880_seed_730001_frame_006932.png": {
+    "mtime": 1793626672.5531406,
+    "seen": 1793626790.4425695,
+    "ast_hash": "ba25a0008e04b625ac721be882245871",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/008_combined_reward_and_lr/confirmation.json": {
+    "mtime": 1793630868.7279959,
+    "seen": 1793660613.8753622,
+    "ast_hash": "70c3e31b7dd02140e3d782752da709bd",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_report/videos/overlays/index.html": {
+    "mtime": 1793661469.5558424,
+    "seen": 1793661700.086016,
+    "ast_hash": "f81627718192ffe8e359a971c361f90f",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_report/videos/overlays/001.png": {
+    "mtime": 1793661470.3352392,
+    "seen": 1793661700.133584,
+    "ast_hash": "98cdb1d3451202f60ff5877dbab37d85",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_report/videos/overlays/002.png": {
+    "mtime": 1793661470.381164,
+    "seen": 1793661700.1335866,
+    "ast_hash": "01f89a939dd76e9ef78c4fae03481b5b",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_report/videos/overlays/003.png": {
+    "mtime": 1793661470.435164,
+    "seen": 1793661700.1335895,
+    "ast_hash": "12536adc618da229e23efbf8aff577dc",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_report/videos/overlays/004.png": {
+    "mtime": 1793661470.4804804,
+    "seen": 1793661700.133592,
+    "ast_hash": "782412b0f6592556a808bbf065da2052",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/008_combined_reward_and_lr/replays/000939520_seed_730001_frame_000002.png": {
+    "mtime": 1793630252.611398,
+    "seen": 1793660613.923765,
+    "ast_hash": "fa05345c7596adbd59d91bb5acdd0f04",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/008_combined_reward_and_lr/replays/000939520_seed_730001_frame_003600.png": {
+    "mtime": 1793630267.043981,
+    "seen": 1793660613.9237669,
+    "ast_hash": "a8b56afe59ac3911c4d564ae9804b7e9",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/experiments/008_combined_reward_and_lr/replays/000939520_seed_730001_frame_006076.png": {
+    "mtime": 1793630277.315956,
+    "seen": 1793660613.9237683,
+    "ast_hash": "f0013e789082a4925197a5e9c607f1a3",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_report/videos/diagram_previews/005_diagram_preview.png": {
+    "mtime": 1793661514.0927713,
+    "seen": 1793661700.1331992,
+    "ast_hash": "91ef28310a7deaf1d769dcff9953b1ea",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_report/videos/endings/005.png": {
+    "mtime": 1793626497.4888349,
+    "seen": 1793661700.1335807,
+    "ast_hash": "5dcd6df4e72ffed90dced28bf562006d",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_report/videos/overlays/005.png": {
+    "mtime": 1793661470.530491,
+    "seen": 1793661700.1335936,
+    "ast_hash": "d3519f04220a3cfb58cd2472592b3c1c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_report/videos/003_EXP018_seed505_edited.mp4": {
+    "mtime": 1793661520.8003025,
+    "seen": 1793661700.1576037,
+    "ast_hash": "e7411f01f1bdc3bd5c93c8b5f812e861",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_report/videos/004_EXP036_seed505_edited.mp4": {
+    "mtime": 1793661536.5088668,
+    "seen": 1793661700.1576064,
+    "ast_hash": "50bafaac89e84f34598d991d29497c7a",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_report/videos/005_EXP045_seed505_edited.mp4": {
+    "mtime": 1793661530.1649582,
+    "seen": 1793661700.1576085,
+    "ast_hash": "9dd29b264a8b81bf059faa0d3f7036b2",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_report/videos/\uc6d0\ubcf8/001_EXP001_seed505.mp4": {
+    "mtime": 1793613491.5832868,
+    "seen": 1793661700.157612,
+    "ast_hash": "e37f8944fc931d1682a85fbad8fc00aa",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_report/videos/\uc6d0\ubcf8/002_EXP023_seed505.mp4": {
+    "mtime": 1793613692.3885436,
+    "seen": 1793661700.1576161,
+    "ast_hash": "14585eface2fbe8455c9f6588c15d8db",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_report/videos/\uc6d0\ubcf8/003_EXP018_seed505.mp4": {
+    "mtime": 1793661411.400654,
+    "seen": 1793661700.1576188,
+    "ast_hash": "241ca42dcaa50326e07409d91ac889d2",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_report/videos/\uc6d0\ubcf8/004_EXP036_seed505.mp4": {
+    "mtime": 1793614401.294264,
+    "seen": 1793661700.1576204,
+    "ast_hash": "947f5ad8ec6ef80e9224ba413fd26b4c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_report/videos/\uc6d0\ubcf8/005_EXP045_seed505.mp4": {
+    "mtime": 1793614102.989722,
+    "seen": 1793661700.1576228,
+    "ast_hash": "650b792cd4cc43678371536e4bb9c924",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_report/videos/\ud6c4\ubcf4/004_EXP036_seed505_before_extra_3x.mp4": {
+    "mtime": 1793661563.8809724,
+    "seen": 1793661700.1576252,
+    "ast_hash": "b09d70cace507fe47c02991eced1a06a",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_report/videos/\ud6c4\ubcf4/005_EXP045_seed505_before_extra_3x.mp4": {
+    "mtime": 1793661588.1091685,
+    "seen": 1793661700.157627,
+    "ast_hash": "9f5a1f8b5c0fdbd4fc440b5da3fc303d",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/build_plot.py": {
+    "mtime": 1793662970.9373295,
+    "seen": 1793663006.566376,
+    "ast_hash": "35508fdf1b3916015e604bb92a9b6bcf",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/best_model.json": {
+    "mtime": 1793662877.6822238,
+    "seen": 1793663006.5663784,
+    "ast_hash": "69135136029b18395b93b1dcb2d833f8",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/experiments/001_imitation_combat/experiment.json": {
+    "mtime": 1793662877.5182674,
+    "seen": 1793663006.5663798,
+    "ast_hash": "38b46e35ffc09d5d01777abae9431d27",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/experiments/002_full_ppo/experiment.json": {
+    "mtime": 1793662877.5242722,
+    "seen": 1793663006.5663807,
+    "ast_hash": "c8258dd9d4d893ed87808e5d1fbab9fb",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/experiments/003_dagger_full/experiment.json": {
+    "mtime": 1793662877.5302713,
+    "seen": 1793663006.5663822,
+    "ast_hash": "adef9e6f2c0ff8d1b606a62e8518e1f3",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/experiments/004_pure_ppo_harvest/experiment.json": {
+    "mtime": 1793662877.533273,
+    "seen": 1793663006.5663834,
+    "ast_hash": "ccbd9fabcf11ed6ac027872dea612a3f",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/experiments/005_pure_ppo_full/experiment.json": {
+    "mtime": 1793662877.5387812,
+    "seen": 1793663006.5663843,
+    "ast_hash": "b8626cd77ec842cb64189c6e7bef1c7a",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/experiments/006_spatial_aim/experiment.json": {
+    "mtime": 1793662877.5451186,
+    "seen": 1793663006.566386,
+    "ast_hash": "37570b5ecc9fa8fa712989a9dced225d",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/experiments/007_spatial_duel/experiment.json": {
+    "mtime": 1793662877.548121,
+    "seen": 1793663006.566387,
+    "ast_hash": "dd24219fe3185c0778a865caadcb586c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/experiments/008_full_score_v3/experiment.json": {
+    "mtime": 1793662877.5511198,
+    "seen": 1793663006.5663881,
+    "ast_hash": "b01b36435f0a4c3dbd7ee7f2b5c7ce97",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/experiments/009_focused_arena/experiment.json": {
+    "mtime": 1793662877.5581198,
+    "seen": 1793663006.566389,
+    "ast_hash": "b3fb2827b4f178dca71d018f6b5ec562",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/experiments/010_stationary_range/experiment.json": {
+    "mtime": 1793662877.5631173,
+    "seen": 1793663006.5663905,
+    "ast_hash": "1ae02ae5fd08c89fe5d285933671b3e7",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/experiments/011_unified_moving_range/experiment.json": {
+    "mtime": 1793662877.5661187,
+    "seen": 1793663006.5663915,
+    "ast_hash": "59eae64b043fe4f8feff5636a1892fef",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/experiments/012_independent_static/experiment.json": {
+    "mtime": 1793662877.5726333,
+    "seen": 1793663006.5663927,
+    "ast_hash": "2c5a7f73847347992441a1b9966c0bc5",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/experiments/013_independent_moving/experiment.json": {
+    "mtime": 1793662877.5756273,
+    "seen": 1793663006.5663939,
+    "ast_hash": "4c2ea7d308e40a04e6cdab5699e70931",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/experiments/014_full_body_control/experiment.json": {
+    "mtime": 1793662877.5786266,
+    "seen": 1793663006.566395,
+    "ast_hash": "c9a427df82fe14522fd5be17fd1bd6f4",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/experiments/015_full_early_stability/experiment.json": {
+    "mtime": 1793662877.5816274,
+    "seen": 1793663006.566396,
+    "ast_hash": "01232e396808ac99adfd084e9953516f",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/experiments/016_full_score_focus/experiment.json": {
+    "mtime": 1793662877.5846274,
+    "seen": 1793663006.5663967,
+    "ast_hash": "00462a52c9f4c9a1e743b1dee85f50d2",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/experiments/017_full_aim_refinement/experiment.json": {
+    "mtime": 1793662877.5876262,
+    "seen": 1793663006.5663977,
+    "ast_hash": "febf230b9699c39bd7434e67778c38ad",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/experiments/019_deployment_cadence/experiment.json": {
+    "mtime": 1793662877.5906265,
+    "seen": 1793663006.5663989,
+    "ast_hash": "3d6523a9efddd9c42d23a6edb6ab2db0",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/experiments/020_time_discount/experiment.json": {
+    "mtime": 1793662877.5936296,
+    "seen": 1793663006.5664,
+    "ast_hash": "b8411c136004155942e9bd3c5ea8c65c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/experiments/021_cadence_aim_refinement/experiment.json": {
+    "mtime": 1793662877.5966294,
+    "seen": 1793663006.5664012,
+    "ast_hash": "bf78fa550451d6475c6aae6b8f42ac62",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/final_unseen_evaluation.json": {
+    "mtime": 1793662877.6842175,
+    "seen": 1793663006.5664022,
+    "ast_hash": "f7494774e813131f76dffe98e1803a15",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/heldout_001_002.json": {
+    "mtime": 1793662877.6852179,
+    "seen": 1793663006.5664034,
+    "ast_hash": "470faf76b3ad7ca1cd335dc16381a3f8",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/heldout_003.json": {
+    "mtime": 1793662877.6862185,
+    "seen": 1793663006.5664046,
+    "ast_hash": "7a712d051d44db5cd0184291a25d5fce",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/heldout_400_seconds.json": {
+    "mtime": 1793662877.6912246,
+    "seen": 1793663006.5664058,
+    "ast_hash": "191912a2682adf13c6c41e1f2968883a",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/old_pure_validation_6.json": {
+    "mtime": 1793662877.6942246,
+    "seen": 1793663006.5664067,
+    "ast_hash": "1faf539a09885ae40876908d046502b9",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/phase2_baseline_sampled_validation.json": {
+    "mtime": 1793662877.696229,
+    "seen": 1793663006.5664077,
+    "ast_hash": "c38a84f8175d78cfd8fbedf2a92334e6",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/phase2_development_014.json": {
+    "mtime": 1793662877.6972294,
+    "seen": 1793663006.5664086,
+    "ast_hash": "8c5cad86bedc461ed7ff9b5e24f5fa89",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/phase2_development_015.json": {
+    "mtime": 1793662877.6982296,
+    "seen": 1793663006.56641,
+    "ast_hash": "f9da9cc42df1d213933d9460749a2420",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/phase2_development_016.json": {
+    "mtime": 1793662877.7002304,
+    "seen": 1793663006.5664108,
+    "ast_hash": "df62103a4c33098e1027291e93908782",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/phase2_duration_smoke.json": {
+    "mtime": 1793662877.7062373,
+    "seen": 1793663006.5664117,
+    "ast_hash": "1cf53c158527ef44da49952b63821d3a",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/phase2_frequency1_development16.json": {
+    "mtime": 1793662877.7082293,
+    "seen": 1793663006.5664124,
+    "ast_hash": "aef6221a8c9f1aa089301f092c731682",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/phase2_frequency2_development.json": {
+    "mtime": 1793662877.710734,
+    "seen": 1793663006.5664139,
+    "ast_hash": "501be7589b526b17737a3354baf04eff",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/phase2_frequency2_validation6.json": {
+    "mtime": 1793662877.7127337,
+    "seen": 1793663006.5664148,
+    "ast_hash": "1b938009bf7df3c8a500eb174a7e05a8",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/phase2_frequency3_development16.json": {
+    "mtime": 1793662877.7137356,
+    "seen": 1793663006.5664155,
+    "ast_hash": "33b3f0cfac1bec11e7ee6bcf88c061f6",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/phase2_heldout_400_seconds.json": {
+    "mtime": 1793662877.7157366,
+    "seen": 1793663006.5664165,
+    "ast_hash": "1be8235c5f03f5e58a10770a8bfe11c9",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/phase2_heldout_batch_1.json": {
+    "mtime": 1793662877.7177348,
+    "seen": 1793663006.5664172,
+    "ast_hash": "3ecb44298f4e915f066dd22d2e72e018",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/phase2_heldout_batch_2.json": {
+    "mtime": 1793662877.7207344,
+    "seen": 1793663006.5664182,
+    "ast_hash": "e2c1045eef9166ff60d7a2a86b048127",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/phase2_heldout_batch_3.json": {
+    "mtime": 1793662877.721735,
+    "seen": 1793663006.566419,
+    "ast_hash": "3b834fd4b879fb084134fbcbf0b8c5a2",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/phase2_heldout_batch_4.json": {
+    "mtime": 1793662877.7247345,
+    "seen": 1793663006.5664196,
+    "ast_hash": "31b58df6995dc18e852f1ecb8dcea399",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/phase2_published_duration_smoke.json": {
+    "mtime": 1793662877.7267344,
+    "seen": 1793663006.5664206,
+    "ast_hash": "2aac9eb36f8ab74b2ebcfb0fe50fd37c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/phase2_scorefocus_frequency2_development16.json": {
+    "mtime": 1793662877.7277346,
+    "seen": 1793663006.5664215,
+    "ast_hash": "2ebe4d347992230bf07112fd72257c64",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/phase3_019_development_200_seconds.json": {
+    "mtime": 1793662877.729735,
+    "seen": 1793663006.5664227,
+    "ast_hash": "dd17b516f3d93bd819b1101f525247f4",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/phase3_020_development_200_seconds.json": {
+    "mtime": 1793662877.7317348,
+    "seen": 1793663006.566424,
+    "ast_hash": "a3df5f5b888fe3bee8f0fe897f7c0646",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/phase3_021_development_batch_1.json": {
+    "mtime": 1793662877.7347422,
+    "seen": 1793663006.5664246,
+    "ast_hash": "fc8abfff6a7766852ac988c4afb0d77c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/phase3_blend_025_screen.json": {
+    "mtime": 1793662877.7367356,
+    "seen": 1793663006.5664256,
+    "ast_hash": "a7e9cf915d50c70e9b6fe1603d57adf6",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/phase3_blend_050_screen.json": {
+    "mtime": 1793662877.7377343,
+    "seen": 1793663006.5664263,
+    "ast_hash": "15cc8a5e5e4e3a93b219784b527adc91",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/phase3_blend_075_screen.json": {
+    "mtime": 1793662877.7387347,
+    "seen": 1793663006.5664272,
+    "ast_hash": "1b496ba3398c07220225fc7094cdb08c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/phase3_blend_broader_200_seconds.json": {
+    "mtime": 1793662877.7407348,
+    "seen": 1793663006.5664282,
+    "ast_hash": "9f6af4cb5fa6893aea4d2ceb324b2c32",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/phase3_blend_broader_batch_1.json": {
+    "mtime": 1793662877.7417345,
+    "seen": 1793663006.566429,
+    "ast_hash": "aff18decb1ec8dceabf5dfa36ca6c3f8",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/phase3_blend_broader_batch_2.json": {
+    "mtime": 1793662877.7427342,
+    "seen": 1793663006.5664299,
+    "ast_hash": "e2afe146ca1815084ce81102a39e217a",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/phase3_blend_broader_batch_3.json": {
+    "mtime": 1793662877.7437344,
+    "seen": 1793663006.566431,
+    "ast_hash": "1da0b66253322dcfb3ea9bf954e6103c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/phase3_blend_broader_batch_4.json": {
+    "mtime": 1793662877.744735,
+    "seen": 1793663006.566432,
+    "ast_hash": "e8ad63154e9de1275327bc924dc16ba4",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/phase3_blend_development_baseline.json": {
+    "mtime": 1793662877.746736,
+    "seen": 1793663006.566433,
+    "ast_hash": "bf23f7a7cbe4bb6a1345310920d8f294",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/phase3_blend_heldout_400_seconds.json": {
+    "mtime": 1793662877.749734,
+    "seen": 1793663006.566434,
+    "ast_hash": "83cfb480d76e71e8f181d07ea46b5037",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/phase3_blend_heldout_batch_1.json": {
+    "mtime": 1793662877.7517369,
+    "seen": 1793663006.5664349,
+    "ast_hash": "3aedc58bd5bf49ba7d4e7db3f6b4fe78",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/phase3_blend_heldout_batch_2.json": {
+    "mtime": 1793662877.7527359,
+    "seen": 1793663006.5664356,
+    "ast_hash": "35a7362cf065f7eca022bdd3eca4af32",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/phase3_blend_heldout_batch_3.json": {
+    "mtime": 1793662877.7537367,
+    "seen": 1793663006.5664363,
+    "ast_hash": "fe3207d78b110a2e6bed138c2edda537",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/phase3_blend_heldout_batch_4.json": {
+    "mtime": 1793662877.755736,
+    "seen": 1793663006.566437,
+    "ast_hash": "bac95f69dabf482a224f20be9c443fd0",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/phase3_heldout_400_seconds.json": {
+    "mtime": 1793662877.757735,
+    "seen": 1793663006.5664384,
+    "ast_hash": "0b524c137bc5fe3699898a9ba0bc7168",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/phase3_heldout_batch_1.json": {
+    "mtime": 1793662877.759737,
+    "seen": 1793663006.566439,
+    "ast_hash": "b3c19e916decc520a625f7f993ce9b20",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/phase3_heldout_batch_2.json": {
+    "mtime": 1793662877.761736,
+    "seen": 1793663006.5664396,
+    "ast_hash": "9f13fd628069ecac3e4f2922d3c33bdd",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/phase3_heldout_batch_3.json": {
+    "mtime": 1793662877.7637367,
+    "seen": 1793663006.5664408,
+    "ast_hash": "e3ba11c4bdb4d636869d7fd33ef04089",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/phase3_heldout_batch_4.json": {
+    "mtime": 1793662877.764735,
+    "seen": 1793663006.5664415,
+    "ast_hash": "ad0019de79ee021696c3f207b0212540",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/probe_full_sampled.json": {
+    "mtime": 1793662877.7677345,
+    "seen": 1793663006.5664425,
+    "ast_hash": "5de1d0673722d17d0cef77acae8a3a8c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/probe_range_greedy.json": {
+    "mtime": 1793662877.7687354,
+    "seen": 1793663006.5664434,
+    "ast_hash": "eae844aec6cef846b75263ccd8f2acf4",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/probe_range_sampled.json": {
+    "mtime": 1793662877.7707348,
+    "seen": 1793663006.5664444,
+    "ast_hash": "57dcd121b0964012317edc73df66a532",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/pure_ppo_heldout.json": {
+    "mtime": 1793662877.772735,
+    "seen": 1793663006.5664454,
+    "ast_hash": "6222b8031c518303b4e48aed9607703e",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training/validation_400_seconds.json": {
+    "mtime": 1793662877.7747347,
+    "seen": 1793663006.5664463,
+    "ast_hash": "ba0a30605e38ba58dbd013e78a73c6c8",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/001_broader_development.json": {
+    "mtime": 1793662877.7767346,
+    "seen": 1793663006.5664473,
+    "ast_hash": "96b638eebf20318f2624eb88147dd635",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/001_broader_development_comparison.json": {
+    "mtime": 1793662877.7777348,
+    "seen": 1793663006.5664485,
+    "ast_hash": "a8ea8d647f1334582adff2caac5663a2",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/002_400k_broader_development.json": {
+    "mtime": 1793662877.7787354,
+    "seen": 1793663006.5664494,
+    "ast_hash": "f079d8f962674ba974067813dfbdc8ef",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/002_400k_broader_development_comparison.json": {
+    "mtime": 1793662877.780735,
+    "seen": 1793663006.56645,
+    "ast_hash": "bf60ec065c56cea8be6e0afec63ddea1",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/002_500k_broader_development.json": {
+    "mtime": 1793662877.7817347,
+    "seen": 1793663006.5664508,
+    "ast_hash": "925f9f1c82bef2087d3916f1fbeb967d",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/002_500k_broader_development_comparison.json": {
+    "mtime": 1793662877.7827344,
+    "seen": 1793663006.5664518,
+    "ast_hash": "bfb74e309068becb35cf1a76e3cb829d",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/003_400k_broader_development.json": {
+    "mtime": 1793662877.7837348,
+    "seen": 1793663006.5664525,
+    "ast_hash": "26bac91dd8c927d5b4b2f03cd9efc112",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/003_400k_broader_development_comparison.json": {
+    "mtime": 1793662877.7877347,
+    "seen": 1793663006.5664532,
+    "ast_hash": "b01217c80784f5031ee3d2002aa9f1c9",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/003_400k_extra_development.json": {
+    "mtime": 1793662877.791735,
+    "seen": 1793663006.566454,
+    "ast_hash": "50b9cc3038726ec2cd626f88ea541c75",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/003_400k_sampled_development_retry.json": {
+    "mtime": 1793662877.7937386,
+    "seen": 1793663006.566455,
+    "ast_hash": "7cab09125592df7283f03615bd29168c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/003_500k_broader_development.json": {
+    "mtime": 1793662877.7947383,
+    "seen": 1793663006.5664558,
+    "ast_hash": "938bfe82d09433c9aafae2f3b05855a9",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/003_500k_broader_development_comparison.json": {
+    "mtime": 1793662877.7957385,
+    "seen": 1793663006.5664566,
+    "ast_hash": "e0b281278c94b617a3927df313168d40",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/003_500k_extra_development.json": {
+    "mtime": 1793662877.7977395,
+    "seen": 1793663006.5664573,
+    "ast_hash": "25bb5c627317b4c9b6deb0c98706b5af",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/003_600k_broader_development.json": {
+    "mtime": 1793662877.7987409,
+    "seen": 1793663006.5664582,
+    "ast_hash": "3f3e71091b2c25cbe24687df711ddc56",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/003_600k_broader_development_comparison.json": {
+    "mtime": 1793662877.8007386,
+    "seen": 1793663006.5664592,
+    "ast_hash": "4be6707cc900a9e01a43352c0b66b656",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/003_600k_extra_development.json": {
+    "mtime": 1793662877.8017385,
+    "seen": 1793663006.56646,
+    "ast_hash": "f06232a9997b0a106d9faad114ee1b97",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/003_600k_sampled_development.json": {
+    "mtime": 1793662877.8037384,
+    "seen": 1793663006.5664606,
+    "ast_hash": "16430264d247bd0f3bd6f308c645009d",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/003_700k_broader_development.json": {
+    "mtime": 1793662877.8047385,
+    "seen": 1793663006.5664613,
+    "ast_hash": "0412f05e1c86465b289cdaa234b99cea",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/003_700k_broader_development_comparison.json": {
+    "mtime": 1793662877.80674,
+    "seen": 1793663006.566462,
+    "ast_hash": "56149d656f02cef8eaf819db30aa88f0",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/003_700k_extra_development.json": {
+    "mtime": 1793662877.8082469,
+    "seen": 1793663006.5664628,
+    "ast_hash": "c3f97f7884c7782c50a7736f923debb1",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/003_800k_broader_development.json": {
+    "mtime": 1793662877.8092518,
+    "seen": 1793663006.5664635,
+    "ast_hash": "4a70918906a6d778169b52add46839aa",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/003_800k_broader_development_comparison.json": {
+    "mtime": 1793662877.810769,
+    "seen": 1793663006.5664644,
+    "ast_hash": "681a3faf59da869c11a94f048b0dc365",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/003_800k_development_400_seconds.json": {
+    "mtime": 1793662877.811762,
+    "seen": 1793663006.5664654,
+    "ast_hash": "7b9d159d5be67fe3e9917285d0bb9933",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/003_800k_extra_development.json": {
+    "mtime": 1793662877.8137615,
+    "seen": 1793663006.5664659,
+    "ast_hash": "3969ebf9cb94ad39c2c197174aaf0466",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/003_800k_sampled_development.json": {
+    "mtime": 1793662877.8157616,
+    "seen": 1793663006.5664668,
+    "ast_hash": "e09a56f076cfd6d60d99adaa8b1e18f0",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/003_800k_sampled_development_comparison.json": {
+    "mtime": 1793662877.8187604,
+    "seen": 1793663006.5664675,
+    "ast_hash": "db5a2afcdfe7b9a3fb02e16f25d3aaf2",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/004_1000k_broader_development.json": {
+    "mtime": 1793662877.8217607,
+    "seen": 1793663006.5664682,
+    "ast_hash": "6e44cfb1d5de36e6e2ad7763f09cb611",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/004_1000k_broader_development_comparison.json": {
+    "mtime": 1793662877.8237617,
+    "seen": 1793663006.5664692,
+    "ast_hash": "d4c0297c6a6dff8d4ff2dcf1e31856b5",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/004_1000k_extra_development.json": {
+    "mtime": 1793662877.824763,
+    "seen": 1793663006.56647,
+    "ast_hash": "410dea5a2280384d00af6414cc3d057c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/004_1100k_broader_development.json": {
+    "mtime": 1793662877.8277621,
+    "seen": 1793663006.5664709,
+    "ast_hash": "3aef96cf8ea06b7649f6b55ecd4d5317",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/004_1100k_broader_development_comparison.json": {
+    "mtime": 1793662877.8297615,
+    "seen": 1793663006.5664716,
+    "ast_hash": "dc621fb4797502129d9b3b2d8458628d",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/004_1100k_extra_development.json": {
+    "mtime": 1793662877.8317611,
+    "seen": 1793663006.5664725,
+    "ast_hash": "36582fd3c46e919ace445db1c00e6aee",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/004_1200k_broader_development.json": {
+    "mtime": 1793662877.8337626,
+    "seen": 1793663006.5664732,
+    "ast_hash": "d39084bc2c7550c39b767d5873f4d43a",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/004_1200k_broader_development_comparison.json": {
+    "mtime": 1793662877.8357625,
+    "seen": 1793663006.566474,
+    "ast_hash": "eb85a46d9eddb51ed3c820cc0786cd11",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/004_1200k_extra_development.json": {
+    "mtime": 1793662877.8377616,
+    "seen": 1793663006.5664747,
+    "ast_hash": "4ef080eb7d67fd735bc39f5fb863808b",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/004_1300k_broader_development.json": {
+    "mtime": 1793662877.8387606,
+    "seen": 1793663006.5664752,
+    "ast_hash": "4a5716f6c47996e42077079140c696f7",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/004_1300k_broader_development_comparison.json": {
+    "mtime": 1793662877.8407612,
+    "seen": 1793663006.566476,
+    "ast_hash": "481a1b34d9a7b807b73b224f067073bc",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/004_1300k_extra_development.json": {
+    "mtime": 1793662877.8417609,
+    "seen": 1793663006.566477,
+    "ast_hash": "b524911fb09f69d7d53d0df6c2db93a8",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/004_900k_broader_development.json": {
+    "mtime": 1793662877.8437617,
+    "seen": 1793663006.566478,
+    "ast_hash": "b55b71e4af63539929451b0a4d4d0e7f",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/004_900k_broader_development_comparison.json": {
+    "mtime": 1793662877.8447616,
+    "seen": 1793663006.5664792,
+    "ast_hash": "fba142f6f7e1a3e3d5a576874c1384d0",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/004_900k_extra_development.json": {
+    "mtime": 1793662877.8457606,
+    "seen": 1793663006.56648,
+    "ast_hash": "d8a6e1cff4350336ebc4cb91e7d49c22",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/005_1000k_broader_development.json": {
+    "mtime": 1793662877.8477623,
+    "seen": 1793663006.5664806,
+    "ast_hash": "961260fb333da8dd17a390e9f6ed9440",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/005_1000k_broader_development_comparison.json": {
+    "mtime": 1793662877.848763,
+    "seen": 1793663006.5664814,
+    "ast_hash": "35c39986d0c403105fe1e0b0a7a26133",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/005_1000k_extra_development.json": {
+    "mtime": 1793662877.8497627,
+    "seen": 1793663006.5664818,
+    "ast_hash": "ad760bdf366adc8cd3e0ab4dc861c48a",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/005_1100k_broader_development.json": {
+    "mtime": 1793662877.852761,
+    "seen": 1793663006.5664828,
+    "ast_hash": "7233ce93dfec08978db66d50086bbcc8",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/005_1100k_broader_development_comparison.json": {
+    "mtime": 1793662877.85476,
+    "seen": 1793663006.5664833,
+    "ast_hash": "5cb15b3aa44e007b456df409eddbba7c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/005_1100k_extra_development.json": {
+    "mtime": 1793662877.855762,
+    "seen": 1793663006.5664842,
+    "ast_hash": "548809899d12ec3a71341eafe2c71ae7",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/005_1200k_broader_development.json": {
+    "mtime": 1793662877.8577623,
+    "seen": 1793663006.5664852,
+    "ast_hash": "37b107aeb0e799609980d2d828ae4427",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/005_1200k_broader_development_comparison.json": {
+    "mtime": 1793662877.8587623,
+    "seen": 1793663006.5664861,
+    "ast_hash": "984940734e618a1741b2864cbe0220a1",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/005_1200k_extra_development.json": {
+    "mtime": 1793662877.8597622,
+    "seen": 1793663006.5664868,
+    "ast_hash": "28dc1c527e7d986a7d094918107700b4",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/005_1300k_broader_development.json": {
+    "mtime": 1793662877.8617623,
+    "seen": 1793663006.5664876,
+    "ast_hash": "91939921dc253cca5b24e3711014a71f",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/005_1300k_broader_development_comparison.json": {
+    "mtime": 1793662877.8637612,
+    "seen": 1793663006.5664883,
+    "ast_hash": "e744c9e014426d1c6b6541e3ca2c2bf1",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/005_1300k_extra_development.json": {
+    "mtime": 1793662877.8647618,
+    "seen": 1793663006.566489,
+    "ast_hash": "ecca77bd79cc4ba03cdf47ddaeea2644",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/005_900k_broader_development.json": {
+    "mtime": 1793662877.866761,
+    "seen": 1793663006.5664897,
+    "ast_hash": "fcaf349fa7baabb2204c7df1ca2a98da",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/005_900k_broader_development_comparison.json": {
+    "mtime": 1793662877.8677616,
+    "seen": 1793663006.5664904,
+    "ast_hash": "0cede649fd05f634d8d8af9990c14bdc",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/005_900k_extra_development.json": {
+    "mtime": 1793662877.8687632,
+    "seen": 1793663006.5664911,
+    "ast_hash": "202bdc4210f5e19e94d42313658f07bb",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/baseline_development.json": {
+    "mtime": 1793662877.8707612,
+    "seen": 1793663006.5664918,
+    "ast_hash": "491deb5c8f14303eb1d480191206eb2a",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/corrected_development.json": {
+    "mtime": 1793662877.874763,
+    "seen": 1793663006.5664923,
+    "ast_hash": "083e36f2ec4eac5fd842b5b8d4720b96",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/corrected_development_comparison.json": {
+    "mtime": 1793662877.8757627,
+    "seen": 1793663006.5664933,
+    "ast_hash": "70f5917d7687fdfcb72206f5eb7718ca",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/corrected_heldout_baseline.json": {
+    "mtime": 1793662877.878763,
+    "seen": 1793663006.5664937,
+    "ast_hash": "69e008d65a23f68ebb9b55ffdb8715ed",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/corrected_heldout_candidate.json": {
+    "mtime": 1793662877.879763,
+    "seen": 1793663006.5664945,
+    "ast_hash": "54e94cd1a4440260c99ec492310f34ae",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/corrected_heldout_comparison.json": {
+    "mtime": 1793662877.8807628,
+    "seen": 1793663006.5664952,
+    "ast_hash": "702fbb14a52f8e37d7bf1092f69f9494",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/experiments/001_aim_adaptation/experiment.json": {
+    "mtime": 1793662877.6006298,
+    "seen": 1793663006.5664964,
+    "ast_hash": "02233e3f792d2c930d8860324c2d4d7b",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/experiments/002_full_adaptation/experiment.json": {
+    "mtime": 1793662877.6036303,
+    "seen": 1793663006.566497,
+    "ast_hash": "c1d9fb8f1347389092e2005c563d8578",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/experiments/003_body_stability/experiment.json": {
+    "mtime": 1793662877.6076744,
+    "seen": 1793663006.5664978,
+    "ast_hash": "fdcd2d3f12577ce2dcf74fa20f7ef527",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/experiments/004_body_continuation/experiment.json": {
+    "mtime": 1793662877.6111915,
+    "seen": 1793663006.5664985,
+    "ast_hash": "ea28013feacecc11762360496599fab9",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/experiments/005_aim_precision/experiment.json": {
+    "mtime": 1793662877.6151915,
+    "seen": 1793663006.5664995,
+    "ast_hash": "10fbf45c5f96cb4bdcf1980fd0417462",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/heldout_baseline.json": {
+    "mtime": 1793662877.882763,
+    "seen": 1793663006.5665007,
+    "ast_hash": "f298e51b455f11563ba8511eaa0b1921",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/heldout_candidate.json": {
+    "mtime": 1793662877.8837626,
+    "seen": 1793663006.5665014,
+    "ast_hash": "6ffbfdbd38796eb397725dd9e510f079",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_rotation_continuous/heldout_comparison.json": {
+    "mtime": 1793662877.8847625,
+    "seen": 1793663006.566502,
+    "ast_hash": "793f8124790bc533b0c1b5ffdce312bb",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_vector_only/evaluations/004_pretraining_comparison/comparison.json": {
+    "mtime": 1793662877.8887627,
+    "seen": 1793663006.5665033,
+    "ast_hash": "d0dc5c896dd8eaf0cc876b3f008c9967",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_vector_only/experiments/002_full_game_pilot/config.json": {
+    "mtime": 1793662877.6211889,
+    "seen": 1793663006.5665042,
+    "ast_hash": "10c9c204a922d27592429f7eaf5c0296",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_vector_only/experiments/002_full_game_pilot/manifest.json": {
+    "mtime": 1793662877.6221912,
+    "seen": 1793663006.566505,
+    "ast_hash": "5a6501df28270ac2cccd09befd29a19c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_vector_only/experiments/002_full_game_pilot/state.json": {
+    "mtime": 1793662877.6231904,
+    "seen": 1793663006.5665054,
+    "ast_hash": "d932e56ec22e46ccc04449c7953fde01",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_vector_only/experiments/003_training_duration/config.json": {
+    "mtime": 1793662877.6261892,
+    "seen": 1793663006.5665064,
+    "ast_hash": "9d4e93f3a1b3e754b3822b4d607341f2",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_vector_only/experiments/003_training_duration/confirmation.json": {
+    "mtime": 1793662877.8907626,
+    "seen": 1793663006.5665073,
+    "ast_hash": "460584b904bcba81b9a004442538a66e",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_vector_only/experiments/003_training_duration/manifest.json": {
+    "mtime": 1793662877.6271915,
+    "seen": 1793663006.5665078,
+    "ast_hash": "44d474cab72052eebb84fd19f365aad5",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_vector_only/experiments/003_training_duration/state.json": {
+    "mtime": 1793662877.6281917,
+    "seen": 1793663006.5665085,
+    "ast_hash": "d9f3e90cf5782668ef61b444e0f7dcff",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_vector_only/experiments/004_parallel_continuation/config.json": {
+    "mtime": 1793662877.6331892,
+    "seen": 1793663006.5665097,
+    "ast_hash": "d469ba3752d80c53e46eec7d94b9f294",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_vector_only/experiments/004_parallel_continuation/confirmation.json": {
+    "mtime": 1793662877.8927624,
+    "seen": 1793663006.5665107,
+    "ast_hash": "cc6708c79a86a7fa6153cc4a152f561b",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_vector_only/experiments/004_parallel_continuation/manifest.json": {
+    "mtime": 1793662877.63419,
+    "seen": 1793663006.5665114,
+    "ast_hash": "e849f75800901289d3004d5cfddedf9e",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_vector_only/experiments/004_parallel_continuation/state.json": {
+    "mtime": 1793662877.6361904,
+    "seen": 1793663006.5665119,
+    "ast_hash": "9f696f40a719f3a2ba76e1e28d94604d",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_vector_only/experiments/005_same_settings_continuation/config.json": {
+    "mtime": 1793662877.64219,
+    "seen": 1793663006.5665128,
+    "ast_hash": "a62f2cd8e1f0bb037bb035c04e3fc686",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_vector_only/experiments/005_same_settings_continuation/manifest.json": {
+    "mtime": 1793662877.6441913,
+    "seen": 1793663006.5665138,
+    "ast_hash": "afe5ee0955f162592f711f62e7e1244e",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_vector_only/experiments/005_same_settings_continuation/state.json": {
+    "mtime": 1793662877.6451893,
+    "seen": 1793663006.5665145,
+    "ast_hash": "48e80bc51d1b163d9a37f94998cf29cf",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_vector_only/experiments/006_lower_learning_rate/config.json": {
+    "mtime": 1793662877.6511931,
+    "seen": 1793663006.5665152,
+    "ast_hash": "501d1530886dc2cb9fd13da70ebfcea5",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_vector_only/experiments/006_lower_learning_rate/confirmation.json": {
+    "mtime": 1793662877.8947673,
+    "seen": 1793663006.5665162,
+    "ast_hash": "1af908e139394b11312d52d186a603fa",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_vector_only/experiments/006_lower_learning_rate/manifest.json": {
+    "mtime": 1793662877.6521957,
+    "seen": 1793663006.5665166,
+    "ast_hash": "f984a1d6602ca0d76cb27a7cdbd06100",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_vector_only/experiments/006_lower_learning_rate/state.json": {
+    "mtime": 1793662877.653193,
+    "seen": 1793663006.5665176,
+    "ast_hash": "7d9e18fcad551581f4dee9546d596733",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_vector_only/experiments/007_higher_combat_reward/config.json": {
+    "mtime": 1793662877.6611936,
+    "seen": 1793663006.5665183,
+    "ast_hash": "5fe02fcb66bbaa543b40974a53ee82b1",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_vector_only/experiments/007_higher_combat_reward/confirmation.json": {
+    "mtime": 1793662877.8957672,
+    "seen": 1793663006.5665195,
+    "ast_hash": "f5646f40b9037520aefe33a8ec4ae5cf",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_vector_only/experiments/007_higher_combat_reward/manifest.json": {
+    "mtime": 1793662877.662697,
+    "seen": 1793663006.5665202,
+    "ast_hash": "c91483523fac87fc53eb6f2169e5c138",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_vector_only/experiments/007_higher_combat_reward/state.json": {
+    "mtime": 1793662877.6637025,
+    "seen": 1793663006.566521,
+    "ast_hash": "ac38f43441f0d6001a5ae012958371e4",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_vector_only/experiments/008_combined_reward_and_lr/config.json": {
+    "mtime": 1793662877.6707022,
+    "seen": 1793663006.5665216,
+    "ast_hash": "1e556c931bc7ea5433fd1958759470f2",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_vector_only/experiments/008_combined_reward_and_lr/confirmation.json": {
+    "mtime": 1793662877.8977678,
+    "seen": 1793663006.5665226,
+    "ast_hash": "70c3e31b7dd02140e3d782752da709bd",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_vector_only/experiments/008_combined_reward_and_lr/manifest.json": {
+    "mtime": 1793662877.6727018,
+    "seen": 1793663006.566523,
+    "ast_hash": "d110850298ff891c0331bd008bb5bc02",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/data/raw/gpt_training_vector_only/experiments/008_combined_reward_and_lr/state.json": {
+    "mtime": 1793662877.6737022,
+    "seen": 1793663006.5665238,
+    "ast_hash": "8c7483e81acdf62de7dc84c9cbd3106e",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/README.md": {
+    "mtime": 1793662970.9393327,
+    "seen": 1793663006.6091692,
+    "ast_hash": "ed103feb9eeb170013ddc6e98e58269c",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/evaluation_means.png": {
+    "mtime": 1793662974.8258164,
+    "seen": 1793663006.6266494,
+    "ast_hash": "7c03c6fbb861b43e244a2cca50c20128",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/video_checkpoints_20_seeds/data/protocol.json": {
+    "mtime": 1793663621.9928865,
+    "seen": 1793664120.7855284,
+    "ast_hash": "d7131ced5ee841657c7e15ded958bb33",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/video_checkpoints_20_seeds/data/replay_checks.json": {
+    "mtime": 1793663703.4277902,
+    "seen": 1793664120.7855332,
+    "ast_hash": "8c1aa73fd7c8b032ca5a4d223c9cd283",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/video_checkpoints_20_seeds/data/summary.json": {
+    "mtime": 1793664432.4404848,
+    "seen": 1793664446.9905033,
+    "ast_hash": "42d09ad496755f42088315dcc9152c8b",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/video_checkpoints_20_seeds/results.md": {
+    "mtime": 1793664432.8031251,
+    "seen": 1793664447.0380654,
+    "ast_hash": "033e0472337f8ea56949189c89b93171",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/reports/lineage_prototype.html": {
+    "mtime": 1793674631.632894,
+    "seen": 1793680650.5022504,
+    "ast_hash": "a1cf153ce41aa0797ce3c5f3a567fda8",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/video_checkpoints_20_seeds/mean_score.png": {
+    "mtime": 1793664432.6177485,
+    "seen": 1793664447.0598376,
+    "ast_hash": "26ec960566e5cad78b7e92e9a65ad542",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/evaluation_results/video_checkpoints_20_seeds/mean_survival.png": {
+    "mtime": 1793664432.8021216,
+    "seen": 1793664447.0598395,
+    "ast_hash": "e9117a092a108846546bcd87172dca31",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/agent_context/009_plan.json": {
+    "mtime": 1793680631.865203,
+    "seen": 1793680650.4551744,
+    "ast_hash": "454be02038d6cd7e1a0e3039c3bd0c67",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_vector_only/agent_context/009_preflight.json": {
+    "mtime": 1793680631.8752036,
+    "seen": 1793680650.455177,
+    "ast_hash": "0479a3ef693aa58fea8b76a19d40b401",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training/reports/lineage_prototype.html": {
+    "mtime": 1793676337.990355,
+    "seen": 1793680650.4976902,
+    "ast_hash": "9226d21799e9eff7d7d54b3c3987747a",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/gpt_training_rotation_continuous/reports/lineage_prototype.html": {
+    "mtime": 1793675891.015986,
+    "seen": 1793680650.5016875,
+    "ast_hash": "0925d8a56092cd8b2fdce820ff9c43d0",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/reports/index.html": {
+    "mtime": 1793680529.9372616,
+    "seen": 1793680650.5022528,
+    "ast_hash": "9f3d07e96881fa24b7062b0087654a1e",
+    "semantic_hash": ""
+  },
+  "src/space_z/rl/training_hurwan/reports/lineage_prototype.html": {
+    "mtime": 1793675720.7375383,
+    "seen": 1793680650.5024233,
+    "ast_hash": "fca4dbc11b8eb5af8fa5fe5418efe088",
     "semantic_hash": ""
   }
 }

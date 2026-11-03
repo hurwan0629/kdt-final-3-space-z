@@ -1,0 +1,2312 @@
+{
+  "seeds": [
+    790001,
+    790102,
+    790203,
+    790304,
+    790405,
+    790506,
+    790607,
+    790708,
+    790809,
+    790910,
+    791011,
+    791112,
+    791213,
+    791314,
+    791415,
+    791516,
+    791617,
+    791718,
+    791819,
+    791920
+  ],
+  "max_seconds": 120,
+  "selected_timesteps": 1186816,
+  "parent_checkpoint": {
+    "checkpoint": "experiments/008_combined_reward_and_lr/checkpoints/best.zip",
+    "sha256": "1e9a791b8141d345fb63ce88d0a742258a208395dcdbee781c855128acd9fb03",
+    "timesteps": 828416,
+    "experiment_id": "008_combined_reward_and_lr",
+    "optimizer_preserved": true,
+    "environment_reset_on_resume": true
+  },
+  "selected_checkpoint": "checkpoints/best.zip",
+  "selected_sha256": "152fe0e9af4a26167dc34dd5ab3f9c8c409bc881e71767b5d574c738a36fd08f",
+  "parent": {
+    "summary": {
+      "score": {
+        "mean": 44.25,
+        "median": 0.0,
+        "p25": 0.0,
+        "minimum": 0.0
+      },
+      "kills": {
+        "mean": 0.2,
+        "median": 0.0,
+        "p25": 0.0,
+        "minimum": 0.0
+      },
+      "survival_seconds": {
+        "mean": 62.91583333333334,
+        "median": 51.708333333333336,
+        "p25": 32.208333333333336,
+        "minimum": 13.95
+      },
+      "episode_reward": {
+        "mean": -1.0784523341045638,
+        "median": -2.4499999999999997,
+        "p25": -2.9120000000000004,
+        "minimum": -3.3950000000000005
+      },
+      "shots_fired": {
+        "mean": 78.5,
+        "median": 72.5,
+        "p25": 57.5,
+        "minimum": 29.0
+      }
+    },
+    "episodes": [
+      {
+        "seed": 790001,
+        "score": 210,
+        "kills": 1,
+        "survival_seconds": 67.26666666666667,
+        "steps": 2018,
+        "job": "rookie",
+        "episode_reward": 1.849658267196932,
+        "shots_fired": 140,
+        "reward_components": {
+          "score_gain": 6.3,
+          "shape_damage": 0.15,
+          "enemy_damage": 1.2569582671969337,
+          "damage_taken": -4.357300000000002,
+          "death": -1.5
+        },
+        "reward_inputs": {
+          "score_gain": 210,
+          "shape_damage": 10.0,
+          "enemy_damage": 83.79721781312892,
+          "damage_taken": 217.865,
+          "death": 1.0
+        },
+        "telemetry": {
+          "events": {
+            "shape_damage_weighted": 10.0,
+            "shape_destroyed_score": 10.0,
+            "shapes_destroyed": 1,
+            "enemy_damage": 83.79721781312892,
+            "enemies_killed": 1,
+            "damage_taken": 217.865,
+            "died": 1,
+            "player_shots_fired": 140
+          },
+          "damage_steps": {
+            "shape": 2,
+            "enemy": 12,
+            "received": 34
+          },
+          "actions": {
+            "move_requested_fraction": 1985,
+            "fire_requested_fraction": 1766,
+            "absolute_rotation_mean": 62.64895804534899
+          },
+          "player": {
+            "health_end": 0.0,
+            "max_health_end": 150.0,
+            "level_end": 3,
+            "upgrade_points_end": 0
+          }
+        },
+        "terminated": true,
+        "truncated": false,
+        "screenshots": []
+      },
+      {
+        "seed": 790102,
+        "score": 0,
+        "kills": 0,
+        "survival_seconds": 30.016666666666666,
+        "steps": 901,
+        "job": "rookie",
+        "episode_reward": -2.8699999999999997,
+        "shots_fired": 63,
+        "reward_components": {
+          "score_gain": 0.0,
+          "shape_damage": 0.0,
+          "enemy_damage": 0.63,
+          "damage_taken": -1.9999999999999998,
+          "death": -1.5
+        },
+        "reward_inputs": {
+          "score_gain": 0,
+          "shape_damage": 0.0,
+          "enemy_damage": 42.0,
+          "damage_taken": 100.0,
+          "death": 1.0
+        },
+        "telemetry": {
+          "events": {
+            "shape_damage_weighted": 0.0,
+            "shape_destroyed_score": 0.0,
+            "shapes_destroyed": 0,
+            "enemy_damage": 42.0,
+            "enemies_killed": 0,
+            "damage_taken": 100.0,
+            "died": 1,
+            "player_shots_fired": 63
+          },
+          "damage_steps": {
+            "shape": 0,
+            "enemy": 6,
+            "received": 20
+          },
+          "actions": {
+            "move_requested_fraction": 901,
+            "fire_requested_fraction": 894,
+            "absolute_rotation_mean": 44.40111551046721
+          },
+          "player": {
+            "health_end": 0.0,
+            "max_health_end": 100.0,
+            "level_end": 1,
+            "upgrade_points_end": 0
+          }
+        },
+        "terminated": true,
+        "truncated": false,
+        "screenshots": []
+      },
+      {
+        "seed": 790203,
+        "score": 0,
+        "kills": 0,
+        "survival_seconds": 120.0,
+        "steps": 3600,
+        "job": "rookie",
+        "episode_reward": 0.105,
+        "shots_fired": 90,
+        "reward_components": {
+          "score_gain": 0.0,
+          "shape_damage": 0.105,
+          "enemy_damage": 0.0,
+          "damage_taken": 0.0,
+          "death": 0.0
+        },
+        "reward_inputs": {
+          "score_gain": 0,
+          "shape_damage": 7.0,
+          "enemy_damage": 0.0,
+          "damage_taken": 0.0,
+          "death": 0.0
+        },
+        "telemetry": {
+          "events": {
+            "shape_damage_weighted": 7.0,
+            "shape_destroyed_score": 0.0,
+            "shapes_destroyed": 0,
+            "enemy_damage": 0.0,
+            "enemies_killed": 0,
+            "damage_taken": 0.0,
+            "died": 0,
+            "player_shots_fired": 90
+          },
+          "damage_steps": {
+            "shape": 1,
+            "enemy": 0,
+            "received": 0
+          },
+          "actions": {
+            "move_requested_fraction": 2084,
+            "fire_requested_fraction": 134,
+            "absolute_rotation_mean": 55.540837795007974
+          },
+          "player": {
+            "health_end": 100.0,
+            "max_health_end": 100.0,
+            "level_end": 1,
+            "upgrade_points_end": 0
+          }
+        },
+        "terminated": false,
+        "truncated": true,
+        "screenshots": []
+      },
+      {
+        "seed": 790304,
+        "score": 0,
+        "kills": 0,
+        "survival_seconds": 57.666666666666664,
+        "steps": 1730,
+        "job": "rookie",
+        "episode_reward": -3.1849999999999996,
+        "shots_fired": 56,
+        "reward_components": {
+          "score_gain": 0.0,
+          "shape_damage": 0.0,
+          "enemy_damage": 0.315,
+          "damage_taken": -1.9999999999999996,
+          "death": -1.5
+        },
+        "reward_inputs": {
+          "score_gain": 0,
+          "shape_damage": 0.0,
+          "enemy_damage": 21.0,
+          "damage_taken": 99.99999999999999,
+          "death": 1.0
+        },
+        "telemetry": {
+          "events": {
+            "shape_damage_weighted": 0.0,
+            "shape_destroyed_score": 0.0,
+            "shapes_destroyed": 0,
+            "enemy_damage": 21.0,
+            "enemies_killed": 0,
+            "damage_taken": 99.99999999999999,
+            "died": 1,
+            "player_shots_fired": 56
+          },
+          "damage_steps": {
+            "shape": 0,
+            "enemy": 3,
+            "received": 14
+          },
+          "actions": {
+            "move_requested_fraction": 1055,
+            "fire_requested_fraction": 601,
+            "absolute_rotation_mean": 56.42721510789124
+          },
+          "player": {
+            "health_end": 0.0,
+            "max_health_end": 100.0,
+            "level_end": 1,
+            "upgrade_points_end": 0
+          }
+        },
+        "terminated": true,
+        "truncated": false,
+        "screenshots": []
+      },
+      {
+        "seed": 790405,
+        "score": 0,
+        "kills": 0,
+        "survival_seconds": 120.0,
+        "steps": 3600,
+        "job": "rookie",
+        "episode_reward": -0.012000000000000004,
+        "shots_fired": 121,
+        "reward_components": {
+          "score_gain": 0.0,
+          "shape_damage": 0.036,
+          "enemy_damage": 0.0,
+          "damage_taken": -0.048,
+          "death": 0.0
+        },
+        "reward_inputs": {
+          "score_gain": 0,
+          "shape_damage": 2.4,
+          "enemy_damage": 0.0,
+          "damage_taken": 2.4,
+          "death": 0.0
+        },
+        "telemetry": {
+          "events": {
+            "shape_damage_weighted": 2.4,
+            "shape_destroyed_score": 0.0,
+            "shapes_destroyed": 0,
+            "enemy_damage": 0.0,
+            "enemies_killed": 0,
+            "damage_taken": 2.4,
+            "died": 0,
+            "player_shots_fired": 121
+          },
+          "damage_steps": {
+            "shape": 3,
+            "enemy": 0,
+            "received": 3
+          },
+          "actions": {
+            "move_requested_fraction": 1308,
+            "fire_requested_fraction": 170,
+            "absolute_rotation_mean": 55.11470877123065
+          },
+          "player": {
+            "health_end": 100.0,
+            "max_health_end": 100.0,
+            "level_end": 1,
+            "upgrade_points_end": 0
+          }
+        },
+        "terminated": false,
+        "truncated": true,
+        "screenshots": []
+      },
+      {
+        "seed": 790506,
+        "score": 0,
+        "kills": 0,
+        "survival_seconds": 49.71666666666667,
+        "steps": 1492,
+        "job": "rookie",
+        "episode_reward": -2.4499999999999993,
+        "shots_fired": 53,
+        "reward_components": {
+          "score_gain": 0.0,
+          "shape_damage": 0.945,
+          "enemy_damage": 0.105,
+          "damage_taken": -1.9999999999999993,
+          "death": -1.5
+        },
+        "reward_inputs": {
+          "score_gain": 0,
+          "shape_damage": 63.0,
+          "enemy_damage": 7.0,
+          "damage_taken": 99.99999999999999,
+          "death": 1.0
+        },
+        "telemetry": {
+          "events": {
+            "shape_damage_weighted": 63.0,
+            "shape_destroyed_score": 0.0,
+            "shapes_destroyed": 0,
+            "enemy_damage": 7.0,
+            "enemies_killed": 0,
+            "damage_taken": 99.99999999999999,
+            "died": 1,
+            "player_shots_fired": 53
+          },
+          "damage_steps": {
+            "shape": 9,
+            "enemy": 1,
+            "received": 15
+          },
+          "actions": {
+            "move_requested_fraction": 723,
+            "fire_requested_fraction": 719,
+            "absolute_rotation_mean": 41.93588035742869
+          },
+          "player": {
+            "health_end": 0.0,
+            "max_health_end": 100.0,
+            "level_end": 1,
+            "upgrade_points_end": 0
+          }
+        },
+        "terminated": true,
+        "truncated": false,
+        "screenshots": []
+      },
+      {
+        "seed": 790607,
+        "score": 200,
+        "kills": 1,
+        "survival_seconds": 40.95,
+        "steps": 1229,
+        "job": "rookie",
+        "episode_reward": 2.1940890704603824,
+        "shots_fired": 81,
+        "reward_components": {
+          "score_gain": 6.0,
+          "shape_damage": 0.105,
+          "enemy_damage": 0.6490890704603842,
+          "damage_taken": -3.0600000000000027,
+          "death": -1.5
+        },
+        "reward_inputs": {
+          "score_gain": 200,
+          "shape_damage": 7.0,
+          "enemy_damage": 43.27260469735895,
+          "damage_taken": 153.00000000000014,
+          "death": 1.0
+        },
+        "telemetry": {
+          "events": {
+            "shape_damage_weighted": 7.0,
+            "shape_destroyed_score": 0.0,
+            "shapes_destroyed": 0,
+            "enemy_damage": 43.27260469735895,
+            "enemies_killed": 1,
+            "damage_taken": 153.00000000000014,
+            "died": 1,
+            "player_shots_fired": 81
+          },
+          "damage_steps": {
+            "shape": 1,
+            "enemy": 7,
+            "received": 27
+          },
+          "actions": {
+            "move_requested_fraction": 1083,
+            "fire_requested_fraction": 1075,
+            "absolute_rotation_mean": 73.26279855944449
+          },
+          "player": {
+            "health_end": 0.0,
+            "max_health_end": 150.0,
+            "level_end": 3,
+            "upgrade_points_end": 0
+          }
+        },
+        "terminated": true,
+        "truncated": false,
+        "screenshots": []
+      },
+      {
+        "seed": 790708,
+        "score": 10,
+        "kills": 0,
+        "survival_seconds": 32.63333333333333,
+        "steps": 979,
+        "job": "rookie",
+        "episode_reward": -2.5290000000000004,
+        "shots_fired": 63,
+        "reward_components": {
+          "score_gain": 0.3,
+          "shape_damage": 0.15000000000000002,
+          "enemy_damage": 0.525,
+          "damage_taken": -2.004,
+          "death": -1.5
+        },
+        "reward_inputs": {
+          "score_gain": 10,
+          "shape_damage": 10.000000000000002,
+          "enemy_damage": 35.0,
+          "damage_taken": 100.20000000000002,
+          "death": 1.0
+        },
+        "telemetry": {
+          "events": {
+            "shape_damage_weighted": 10.000000000000002,
+            "shape_destroyed_score": 10.0,
+            "shapes_destroyed": 1,
+            "enemy_damage": 35.0,
+            "enemies_killed": 0,
+            "damage_taken": 100.20000000000002,
+            "died": 1,
+            "player_shots_fired": 63
+          },
+          "damage_steps": {
+            "shape": 4,
+            "enemy": 5,
+            "received": 20
+          },
+          "actions": {
+            "move_requested_fraction": 801,
+            "fire_requested_fraction": 725,
+            "absolute_rotation_mean": 50.686665578745306
+          },
+          "player": {
+            "health_end": 0.0,
+            "max_health_end": 100.0,
+            "level_end": 1,
+            "upgrade_points_end": 0
+          }
+        },
+        "terminated": true,
+        "truncated": false,
+        "screenshots": []
+      },
+      {
+        "seed": 790809,
+        "score": 10,
+        "kills": 0,
+        "survival_seconds": 25.25,
+        "steps": 758,
+        "job": "rookie",
+        "episode_reward": -2.2100000000000017,
+        "shots_fired": 47,
+        "reward_components": {
+          "score_gain": 0.3,
+          "shape_damage": 0.4650000000000001,
+          "enemy_damage": 0.525,
+          "damage_taken": -2.0000000000000018,
+          "death": -1.5
+        },
+        "reward_inputs": {
+          "score_gain": 10,
+          "shape_damage": 31.000000000000007,
+          "enemy_damage": 35.0,
+          "damage_taken": 100.00000000000007,
+          "death": 1.0
+        },
+        "telemetry": {
+          "events": {
+            "shape_damage_weighted": 31.000000000000007,
+            "shape_destroyed_score": 10.0,
+            "shapes_destroyed": 1,
+            "enemy_damage": 35.0,
+            "enemies_killed": 0,
+            "damage_taken": 100.00000000000007,
+            "died": 1,
+            "player_shots_fired": 47
+          },
+          "damage_steps": {
+            "shape": 15,
+            "enemy": 5,
+            "received": 30
+          },
+          "actions": {
+            "move_requested_fraction": 601,
+            "fire_requested_fraction": 582,
+            "absolute_rotation_mean": 27.50823837707867
+          },
+          "player": {
+            "health_end": 0.0,
+            "max_health_end": 100.0,
+            "level_end": 1,
+            "upgrade_points_end": 0
+          }
+        },
+        "terminated": true,
+        "truncated": false,
+        "screenshots": []
+      },
+      {
+        "seed": 790910,
+        "score": 0,
+        "kills": 0,
+        "survival_seconds": 28.866666666666667,
+        "steps": 866,
+        "job": "rookie",
+        "episode_reward": -3.08,
+        "shots_fired": 60,
+        "reward_components": {
+          "score_gain": 0.0,
+          "shape_damage": 0.0,
+          "enemy_damage": 0.42,
+          "damage_taken": -2.0,
+          "death": -1.5
+        },
+        "reward_inputs": {
+          "score_gain": 0,
+          "shape_damage": 0.0,
+          "enemy_damage": 28.0,
+          "damage_taken": 100.00000000000001,
+          "death": 1.0
+        },
+        "telemetry": {
+          "events": {
+            "shape_damage_weighted": 0.0,
+            "shape_destroyed_score": 0.0,
+            "shapes_destroyed": 0,
+            "enemy_damage": 28.0,
+            "enemies_killed": 0,
+            "damage_taken": 100.00000000000001,
+            "died": 1,
+            "player_shots_fired": 60
+          },
+          "damage_steps": {
+            "shape": 0,
+            "enemy": 4,
+            "received": 20
+          },
+          "actions": {
+            "move_requested_fraction": 764,
+            "fire_requested_fraction": 866,
+            "absolute_rotation_mean": 34.49507741391426
+          },
+          "player": {
+            "health_end": 0.0,
+            "max_health_end": 100.0,
+            "level_end": 1,
+            "upgrade_points_end": 0
+          }
+        },
+        "terminated": true,
+        "truncated": false,
+        "screenshots": []
+      },
+      {
+        "seed": 791011,
+        "score": 0,
+        "kills": 0,
+        "survival_seconds": 93.1,
+        "steps": 2793,
+        "job": "rookie",
+        "episode_reward": -3.2959999999999994,
+        "shots_fired": 88,
+        "reward_components": {
+          "score_gain": 0.0,
+          "shape_damage": 0.018,
+          "enemy_damage": 0.21,
+          "damage_taken": -2.0239999999999996,
+          "death": -1.5
+        },
+        "reward_inputs": {
+          "score_gain": 0,
+          "shape_damage": 1.2,
+          "enemy_damage": 14.0,
+          "damage_taken": 101.2,
+          "death": 1.0
+        },
+        "telemetry": {
+          "events": {
+            "shape_damage_weighted": 1.2,
+            "shape_destroyed_score": 0.0,
+            "shapes_destroyed": 0,
+            "enemy_damage": 14.0,
+            "enemies_killed": 0,
+            "damage_taken": 101.2,
+            "died": 1,
+            "player_shots_fired": 88
+          },
+          "damage_steps": {
+            "shape": 2,
+            "enemy": 2,
+            "received": 16
+          },
+          "actions": {
+            "move_requested_fraction": 1406,
+            "fire_requested_fraction": 706,
+            "absolute_rotation_mean": 96.50589157576906
+          },
+          "player": {
+            "health_end": 0.0,
+            "max_health_end": 100.0,
+            "level_end": 1,
+            "upgrade_points_end": 0
+          }
+        },
+        "terminated": true,
+        "truncated": false,
+        "screenshots": []
+      },
+      {
+        "seed": 791112,
+        "score": 25,
+        "kills": 0,
+        "survival_seconds": 120.0,
+        "steps": 3600,
+        "job": "rookie",
+        "episode_reward": 1.125,
+        "shots_fired": 87,
+        "reward_components": {
+          "score_gain": 0.75,
+          "shape_damage": 0.375,
+          "enemy_damage": 0.0,
+          "damage_taken": 0.0,
+          "death": 0.0
+        },
+        "reward_inputs": {
+          "score_gain": 25,
+          "shape_damage": 25.0,
+          "enemy_damage": 0.0,
+          "damage_taken": 0.0,
+          "death": 0.0
+        },
+        "telemetry": {
+          "events": {
+            "shape_damage_weighted": 25.0,
+            "shape_destroyed_score": 25.0,
+            "shapes_destroyed": 1,
+            "enemy_damage": 0.0,
+            "enemies_killed": 0,
+            "damage_taken": 0.0,
+            "died": 0,
+            "player_shots_fired": 87
+          },
+          "damage_steps": {
+            "shape": 4,
+            "enemy": 0,
+            "received": 0
+          },
+          "actions": {
+            "move_requested_fraction": 3068,
+            "fire_requested_fraction": 348,
+            "absolute_rotation_mean": 57.241728276363574
+          },
+          "player": {
+            "health_end": 100.0,
+            "max_health_end": 100.0,
+            "level_end": 1,
+            "upgrade_points_end": 0
+          }
+        },
+        "terminated": false,
+        "truncated": true,
+        "screenshots": []
+      },
+      {
+        "seed": 791213,
+        "score": 210,
+        "kills": 1,
+        "survival_seconds": 112.66666666666667,
+        "steps": 3380,
+        "job": "rookie",
+        "episode_reward": 2.985600000000005,
+        "shots_fired": 145,
+        "reward_components": {
+          "score_gain": 6.3,
+          "shape_damage": 0.15000000000000005,
+          "enemy_damage": 1.4099999999999997,
+          "damage_taken": -3.374399999999998,
+          "death": -1.5
+        },
+        "reward_inputs": {
+          "score_gain": 210,
+          "shape_damage": 10.000000000000004,
+          "enemy_damage": 93.99999999999999,
+          "damage_taken": 168.72,
+          "death": 1.0
+        },
+        "telemetry": {
+          "events": {
+            "shape_damage_weighted": 10.000000000000004,
+            "shape_destroyed_score": 10.0,
+            "shapes_destroyed": 1,
+            "enemy_damage": 93.99999999999999,
+            "enemies_killed": 1,
+            "damage_taken": 168.72,
+            "died": 1,
+            "player_shots_fired": 145
+          },
+          "damage_steps": {
+            "shape": 6,
+            "enemy": 14,
+            "received": 26
+          },
+          "actions": {
+            "move_requested_fraction": 2817,
+            "fire_requested_fraction": 1465,
+            "absolute_rotation_mean": 108.03559271575068
+          },
+          "player": {
+            "health_end": 0.0,
+            "max_health_end": 150.0,
+            "level_end": 3,
+            "upgrade_points_end": 0
+          }
+        },
+        "terminated": true,
+        "truncated": false,
+        "screenshots": []
+      },
+      {
+        "seed": 791314,
+        "score": 0,
+        "kills": 0,
+        "survival_seconds": 59.333333333333336,
+        "steps": 1780,
+        "job": "rookie",
+        "episode_reward": -2.948,
+        "shots_fired": 83,
+        "reward_components": {
+          "score_gain": 0.0,
+          "shape_damage": 0.13199999999999998,
+          "enemy_damage": 0.42,
+          "damage_taken": -1.9999999999999998,
+          "death": -1.5
+        },
+        "reward_inputs": {
+          "score_gain": 0,
+          "shape_damage": 8.799999999999999,
+          "enemy_damage": 28.0,
+          "damage_taken": 100.0,
+          "death": 1.0
+        },
+        "telemetry": {
+          "events": {
+            "shape_damage_weighted": 8.799999999999999,
+            "shape_destroyed_score": 0.0,
+            "shapes_destroyed": 0,
+            "enemy_damage": 28.0,
+            "enemies_killed": 0,
+            "damage_taken": 100.0,
+            "died": 1,
+            "player_shots_fired": 83
+          },
+          "damage_steps": {
+            "shape": 3,
+            "enemy": 4,
+            "received": 16
+          },
+          "actions": {
+            "move_requested_fraction": 1167,
+            "fire_requested_fraction": 769,
+            "absolute_rotation_mean": 89.20005347166443
+          },
+          "player": {
+            "health_end": 0.0,
+            "max_health_end": 100.0,
+            "level_end": 1,
+            "upgrade_points_end": 0
+          }
+        },
+        "terminated": true,
+        "truncated": false,
+        "screenshots": []
+      },
+      {
+        "seed": 791415,
+        "score": 10,
+        "kills": 0,
+        "survival_seconds": 120.0,
+        "steps": 3600,
+        "job": "rookie",
+        "episode_reward": 0.44999999999999996,
+        "shots_fired": 113,
+        "reward_components": {
+          "score_gain": 0.3,
+          "shape_damage": 0.15,
+          "enemy_damage": 0.0,
+          "damage_taken": 0.0,
+          "death": 0.0
+        },
+        "reward_inputs": {
+          "score_gain": 10,
+          "shape_damage": 10.0,
+          "enemy_damage": 0.0,
+          "damage_taken": 0.0,
+          "death": 0.0
+        },
+        "telemetry": {
+          "events": {
+            "shape_damage_weighted": 10.0,
+            "shape_destroyed_score": 10.0,
+            "shapes_destroyed": 1,
+            "enemy_damage": 0.0,
+            "enemies_killed": 0,
+            "damage_taken": 0.0,
+            "died": 0,
+            "player_shots_fired": 113
+          },
+          "damage_steps": {
+            "shape": 2,
+            "enemy": 0,
+            "received": 0
+          },
+          "actions": {
+            "move_requested_fraction": 1288,
+            "fire_requested_fraction": 167,
+            "absolute_rotation_mean": 53.0269395612122
+          },
+          "player": {
+            "health_end": 100.0,
+            "max_health_end": 100.0,
+            "level_end": 1,
+            "upgrade_points_end": 0
+          }
+        },
+        "terminated": false,
+        "truncated": true,
+        "screenshots": []
+      },
+      {
+        "seed": 791516,
+        "score": 0,
+        "kills": 0,
+        "survival_seconds": 34.05,
+        "steps": 1022,
+        "job": "rookie",
+        "episode_reward": -2.45,
+        "shots_fired": 58,
+        "reward_components": {
+          "score_gain": 0.0,
+          "shape_damage": 0.42,
+          "enemy_damage": 0.63,
+          "damage_taken": -1.9999999999999998,
+          "death": -1.5
+        },
+        "reward_inputs": {
+          "score_gain": 0,
+          "shape_damage": 28.0,
+          "enemy_damage": 42.0,
+          "damage_taken": 100.0,
+          "death": 1.0
+        },
+        "telemetry": {
+          "events": {
+            "shape_damage_weighted": 28.0,
+            "shape_destroyed_score": 0.0,
+            "shapes_destroyed": 0,
+            "enemy_damage": 42.0,
+            "enemies_killed": 0,
+            "damage_taken": 100.0,
+            "died": 1,
+            "player_shots_fired": 58
+          },
+          "damage_steps": {
+            "shape": 4,
+            "enemy": 6,
+            "received": 18
+          },
+          "actions": {
+            "move_requested_fraction": 854,
+            "fire_requested_fraction": 654,
+            "absolute_rotation_mean": 50.01955206671846
+          },
+          "player": {
+            "health_end": 0.0,
+            "max_health_end": 100.0,
+            "level_end": 1,
+            "upgrade_points_end": 0
+          }
+        },
+        "terminated": true,
+        "truncated": false,
+        "screenshots": []
+      },
+      {
+        "seed": 791617,
+        "score": 0,
+        "kills": 0,
+        "survival_seconds": 53.7,
+        "steps": 1611,
+        "job": "rookie",
+        "episode_reward": -2.6599999999999993,
+        "shots_fired": 43,
+        "reward_components": {
+          "score_gain": 0.0,
+          "shape_damage": 0.0,
+          "enemy_damage": 0.84,
+          "damage_taken": -1.9999999999999991,
+          "death": -1.5
+        },
+        "reward_inputs": {
+          "score_gain": 0,
+          "shape_damage": 0.0,
+          "enemy_damage": 56.0,
+          "damage_taken": 99.99999999999999,
+          "death": 1.0
+        },
+        "telemetry": {
+          "events": {
+            "shape_damage_weighted": 0.0,
+            "shape_destroyed_score": 0.0,
+            "shapes_destroyed": 0,
+            "enemy_damage": 56.0,
+            "enemies_killed": 0,
+            "damage_taken": 99.99999999999999,
+            "died": 1,
+            "player_shots_fired": 43
+          },
+          "damage_steps": {
+            "shape": 0,
+            "enemy": 8,
+            "received": 14
+          },
+          "actions": {
+            "move_requested_fraction": 1336,
+            "fire_requested_fraction": 499,
+            "absolute_rotation_mean": 51.59803219139576
+          },
+          "player": {
+            "health_end": 0.0,
+            "max_health_end": 100.0,
+            "level_end": 1,
+            "upgrade_points_end": 0
+          }
+        },
+        "terminated": true,
+        "truncated": false,
+        "screenshots": []
+      },
+      {
+        "seed": 791718,
+        "score": 210,
+        "kills": 1,
+        "survival_seconds": 30.933333333333334,
+        "steps": 928,
+        "job": "rookie",
+        "episode_reward": 3.706605980251404,
+        "shots_fired": 64,
+        "reward_components": {
+          "score_gain": 6.3,
+          "shape_damage": 0.15000000000000002,
+          "enemy_damage": 1.7566059802514025,
+          "damage_taken": -3.000000000000002,
+          "death": -1.5
+        },
+        "reward_inputs": {
+          "score_gain": 210,
+          "shape_damage": 10.000000000000002,
+          "enemy_damage": 117.1070653500935,
+          "damage_taken": 150.0000000000001,
+          "death": 1.0
+        },
+        "telemetry": {
+          "events": {
+            "shape_damage_weighted": 10.000000000000002,
+            "shape_destroyed_score": 10.0,
+            "shapes_destroyed": 1,
+            "enemy_damage": 117.1070653500935,
+            "enemies_killed": 1,
+            "damage_taken": 150.0000000000001,
+            "died": 1,
+            "player_shots_fired": 64
+          },
+          "damage_steps": {
+            "shape": 13,
+            "enemy": 17,
+            "received": 41
+          },
+          "actions": {
+            "move_requested_fraction": 928,
+            "fire_requested_fraction": 928,
+            "absolute_rotation_mean": 43.09023574774619
+          },
+          "player": {
+            "health_end": 0.0,
+            "max_health_end": 150.0,
+            "level_end": 3,
+            "upgrade_points_end": 0
+          }
+        },
+        "terminated": true,
+        "truncated": false,
+        "screenshots": []
+      },
+      {
+        "seed": 791819,
+        "score": 0,
+        "kills": 0,
+        "survival_seconds": 13.95,
+        "steps": 419,
+        "job": "rookie",
+        "episode_reward": -3.3950000000000005,
+        "shots_fired": 29,
+        "reward_components": {
+          "score_gain": 0.0,
+          "shape_damage": 0.0,
+          "enemy_damage": 0.105,
+          "damage_taken": -2.000000000000001,
+          "death": -1.5
+        },
+        "reward_inputs": {
+          "score_gain": 0,
+          "shape_damage": 0.0,
+          "enemy_damage": 7.0,
+          "damage_taken": 100.0,
+          "death": 1.0
+        },
+        "telemetry": {
+          "events": {
+            "shape_damage_weighted": 0.0,
+            "shape_destroyed_score": 0.0,
+            "shapes_destroyed": 0,
+            "enemy_damage": 7.0,
+            "enemies_killed": 0,
+            "damage_taken": 100.0,
+            "died": 1,
+            "player_shots_fired": 29
+          },
+          "damage_steps": {
+            "shape": 0,
+            "enemy": 1,
+            "received": 21
+          },
+          "actions": {
+            "move_requested_fraction": 411,
+            "fire_requested_fraction": 419,
+            "absolute_rotation_mean": 27.01986153141479
+          },
+          "player": {
+            "health_end": 0.0,
+            "max_health_end": 100.0,
+            "level_end": 1,
+            "upgrade_points_end": 0
+          }
+        },
+        "terminated": true,
+        "truncated": false,
+        "screenshots": []
+      },
+      {
+        "seed": 791920,
+        "score": 0,
+        "kills": 0,
+        "survival_seconds": 48.21666666666667,
+        "steps": 1447,
+        "job": "rookie",
+        "episode_reward": -2.9000000000000004,
+        "shots_fired": 86,
+        "reward_components": {
+          "score_gain": 0.0,
+          "shape_damage": 0.19499999999999995,
+          "enemy_damage": 0.525,
+          "damage_taken": -2.1199999999999997,
+          "death": -1.5
+        },
+        "reward_inputs": {
+          "score_gain": 0,
+          "shape_damage": 12.999999999999996,
+          "enemy_damage": 35.0,
+          "damage_taken": 106.00000000000001,
+          "death": 1.0
+        },
+        "telemetry": {
+          "events": {
+            "shape_damage_weighted": 12.999999999999996,
+            "shape_destroyed_score": 0.0,
+            "shapes_destroyed": 0,
+            "enemy_damage": 35.0,
+            "enemies_killed": 0,
+            "damage_taken": 106.00000000000001,
+            "died": 1,
+            "player_shots_fired": 86
+          },
+          "damage_steps": {
+            "shape": 7,
+            "enemy": 5,
+            "received": 21
+          },
+          "actions": {
+            "move_requested_fraction": 1084,
+            "fire_requested_fraction": 866,
+            "absolute_rotation_mean": 49.543276993354084
+          },
+          "player": {
+            "health_end": 0.0,
+            "max_health_end": 100.0,
+            "level_end": 1,
+            "upgrade_points_end": 0
+          }
+        },
+        "terminated": true,
+        "truncated": false,
+        "screenshots": []
+      }
+    ],
+    "deterministic": true,
+    "max_seconds": 120
+  },
+  "selected": {
+    "summary": {
+      "score": {
+        "mean": 181.0,
+        "median": 200.0,
+        "p25": 10.0,
+        "minimum": 0.0
+      },
+      "kills": {
+        "mean": 0.85,
+        "median": 1.0,
+        "p25": 0.0,
+        "minimum": 0.0
+      },
+      "survival_seconds": {
+        "mean": 70.13416666666667,
+        "median": 54.766666666666666,
+        "p25": 41.3625,
+        "minimum": 28.0
+      },
+      "episode_reward": {
+        "mean": 3.0297707776687717,
+        "median": 2.3719245636034847,
+        "p25": -1.6484,
+        "minimum": -3.4999999999999996
+      },
+      "shots_fired": {
+        "mean": 145.55,
+        "median": 113.5,
+        "p25": 85.75,
+        "minimum": 58.0
+      }
+    },
+    "episodes": [
+      {
+        "seed": 790001,
+        "score": 400,
+        "kills": 2,
+        "survival_seconds": 120.0,
+        "steps": 3600,
+        "job": "rookie",
+        "episode_reward": 11.982824602609986,
+        "shots_fired": 248,
+        "reward_components": {
+          "score_gain": 12.0,
+          "shape_damage": 0.0,
+          "enemy_damage": 1.5325312692766528,
+          "damage_taken": -1.549706666666667,
+          "death": 0.0
+        },
+        "reward_inputs": {
+          "score_gain": 400,
+          "shape_damage": 0.0,
+          "enemy_damage": 102.16875128511018,
+          "damage_taken": 77.48533333333334,
+          "death": 0.0
+        },
+        "telemetry": {
+          "events": {
+            "shape_damage_weighted": 0.0,
+            "shape_destroyed_score": 0.0,
+            "shapes_destroyed": 0,
+            "enemy_damage": 102.16875128511018,
+            "enemies_killed": 2,
+            "damage_taken": 77.48533333333334,
+            "died": 0,
+            "player_shots_fired": 248
+          },
+          "damage_steps": {
+            "shape": 0,
+            "enemy": 16,
+            "received": 11
+          },
+          "actions": {
+            "move_requested_fraction": 1211,
+            "fire_requested_fraction": 2182,
+            "absolute_rotation_mean": 399.0791221194668
+          },
+          "player": {
+            "health_end": 175.0,
+            "max_health_end": 175.0,
+            "level_end": 4,
+            "upgrade_points_end": 0
+          }
+        },
+        "terminated": false,
+        "truncated": true,
+        "screenshots": []
+      },
+      {
+        "seed": 790102,
+        "score": 10,
+        "kills": 0,
+        "survival_seconds": 120.0,
+        "steps": 3600,
+        "job": "rookie",
+        "episode_reward": 0.5549999999999999,
+        "shots_fired": 249,
+        "reward_components": {
+          "score_gain": 0.3,
+          "shape_damage": 0.255,
+          "enemy_damage": 0.0,
+          "damage_taken": 0.0,
+          "death": 0.0
+        },
+        "reward_inputs": {
+          "score_gain": 10,
+          "shape_damage": 17.0,
+          "enemy_damage": 0.0,
+          "damage_taken": 0.0,
+          "death": 0.0
+        },
+        "telemetry": {
+          "events": {
+            "shape_damage_weighted": 17.0,
+            "shape_destroyed_score": 10.0,
+            "shapes_destroyed": 1,
+            "enemy_damage": 0.0,
+            "enemies_killed": 0,
+            "damage_taken": 0.0,
+            "died": 0,
+            "player_shots_fired": 249
+          },
+          "damage_steps": {
+            "shape": 3,
+            "enemy": 0,
+            "received": 0
+          },
+          "actions": {
+            "move_requested_fraction": 595,
+            "fire_requested_fraction": 1685,
+            "absolute_rotation_mean": 305.59620734423515
+          },
+          "player": {
+            "health_end": 100.0,
+            "max_health_end": 100.0,
+            "level_end": 1,
+            "upgrade_points_end": 0
+          }
+        },
+        "terminated": false,
+        "truncated": true,
+        "screenshots": []
+      },
+      {
+        "seed": 790203,
+        "score": 10,
+        "kills": 0,
+        "survival_seconds": 120.0,
+        "steps": 3600,
+        "job": "rookie",
+        "episode_reward": -0.6692,
+        "shots_fired": 248,
+        "reward_components": {
+          "score_gain": 0.3,
+          "shape_damage": 0.345,
+          "enemy_damage": 0.105,
+          "damage_taken": -1.4191999999999996,
+          "death": 0.0
+        },
+        "reward_inputs": {
+          "score_gain": 10,
+          "shape_damage": 23.0,
+          "enemy_damage": 7.0,
+          "damage_taken": 70.95999999999998,
+          "death": 0.0
+        },
+        "telemetry": {
+          "events": {
+            "shape_damage_weighted": 23.0,
+            "shape_destroyed_score": 10.0,
+            "shapes_destroyed": 1,
+            "enemy_damage": 7.0,
+            "enemies_killed": 0,
+            "damage_taken": 70.95999999999998,
+            "died": 0,
+            "player_shots_fired": 248
+          },
+          "damage_steps": {
+            "shape": 11,
+            "enemy": 1,
+            "received": 15
+          },
+          "actions": {
+            "move_requested_fraction": 748,
+            "fire_requested_fraction": 1298,
+            "absolute_rotation_mean": 144.03031864829245
+          },
+          "player": {
+            "health_end": 35.03999999999999,
+            "max_health_end": 100.0,
+            "level_end": 1,
+            "upgrade_points_end": 0
+          }
+        },
+        "terminated": false,
+        "truncated": true,
+        "screenshots": []
+      },
+      {
+        "seed": 790304,
+        "score": 200,
+        "kills": 1,
+        "survival_seconds": 54.55,
+        "steps": 1637,
+        "job": "rookie",
+        "episode_reward": 2.2268389836348073,
+        "shots_fired": 113,
+        "reward_components": {
+          "score_gain": 6.0,
+          "shape_damage": 0.17099999999999999,
+          "enemy_damage": 1.0133389836348254,
+          "damage_taken": -3.4575000000000196,
+          "death": -1.5
+        },
+        "reward_inputs": {
+          "score_gain": 200,
+          "shape_damage": 11.399999999999997,
+          "enemy_damage": 67.5559322423217,
+          "damage_taken": 172.87500000000094,
+          "death": 1.0
+        },
+        "telemetry": {
+          "events": {
+            "shape_damage_weighted": 11.399999999999997,
+            "shape_destroyed_score": 0.0,
+            "shapes_destroyed": 0,
+            "enemy_damage": 67.5559322423217,
+            "enemies_killed": 1,
+            "damage_taken": 172.87500000000094,
+            "died": 1,
+            "player_shots_fired": 113
+          },
+          "damage_steps": {
+            "shape": 14,
+            "enemy": 17,
+            "received": 45
+          },
+          "actions": {
+            "move_requested_fraction": 1164,
+            "fire_requested_fraction": 1274,
+            "absolute_rotation_mean": 129.21747658614186
+          },
+          "player": {
+            "health_end": 0.0,
+            "max_health_end": 150.0,
+            "level_end": 3,
+            "upgrade_points_end": 0
+          }
+        },
+        "terminated": true,
+        "truncated": false,
+        "screenshots": []
+      },
+      {
+        "seed": 790405,
+        "score": 10,
+        "kills": 0,
+        "survival_seconds": 42.0,
+        "steps": 1260,
+        "job": "rookie",
+        "episode_reward": -2.508802499999999,
+        "shots_fired": 87,
+        "reward_components": {
+          "score_gain": 0.3,
+          "shape_damage": 0.0781975,
+          "enemy_damage": 0.63,
+          "damage_taken": -2.0169999999999986,
+          "death": -1.5
+        },
+        "reward_inputs": {
+          "score_gain": 10,
+          "shape_damage": 5.213166666666667,
+          "enemy_damage": 42.0,
+          "damage_taken": 100.84999999999994,
+          "death": 1.0
+        },
+        "telemetry": {
+          "events": {
+            "shape_damage_weighted": 5.213166666666667,
+            "shape_destroyed_score": 10.0,
+            "shapes_destroyed": 1,
+            "enemy_damage": 42.0,
+            "enemies_killed": 0,
+            "damage_taken": 100.84999999999994,
+            "died": 1,
+            "player_shots_fired": 87
+          },
+          "damage_steps": {
+            "shape": 1,
+            "enemy": 6,
+            "received": 18
+          },
+          "actions": {
+            "move_requested_fraction": 862,
+            "fire_requested_fraction": 871,
+            "absolute_rotation_mean": 79.08601299641305
+          },
+          "player": {
+            "health_end": 0.0,
+            "max_health_end": 100.0,
+            "level_end": 1,
+            "upgrade_points_end": 0
+          }
+        },
+        "terminated": true,
+        "truncated": false,
+        "screenshots": []
+      },
+      {
+        "seed": 790506,
+        "score": 100,
+        "kills": 0,
+        "survival_seconds": 56.083333333333336,
+        "steps": 1683,
+        "job": "rookie",
+        "episode_reward": 0.9199999999999999,
+        "shots_fired": 117,
+        "reward_components": {
+          "score_gain": 3.0,
+          "shape_damage": 1.5,
+          "enemy_damage": 0.42,
+          "damage_taken": -2.5,
+          "death": -1.5
+        },
+        "reward_inputs": {
+          "score_gain": 100,
+          "shape_damage": 100.0,
+          "enemy_damage": 28.0,
+          "damage_taken": 125.0,
+          "death": 1.0
+        },
+        "telemetry": {
+          "events": {
+            "shape_damage_weighted": 100.0,
+            "shape_destroyed_score": 100.0,
+            "shapes_destroyed": 1,
+            "enemy_damage": 28.0,
+            "enemies_killed": 0,
+            "damage_taken": 125.0,
+            "died": 1,
+            "player_shots_fired": 117
+          },
+          "damage_steps": {
+            "shape": 15,
+            "enemy": 4,
+            "received": 18
+          },
+          "actions": {
+            "move_requested_fraction": 867,
+            "fire_requested_fraction": 1146,
+            "absolute_rotation_mean": 111.37246750722989
+          },
+          "player": {
+            "health_end": 0.0,
+            "max_health_end": 125.0,
+            "level_end": 2,
+            "upgrade_points_end": 0
+          }
+        },
+        "terminated": true,
+        "truncated": false,
+        "screenshots": []
+      },
+      {
+        "seed": 790607,
+        "score": 225,
+        "kills": 1,
+        "survival_seconds": 45.18333333333333,
+        "steps": 1356,
+        "job": "rookie",
+        "episode_reward": 3.481917984082558,
+        "shots_fired": 94,
+        "reward_components": {
+          "score_gain": 6.75,
+          "shape_damage": 0.375,
+          "enemy_damage": 1.3604179840825557,
+          "damage_taken": -3.5035000000000025,
+          "death": -1.5
+        },
+        "reward_inputs": {
+          "score_gain": 225,
+          "shape_damage": 25.0,
+          "enemy_damage": 90.69453227217039,
+          "damage_taken": 175.17500000000013,
+          "death": 1.0
+        },
+        "telemetry": {
+          "events": {
+            "shape_damage_weighted": 25.0,
+            "shape_destroyed_score": 25.0,
+            "shapes_destroyed": 1,
+            "enemy_damage": 90.69453227217039,
+            "enemies_killed": 1,
+            "damage_taken": 175.17500000000013,
+            "died": 1,
+            "player_shots_fired": 94
+          },
+          "damage_steps": {
+            "shape": 4,
+            "enemy": 13,
+            "received": 31
+          },
+          "actions": {
+            "move_requested_fraction": 1333,
+            "fire_requested_fraction": 1255,
+            "absolute_rotation_mean": 137.92867058419506
+          },
+          "player": {
+            "health_end": 0.0,
+            "max_health_end": 150.0,
+            "level_end": 3,
+            "upgrade_points_end": 0
+          }
+        },
+        "terminated": true,
+        "truncated": false,
+        "screenshots": []
+      },
+      {
+        "seed": 790708,
+        "score": 0,
+        "kills": 0,
+        "survival_seconds": 78.03333333333333,
+        "steps": 2341,
+        "job": "rookie",
+        "episode_reward": -3.4999999999999996,
+        "shots_fired": 162,
+        "reward_components": {
+          "score_gain": 0.0,
+          "shape_damage": 0.0,
+          "enemy_damage": 0.0,
+          "damage_taken": -1.9999999999999996,
+          "death": -1.5
+        },
+        "reward_inputs": {
+          "score_gain": 0,
+          "shape_damage": 0.0,
+          "enemy_damage": 0.0,
+          "damage_taken": 99.99999999999999,
+          "death": 1.0
+        },
+        "telemetry": {
+          "events": {
+            "shape_damage_weighted": 0.0,
+            "shape_destroyed_score": 0.0,
+            "shapes_destroyed": 0,
+            "enemy_damage": 0.0,
+            "enemies_killed": 0,
+            "damage_taken": 99.99999999999999,
+            "died": 1,
+            "player_shots_fired": 162
+          },
+          "damage_steps": {
+            "shape": 0,
+            "enemy": 0,
+            "received": 14
+          },
+          "actions": {
+            "move_requested_fraction": 620,
+            "fire_requested_fraction": 995,
+            "absolute_rotation_mean": 130.66257137124194
+          },
+          "player": {
+            "health_end": 0.0,
+            "max_health_end": 100.0,
+            "level_end": 1,
+            "upgrade_points_end": 0
+          }
+        },
+        "terminated": true,
+        "truncated": false,
+        "screenshots": []
+      },
+      {
+        "seed": 790809,
+        "score": 200,
+        "kills": 1,
+        "survival_seconds": 33.93333333333333,
+        "steps": 1018,
+        "job": "rookie",
+        "episode_reward": 2.6419433128598646,
+        "shots_fired": 71,
+        "reward_components": {
+          "score_gain": 6.0,
+          "shape_damage": 0.315,
+          "enemy_damage": 0.9004433128598669,
+          "damage_taken": -3.073500000000003,
+          "death": -1.5
+        },
+        "reward_inputs": {
+          "score_gain": 200,
+          "shape_damage": 21.0,
+          "enemy_damage": 60.0295541906578,
+          "damage_taken": 153.67500000000013,
+          "death": 1.0
+        },
+        "telemetry": {
+          "events": {
+            "shape_damage_weighted": 21.0,
+            "shape_destroyed_score": 0.0,
+            "shapes_destroyed": 0,
+            "enemy_damage": 60.0295541906578,
+            "enemies_killed": 1,
+            "damage_taken": 153.67500000000013,
+            "died": 1,
+            "player_shots_fired": 71
+          },
+          "damage_steps": {
+            "shape": 3,
+            "enemy": 9,
+            "received": 29
+          },
+          "actions": {
+            "move_requested_fraction": 971,
+            "fire_requested_fraction": 917,
+            "absolute_rotation_mean": 96.00367970872321
+          },
+          "player": {
+            "health_end": 0.0,
+            "max_health_end": 150.0,
+            "level_end": 3,
+            "upgrade_points_end": 0
+          }
+        },
+        "terminated": true,
+        "truncated": false,
+        "screenshots": []
+      },
+      {
+        "seed": 790910,
+        "score": 200,
+        "kills": 1,
+        "survival_seconds": 30.483333333333334,
+        "steps": 915,
+        "job": "rookie",
+        "episode_reward": 2.5170101435721626,
+        "shots_fired": 64,
+        "reward_components": {
+          "score_gain": 6.0,
+          "shape_damage": 0.42,
+          "enemy_damage": 0.5970101435721602,
+          "damage_taken": -3.0000000000000004,
+          "death": -1.5
+        },
+        "reward_inputs": {
+          "score_gain": 200,
+          "shape_damage": 28.0,
+          "enemy_damage": 39.800676238144014,
+          "damage_taken": 150.0,
+          "death": 1.0
+        },
+        "telemetry": {
+          "events": {
+            "shape_damage_weighted": 28.0,
+            "shape_destroyed_score": 0.0,
+            "shapes_destroyed": 0,
+            "enemy_damage": 39.800676238144014,
+            "enemies_killed": 1,
+            "damage_taken": 150.0,
+            "died": 1,
+            "player_shots_fired": 64
+          },
+          "damage_steps": {
+            "shape": 4,
+            "enemy": 6,
+            "received": 28
+          },
+          "actions": {
+            "move_requested_fraction": 913,
+            "fire_requested_fraction": 869,
+            "absolute_rotation_mean": 54.84149158530636
+          },
+          "player": {
+            "health_end": 0.0,
+            "max_health_end": 150.0,
+            "level_end": 3,
+            "upgrade_points_end": 0
+          }
+        },
+        "terminated": true,
+        "truncated": false,
+        "screenshots": []
+      },
+      {
+        "seed": 791011,
+        "score": 0,
+        "kills": 0,
+        "survival_seconds": 28.0,
+        "steps": 840,
+        "job": "rookie",
+        "episode_reward": -2.869999999999999,
+        "shots_fired": 58,
+        "reward_components": {
+          "score_gain": 0.0,
+          "shape_damage": 0.0,
+          "enemy_damage": 0.63,
+          "damage_taken": -1.9999999999999993,
+          "death": -1.5
+        },
+        "reward_inputs": {
+          "score_gain": 0,
+          "shape_damage": 0.0,
+          "enemy_damage": 42.0,
+          "damage_taken": 99.99999999999999,
+          "death": 1.0
+        },
+        "telemetry": {
+          "events": {
+            "shape_damage_weighted": 0.0,
+            "shape_destroyed_score": 0.0,
+            "shapes_destroyed": 0,
+            "enemy_damage": 42.0,
+            "enemies_killed": 0,
+            "damage_taken": 99.99999999999999,
+            "died": 1,
+            "player_shots_fired": 58
+          },
+          "damage_steps": {
+            "shape": 0,
+            "enemy": 6,
+            "received": 20
+          },
+          "actions": {
+            "move_requested_fraction": 630,
+            "fire_requested_fraction": 619,
+            "absolute_rotation_mean": 71.74370852042921
+          },
+          "player": {
+            "health_end": 0.0,
+            "max_health_end": 100.0,
+            "level_end": 1,
+            "upgrade_points_end": 0
+          }
+        },
+        "terminated": true,
+        "truncated": false,
+        "screenshots": []
+      },
+      {
+        "seed": 791112,
+        "score": 35,
+        "kills": 0,
+        "survival_seconds": 54.983333333333334,
+        "steps": 1650,
+        "job": "rookie",
+        "episode_reward": -1.4234000000000004,
+        "shots_fired": 114,
+        "reward_components": {
+          "score_gain": 1.05,
+          "shape_damage": 0.41159999999999997,
+          "enemy_damage": 0.6239999999999999,
+          "damage_taken": -2.0090000000000003,
+          "death": -1.5
+        },
+        "reward_inputs": {
+          "score_gain": 35,
+          "shape_damage": 27.439999999999998,
+          "enemy_damage": 41.599999999999994,
+          "damage_taken": 100.45000000000003,
+          "death": 1.0
+        },
+        "telemetry": {
+          "events": {
+            "shape_damage_weighted": 27.439999999999998,
+            "shape_destroyed_score": 35.0,
+            "shapes_destroyed": 2,
+            "enemy_damage": 41.599999999999994,
+            "enemies_killed": 0,
+            "damage_taken": 100.45000000000003,
+            "died": 1,
+            "player_shots_fired": 114
+          },
+          "damage_steps": {
+            "shape": 5,
+            "enemy": 13,
+            "received": 21
+          },
+          "actions": {
+            "move_requested_fraction": 334,
+            "fire_requested_fraction": 687,
+            "absolute_rotation_mean": 23.101996326207882
+          },
+          "player": {
+            "health_end": 0.0,
+            "max_health_end": 100.0,
+            "level_end": 1,
+            "upgrade_points_end": 0
+          }
+        },
+        "terminated": true,
+        "truncated": false,
+        "screenshots": []
+      },
+      {
+        "seed": 791213,
+        "score": 200,
+        "kills": 1,
+        "survival_seconds": 120.0,
+        "steps": 3600,
+        "job": "rookie",
+        "episode_reward": 6.0661266666666664,
+        "shots_fired": 249,
+        "reward_components": {
+          "score_gain": 6.0,
+          "shape_damage": 0.105,
+          "enemy_damage": 1.008,
+          "damage_taken": -1.0468733333333333,
+          "death": 0.0
+        },
+        "reward_inputs": {
+          "score_gain": 200,
+          "shape_damage": 7.0,
+          "enemy_damage": 67.2,
+          "damage_taken": 52.34366666666668,
+          "death": 0.0
+        },
+        "telemetry": {
+          "events": {
+            "shape_damage_weighted": 7.0,
+            "shape_destroyed_score": 0.0,
+            "shapes_destroyed": 0,
+            "enemy_damage": 67.2,
+            "enemies_killed": 1,
+            "damage_taken": 52.34366666666668,
+            "died": 0,
+            "player_shots_fired": 249
+          },
+          "damage_steps": {
+            "shape": 1,
+            "enemy": 10,
+            "received": 7
+          },
+          "actions": {
+            "move_requested_fraction": 1086,
+            "fire_requested_fraction": 1640,
+            "absolute_rotation_mean": 106.53592463844689
+          },
+          "player": {
+            "health_end": 150.0,
+            "max_health_end": 150.0,
+            "level_end": 3,
+            "upgrade_points_end": 0
+          }
+        },
+        "terminated": false,
+        "truncated": true,
+        "screenshots": []
+      },
+      {
+        "seed": 791314,
+        "score": 600,
+        "kills": 3,
+        "survival_seconds": 88.01666666666667,
+        "steps": 2641,
+        "job": "rookie",
+        "episode_reward": 12.121351099096477,
+        "shots_fired": 183,
+        "reward_components": {
+          "score_gain": 18.0,
+          "shape_damage": 0.0,
+          "enemy_damage": 2.2953860990964743,
+          "damage_taken": -6.674035000000001,
+          "death": -1.5
+        },
+        "reward_inputs": {
+          "score_gain": 600,
+          "shape_damage": 0.0,
+          "enemy_damage": 153.025739939765,
+          "damage_taken": 333.70174999999983,
+          "death": 1.0
+        },
+        "telemetry": {
+          "events": {
+            "shape_damage_weighted": 0.0,
+            "shape_destroyed_score": 0.0,
+            "shapes_destroyed": 0,
+            "enemy_damage": 153.025739939765,
+            "enemies_killed": 3,
+            "damage_taken": 333.70174999999983,
+            "died": 1,
+            "player_shots_fired": 183
+          },
+          "damage_steps": {
+            "shape": 0,
+            "enemy": 23,
+            "received": 46
+          },
+          "actions": {
+            "move_requested_fraction": 2148,
+            "fire_requested_fraction": 2357,
+            "absolute_rotation_mean": 143.85447199601913
+          },
+          "player": {
+            "health_end": 0.0,
+            "max_health_end": 200.0,
+            "level_end": 5,
+            "upgrade_points_end": 0
+          }
+        },
+        "terminated": true,
+        "truncated": false,
+        "screenshots": []
+      },
+      {
+        "seed": 791415,
+        "score": 10,
+        "kills": 0,
+        "survival_seconds": 50.733333333333334,
+        "steps": 1522,
+        "job": "rookie",
+        "episode_reward": -2.3233999999999995,
+        "shots_fired": 105,
+        "reward_components": {
+          "score_gain": 0.3,
+          "shape_damage": 0.24659999999999999,
+          "enemy_damage": 0.63,
+          "damage_taken": -1.9999999999999993,
+          "death": -1.5
+        },
+        "reward_inputs": {
+          "score_gain": 10,
+          "shape_damage": 16.439999999999998,
+          "enemy_damage": 42.0,
+          "damage_taken": 99.99999999999999,
+          "death": 1.0
+        },
+        "telemetry": {
+          "events": {
+            "shape_damage_weighted": 16.439999999999998,
+            "shape_destroyed_score": 10.0,
+            "shapes_destroyed": 1,
+            "enemy_damage": 42.0,
+            "enemies_killed": 0,
+            "damage_taken": 99.99999999999999,
+            "died": 1,
+            "player_shots_fired": 105
+          },
+          "damage_steps": {
+            "shape": 3,
+            "enemy": 6,
+            "received": 13
+          },
+          "actions": {
+            "move_requested_fraction": 300,
+            "fire_requested_fraction": 475,
+            "absolute_rotation_mean": 36.231817445048364
+          },
+          "player": {
+            "health_end": 0.0,
+            "max_health_end": 100.0,
+            "level_end": 1,
+            "upgrade_points_end": 0
+          }
+        },
+        "terminated": true,
+        "truncated": false,
+        "screenshots": []
+      },
+      {
+        "seed": 791516,
+        "score": 0,
+        "kills": 0,
+        "survival_seconds": 42.916666666666664,
+        "steps": 1288,
+        "job": "rookie",
+        "episode_reward": -3.089,
+        "shots_fired": 89,
+        "reward_components": {
+          "score_gain": 0.0,
+          "shape_damage": 0.026999999999999996,
+          "enemy_damage": 0.42,
+          "damage_taken": -2.036,
+          "death": -1.5
+        },
+        "reward_inputs": {
+          "score_gain": 0,
+          "shape_damage": 1.7999999999999998,
+          "enemy_damage": 28.0,
+          "damage_taken": 101.79999999999998,
+          "death": 1.0
+        },
+        "telemetry": {
+          "events": {
+            "shape_damage_weighted": 1.7999999999999998,
+            "shape_destroyed_score": 0.0,
+            "shapes_destroyed": 0,
+            "enemy_damage": 28.0,
+            "enemies_killed": 0,
+            "damage_taken": 101.79999999999998,
+            "died": 1,
+            "player_shots_fired": 89
+          },
+          "damage_steps": {
+            "shape": 2,
+            "enemy": 4,
+            "received": 19
+          },
+          "actions": {
+            "move_requested_fraction": 702,
+            "fire_requested_fraction": 835,
+            "absolute_rotation_mean": 80.25454682082636
+          },
+          "player": {
+            "health_end": 0.0,
+            "max_health_end": 100.0,
+            "level_end": 1,
+            "upgrade_points_end": 0
+          }
+        },
+        "terminated": true,
+        "truncated": false,
+        "screenshots": []
+      },
+      {
+        "seed": 791617,
+        "score": 200,
+        "kills": 1,
+        "survival_seconds": 38.31666666666667,
+        "steps": 1150,
+        "job": "rookie",
+        "episode_reward": 3.1695235622630293,
+        "shots_fired": 80,
+        "reward_components": {
+          "score_gain": 6.0,
+          "shape_damage": 0.0,
+          "enemy_damage": 1.6695235622630271,
+          "damage_taken": -3.000000000000001,
+          "death": -1.5
+        },
+        "reward_inputs": {
+          "score_gain": 200,
+          "shape_damage": 0.0,
+          "enemy_damage": 111.30157081753515,
+          "damage_taken": 150.0,
+          "death": 1.0
+        },
+        "telemetry": {
+          "events": {
+            "shape_damage_weighted": 0.0,
+            "shape_destroyed_score": 0.0,
+            "shapes_destroyed": 0,
+            "enemy_damage": 111.30157081753515,
+            "enemies_killed": 1,
+            "damage_taken": 150.0,
+            "died": 1,
+            "player_shots_fired": 80
+          },
+          "damage_steps": {
+            "shape": 0,
+            "enemy": 16,
+            "received": 26
+          },
+          "actions": {
+            "move_requested_fraction": 868,
+            "fire_requested_fraction": 961,
+            "absolute_rotation_mean": 35.311453277332475
+          },
+          "player": {
+            "health_end": 0.0,
+            "max_health_end": 150.0,
+            "level_end": 3,
+            "upgrade_points_end": 0
+          }
+        },
+        "terminated": true,
+        "truncated": false,
+        "screenshots": []
+      },
+      {
+        "seed": 791718,
+        "score": 600,
+        "kills": 3,
+        "survival_seconds": 120.0,
+        "steps": 3600,
+        "job": "rookie",
+        "episode_reward": 16.71877612750919,
+        "shots_fired": 249,
+        "reward_components": {
+          "score_gain": 18.0,
+          "shape_damage": 0.41400000000000003,
+          "enemy_damage": 2.4639694608425255,
+          "damage_taken": -4.159193333333332,
+          "death": 0.0
+        },
+        "reward_inputs": {
+          "score_gain": 600,
+          "shape_damage": 27.599999999999998,
+          "enemy_damage": 164.26463072283505,
+          "damage_taken": 207.95966666666672,
+          "death": 0.0
+        },
+        "telemetry": {
+          "events": {
+            "shape_damage_weighted": 27.599999999999998,
+            "shape_destroyed_score": 0.0,
+            "shapes_destroyed": 0,
+            "enemy_damage": 164.26463072283505,
+            "enemies_killed": 3,
+            "damage_taken": 207.95966666666672,
+            "died": 0,
+            "player_shots_fired": 249
+          },
+          "damage_steps": {
+            "shape": 9,
+            "enemy": 25,
+            "received": 37
+          },
+          "actions": {
+            "move_requested_fraction": 1300,
+            "fire_requested_fraction": 2533,
+            "absolute_rotation_mean": 134.5128614550049
+          },
+          "player": {
+            "health_end": 92.40999999999994,
+            "max_health_end": 200.0,
+            "level_end": 5,
+            "upgrade_points_end": 0
+          }
+        },
+        "terminated": false,
+        "truncated": true,
+        "screenshots": []
+      },
+      {
+        "seed": 791819,
+        "score": 400,
+        "kills": 2,
+        "survival_seconds": 39.45,
+        "steps": 1184,
+        "job": "rookie",
+        "episode_reward": 8.758946135892492,
+        "shots_fired": 82,
+        "reward_components": {
+          "score_gain": 12.0,
+          "shape_damage": 0.21,
+          "enemy_damage": 1.5489461358924885,
+          "damage_taken": -3.5,
+          "death": -1.5
+        },
+        "reward_inputs": {
+          "score_gain": 400,
+          "shape_damage": 14.0,
+          "enemy_damage": 103.26307572616591,
+          "damage_taken": 174.99999999999997,
+          "death": 1.0
+        },
+        "telemetry": {
+          "events": {
+            "shape_damage_weighted": 14.0,
+            "shape_destroyed_score": 0.0,
+            "shapes_destroyed": 0,
+            "enemy_damage": 103.26307572616591,
+            "enemies_killed": 2,
+            "damage_taken": 174.99999999999997,
+            "died": 1,
+            "player_shots_fired": 82
+          },
+          "damage_steps": {
+            "shape": 2,
+            "enemy": 16,
+            "received": 28
+          },
+          "actions": {
+            "move_requested_fraction": 1031,
+            "fire_requested_fraction": 1029,
+            "absolute_rotation_mean": 112.86044122141902
+          },
+          "player": {
+            "health_end": 0.0,
+            "max_health_end": 175.0,
+            "level_end": 4,
+            "upgrade_points_end": 0
+          }
+        },
+        "terminated": true,
+        "truncated": false,
+        "screenshots": []
+      },
+      {
+        "seed": 791920,
+        "score": 220,
+        "kills": 1,
+        "survival_seconds": 120.0,
+        "steps": 3600,
+        "job": "rookie",
+        "episode_reward": 5.818959435188194,
+        "shots_fired": 249,
+        "reward_components": {
+          "score_gain": 6.6,
+          "shape_damage": 0.3,
+          "enemy_damage": 0.7785794351881937,
+          "damage_taken": -1.85962,
+          "death": 0.0
+        },
+        "reward_inputs": {
+          "score_gain": 220,
+          "shape_damage": 20.0,
+          "enemy_damage": 51.90529567921292,
+          "damage_taken": 92.98100000000001,
+          "death": 0.0
+        },
+        "telemetry": {
+          "events": {
+            "shape_damage_weighted": 20.0,
+            "shape_destroyed_score": 20.0,
+            "shapes_destroyed": 2,
+            "enemy_damage": 51.90529567921292,
+            "enemies_killed": 1,
+            "damage_taken": 92.98100000000001,
+            "died": 0,
+            "player_shots_fired": 249
+          },
+          "damage_steps": {
+            "shape": 4,
+            "enemy": 8,
+            "received": 15
+          },
+          "actions": {
+            "move_requested_fraction": 918,
+            "fire_requested_fraction": 2342,
+            "absolute_rotation_mean": 360.74650799279334
+          },
+          "player": {
+            "health_end": 150.0,
+            "max_health_end": 150.0,
+            "level_end": 3,
+            "upgrade_points_end": 0
+          }
+        },
+        "terminated": false,
+        "truncated": true,
+        "screenshots": []
+      }
+    ],
+    "deterministic": true,
+    "max_seconds": 120
+  }
+}

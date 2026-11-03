@@ -29,9 +29,11 @@ class OutcomeRewardEnvironment(gym.Wrapper):
     def step(self, action):
         observation, _, terminated, truncated, info = self.env.step(action)
         events = info['events']
-        values = dict(score_gain=info['score'] - self.previous_score,
-                      shape_damage=events['shape_damage_weighted'], enemy_damage=events['enemy_damage'],
-                      damage_taken=events['damage_taken'], death=float(events['died']))
+        values = dict(
+            score_gain=info['score'] - self.previous_score,
+            shape_damage=events['shape_damage_weighted'], enemy_damage=events['enemy_damage'],
+            damage_taken=events['damage_taken'], death=float(events['died']
+        ))
         components = {name: values[name] * scale for name, scale in self.reward_coefficients.items()}
         self.previous_score = info['score']
         info['reward_components'] = components
@@ -47,7 +49,8 @@ def make_environment(max_seconds=120, render_mode=None, reward_overrides=None):
                                  damage_taken=0, death=0, time_step=0, shot_cost=0)
     environment = TankEnv(
         game_config=game_config, observation_builder=VectorObservation(ObsConfig()),
-        action_decoder=RotationContinuousActionDecoder(), reward_calculator=RewardCalculator(reward_config),
+        action_decoder=RotationContinuousActionDecoder(), 
+        reward_calculator=RewardCalculator(reward_config),
         env_config=EnvConfig(frame_skip=2, max_steps=round(max_seconds * game_config.fps / 2)),
         render_mode=render_mode,
     )
